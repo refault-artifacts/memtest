@@ -1,0 +1,50 @@
+\hypertarget{memrw32_8h_source}{}\doxysection{memrw32.\+h}
+\label{memrw32_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memrw32.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memrw32.h}}
+\mbox{\hyperlink{memrw32_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef MEMRW32\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define MEMRW32\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{12 \textcolor{comment}{ * Copyright (C) 2021-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{13 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{21 \textcolor{keyword}{static} \textcolor{keyword}{inline} uint32\_t \mbox{\hyperlink{memrw32_8h_affbc849e72ea08030dfe6398ff138e06}{read32}}(\textcolor{keyword}{const} \textcolor{keyword}{volatile} uint32\_t *ptr)}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     uint32\_t val;}
+\DoxyCodeLine{24     \_\_asm\_\_ \_\_volatile\_\_(}
+\DoxyCodeLine{25         \textcolor{stringliteral}{"{}movl \%1, \%0"{}}}
+\DoxyCodeLine{26         : \textcolor{stringliteral}{"{}=r"{}} (val)}
+\DoxyCodeLine{27         : \textcolor{stringliteral}{"{}m"{}} (*ptr)}
+\DoxyCodeLine{28         : \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{29     );}
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} val;}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{36 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{memrw32_8h_af57d57e1b87748796026d8a0d4833f0e}{write32}}(\textcolor{keyword}{const} \textcolor{keyword}{volatile} uint32\_t *ptr, uint32\_t val)}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38     \_\_asm\_\_ \_\_volatile\_\_(}
+\DoxyCodeLine{39         \textcolor{stringliteral}{"{}movl \%1, \%0"{}}}
+\DoxyCodeLine{40         :}
+\DoxyCodeLine{41         : \textcolor{stringliteral}{"{}m"{}} (*ptr),}
+\DoxyCodeLine{42           \textcolor{stringliteral}{"{}r"{}} (val)}
+\DoxyCodeLine{43         : \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{44     );}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{51 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{memrw32_8h_a30584ba0fe33f86b745331be89c519a3}{flush32}}(\textcolor{keyword}{const} \textcolor{keyword}{volatile} uint32\_t *ptr, uint32\_t val)}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53     \_\_asm\_\_ \_\_volatile\_\_(}
+\DoxyCodeLine{54         \textcolor{stringliteral}{"{}movl \%1, \%0\(\backslash\)n"{}}}
+\DoxyCodeLine{55         \textcolor{stringliteral}{"{}movl \%0, \%1"{}}}
+\DoxyCodeLine{56         :}
+\DoxyCodeLine{57         : \textcolor{stringliteral}{"{}m"{}} (*ptr),}
+\DoxyCodeLine{58           \textcolor{stringliteral}{"{}r"{}} (val)}
+\DoxyCodeLine{59         : \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{60     );}
+\DoxyCodeLine{61 \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MEMRW32\_H}}
+
+\end{DoxyCode}

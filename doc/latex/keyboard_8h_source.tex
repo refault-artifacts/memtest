@@ -1,0 +1,29 @@
+\hypertarget{keyboard_8h_source}{}\doxysection{keyboard.\+h}
+\label{keyboard_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/keyboard.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/keyboard.h}}
+\mbox{\hyperlink{keyboard_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef KEYBOARD\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define KEYBOARD\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{12 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define ESC     27}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{24 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90a919a8dbc95f3cbcf5f10623cfb3c0313}{KT\_NONE}}    = 0,}
+\DoxyCodeLine{26     \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90adaf9446a73aaed0d3ffb231d3139e079}{KT\_LEGACY}}  = 1,}
+\DoxyCodeLine{27     \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90a45d1a2dd177bc7094cbfc430521dbcc2}{KT\_USB}}     = 2}
+\DoxyCodeLine{28 \} \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90}{keyboard\_types\_t}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{33 \textcolor{keyword}{extern} \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90}{keyboard\_types\_t}} \mbox{\hyperlink{keyboard_8h_a965d9d17102c57a391d32951d3a0e9d8}{keyboard\_types}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38 \textcolor{keywordtype}{void} \mbox{\hyperlink{keyboard_8h_a5aae8263abc1dec4671638e7ed4af681}{keyboard\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{48 \textcolor{keywordtype}{char} \mbox{\hyperlink{keyboard_8h_a314ec7f338dc26e81468fd9fca36069c}{get\_key}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// KEYBOARD\_H}}
+
+\end{DoxyCode}

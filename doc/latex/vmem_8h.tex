@@ -1,0 +1,168 @@
+\hypertarget{vmem_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/vmem.h File Reference}
+\label{vmem_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/vmem.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/vmem.h}}
+
+
+Provides functions to handle physical memory page mapping into virtual memory.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}memsize.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{vmem_8h_a97c14bf8ba74b78cfdf7ce1ad8e5644e}{VM\+\_\+\+PINNED\+\_\+\+SIZE}}~\mbox{\hyperlink{memsize_8h_a7cd25262ad2d0f1edf7883e32212f6c6}{PAGE\+\_\+C}}(2,\mbox{\hyperlink{memsize_8h_a44172ac633c517cb4c9e278cef36b000}{GB}})
+\begin{DoxyCompactList}\small\item\em The size of the physical memory region (in pages) that is permanently mapped into virtual memory, starting at virtual address 0. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{vmem_8h_a8f71a36aea912b3b93bf0940c237d84c}{VM\+\_\+\+WINDOW\+\_\+\+SIZE}}~\mbox{\hyperlink{memsize_8h_a7cd25262ad2d0f1edf7883e32212f6c6}{PAGE\+\_\+C}}(1,\mbox{\hyperlink{memsize_8h_a44172ac633c517cb4c9e278cef36b000}{GB}})
+\begin{DoxyCompactList}\small\item\em The size of a physical memory region (in pages) that can be mapped into virtual memory by a call to \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\+\_\+window()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uintptr\+\_\+t \mbox{\hyperlink{vmem_8h_ab0bfb38f833847cd6d5e0245926095c5}{map\+\_\+region}} (uintptr\+\_\+t base\+\_\+addr, size\+\_\+t size, bool only\+\_\+for\+\_\+startup)
+\begin{DoxyCompactList}\small\item\em Maps a physical memory region into the upper 2GB of virtual memory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\+\_\+window}} (uintptr\+\_\+t start\+\_\+page)
+\begin{DoxyCompactList}\small\item\em Maps a \mbox{\hyperlink{vmem_8h_a8f71a36aea912b3b93bf0940c237d84c}{VM\+\_\+\+WINDOW\+\_\+\+SIZE}} region of physical memory into the upper 2GB of virtual memory. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{vmem_8h_a0019d8ce328c4735f5a2888a78b85283}{first\+\_\+word\+\_\+mapping}} (uintptr\+\_\+t page)
+\begin{DoxyCompactList}\small\item\em Returns a virtual memory pointer to the first word of the specified physical memory page. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{vmem_8h_aaebc858fb0ac0bfeb3fc463c97cdcb57}{last\+\_\+word\+\_\+mapping}} (uintptr\+\_\+t page, size\+\_\+t word\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Returns a virtual memory pointer to the last word of the specified physical memory page. \end{DoxyCompactList}\item 
+uintptr\+\_\+t \mbox{\hyperlink{vmem_8h_a8157e15edc9ec97be592e772ae41f4ce}{page\+\_\+of}} (void $\ast$addr)
+\begin{DoxyCompactList}\small\item\em Returns the page number of the physical memory page containing the specified virtual memory address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions to handle physical memory page mapping into virtual memory. 
+
+The startup code sets up the paging tables to give us a 4GB virtual address space, initially identity mapped to the first 4GB of physical memory. We leave the lower 2GB permanently mapped, and use the upper 2GB for mapping the remaining physical memory as required. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{vmem_8h_a97c14bf8ba74b78cfdf7ce1ad8e5644e}\label{vmem_8h_a97c14bf8ba74b78cfdf7ce1ad8e5644e}} 
+\index{vmem.h@{vmem.h}!VM\_PINNED\_SIZE@{VM\_PINNED\_SIZE}}
+\index{VM\_PINNED\_SIZE@{VM\_PINNED\_SIZE}!vmem.h@{vmem.h}}
+\doxysubsubsection{\texorpdfstring{VM\_PINNED\_SIZE}{VM\_PINNED\_SIZE}}
+{\footnotesize\ttfamily \#define VM\+\_\+\+PINNED\+\_\+\+SIZE~\mbox{\hyperlink{memsize_8h_a7cd25262ad2d0f1edf7883e32212f6c6}{PAGE\+\_\+C}}(2,\mbox{\hyperlink{memsize_8h_a44172ac633c517cb4c9e278cef36b000}{GB}})}
+
+
+
+The size of the physical memory region (in pages) that is permanently mapped into virtual memory, starting at virtual address 0. 
+
+\mbox{\Hypertarget{vmem_8h_a8f71a36aea912b3b93bf0940c237d84c}\label{vmem_8h_a8f71a36aea912b3b93bf0940c237d84c}} 
+\index{vmem.h@{vmem.h}!VM\_WINDOW\_SIZE@{VM\_WINDOW\_SIZE}}
+\index{VM\_WINDOW\_SIZE@{VM\_WINDOW\_SIZE}!vmem.h@{vmem.h}}
+\doxysubsubsection{\texorpdfstring{VM\_WINDOW\_SIZE}{VM\_WINDOW\_SIZE}}
+{\footnotesize\ttfamily \#define VM\+\_\+\+WINDOW\+\_\+\+SIZE~\mbox{\hyperlink{memsize_8h_a7cd25262ad2d0f1edf7883e32212f6c6}{PAGE\+\_\+C}}(1,\mbox{\hyperlink{memsize_8h_a44172ac633c517cb4c9e278cef36b000}{GB}})}
+
+
+
+The size of a physical memory region (in pages) that can be mapped into virtual memory by a call to \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\+\_\+window()}}. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vmem_8h_ab0bfb38f833847cd6d5e0245926095c5}\label{vmem_8h_ab0bfb38f833847cd6d5e0245926095c5}} 
+\index{vmem.h@{vmem.h}!map\_region@{map\_region}}
+\index{map\_region@{map\_region}!vmem.h@{vmem.h}}
+\doxysubsubsection{\texorpdfstring{map\_region()}{map\_region()}}
+{\footnotesize\ttfamily uintptr\+\_\+t map\+\_\+region (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{base\+\_\+addr,  }\item[{size\+\_\+t}]{size,  }\item[{bool}]{only\+\_\+for\+\_\+startup }\end{DoxyParamCaption})}
+
+
+
+Maps a physical memory region into the upper 2GB of virtual memory. 
+
+The virtual address will have the same alignment within a page as the physical address.
+
+
+\begin{DoxyParams}{Parameters}
+{\em base\+\_\+addr} & -\/ the physical byte address of the region. \\
+\hline
+{\em size} & -\/ the region size in bytes. \\
+\hline
+{\em only\+\_\+for\+\_\+startup} & -\/ if true, the region will remain mapped until the first call to \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\+\_\+window()}}, otherwise it will be permanently mapped.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, the mapped address in virtual memory, On failure, 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}\label{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}} 
+\index{vmem.h@{vmem.h}!map\_window@{map\_window}}
+\index{map\_window@{map\_window}!vmem.h@{vmem.h}}
+\doxysubsubsection{\texorpdfstring{map\_window()}{map\_window()}}
+{\footnotesize\ttfamily bool map\+\_\+window (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{start\+\_\+page }\end{DoxyParamCaption})}
+
+
+
+Maps a \mbox{\hyperlink{vmem_8h_a8f71a36aea912b3b93bf0940c237d84c}{VM\+\_\+\+WINDOW\+\_\+\+SIZE}} region of physical memory into the upper 2GB of virtual memory. 
+
+The physical memory region must be aligned on a \mbox{\hyperlink{vmem_8h_a8f71a36aea912b3b93bf0940c237d84c}{VM\+\_\+\+WINDOW\+\_\+\+SIZE}} boundary. The virtual address will be similarly aligned. The region will remain mapped until the next call to \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\+\_\+window()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+page} & -\/ the physical page number of the region.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, true. On failure, false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vmem_8h_a0019d8ce328c4735f5a2888a78b85283}\label{vmem_8h_a0019d8ce328c4735f5a2888a78b85283}} 
+\index{vmem.h@{vmem.h}!first\_word\_mapping@{first\_word\_mapping}}
+\index{first\_word\_mapping@{first\_word\_mapping}!vmem.h@{vmem.h}}
+\doxysubsubsection{\texorpdfstring{first\_word\_mapping()}{first\_word\_mapping()}}
+{\footnotesize\ttfamily void $\ast$ first\+\_\+word\+\_\+mapping (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{page }\end{DoxyParamCaption})}
+
+
+
+Returns a virtual memory pointer to the first word of the specified physical memory page. 
+
+Physical memory pages above \mbox{\hyperlink{vmem_8h_a97c14bf8ba74b78cfdf7ce1ad8e5644e}{VM\+\_\+\+PINNED\+\_\+\+SIZE}} must have been mapped by a call to \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\+\_\+window()}} prior to calling this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em page} & -\/ the physical page number.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first word of the page. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vmem_8h_aaebc858fb0ac0bfeb3fc463c97cdcb57}\label{vmem_8h_aaebc858fb0ac0bfeb3fc463c97cdcb57}} 
+\index{vmem.h@{vmem.h}!last\_word\_mapping@{last\_word\_mapping}}
+\index{last\_word\_mapping@{last\_word\_mapping}!vmem.h@{vmem.h}}
+\doxysubsubsection{\texorpdfstring{last\_word\_mapping()}{last\_word\_mapping()}}
+{\footnotesize\ttfamily void $\ast$ last\+\_\+word\+\_\+mapping (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{page,  }\item[{size\+\_\+t}]{word\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Returns a virtual memory pointer to the last word of the specified physical memory page. 
+
+Physical memory pages above \mbox{\hyperlink{vmem_8h_a97c14bf8ba74b78cfdf7ce1ad8e5644e}{VM\+\_\+\+PINNED\+\_\+\+SIZE}} must have been mapped by a call to \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\+\_\+window()}} prior to calling this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em page} & -\/ the physical page number. \\
+\hline
+{\em word\+\_\+size} & -\/ the size of a word in bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the last word of the page. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vmem_8h_a8157e15edc9ec97be592e772ae41f4ce}\label{vmem_8h_a8157e15edc9ec97be592e772ae41f4ce}} 
+\index{vmem.h@{vmem.h}!page\_of@{page\_of}}
+\index{page\_of@{page\_of}!vmem.h@{vmem.h}}
+\doxysubsubsection{\texorpdfstring{page\_of()}{page\_of()}}
+{\footnotesize\ttfamily uintptr\+\_\+t page\+\_\+of (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr }\end{DoxyParamCaption})}
+
+
+
+Returns the page number of the physical memory page containing the specified virtual memory address. 
+
+The specified address must either be permanently mapped or mapped by a call to \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\+\_\+window()}} prior to calling this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & -\/ the virtual memory address.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding physical page number. 
+\end{DoxyReturn}

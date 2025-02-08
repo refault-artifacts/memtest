@@ -1,0 +1,298 @@
+\hypertarget{peimage_8h_source}{}\doxysection{peimage.\+h}
+\label{peimage_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/peimage.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/peimage.h}}
+\mbox{\hyperlink{peimage_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{comment}{// This is include/coff/pe.h from binutils-\/2.10.0.18}}
+\DoxyCodeLine{3 \textcolor{comment}{// Copyright The Free Software Foundation}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{comment}{/* PE COFF header information */}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef \_PE\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define \_PE\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{/* NT specific file attributes.  */}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define IMAGE\_FILE\_RELOCS\_STRIPPED           0x0001}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define IMAGE\_FILE\_EXECUTABLE\_IMAGE          0x0002}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define IMAGE\_FILE\_LINE\_NUMS\_STRIPPED        0x0004}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define IMAGE\_FILE\_LOCAL\_SYMS\_STRIPPED       0x0008}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define IMAGE\_FILE\_AGGRESSIVE\_WS\_TRIM        0x0010}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define IMAGE\_FILE\_LARGE\_ADDRESS\_AWARE       0x0020}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define IMAGE\_FILE\_16BIT\_MACHINE             0x0040}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define IMAGE\_FILE\_BYTES\_REVERSED\_LO         0x0080}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define IMAGE\_FILE\_32BIT\_MACHINE             0x0100}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define IMAGE\_FILE\_DEBUG\_STRIPPED            0x0200}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define IMAGE\_FILE\_REMOVABLE\_RUN\_FROM\_SWAP   0x0400}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define IMAGE\_FILE\_SYSTEM                    0x1000}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define IMAGE\_FILE\_DLL                       0x2000}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define IMAGE\_FILE\_UP\_SYSTEM\_ONLY            0x4000}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define IMAGE\_FILE\_BYTES\_REVERSED\_HI         0x8000}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Additional flags to be set for section headers to allow the NT loader to}}
+\DoxyCodeLine{28 \textcolor{comment}{   read and write to the section data (to replace the addresses of data in}}
+\DoxyCodeLine{29 \textcolor{comment}{   dlls for one thing); also to execute the section in .text's case.  */}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_DISCARDABLE 0x02000000}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_EXECUTE     0x20000000}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_READ        0x40000000}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_WRITE       0x80000000}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{/* Section characteristics added for ppc-\/nt.  */}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define IMAGE\_SCN\_TYPE\_NO\_PAD                0x00000008  }\textcolor{comment}{/* Reserved. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define IMAGE\_SCN\_CNT\_CODE                   0x00000020  }\textcolor{comment}{/* Section contains code. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define IMAGE\_SCN\_CNT\_INITIALIZED\_DATA       0x00000040  }\textcolor{comment}{/* Section contains initialized data. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define IMAGE\_SCN\_CNT\_UNINITIALIZED\_DATA     0x00000080  }\textcolor{comment}{/* Section contains uninitialized data. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define IMAGE\_SCN\_LNK\_OTHER                  0x00000100  }\textcolor{comment}{/* Reserved. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define IMAGE\_SCN\_LNK\_INFO                   0x00000200  }\textcolor{comment}{/* Section contains comments or some other type of information. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define IMAGE\_SCN\_LNK\_REMOVE                 0x00000800  }\textcolor{comment}{/* Section contents will not become part of image. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define IMAGE\_SCN\_LNK\_COMDAT                 0x00001000  }\textcolor{comment}{/* Section contents comdat. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_FARDATA                0x00008000}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_PURGEABLE              0x00020000}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_16BIT                  0x00020000}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_LOCKED                 0x00040000}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_PRELOAD                0x00080000}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_1BYTES               0x00100000}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_2BYTES               0x00200000}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_4BYTES               0x00300000}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_8BYTES               0x00400000}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_16BYTES              0x00500000  }\textcolor{comment}{/* Default alignment if no others are specified. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_32BYTES              0x00600000}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_64BYTES              0x00700000}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_128BYTES             0x00800000}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_256BYTES             0x00900000}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_512BYTES             0x00a00000}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_1024BYTES            0x00b00000}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_2048BYTES            0x00c00000}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_4096BYTES            0x00d00000}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define IMAGE\_SCN\_ALIGN\_8129BYTES            0x00e00000}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_DISCARDABLE            0x02000000}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_NOT\_CACHED             0x04000000}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_NOT\_PAGED              0x08000000}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_SHARED                 0x10000000}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_EXECUTE                0x20000000}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_READ                   0x40000000}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_WRITE                  0x80000000}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define IMAGE\_SCN\_LNK\_NRELOC\_OVFL            0x01000000  }\textcolor{comment}{/* Section contains extended relocations. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_NOT\_CACHED             0x04000000  }\textcolor{comment}{/* Section is not cachable.               */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_NOT\_PAGED              0x08000000  }\textcolor{comment}{/* Section is not pageable.               */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define IMAGE\_SCN\_MEM\_SHARED                 0x10000000  }\textcolor{comment}{/* Section is shareable.                  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define IMAGE\_REL\_BASED\_ABSOLUTE             0x0000}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{comment}{/* COMDAT selection codes.  */}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define IMAGE\_COMDAT\_SELECT\_NODUPLICATES     (1) }\textcolor{comment}{/* Warn if duplicates.  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define IMAGE\_COMDAT\_SELECT\_ANY          (2) }\textcolor{comment}{/* No warning.  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define IMAGE\_COMDAT\_SELECT\_SAME\_SIZE        (3) }\textcolor{comment}{/* Warn if different size.  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define IMAGE\_COMDAT\_SELECT\_EXACT\_MATCH      (4) }\textcolor{comment}{/* Warn if different.  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define IMAGE\_COMDAT\_SELECT\_ASSOCIATIVE      (5) }\textcolor{comment}{/* Base on other section.  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{comment}{/* Machine numbers.  */}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_UNKNOWN           0x0}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_ALPHA             0x184}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_ARM               0x1c0}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_ALPHA64           0x284}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_I386              0x14c}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_IA64              0x200}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_M68K              0x268}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_MIPS16            0x266}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_MIPSFPU           0x366}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_MIPSFPU16         0x466}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_POWERPC           0x1f0}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_R3000             0x162}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_R4000             0x166}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_R10000            0x168}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_SH3               0x1a2}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_SH4               0x1a6}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_ARMTHUMB\_MIXED    0x1c2}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_X64               0x8664}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define IMAGE\_FILE\_MACHINE\_ARM64             0xaa64}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_UNKNOWN          0}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_NATIVE           1}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_WINDOWS\_GUI      2}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_WINDOWS\_CUI      3}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_POSIX\_CUI        7}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_WINDOWS\_CE\_GUI       9}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_EFI\_APPLICATION     10}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_EFI\_BOOT\_SERVICE\_DRIVER 11}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define IMAGE\_SUBSYSTEM\_EFI\_RUNTIME\_DRIVER  12}}
+\DoxyCodeLine{124   }
+\DoxyCodeLine{125 \textcolor{comment}{/* Magic values that are true for all dos/nt implementations */}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define DOSMAGIC       0x5a4d  }}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define NT\_SIGNATURE   0x00004550}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define IMAGE\_NT\_OPTIONAL\_HDR32\_MAGIC 0x010b}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define IMAGE\_NT\_OPTIONAL\_HDR64\_MAGIC 0x020b}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define IMAGE\_DLLCHARACTERISTICS\_NX\_COMPAT 0x0100}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_EXPORT            0}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_IMPORT            1}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_RESOURCE          2}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_EXCEPTION         3}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_SECURITY          4}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_BASERELOC         5}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_DEBUG             6}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_COPYRIGHT         7}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_GLOBALPTR         8}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_TLS               9}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define IMAGE\_DIRECTORY\_ENTRY\_LOAD\_CONFIG       10}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define IMAGE\_NUMBER\_OF\_DIRECTORY\_ENTRIES       16}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{comment}{/* NT allows long filenames, we want to accommodate this.  This may break}}
+\DoxyCodeLine{149 \textcolor{comment}{   some of the bfd functions */}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#undef  FILNMLEN}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define FILNMLEN    18  }\textcolor{comment}{/* \# characters in a file name      */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#ifndef \_\_ASSEMBLY\_\_}}
+\DoxyCodeLine{154 \textcolor{keyword}{struct }\mbox{\hyperlink{peimage_8h_structexternal__PEI__filehdr}{external\_PEI\_filehdr}}}
+\DoxyCodeLine{155 \{}
+\DoxyCodeLine{156   \textcolor{comment}{/* DOS header fields -\/ always at offset zero in the EXE file */}}
+\DoxyCodeLine{157   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_aafc87a65cf005a49a96754d0efe073bd}{e\_magic}}[2];       \textcolor{comment}{/* Magic number, 0x5a4d */}}
+\DoxyCodeLine{158   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a5e96acd67a3a84a886e0c02db0251446}{e\_cblp}}[2];     \textcolor{comment}{/* Bytes on last page of file, 0x90 */}}
+\DoxyCodeLine{159   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a9542c36b46edfa859dd139ddd563fcbc}{e\_cp}}[2];         \textcolor{comment}{/* Pages in file, 0x3 */}}
+\DoxyCodeLine{160   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a21b3d2acd72b89adfd329136b361c86a}{e\_crlc}}[2];     \textcolor{comment}{/* Relocations, 0x0 */}}
+\DoxyCodeLine{161   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a9e116a8cc63f5de002b72a71471f41a7}{e\_cparhdr}}[2];       \textcolor{comment}{/* Size of header in paragraphs, 0x4 */}}
+\DoxyCodeLine{162   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a4e4b327b320546069fc9a9eb85420746}{e\_minalloc}}[2];     \textcolor{comment}{/* Minimum extra paragraphs needed, 0x0 */}}
+\DoxyCodeLine{163   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a4af4b588a52846b321af4591b7619494}{e\_maxalloc}}[2];     \textcolor{comment}{/* Maximum extra paragraphs needed, 0xFFFF */}}
+\DoxyCodeLine{164   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a1874913e92c2e8b07f907891212fa26a}{e\_ss}}[2];         \textcolor{comment}{/* Initial (relative) SS value, 0x0 */}}
+\DoxyCodeLine{165   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a92ec297f9350364e1ed1e4354d8eee6c}{e\_sp}}[2];         \textcolor{comment}{/* Initial SP value, 0xb8 */}}
+\DoxyCodeLine{166   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_afa81aab2738882aec801335caee51669}{e\_csum}}[2];     \textcolor{comment}{/* Checksum, 0x0 */}}
+\DoxyCodeLine{167   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a946be12c1730dca7f019fe4f9be1c6bb}{e\_ip}}[2];         \textcolor{comment}{/* Initial IP value, 0x0 */}}
+\DoxyCodeLine{168   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a975f8a8ff521a5c50f5ed85608854e82}{e\_cs}}[2];         \textcolor{comment}{/* Initial (relative) CS value, 0x0 */}}
+\DoxyCodeLine{169   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a0c9e211099cbdf56fe8759dddd976c6c}{e\_lfarlc}}[2];     \textcolor{comment}{/* File address of relocation table, 0x40 */}}
+\DoxyCodeLine{170   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_ab0c122447531fd21d5a3f16892b88608}{e\_ovno}}[2];     \textcolor{comment}{/* Overlay number, 0x0 */}}
+\DoxyCodeLine{171   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a357f940f31b43c4d7371439a1be69126}{e\_res}}[4][2];        \textcolor{comment}{/* Reserved words, all 0x0 */}}
+\DoxyCodeLine{172   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_aa865acf6713da156b22a8de938533cfa}{e\_oemid}}[2];       \textcolor{comment}{/* OEM identifier (for e\_oeminfo), 0x0 */}}
+\DoxyCodeLine{173   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a13b0356c46a2745056bad321bd69b3b8}{e\_oeminfo}}[2];       \textcolor{comment}{/* OEM information; e\_oemid specific, 0x0 */}}
+\DoxyCodeLine{174   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a4d07d89fd42715e35a62a6238197745b}{e\_res2}}[10][2];     \textcolor{comment}{/* Reserved words, all 0x0 */}}
+\DoxyCodeLine{175   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_ada3a92adb88b9df90ea0a119527dd1a3}{e\_lfanew}}[4];     \textcolor{comment}{/* File address of new exe header, usually 0x80 */}}
+\DoxyCodeLine{176   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a8b4120199698e28d5ff8472a239e1d6a}{dos\_message}}[16][4];   \textcolor{comment}{/* other stuff, always follow DOS header */}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178   \textcolor{comment}{/* Note: additional bytes may be inserted before the signature.  Use}}
+\DoxyCodeLine{179 \textcolor{comment}{   the e\_lfanew field to find the actual location of the NT signature */}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_af79806cb4bdeaa26b441dbdc7827fc65}{nt\_signature}}[4];     \textcolor{comment}{/* required NT signature, 0x4550 */} }
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183   \textcolor{comment}{/* From standard header */}  }
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_ac1a4be344fa62f4a274625fe5b21dd6f}{f\_magic}}[2];       \textcolor{comment}{/* magic number         */}}
+\DoxyCodeLine{186   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a2d776d7429d0be5547593ea8771947e0}{f\_nscns}}[2];       \textcolor{comment}{/* number of sections       */}}
+\DoxyCodeLine{187   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a6c54ce8a87af66ef3273621cba2d39aa}{f\_timdat}}[4];     \textcolor{comment}{/* time \& date stamp        */}}
+\DoxyCodeLine{188   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a847746c4d1d9ec27cae475d568da442e}{f\_symptr}}[4];     \textcolor{comment}{/* file pointer to symtab   */}}
+\DoxyCodeLine{189   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_acf047ebfed6cad783a5d68dbdf6a8502}{f\_nsyms}}[4];       \textcolor{comment}{/* number of symtab entries */}}
+\DoxyCodeLine{190   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a5b569beb6ddf8ff8cc12164b1309aaac}{f\_opthdr}}[2];     \textcolor{comment}{/* sizeof(optional hdr)     */}}
+\DoxyCodeLine{191   \textcolor{keywordtype}{char} \mbox{\hyperlink{peimage_8h_a019fb8c191fbfb2a9fc508d4104be8a2}{f\_flags}}[2];       \textcolor{comment}{/* flags            */}}
+\DoxyCodeLine{192 \};}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#ifdef COFF\_IMAGE\_WITH\_PE}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 \textcolor{comment}{/* The filehdr is only weird in images.  */}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#undef  FILHDR}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define FILHDR struct external\_PEI\_filehdr}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#undef  FILHSZ}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define FILHSZ 152}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* COFF\_IMAGE\_WITH\_PE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{comment}{/* 32-\/bit PE a.out header: */}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#ifndef \_\_ASSEMBLY\_\_}}
+\DoxyCodeLine{209 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }}
+\DoxyCodeLine{210 \{}
+\DoxyCodeLine{211   AOUTHDR \mbox{\hyperlink{peimage_8h_aecc4ca78364fc6283df1363a027ec608}{standard}};}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213   \textcolor{comment}{/* NT extra fields; see internal.h for descriptions */}}
+\DoxyCodeLine{214   \textcolor{keywordtype}{char}  ImageBase[4];}
+\DoxyCodeLine{215   \textcolor{keywordtype}{char}  SectionAlignment[4];}
+\DoxyCodeLine{216   \textcolor{keywordtype}{char}  FileAlignment[4];}
+\DoxyCodeLine{217   \textcolor{keywordtype}{char}  MajorOperatingSystemVersion[2];}
+\DoxyCodeLine{218   \textcolor{keywordtype}{char}  MinorOperatingSystemVersion[2];}
+\DoxyCodeLine{219   \textcolor{keywordtype}{char}  MajorImageVersion[2];}
+\DoxyCodeLine{220   \textcolor{keywordtype}{char}  MinorImageVersion[2];}
+\DoxyCodeLine{221   \textcolor{keywordtype}{char}  MajorSubsystemVersion[2];}
+\DoxyCodeLine{222   \textcolor{keywordtype}{char}  MinorSubsystemVersion[2];}
+\DoxyCodeLine{223   \textcolor{keywordtype}{char}  Reserved1[4];}
+\DoxyCodeLine{224   \textcolor{keywordtype}{char}  SizeOfImage[4];}
+\DoxyCodeLine{225   \textcolor{keywordtype}{char}  SizeOfHeaders[4];}
+\DoxyCodeLine{226   \textcolor{keywordtype}{char}  CheckSum[4];}
+\DoxyCodeLine{227   \textcolor{keywordtype}{char}  Subsystem[2];}
+\DoxyCodeLine{228   \textcolor{keywordtype}{char}  DllCharacteristics[2];}
+\DoxyCodeLine{229   \textcolor{keywordtype}{char}  SizeOfStackReserve[4];}
+\DoxyCodeLine{230   \textcolor{keywordtype}{char}  SizeOfStackCommit[4];}
+\DoxyCodeLine{231   \textcolor{keywordtype}{char}  SizeOfHeapReserve[4];}
+\DoxyCodeLine{232   \textcolor{keywordtype}{char}  SizeOfHeapCommit[4];}
+\DoxyCodeLine{233   \textcolor{keywordtype}{char}  LoaderFlags[4];}
+\DoxyCodeLine{234   \textcolor{keywordtype}{char}  NumberOfRvaAndSizes[4];}
+\DoxyCodeLine{235   \textcolor{comment}{/* IMAGE\_DATA\_DIRECTORY DataDirectory[IMAGE\_NUMBEROF\_DIRECTORY\_ENTRIES]; */}}
+\DoxyCodeLine{236   \textcolor{keywordtype}{char}  DataDirectory[16][2][4]; \textcolor{comment}{/* 16 entries, 2 elements/entry, 4 chars */}}
+\DoxyCodeLine{237 \} \mbox{\hyperlink{peimage_8h_structPEAOUTHDR}{PEAOUTHDR}};}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#undef AOUTSZ}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#define AOUTSZ (AOUTHDRSZ + 196)}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \textcolor{comment}{/* Like PEAOUTHDR, except that the "{}standard"{} member has no BaseOfData}}
+\DoxyCodeLine{243 \textcolor{comment}{   (aka data\_start) member and that some of the members are 8 instead}}
+\DoxyCodeLine{244 \textcolor{comment}{   of just 4 bytes long.  */}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#ifndef \_\_ASSEMBLY\_\_}}
+\DoxyCodeLine{246 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }}
+\DoxyCodeLine{247 \{}
+\DoxyCodeLine{248   AOUTHDR \mbox{\hyperlink{peimage_8h_ae432e1188141df6065e08d320827cfd0}{standard}};}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250   \textcolor{comment}{/* NT extra fields; see internal.h for descriptions */}}
+\DoxyCodeLine{251   \textcolor{keywordtype}{char}  ImageBase[8];}
+\DoxyCodeLine{252   \textcolor{keywordtype}{char}  SectionAlignment[4];}
+\DoxyCodeLine{253   \textcolor{keywordtype}{char}  FileAlignment[4];}
+\DoxyCodeLine{254   \textcolor{keywordtype}{char}  MajorOperatingSystemVersion[2];}
+\DoxyCodeLine{255   \textcolor{keywordtype}{char}  MinorOperatingSystemVersion[2];}
+\DoxyCodeLine{256   \textcolor{keywordtype}{char}  MajorImageVersion[2];}
+\DoxyCodeLine{257   \textcolor{keywordtype}{char}  MinorImageVersion[2];}
+\DoxyCodeLine{258   \textcolor{keywordtype}{char}  MajorSubsystemVersion[2];}
+\DoxyCodeLine{259   \textcolor{keywordtype}{char}  MinorSubsystemVersion[2];}
+\DoxyCodeLine{260   \textcolor{keywordtype}{char}  Reserved1[4];}
+\DoxyCodeLine{261   \textcolor{keywordtype}{char}  SizeOfImage[4];}
+\DoxyCodeLine{262   \textcolor{keywordtype}{char}  SizeOfHeaders[4];}
+\DoxyCodeLine{263   \textcolor{keywordtype}{char}  CheckSum[4];}
+\DoxyCodeLine{264   \textcolor{keywordtype}{char}  Subsystem[2];}
+\DoxyCodeLine{265   \textcolor{keywordtype}{char}  DllCharacteristics[2];}
+\DoxyCodeLine{266   \textcolor{keywordtype}{char}  SizeOfStackReserve[8];}
+\DoxyCodeLine{267   \textcolor{keywordtype}{char}  SizeOfStackCommit[8];}
+\DoxyCodeLine{268   \textcolor{keywordtype}{char}  SizeOfHeapReserve[8];}
+\DoxyCodeLine{269   \textcolor{keywordtype}{char}  SizeOfHeapCommit[8];}
+\DoxyCodeLine{270   \textcolor{keywordtype}{char}  LoaderFlags[4];}
+\DoxyCodeLine{271   \textcolor{keywordtype}{char}  NumberOfRvaAndSizes[4];}
+\DoxyCodeLine{272   \textcolor{comment}{/* IMAGE\_DATA\_DIRECTORY DataDirectory[IMAGE\_NUMBEROF\_DIRECTORY\_ENTRIES]; */}}
+\DoxyCodeLine{273   \textcolor{keywordtype}{char}  DataDirectory[16][2][4]; \textcolor{comment}{/* 16 entries, 2 elements/entry, 4 chars */}}
+\DoxyCodeLine{274 \} \mbox{\hyperlink{peimage_8h_structPEP64AOUTHDR}{PEP64AOUTHDR}};}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#define PEP64AOUTSZ 240}}
+\DoxyCodeLine{277   }
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#undef  E\_FILNMLEN}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define E\_FILNMLEN  18  }\textcolor{comment}{/* \# characters in a file name      */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281 \textcolor{comment}{/* Import Tyoes fot ILF format object files..  */}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#define IMPORT\_CODE 0}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define IMPORT\_DATA 1}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#define IMPORT\_CONST    2}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286 \textcolor{comment}{/* Import Name Tyoes for ILF format object files.  */}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#define IMPORT\_ORDINAL      0}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#define IMPORT\_NAME     1}}
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#define IMPORT\_NAME\_NOPREFIX    2}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define IMPORT\_NAME\_UNDECORATE  3}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_PE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

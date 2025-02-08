@@ -1,0 +1,258 @@
+\hypertarget{display_8h_source}{}\doxysection{display.\+h}
+\label{display_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/display.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/display.h}}
+\mbox{\hyperlink{display_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef DISPLAY\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define DISPLAY\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{12 \textcolor{comment}{ * Copyright (C) 2004-\/2022 Sam Demeulemeester.}}
+\DoxyCodeLine{13 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{screen_8h}{screen.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{print_8h}{print.h}}"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{string_8h}{string.h}}"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{test_8h}{test.h}}"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define ROW\_MESSAGE\_T   10}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define ROW\_MESSAGE\_B   (SCREEN\_HEIGHT -\/ 2)}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define ROW\_SCROLL\_T    (ROW\_MESSAGE\_T + 2)}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define ROW\_SCROLL\_B    (SCREEN\_HEIGHT -\/ 2)}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define ROW\_FOOTER      (SCREEN\_HEIGHT -\/ 1)}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define BAR\_LENGTH      40}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define ERROR\_LIMIT     UINT64\_C(999999999999)}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{37     \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8abffbab2c8a4087f871112416ce7dc073}{DISPLAY\_MODE\_NA}},}
+\DoxyCodeLine{38     \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8a078dc80a20e82941e70da923f1aeaebe}{DISPLAY\_MODE\_SPD}},}
+\DoxyCodeLine{39     \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8afe3db70c8874652786b46cdbd54ff936}{DISPLAY\_MODE\_IMC}}}
+\DoxyCodeLine{40 \} \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8}{display\_mode\_t}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define display\_cpu\_model(str) \(\backslash\)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{    prints(0, 30, str)}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define display\_cpu\_clk(freq) \(\backslash\)}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{    printf(1, 10, "{}\%iMHz"{}}, freq)}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define display\_cpu\_addr\_mode(str) \(\backslash\)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{    prints(4, 75, str)}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define display\_l1\_cache\_size(size) \(\backslash\)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{    printf(2, 9, "{}\%6kB"{}}, (uintptr\_t)(size))}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define display\_l2\_cache\_size(size) \(\backslash\)}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{    printf(3, 9, "{}\%6kB"{}}, (uintptr\_t)(size))}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define display\_l3\_cache\_size(size) \(\backslash\)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{    printf(4, 9, "{}\%6kB"{}}, (uintptr\_t)(size))}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define display\_memory\_size(size) \(\backslash\)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{    printf(5, 9, "{}\%6kB"{}}, (uintptr\_t)(size))}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define display\_l1\_cache\_speed(speed) \(\backslash\)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{    printf(2, 18, "{}\%S6kB/s"{}}, (uintptr\_t)(speed))}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define display\_l2\_cache\_speed(speed) \(\backslash\)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{    printf(3, 18, "{}\%S6kB/s"{}}, (uintptr\_t)(speed))}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define display\_l3\_cache\_speed(speed) \(\backslash\)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{    printf(4, 18, "{}\%S6kB/s"{}}, (uintptr\_t)(speed))}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define display\_ram\_speed(speed) \(\backslash\)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{    printf(5, 18, "{}\%S6kB/s"{}}, (uintptr\_t)(speed))}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define display\_status(status) \(\backslash\)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{    prints(7, 68, status)}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define display\_threading(nb, mode) \(\backslash\)}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{    printf(7,31, "{}\%uT (\%s)"{}}, nb, mode)}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define display\_threading\_disabled() \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{    prints(7,31, "{}Disabled"{}})}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define display\_cpu\_topo\_hybrid(num\_pcores, num\_ecores, num\_threads) \(\backslash\)}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{        clear\_screen\_region(7, 5, 7, 25); \(\backslash\)}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{        printf(7, 5, "{}\%uP+\%uE-\/Cores (\%uT)"{}}, num\_pcores, num\_ecores, num\_threads); \(\backslash\)}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define display\_cpu\_topo\_hybrid\_short(num\_threads) \(\backslash\)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{    printf(7, 5, "{}\%u Threads (Hybrid)"{}}, num\_threads)}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define display\_cpu\_topo\_multi\_socket(num\_sockets, num\_cores, num\_threads) \(\backslash\)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{    printf(7, 5, "{}\%uS / \%uC / \%uT"{}}, num\_sockets, num\_cores, num\_threads)}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define display\_cpu\_topo( num\_cores, num\_threads) \(\backslash\)}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{    printf(7, 5, "{}\%u Cores \%u Threads"{}}, num\_cores, num\_threads)}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define display\_cpu\_topo\_short( num\_cores, num\_threads) \(\backslash\)}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{    printf(7, 5, "{}\%u Cores (\%uT)"{}},  num\_cores, num\_threads)}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define display\_spec\_mode(mode) \(\backslash\)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{    prints(8,0, mode);}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define display\_spec\_ddr(freq, type, cl, cl\_dec, rcd, rp, ras) \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{    printf(8,5, "{}\%uMHz (\%s-\/\%u) CAS \%u\%s-\/\%u-\/\%u-\/\%u"{}}, \(\backslash\)}
+\DoxyCodeLine{107                 freq / 2, type, freq, cl, cl\_dec?"{}.5"{}:"{}"{}, rcd, rp, ras);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define display\_spec\_sdr(freq, type, cl, rcd, rp, ras) \(\backslash\)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{    printf(8,5, "{}\%uMHz (\%s PC\%u) CAS \%u-\/\%u-\/\%u-\/\%u"{}}, \(\backslash\)}
+\DoxyCodeLine{111                 freq, type, freq, cl, rcd, rp, ras);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define display\_dmi\_mb(sys\_ma, sys\_sku) \(\backslash\)}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{    dmicol = prints(23, dmicol, sys\_man); \(\backslash\)}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{    prints(23, dmicol + 1, sys\_sku);}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define display\_active\_cpu(cpu\_num) \(\backslash\)}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{    prints(8, 7, "{}Core \#"{}}); \(\backslash\)}
+\DoxyCodeLine{119     printi(8, 13, cpu\_num, 3, false, true)}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define display\_all\_active() \(\backslash\)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{    prints(8, 7, "{}All Cores"{}})}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define display\_spinner(spin\_state) \(\backslash\)}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{    printc(7, 77, spin\_state)}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define display\_pass\_percentage(pct) \(\backslash\)}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{    printi(1, 34, pct, 3, false, false)}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define display\_pass\_bar(length) \(\backslash\)}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{    while (length > pass\_bar\_length) \{          \(\backslash\)}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{        printc(1, 39 + pass\_bar\_length, '\#');   \(\backslash\)}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{        pass\_bar\_length++;                      \(\backslash\)}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define display\_test\_percentage(pct) \(\backslash\)}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{    printi(2, 34, pct, 3, false, false)}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define display\_test\_bar(length) \(\backslash\)}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{    while (length > test\_bar\_length) \{          \(\backslash\)}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{        printc(2, 39 + test\_bar\_length, '\#');   \(\backslash\)}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{        test\_bar\_length++;                      \(\backslash\)}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define display\_test\_number(number) \(\backslash\)}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{    printi(3, 36, number, 2, false, true)}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define display\_test\_description(str) \(\backslash\)}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{    prints(3, 39, str)}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define display\_test\_addresses(pb, pe, total) \(\backslash\)}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{        clear\_screen\_region(4, 39, 4, SCREEN\_WIDTH -\/ 6); \(\backslash\)}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{        printf(4, 39, "{}\%kB -\/ \%kB [\%kB of \%kB]"{}}, pb, pe, (pe) -\/ (pb), total); \(\backslash\)}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define display\_test\_stage\_description(...) \(\backslash\)}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{        clear\_screen\_region(4, 39, 4, SCREEN\_WIDTH -\/ 6); \(\backslash\)}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{        printf(4, 39, \_\_VA\_ARGS\_\_); \(\backslash\)}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define display\_test\_pattern\_name(str) \(\backslash\)}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{        clear\_screen\_region(5, 39, 5, SCREEN\_WIDTH -\/ 1); \(\backslash\)}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{        prints(5, 39, str); \(\backslash\)}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#define display\_test\_pattern\_value(pattern) \(\backslash\)}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{        clear\_screen\_region(5, 39, 5, SCREEN\_WIDTH -\/ 1); \(\backslash\)}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{        printf(5, 39, "{}0x\%0*x"{}}, TESTWORD\_DIGITS, pattern); \(\backslash\)}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define display\_test\_pattern\_values(pattern, offset) \(\backslash\)}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{        clear\_screen\_region(5, 39, 5, SCREEN\_WIDTH -\/ 1); \(\backslash\)}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{        printf(5, 39, "{}0x\%0*x -\/ \%i"{}}, TESTWORD\_DIGITS, pattern, offset); \(\backslash\)}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define display\_run\_time(hours, mins, secs) \(\backslash\)}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{    printf(7, 51, "{}\%i:\%02i:\%02i"{}}, hours, mins, secs)}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#define display\_pass\_count(count) \(\backslash\)}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{    printi(8, 51, count, 0, false, true)}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define display\_error\_count(count) \(\backslash\)}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{    printi(8, 68, count, 0, false, true)}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define clear\_message\_area() \(\backslash\)}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{        clear\_screen\_region(ROW\_MESSAGE\_T, 0, ROW\_MESSAGE\_B, SCREEN\_WIDTH -\/ 1); \(\backslash\)}}
+\DoxyCodeLine{193 \textcolor{preprocessor}{        scroll\_message\_row = ROW\_SCROLL\_T -\/ 1; \(\backslash\)}}
+\DoxyCodeLine{194 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define display\_pinned\_message(row, col, ...) \(\backslash\)}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{    printf(ROW\_MESSAGE\_T + row, col, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define display\_scrolled\_message(col, ...) \(\backslash\)}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{    printf(scroll\_message\_row, col, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define display\_notice(str) \(\backslash\)}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{    prints(ROW\_MESSAGE\_T + 8, (SCREEN\_WIDTH -\/ strlen(str)) / 2, str)}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define display\_notice\_with\_args(length, ...) \(\backslash\)}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{    printf(ROW\_MESSAGE\_T + 8, (SCREEN\_WIDTH -\/ length) / 2, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#define clear\_footer\_message() \(\backslash\)}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{210 \textcolor{preprocessor}{        set\_background\_colour(WHITE); \(\backslash\)}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{        clear\_screen\_region(ROW\_FOOTER, 56, ROW\_FOOTER, SCREEN\_WIDTH -\/ 1); \(\backslash\)}}
+\DoxyCodeLine{212 \textcolor{preprocessor}{        set\_background\_colour(BLUE);  \(\backslash\)}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#define display\_footer\_message(str) \(\backslash\)}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{217 \textcolor{preprocessor}{        set\_foreground\_colour(BLUE);  \(\backslash\)}}
+\DoxyCodeLine{218 \textcolor{preprocessor}{        prints(ROW\_FOOTER, 56, str);  \(\backslash\)}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{        set\_foreground\_colour(WHITE); \(\backslash\)}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define trace(my\_cpu, ...) \(\backslash\)}}
+\DoxyCodeLine{223 \textcolor{preprocessor}{    if (enable\_trace) do\_trace(my\_cpu, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{display_8h_a1a32bf2259fe1cba83ff30837b9a1f09}{scroll\_message\_row}};}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \textcolor{keyword}{extern} \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8}{display\_mode\_t}} \mbox{\hyperlink{display_8h_a54a1c7ad3c3db58fb50ed23422d0f54d}{display\_mode}};}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_a407d5033a6f0198221c8a9081d7e807e}{display\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_a0bdcdfb738801a543af7467525963f77}{display\_cpu\_topology}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_aa58e58b781c566400f15e09aebfd64b5}{post\_display\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_aa8713eebe0ca9915160ba48627405399}{display\_start\_run}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_a6da888b13d9e9ba0b12279c59f98d7c0}{display\_start\_pass}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_a0915122432e9f8f6eaa9b8ecd4294a96}{display\_start\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_adf5164930eb413c381b8f3709d4ea4fb}{display\_temperature}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_a5d93ac4d63d34ddc37a5ecc311918a38}{display\_big\_status}}(\textcolor{keywordtype}{bool} pass);}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_ae2d161effc694938b540c83e7073cbb1}{restore\_big\_status}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_ae922a60101beb5b32a37e58b8d9ba4d0}{check\_input}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_abeda621782abf8a225932a41b660ea03}{set\_scroll\_lock}}(\textcolor{keywordtype}{bool} enabled);}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_a85429facfe750b53c5de3199547ca7c8}{toggle\_scroll\_lock}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_a05005f1ebcdff47e3ccc18af05573349}{scroll}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_ac45baf97a28e041d208c6b8153cb26bb}{do\_tick}}(\textcolor{keywordtype}{int} my\_cpu);}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 \textcolor{keywordtype}{void} \mbox{\hyperlink{display_8h_acb98b492393e119705da3baee03bb2f8}{do\_trace}}(\textcolor{keywordtype}{int} my\_cpu, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DISPLAY\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,130 @@
+\hypertarget{heap_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/heap.h File Reference}
+\label{heap_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/heap.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/heap.h}}
+
+
+Provides functions to allocate and free chunks of physical memory that will be excluded from the memory tests.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\+\_\+type\+\_\+t}} \{ \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6aba42fe5a4454dc43a70c9a5c55eeac727d}{HEAP\+\_\+\+TYPE\+\_\+\+LM\+\_\+1}}
+, \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6aba51c14b6d6066e13d9b9db5c70a2d128f}{HEAP\+\_\+\+TYPE\+\_\+\+HM\+\_\+1}}
+, \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6abaeeade667f0f79937fd351f90167cda19}{HEAP\+\_\+\+TYPE\+\_\+\+LAST}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{heap_8h_a7e7a6625a49b6a560a47ae7575575264}{heap\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialises the heaps. \end{DoxyCompactList}\item 
+uintptr\+\_\+t \mbox{\hyperlink{heap_8h_a6b6e0890c430333a7cf4b4f56fa45da6}{heap\+\_\+alloc}} (\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\+\_\+type\+\_\+t}} heap\+\_\+id, size\+\_\+t size, uintptr\+\_\+t alignment)
+\begin{DoxyCompactList}\small\item\em Allocates a chunk of physical memory in the given heap. \end{DoxyCompactList}\item 
+uintptr\+\_\+t \mbox{\hyperlink{heap_8h_ae993fdc78df2ef9e8b19e9d28177b6b8}{heap\+\_\+mark}} (\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\+\_\+type\+\_\+t}} heap\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Returns a value indicating the current allocation state of the given memory heap. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{heap_8h_a50c2d86410860f2d558f9bec7f59dc48}{heap\+\_\+rewind}} (\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\+\_\+type\+\_\+t}} heap\+\_\+id, uintptr\+\_\+t mark)
+\begin{DoxyCompactList}\small\item\em Frees any memory allocated in the given heap since the specified mark was obtained from a call to \mbox{\hyperlink{heap_8h_ae993fdc78df2ef9e8b19e9d28177b6b8}{heap\+\_\+mark()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions to allocate and free chunks of physical memory that will be excluded from the memory tests. 
+
+Two separate heaps are supported, one in low (20-\/bit addressable) memory, the other in high (32-\/bit addressable) memory. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}\label{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}} 
+\index{heap.h@{heap.h}!heap\_type\_t@{heap\_type\_t}}
+\index{heap\_type\_t@{heap\_type\_t}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{heap\_type\_t}{heap\_type\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\+\_\+type\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HEAP\_TYPE\_LM\_1@{HEAP\_TYPE\_LM\_1}!heap.h@{heap.h}}\index{heap.h@{heap.h}!HEAP\_TYPE\_LM\_1@{HEAP\_TYPE\_LM\_1}}}\mbox{\Hypertarget{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6aba42fe5a4454dc43a70c9a5c55eeac727d}\label{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6aba42fe5a4454dc43a70c9a5c55eeac727d}} 
+HEAP\+\_\+\+TYPE\+\_\+\+LM\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HEAP\_TYPE\_HM\_1@{HEAP\_TYPE\_HM\_1}!heap.h@{heap.h}}\index{heap.h@{heap.h}!HEAP\_TYPE\_HM\_1@{HEAP\_TYPE\_HM\_1}}}\mbox{\Hypertarget{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6aba51c14b6d6066e13d9b9db5c70a2d128f}\label{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6aba51c14b6d6066e13d9b9db5c70a2d128f}} 
+HEAP\+\_\+\+TYPE\+\_\+\+HM\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HEAP\_TYPE\_LAST@{HEAP\_TYPE\_LAST}!heap.h@{heap.h}}\index{heap.h@{heap.h}!HEAP\_TYPE\_LAST@{HEAP\_TYPE\_LAST}}}\mbox{\Hypertarget{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6abaeeade667f0f79937fd351f90167cda19}\label{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6abaeeade667f0f79937fd351f90167cda19}} 
+HEAP\+\_\+\+TYPE\+\_\+\+LAST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{heap_8h_a7e7a6625a49b6a560a47ae7575575264}\label{heap_8h_a7e7a6625a49b6a560a47ae7575575264}} 
+\index{heap.h@{heap.h}!heap\_init@{heap\_init}}
+\index{heap\_init@{heap\_init}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{heap\_init()}{heap\_init()}}
+{\footnotesize\ttfamily void heap\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialises the heaps. 
+
+\mbox{\Hypertarget{heap_8h_a6b6e0890c430333a7cf4b4f56fa45da6}\label{heap_8h_a6b6e0890c430333a7cf4b4f56fa45da6}} 
+\index{heap.h@{heap.h}!heap\_alloc@{heap\_alloc}}
+\index{heap\_alloc@{heap\_alloc}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{heap\_alloc()}{heap\_alloc()}}
+{\footnotesize\ttfamily uintptr\+\_\+t heap\+\_\+alloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\+\_\+type\+\_\+t}}}]{heap\+\_\+id,  }\item[{size\+\_\+t}]{size,  }\item[{uintptr\+\_\+t}]{alignment }\end{DoxyParamCaption})}
+
+
+
+Allocates a chunk of physical memory in the given heap. 
+
+The allocated region will be at least the requested size with the requested alignment. This memory is always mapped to the identical address in virtual memory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em heap\+\_\+id} & -\/ the target heap. \\
+\hline
+{\em size} & -\/ the requested size in bytes. \\
+\hline
+{\em alignment} & -\/ the requested byte alignment (must be a power of 2).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, the allocated address in physical memory. On failure, 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{heap_8h_ae993fdc78df2ef9e8b19e9d28177b6b8}\label{heap_8h_ae993fdc78df2ef9e8b19e9d28177b6b8}} 
+\index{heap.h@{heap.h}!heap\_mark@{heap\_mark}}
+\index{heap\_mark@{heap\_mark}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{heap\_mark()}{heap\_mark()}}
+{\footnotesize\ttfamily uintptr\+\_\+t heap\+\_\+mark (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\+\_\+type\+\_\+t}}}]{heap\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Returns a value indicating the current allocation state of the given memory heap. 
+
+This value may be passed to \mbox{\hyperlink{heap_8h_a50c2d86410860f2d558f9bec7f59dc48}{heap\+\_\+rewind()}} to free any memory from that heap allocated after this call.
+
+
+\begin{DoxyParams}{Parameters}
+{\em heap\+\_\+id} & -\/ the target heap.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An opaque value indicating the current allocation state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{heap_8h_a50c2d86410860f2d558f9bec7f59dc48}\label{heap_8h_a50c2d86410860f2d558f9bec7f59dc48}} 
+\index{heap.h@{heap.h}!heap\_rewind@{heap\_rewind}}
+\index{heap\_rewind@{heap\_rewind}!heap.h@{heap.h}}
+\doxysubsubsection{\texorpdfstring{heap\_rewind()}{heap\_rewind()}}
+{\footnotesize\ttfamily void heap\+\_\+rewind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\+\_\+type\+\_\+t}}}]{heap\+\_\+id,  }\item[{uintptr\+\_\+t}]{mark }\end{DoxyParamCaption})}
+
+
+
+Frees any memory allocated in the given heap since the specified mark was obtained from a call to \mbox{\hyperlink{heap_8h_ae993fdc78df2ef9e8b19e9d28177b6b8}{heap\+\_\+mark()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heap\+\_\+id} & -\/ the target heap. \\
+\hline
+{\em mark} & -\/ the mark that indicates how much memory to free. \\
+\hline
+\end{DoxyParams}

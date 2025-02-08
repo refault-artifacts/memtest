@@ -1,0 +1,171 @@
+\hypertarget{usb_8h_source}{}\doxysection{usb.\+h}
+\label{usb_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/usb.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/usb.h}}
+\mbox{\hyperlink{usb_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef USB\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define USB\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2021-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{12 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{comment}{// Basic limits.}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define USB\_MAX\_ADDRESS         127}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{// Request types.}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define USB\_REQ\_TO\_DEVICE       0x00}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define USB\_REQ\_TO\_INTERFACE    0x01}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define USB\_REQ\_TO\_ENDPOINT     0x02}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define USB\_REQ\_TO\_HUB\_PORT     0x03}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define USB\_REQ\_FROM\_DEVICE     0x80}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define USB\_REQ\_FROM\_INTERFACE  0x81}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define USB\_REQ\_FROM\_ENDPOINT   0x82}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define USB\_REQ\_FROM\_HUB\_PORT   0x83}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define USB\_REQ\_CLASS           0x20}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{// Request codes.}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define USB\_GET\_STATUS          0}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define USB\_CLR\_FEATURE         1}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define USB\_SET\_FEATURE         3}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define USB\_SET\_ADDRESS         5}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define USB\_GET\_DESCRIPTOR      6}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define USB\_SET\_DESCRIPTOR      7}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define USB\_GET\_CONFIGURATION   8}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define USB\_SET\_CONFIGURATION   9}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define USB\_GET\_INTERFACE       10}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define USB\_SET\_INTERFACE       11}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define HID\_GET\_REPORT          1}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define HID\_GET\_IDLE            2}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define HID\_GET\_PROTOCOL        3}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define HID\_SET\_REPORT          9}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define HID\_SET\_IDLE            10}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define HID\_SET\_PROTOCOL        11}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define HUB\_GET\_STATUS          0}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define HUB\_CLR\_FEATURE         1}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define HUB\_SET\_FEATURE         3}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define HUB\_GET\_DESCRIPTOR      6}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define HUB\_SET\_DESCRIPTOR      7}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{comment}{// Descriptor types.}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define USB\_DESC\_DEVICE         1}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define USB\_DESC\_CONFIGURATION  2}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define USB\_DESC\_INTERFACE      4}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define USB\_DESC\_ENDPOINT       5}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define HUB\_DESC\_DEVICE         0x29}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{// Class codes.}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define USB\_CLASS\_HID           3}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define USB\_CLASS\_HUB           9}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{// Hub feature selectors.}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define HUB\_PORT\_ENABLE         1}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define HUB\_PORT\_RESET          4}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define HUB\_PORT\_POWER          8}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{comment}{// Hub port status.}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define HUB\_PORT\_CONNECTED      0x00000001}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define HUB\_PORT\_ENABLED        0x00000002}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define HUB\_PORT\_RESETTING      0x00000010}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define HUB\_PORT\_POWERED        0x00000100}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define HUB\_PORT\_LOW\_SPEED      0x00000200}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define HUB\_PORT\_HIGH\_SPEED     0x00000400}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{// Data structures.}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{93     uint8\_t     \mbox{\hyperlink{usb_8h_a5ae91c60e3d254d5dc31955f4888f717}{type}};}
+\DoxyCodeLine{94     uint8\_t     \mbox{\hyperlink{usb_8h_a4dc2f77abd1edebdc501df8e8430fbef}{request}};}
+\DoxyCodeLine{95     uint16\_t    \mbox{\hyperlink{usb_8h_a52c499b60f7d4461166ecb227df10bc2}{value}};}
+\DoxyCodeLine{96     uint16\_t    \mbox{\hyperlink{usb_8h_a6c2f366f2738f6e9ff1a0e7ffc5d98cb}{index}};}
+\DoxyCodeLine{97     uint16\_t    \mbox{\hyperlink{usb_8h_aca919908316fb27ac10dde4a9e3154c0}{length}};}
+\DoxyCodeLine{98 \} \mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\_setup\_pkt\_t}};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{101     uint8\_t     \mbox{\hyperlink{usb_8h_a56eb3b60ed00aede3f1a50e73f3b42a3}{length}};}
+\DoxyCodeLine{102     uint8\_t     \mbox{\hyperlink{usb_8h_a4559491a0a78ba17e0c76539ed80f9ce}{type}};}
+\DoxyCodeLine{103 \} \mbox{\hyperlink{usb_8h_structusb__desc__header__t}{usb\_desc\_header\_t}};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{106     uint8\_t     \mbox{\hyperlink{usb_8h_a6b6502bae85f3038e86f58d13388b503}{length}};}
+\DoxyCodeLine{107     uint8\_t     \mbox{\hyperlink{usb_8h_a25affc7ca9c9c11649296c3941ee9f61}{type}};}
+\DoxyCodeLine{108     uint8\_t     \mbox{\hyperlink{usb_8h_ab4d0823df2c834f3f062c8b386d53476}{usb\_minor}};}
+\DoxyCodeLine{109     uint8\_t     \mbox{\hyperlink{usb_8h_a51701cce66bec704561f4e59ba9d5932}{usb\_major}};}
+\DoxyCodeLine{110     uint8\_t     \textcolor{keyword}{class};}
+\DoxyCodeLine{111     uint8\_t     \mbox{\hyperlink{usb_8h_afe94fff781ff94b718fe482414b4d55e}{subclass}};}
+\DoxyCodeLine{112     uint8\_t     \mbox{\hyperlink{usb_8h_a49fae0ccc6cee3803e3d4483a9eca179}{protocol}};}
+\DoxyCodeLine{113     uint8\_t     \mbox{\hyperlink{usb_8h_aa7c8b585d5fdbcf5df781b96017c04c8}{max\_packet\_size}};}
+\DoxyCodeLine{114     uint16\_t    \mbox{\hyperlink{usb_8h_a2bfcfcef6ca6d3d22a3162d9c6ab8863}{vendor\_id}};}
+\DoxyCodeLine{115     uint16\_t    \mbox{\hyperlink{usb_8h_ae0bc939bb7e7cccda122a334d506742d}{product\_id}};}
+\DoxyCodeLine{116     uint8\_t     \mbox{\hyperlink{usb_8h_a07566f94292942fee5e3526584974023}{device\_minor}};}
+\DoxyCodeLine{117     uint8\_t     \mbox{\hyperlink{usb_8h_abd59563911eddea7b9cc040255037842}{device\_major}};}
+\DoxyCodeLine{118     uint8\_t     \mbox{\hyperlink{usb_8h_a6063400d5919c169c8b51ebd7b2878eb}{vendor\_str}};}
+\DoxyCodeLine{119     uint8\_t     \mbox{\hyperlink{usb_8h_a22aa44cf61e10cb236cd6a839851ee44}{product\_str}};}
+\DoxyCodeLine{120     uint8\_t     \mbox{\hyperlink{usb_8h_ac1d2e9cc0340f98552bfdb1839c50e6c}{serial\_num\_str}};}
+\DoxyCodeLine{121     uint8\_t     \mbox{\hyperlink{usb_8h_af4529b26b6f69f8033a0dd2132627b87}{num\_configs}};}
+\DoxyCodeLine{122 \} \mbox{\hyperlink{usb_8h_structusb__device__desc__t}{usb\_device\_desc\_t}};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{125     uint8\_t     \mbox{\hyperlink{usb_8h_a22d1c0a5de708cc01711d64282b316f9}{length}};}
+\DoxyCodeLine{126     uint8\_t     \mbox{\hyperlink{usb_8h_ac62191e52aa3078b6142bb8403bd58d8}{type}};}
+\DoxyCodeLine{127     uint16\_t    \mbox{\hyperlink{usb_8h_a9ec8078126e420a4a529f78db2505087}{total\_length}};}
+\DoxyCodeLine{128     uint8\_t     \mbox{\hyperlink{usb_8h_af2329d7ca7d2b903c946c38b6ea02a12}{num\_interfaces}};}
+\DoxyCodeLine{129     uint8\_t     \mbox{\hyperlink{usb_8h_ac39ffd756b0f8a98837b93c751d0152f}{config\_num}};}
+\DoxyCodeLine{130     uint8\_t     \mbox{\hyperlink{usb_8h_a0c2d759db3510ba15e774d3e15641b0c}{config\_str}};}
+\DoxyCodeLine{131     uint8\_t     \mbox{\hyperlink{usb_8h_a324637d5cef22dda9a74ae78585b7cbc}{attributes}};}
+\DoxyCodeLine{132     uint8\_t     \mbox{\hyperlink{usb_8h_aaa6bf50386243fc8b16fcb2c641553c0}{max\_power}};}
+\DoxyCodeLine{133 \} \mbox{\hyperlink{usb_8h_structusb__config__desc__t}{usb\_config\_desc\_t}};}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{136     uint8\_t     \mbox{\hyperlink{usb_8h_aa79330b86ec29cb3077f47d6c8162394}{length}};}
+\DoxyCodeLine{137     uint8\_t     \mbox{\hyperlink{usb_8h_a82829bff2725961c3e86007144f9af16}{type}};}
+\DoxyCodeLine{138     uint8\_t     \mbox{\hyperlink{usb_8h_a5f5515d23c5920b64686ea146f8049db}{interface\_num}};}
+\DoxyCodeLine{139     uint8\_t     \mbox{\hyperlink{usb_8h_a2f09f28f8f2309149a2152785f0ddea0}{alt\_setting}};}
+\DoxyCodeLine{140     uint8\_t     \mbox{\hyperlink{usb_8h_ae2ff8644b77ce9627e3d23c54beb9273}{num\_endpoints}};}
+\DoxyCodeLine{141     uint8\_t     \textcolor{keyword}{class};}
+\DoxyCodeLine{142     uint8\_t     \mbox{\hyperlink{usb_8h_a428af2596edad6960b99e7b657c1b11c}{subclass}};}
+\DoxyCodeLine{143     uint8\_t     \mbox{\hyperlink{usb_8h_a6ef7c1e144b6f7efae54d6a7d517abf7}{protocol}};}
+\DoxyCodeLine{144     uint8\_t     \mbox{\hyperlink{usb_8h_a14dba7d8de3f171ece2e9433318f0f15}{interface\_str}};}
+\DoxyCodeLine{145 \} \mbox{\hyperlink{usb_8h_structusb__interface__desc__t}{usb\_interface\_desc\_t}};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{148     uint8\_t     \mbox{\hyperlink{usb_8h_aa2313b91299e279e9588ca3398d5dc60}{length}};}
+\DoxyCodeLine{149     uint8\_t     \mbox{\hyperlink{usb_8h_a32a1adfa288b3bd10b21a3ee2f907959}{type}};}
+\DoxyCodeLine{150     uint8\_t     \mbox{\hyperlink{usb_8h_ac15e84f3c73c6c6b19e36334dc57b1e8}{address}};}
+\DoxyCodeLine{151     uint8\_t     \mbox{\hyperlink{usb_8h_a70061e0696a5502aba187463aac8cf58}{attributes}};}
+\DoxyCodeLine{152     uint16\_t    \mbox{\hyperlink{usb_8h_ae2d76dfa111e7d6e3df47484924dd828}{max\_packet\_size}};}
+\DoxyCodeLine{153     uint8\_t     \mbox{\hyperlink{usb_8h_a79fe02588a4f0975a906d7d236c5017a}{interval}};}
+\DoxyCodeLine{154 \} \mbox{\hyperlink{usb_8h_structusb__endpoint__desc__t}{usb\_endpoint\_desc\_t}};}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{157     uint8\_t     \mbox{\hyperlink{usb_8h_a5cc80684d7c57c12739d7dbd2987e544}{length}};}
+\DoxyCodeLine{158     uint8\_t     \mbox{\hyperlink{usb_8h_af3172712e6101cc8a3649fc3e33ce629}{type}};}
+\DoxyCodeLine{159     uint8\_t     \mbox{\hyperlink{usb_8h_a01a62f986d98b834e2bcf9db788f7b3c}{num\_ports}};}
+\DoxyCodeLine{160     uint16\_t    \mbox{\hyperlink{usb_8h_a005bbe0f5c554fdded8835ea133234f3}{characteristics}};}
+\DoxyCodeLine{161     uint8\_t     \mbox{\hyperlink{usb_8h_a39b4b9180e30ccaa04f88f9470f8e805}{power\_up\_delay}};}
+\DoxyCodeLine{162     uint8\_t     \mbox{\hyperlink{usb_8h_ab2ec73cb8ce04cf8ae71a93234cf5690}{controller\_current}};}
+\DoxyCodeLine{163     uint8\_t     port\_flags[];}
+\DoxyCodeLine{164 \} \mbox{\hyperlink{usb_8h_structusb__hub__desc__t}{usb\_hub\_desc\_t}};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{167     uint8\_t     \mbox{\hyperlink{usb_8h_a909b5e48c980c90a87a7cea4174dfa91}{modifiers}};}
+\DoxyCodeLine{168     uint8\_t     \mbox{\hyperlink{usb_8h_a1fc7c32372ffb6869f37ae0a0ba491fd}{reserved}};}
+\DoxyCodeLine{169     uint8\_t     key\_code[6];}
+\DoxyCodeLine{170 \} \mbox{\hyperlink{usb_8h_structhid__kbd__rpt__t}{hid\_kbd\_rpt\_t}};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// USB\_H}}
+
+\end{DoxyCode}

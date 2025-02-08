@@ -1,0 +1,129 @@
+\hypertarget{smbios_8h_source}{}\doxysection{smbios.\+h}
+\label{smbios_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smbios.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smbios.h}}
+\mbox{\hyperlink{smbios_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef SMBIOS\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define SMBIOS\_H}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define DMI\_SDR         0x0F}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define DMI\_RDRAM       0x11}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define DMI\_DDR         0x12}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define DMI\_DDR2        0x13}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define DMI\_DDR2\_FBDIMM 0x14}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DMI\_DDR3        0x18}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define DMI\_DDR4        0x1A}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define DMI\_LPDDR       0x1B}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define DMI\_LPDDR2      0x1C}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define DMI\_LPDDR3      0x1D}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define DMI\_LPDDR4      0x1E}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define DMI\_DDR5        0x22}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define DMI\_LPDDR5      0x23}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{27     uint8\_t anchor[4];}
+\DoxyCodeLine{28     int8\_t \mbox{\hyperlink{smbios_8h_aa7974b9a68898f1d6bb2d7647a709086}{checksum}};}
+\DoxyCodeLine{29     uint8\_t \mbox{\hyperlink{smbios_8h_ac7e00354ba2ec9192c0bf34f2a58d36c}{length}};}
+\DoxyCodeLine{30     uint8\_t \mbox{\hyperlink{smbios_8h_aac434d47815cd961ce4bde10103ce2ba}{majorversion}};}
+\DoxyCodeLine{31     uint8\_t \mbox{\hyperlink{smbios_8h_ad9e95716e390836efdf0098f23829bfa}{minorversion}};}
+\DoxyCodeLine{32     uint16\_t \mbox{\hyperlink{smbios_8h_a8512fa6b687aca06e81f43b1455d2ba4}{maxstructsize}};}
+\DoxyCodeLine{33     uint8\_t \mbox{\hyperlink{smbios_8h_a285dc256ad73d33e38697c0e47f58511}{revision}};}
+\DoxyCodeLine{34     uint8\_t pad[5];}
+\DoxyCodeLine{35     uint8\_t intanchor[5];}
+\DoxyCodeLine{36     int8\_t \mbox{\hyperlink{smbios_8h_a45d22ae7edb0857001f3cabe7603b2fd}{intchecksum}};}
+\DoxyCodeLine{37     uint16\_t \mbox{\hyperlink{smbios_8h_a4c479797ac2801b5ebcf54bb3eef3926}{tablelength}};}
+\DoxyCodeLine{38     uint32\_t \mbox{\hyperlink{smbios_8h_a9ae6cf4f0ae1e7b308b0f43159b8680a}{tableaddress}};}
+\DoxyCodeLine{39     uint16\_t \mbox{\hyperlink{smbios_8h_a888b69416788109d894778943f89b94d}{numstructs}};}
+\DoxyCodeLine{40     uint8\_t \mbox{\hyperlink{smbios_8h_a69dcf4fc70ed574199b768023f27b4fd}{SMBIOSrev}};}
+\DoxyCodeLine{41 \} \mbox{\hyperlink{smbios_8h_structsmbiosv2__t}{smbiosv2\_t}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}} \{}
+\DoxyCodeLine{44     uint8\_t \mbox{\hyperlink{smbios_8h_a7347a770d6d2777a7f9888badc0414a9}{type}};}
+\DoxyCodeLine{45     uint8\_t \mbox{\hyperlink{smbios_8h_ade28866203237baa7bbebb91e69f79de}{length}};}
+\DoxyCodeLine{46     uint16\_t \mbox{\hyperlink{smbios_8h_a5e7c8615f5ad0d0a51520f9a1e22c9b1}{handle}};}
+\DoxyCodeLine{47 \} \_\_attribute\_\_((packed));}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structsystem__info}{system\_info}} \{}
+\DoxyCodeLine{50     \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}} \mbox{\hyperlink{smbios_8h_aa4f8a7d4460ca8355a12fd1e798bb39c}{header}};}
+\DoxyCodeLine{51     uint8\_t  \mbox{\hyperlink{smbios_8h_ab138edf92d05315bc89f2faca3992720}{manufacturer}};}
+\DoxyCodeLine{52     uint8\_t  \mbox{\hyperlink{smbios_8h_ac0ea17311cd6a8b078e1e6683980e90b}{productname}};}
+\DoxyCodeLine{53     uint8\_t  \mbox{\hyperlink{smbios_8h_a3f55a9330b1b30084c0d6cca369f87d7}{version}};}
+\DoxyCodeLine{54     uint8\_t  \mbox{\hyperlink{smbios_8h_a905b3ca94bd025b06f6a8486f730a350}{serialnumber}};}
+\DoxyCodeLine{55     uint8\_t  \mbox{\hyperlink{smbios_8h_a9d445f3a074a236cadc36788788c8d5d}{uuidbytes}}[16];}
+\DoxyCodeLine{56     uint8\_t  \mbox{\hyperlink{smbios_8h_a41f83bce6cde3e6f19a2256ddd9b4514}{wut}}; \textcolor{comment}{// Last field defined by SMBIOS 2.3.}}
+\DoxyCodeLine{57     \textcolor{comment}{/*uint8\_t  sku\_number;}}
+\DoxyCodeLine{58 \textcolor{comment}{    uint8\_t  family;*/}}
+\DoxyCodeLine{59 \} \_\_attribute\_\_((packed));}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structbaseboard__info}{baseboard\_info}} \{}
+\DoxyCodeLine{62     \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}} \mbox{\hyperlink{smbios_8h_a09697fac59e6f5d14ebabe6f002a15bf}{header}};}
+\DoxyCodeLine{63     uint8\_t  \mbox{\hyperlink{smbios_8h_a260dc68068097aa3f826fd7b5db4045a}{manufacturer}};}
+\DoxyCodeLine{64     uint8\_t  \mbox{\hyperlink{smbios_8h_a48f1e7562d69155c663338df8681912d}{productname}};}
+\DoxyCodeLine{65     uint8\_t  \mbox{\hyperlink{smbios_8h_a5718f1b7a46ab4470b236dfc956dfc64}{version}};}
+\DoxyCodeLine{66     uint8\_t  \mbox{\hyperlink{smbios_8h_aa1464e65786251631003001f73204074}{serialnumber}}; \textcolor{comment}{// Last field defined by SMBIOS 2.3.}}
+\DoxyCodeLine{67     \textcolor{comment}{/*uint8\_t  asset\_tag;}}
+\DoxyCodeLine{68 \textcolor{comment}{    uint8\_t  feature\_flags;}}
+\DoxyCodeLine{69 \textcolor{comment}{    uint8\_t  location\_in\_chassis;}}
+\DoxyCodeLine{70 \textcolor{comment}{    uint16\_t chassis\_handle;}}
+\DoxyCodeLine{71 \textcolor{comment}{    uint8\_t  board\_type;}}
+\DoxyCodeLine{72 \textcolor{comment}{    uint16\_t number\_contained\_object\_handles;*/}}
+\DoxyCodeLine{73 \} \_\_attribute\_\_((packed));}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structmem__module}{mem\_module}} \{}
+\DoxyCodeLine{76     \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}} \mbox{\hyperlink{smbios_8h_a9f3b94d706c769a288ba0d9cdbb054c0}{header}};}
+\DoxyCodeLine{77     uint8\_t  \mbox{\hyperlink{smbios_8h_aff7a385d80ec7b3ba6c31eb7eb016fda}{socket\_designation}};}
+\DoxyCodeLine{78     uint8\_t  \mbox{\hyperlink{smbios_8h_ae20bef32ed39fc2bfab4dab614ab1807}{bank\_connections}};}
+\DoxyCodeLine{79     uint8\_t  \mbox{\hyperlink{smbios_8h_ae9a133a44de320aa93555b241e154433}{current\_speed}};}
+\DoxyCodeLine{80     uint16\_t \mbox{\hyperlink{smbios_8h_a1bd98e5e1455a315896f8888f9bfe1f9}{current\_memory\_type}};}
+\DoxyCodeLine{81     uint8\_t  \mbox{\hyperlink{smbios_8h_a1165d203c9d8fb63c8e5706ea7543f99}{installed\_size}};}
+\DoxyCodeLine{82     uint8\_t  \mbox{\hyperlink{smbios_8h_a8fdcd51075864606755e85a1714cb8b9}{enabled\_size}};}
+\DoxyCodeLine{83     uint8\_t  \mbox{\hyperlink{smbios_8h_afd4e3a815fd893428425c759130996a2}{error\_status}};}
+\DoxyCodeLine{84 \} \_\_attribute\_\_((packed));}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structmem__dev}{mem\_dev}} \{}
+\DoxyCodeLine{87     \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}} \mbox{\hyperlink{smbios_8h_afe32e2afc2e576f2f2f32d44afbbc5d8}{header}};}
+\DoxyCodeLine{88     uint16\_t \mbox{\hyperlink{smbios_8h_a5a1ea5c490b8b22abdafd7f9e356c8a2}{pma\_handle}};}
+\DoxyCodeLine{89     uint16\_t \mbox{\hyperlink{smbios_8h_a6c320de30ba952ae79d7bbf800c58b73}{err\_handle}};}
+\DoxyCodeLine{90     uint16\_t \mbox{\hyperlink{smbios_8h_aac4cee7111faf51792240f0fb6b8df0e}{tot\_width}};}
+\DoxyCodeLine{91     uint16\_t \mbox{\hyperlink{smbios_8h_a1a5c3e6a6f5133002e0e61597c58e7dc}{dat\_width}};}
+\DoxyCodeLine{92     uint16\_t \mbox{\hyperlink{smbios_8h_a00e4372a8dd540151afb3306729fad5c}{size}};}
+\DoxyCodeLine{93     uint8\_t  \mbox{\hyperlink{smbios_8h_ad7a66cb87b83a3d88599ffec449428a2}{form}};}
+\DoxyCodeLine{94     uint8\_t  \mbox{\hyperlink{smbios_8h_a59366ce918bc2ce8b4c0e0b11b5bce24}{set}};}
+\DoxyCodeLine{95     uint8\_t  \mbox{\hyperlink{smbios_8h_a259a6aeceb318e8fba2108d6d2d2e4af}{dev\_locator}};}
+\DoxyCodeLine{96     uint8\_t  \mbox{\hyperlink{smbios_8h_ac4955d205bb55443e50249e82af58769}{bank\_locator}};}
+\DoxyCodeLine{97     uint8\_t  \mbox{\hyperlink{smbios_8h_ab31fc68f3f31253f03f760ab409f3b65}{type}};}
+\DoxyCodeLine{98     uint16\_t \mbox{\hyperlink{smbios_8h_a6c6a0f43aef951454a0c918541e71153}{typedetail}};}
+\DoxyCodeLine{99     uint16\_t \mbox{\hyperlink{smbios_8h_a6d7f0efc067411afacf1b7448a611acf}{speed}};}
+\DoxyCodeLine{100     uint8\_t  \mbox{\hyperlink{smbios_8h_a40ece5b4392522d2985f5b609878233d}{manufacturer}};}
+\DoxyCodeLine{101     uint8\_t  \mbox{\hyperlink{smbios_8h_a20bff9ac889e48db3ccdeacf7cffd13a}{serialnum}};}
+\DoxyCodeLine{102     uint8\_t  \mbox{\hyperlink{smbios_8h_a6cf773d41d1013f9860a755621aef76f}{asset}};}
+\DoxyCodeLine{103     uint8\_t  \mbox{\hyperlink{smbios_8h_ac3fd4d615f5a44c53ef9399773991576}{partnum}}; \textcolor{comment}{// Last field defined by SMBIOS 2.3.}}
+\DoxyCodeLine{104     \textcolor{comment}{/*uint8\_t  attributes;}}
+\DoxyCodeLine{105 \textcolor{comment}{    uint32\_t ext\_size;}}
+\DoxyCodeLine{106 \textcolor{comment}{    uint16\_t conf\_ram\_speed;}}
+\DoxyCodeLine{107 \textcolor{comment}{    uint16\_t min\_voltage;}}
+\DoxyCodeLine{108 \textcolor{comment}{    uint16\_t max\_votage;}}
+\DoxyCodeLine{109 \textcolor{comment}{    uint16\_t conf\_voltage;}}
+\DoxyCodeLine{110 \textcolor{comment}{    uint8\_t  technology;}}
+\DoxyCodeLine{111 \textcolor{comment}{    uint16\_t operating\_mode\_capability;}}
+\DoxyCodeLine{112 \textcolor{comment}{    uint8\_t  firmware\_version;}}
+\DoxyCodeLine{113 \textcolor{comment}{    uint16\_t module\_manufacturer\_id;}}
+\DoxyCodeLine{114 \textcolor{comment}{    uint16\_t module\_product\_id;}}
+\DoxyCodeLine{115 \textcolor{comment}{    uint16\_t mem\_subsystem\_controller\_manufacturer\_id;}}
+\DoxyCodeLine{116 \textcolor{comment}{    uint16\_t mem\_subsystem\_controller\_product\_id;}}
+\DoxyCodeLine{117 \textcolor{comment}{    uint64\_t nonvolatile\_size;}}
+\DoxyCodeLine{118 \textcolor{comment}{    uint64\_t volatile\_size;}}
+\DoxyCodeLine{119 \textcolor{comment}{    uint64\_t cache\_size;}}
+\DoxyCodeLine{120 \textcolor{comment}{    uint64\_t logical\_size;}}
+\DoxyCodeLine{121 \textcolor{comment}{    uint32\_t extended\_speed;}}
+\DoxyCodeLine{122 \textcolor{comment}{    uint32\_t extended\_conf\_speed;*/}}
+\DoxyCodeLine{123 \} \_\_attribute\_\_((packed));}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{129 \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{smbios_8h_structmem__dev}{mem\_dev}} *\mbox{\hyperlink{smbios_8h_a4f0421efa363a587e73df293888a6934}{dmi\_memory\_device}};}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{135 \textcolor{keywordtype}{int} \mbox{\hyperlink{smbios_8h_a062e9397e5846970eaebac281be34003}{smbios\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{141 \textcolor{keywordtype}{void} \mbox{\hyperlink{smbios_8h_af96fb34a44df320badaee73ed504c31d}{print\_smbios\_startup\_info}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SMBIOS\_H}}
+
+\end{DoxyCode}

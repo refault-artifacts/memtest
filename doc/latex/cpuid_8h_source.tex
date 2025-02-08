@@ -1,0 +1,212 @@
+\hypertarget{cpuid_8h_source}{}\doxysection{cpuid.\+h}
+\label{cpuid_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpuid.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpuid.h}}
+\mbox{\hyperlink{cpuid_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef CPUID\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define CPUID\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2004-\/2022 Sam Demeulemeester.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Derived from memtest86+ cpuid.h}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define CPU\_ECORE\_ID 0x20}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define CPU\_PCORE\_ID 0x40}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edda7ca4b522aeddae5d17e8f06bcc59732d}{CORE\_UNKNOWN}},}
+\DoxyCodeLine{23     \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edda0cbc9f3d8f01383a697ca5333b9abd1d}{CORE\_PCORE}},}
+\DoxyCodeLine{24     \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0eddafccf1b7a612b410d619b17f25b3703a8}{CORE\_ECORE}}}
+\DoxyCodeLine{25 \} \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\_type\_t}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{31 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{32     uint32\_t        \mbox{\hyperlink{cpuid_8h_a4fa50fe6818f420d50be93852bccb648}{raw}};}
+\DoxyCodeLine{33     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{34         uint32\_t    stepping        : 4;}
+\DoxyCodeLine{35         uint32\_t    model           : 4;}
+\DoxyCodeLine{36         uint32\_t    family          : 4;}
+\DoxyCodeLine{37         uint32\_t    processorType   : 2;}
+\DoxyCodeLine{38         uint32\_t                    : 2;}
+\DoxyCodeLine{39         uint32\_t    extendedModel   : 4;}
+\DoxyCodeLine{40         uint32\_t    extendedFamily  : 8;}
+\DoxyCodeLine{41         uint32\_t                    : 4;}
+\DoxyCodeLine{42     \};}
+\DoxyCodeLine{43 \} \mbox{\hyperlink{cpuid_8h_unioncpuid__version__t}{cpuid\_version\_t}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{46     uint32\_t        \mbox{\hyperlink{cpuid_8h_aa314fa6ffffaa246cf0c7832413ec580}{raw}};}
+\DoxyCodeLine{47     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{48         uint32\_t    brandIndex              : 8;}
+\DoxyCodeLine{49         uint32\_t    cflushLineSize          : 8;}
+\DoxyCodeLine{50         uint32\_t    logicalProcessorCount   : 8;}
+\DoxyCodeLine{51         uint32\_t    apicID                  : 8;}
+\DoxyCodeLine{52     \};}
+\DoxyCodeLine{53 \} \mbox{\hyperlink{cpuid_8h_unioncpuid__proc__info__t}{cpuid\_proc\_info\_t}};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{56     uint32\_t        raw[3];}
+\DoxyCodeLine{57     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{58         uint32\_t    fpu     : 1;    \textcolor{comment}{// EDX feature flags, bit 0 */}}
+\DoxyCodeLine{59         uint32\_t    vme     : 1;}
+\DoxyCodeLine{60         uint32\_t    de      : 1;}
+\DoxyCodeLine{61         uint32\_t    pse     : 1;}
+\DoxyCodeLine{62         uint32\_t    \mbox{\hyperlink{tsc_8h_a6bb1fdd160b8283ecfd6e1dedb7ea459}{rdtsc}}   : 1;}
+\DoxyCodeLine{63         uint32\_t    msr     : 1;}
+\DoxyCodeLine{64         uint32\_t    pae     : 1;}
+\DoxyCodeLine{65         uint32\_t    mce     : 1;}
+\DoxyCodeLine{66         uint32\_t    cx8     : 1;}
+\DoxyCodeLine{67         uint32\_t    apic    : 1;}
+\DoxyCodeLine{68         uint32\_t            : 1;}
+\DoxyCodeLine{69         uint32\_t    sep     : 1;}
+\DoxyCodeLine{70         uint32\_t    mtrr    : 1;}
+\DoxyCodeLine{71         uint32\_t    pge     : 1;}
+\DoxyCodeLine{72         uint32\_t    mca     : 1;}
+\DoxyCodeLine{73         uint32\_t    cmov    : 1;}
+\DoxyCodeLine{74         uint32\_t    pat     : 1;}
+\DoxyCodeLine{75         uint32\_t    pse36   : 1;}
+\DoxyCodeLine{76         uint32\_t    psn     : 1;}
+\DoxyCodeLine{77         uint32\_t    cflush  : 1;}
+\DoxyCodeLine{78         uint32\_t            : 1;}
+\DoxyCodeLine{79         uint32\_t    ds      : 1;}
+\DoxyCodeLine{80         uint32\_t    acpi    : 1;}
+\DoxyCodeLine{81         uint32\_t    mmx     : 1;}
+\DoxyCodeLine{82         uint32\_t    fxsr    : 1;}
+\DoxyCodeLine{83         uint32\_t    sse     : 1;}
+\DoxyCodeLine{84         uint32\_t    sse2    : 1;}
+\DoxyCodeLine{85         uint32\_t    ss      : 1;}
+\DoxyCodeLine{86         uint32\_t    htt     : 1;}
+\DoxyCodeLine{87         uint32\_t    tm      : 1;}
+\DoxyCodeLine{88         uint32\_t    bit30   : 1;}
+\DoxyCodeLine{89         uint32\_t    pbe     : 1;    \textcolor{comment}{// EDX feature flags, bit 31}}
+\DoxyCodeLine{90         uint32\_t    sse3    : 1;    \textcolor{comment}{// ECX feature flags, bit 0}}
+\DoxyCodeLine{91         uint32\_t    mulq    : 1;}
+\DoxyCodeLine{92         uint32\_t    bit2    : 1;}
+\DoxyCodeLine{93         uint32\_t    mon     : 1;}
+\DoxyCodeLine{94         uint32\_t    dscpl   : 1;}
+\DoxyCodeLine{95         uint32\_t    vmx     : 1;}
+\DoxyCodeLine{96         uint32\_t    smx     : 1;}
+\DoxyCodeLine{97         uint32\_t    eist    : 1;}
+\DoxyCodeLine{98         uint32\_t    tm2     : 1;}
+\DoxyCodeLine{99         uint32\_t            : 12;   \textcolor{comment}{// ECX feature flags, bit 20}}
+\DoxyCodeLine{100         uint32\_t    x2apic  : 1;}
+\DoxyCodeLine{101         uint32\_t            : 10;   \textcolor{comment}{// ECX feature flags, bit 31}}
+\DoxyCodeLine{102         uint32\_t            : 29;   \textcolor{comment}{// EDX extended feature flags, bit 0}}
+\DoxyCodeLine{103         uint32\_t    lm      : 1;}
+\DoxyCodeLine{104         uint32\_t            : 2;    \textcolor{comment}{// EDX extended feature flags, bit 31}}
+\DoxyCodeLine{105     \};}
+\DoxyCodeLine{106 \} \mbox{\hyperlink{cpuid_8h_unioncpuid__feature__flags__t}{cpuid\_feature\_flags\_t}};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define CPUID\_VENDOR\_LENGTH     3}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define CPUID\_VENDOR\_STR\_LENGTH (CPUID\_VENDOR\_LENGTH * sizeof(uint32\_t) + 1)    }\textcolor{comment}{// includes space for null terminator}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{112     uint32\_t        raw[\mbox{\hyperlink{cpuid_8h_aa0e73488d3d7797087925d68811fa99a}{CPUID\_VENDOR\_LENGTH}}];}
+\DoxyCodeLine{113     \textcolor{keywordtype}{char}            str[\mbox{\hyperlink{cpuid_8h_aa65d9abba5ef5b0808d9b78c60da153f}{CPUID\_VENDOR\_STR\_LENGTH}}];}
+\DoxyCodeLine{114 \} \mbox{\hyperlink{cpuid_8h_unioncpuid__vendor__string__t}{cpuid\_vendor\_string\_t}};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define CPUID\_BRAND\_LENGTH      12}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define CPUID\_BRAND\_STR\_LENGTH  (CPUID\_BRAND\_LENGTH * sizeof(uint32\_t) + 1)     }\textcolor{comment}{// includes space for null terminator}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{120     uint32\_t        raw[\mbox{\hyperlink{cpuid_8h_a7a3a62abbe7b4c10e9852caf75e220e6}{CPUID\_BRAND\_LENGTH}}];}
+\DoxyCodeLine{121     \textcolor{keywordtype}{char}            str[\mbox{\hyperlink{cpuid_8h_aea32ad003e9dfd8705906c3bb61a3873}{CPUID\_BRAND\_STR\_LENGTH}}];}
+\DoxyCodeLine{122 \} \mbox{\hyperlink{cpuid_8h_unioncpuid__brand__string__t}{cpuid\_brand\_string\_t}};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{125     uint32\_t        raw[12];}
+\DoxyCodeLine{126     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{127         uint32\_t                : 24;}
+\DoxyCodeLine{128         uint32\_t    l1\_i\_size   : 8;}
+\DoxyCodeLine{129         uint32\_t                : 24;}
+\DoxyCodeLine{130         uint32\_t    l1\_d\_size   : 8;}
+\DoxyCodeLine{131         uint32\_t                : 16;}
+\DoxyCodeLine{132         uint32\_t    l2\_size     : 16;}
+\DoxyCodeLine{133         uint32\_t                : 18;}
+\DoxyCodeLine{134         uint32\_t    l3\_size     : 14;}
+\DoxyCodeLine{135     \};}
+\DoxyCodeLine{136 \} \mbox{\hyperlink{cpuid_8h_unioncpuid__cache__info__t}{cpuid\_cache\_info\_t}};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{139     uint32\_t        \mbox{\hyperlink{cpuid_8h_a044f6dc0b2ccba10b2adea8ee85a7067}{raw}};}
+\DoxyCodeLine{140     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{141         uint32\_t    : 1;}
+\DoxyCodeLine{142     \};}
+\DoxyCodeLine{143 \} \mbox{\hyperlink{cpuid_8h_unioncpuid__custom__features}{cpuid\_custom\_features}};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{146     \textcolor{keywordtype}{int}     \mbox{\hyperlink{cpuid_8h_a6bbb1711489ef40fff5d0eb878b8e08e}{core\_count}};}
+\DoxyCodeLine{147     \textcolor{keywordtype}{int}     \mbox{\hyperlink{cpuid_8h_a8d48bd97511d3dedd0e44d3213510f25}{thread\_count}};}
+\DoxyCodeLine{148     \textcolor{keywordtype}{int}     \mbox{\hyperlink{cpuid_8h_a609e71d5e33d3535e06425dfec76e9a6}{is\_hybrid}};}
+\DoxyCodeLine{149     \textcolor{keywordtype}{int}     \mbox{\hyperlink{cpuid_8h_a5bb52221d96605aeaf339662580f335a}{ecore\_count}};}
+\DoxyCodeLine{150     \textcolor{keywordtype}{int}     \mbox{\hyperlink{cpuid_8h_a97c3303baea497fd2881e83507a9ab69}{pcore\_count}};}
+\DoxyCodeLine{151 \} \mbox{\hyperlink{cpuid_8h_structcpuid__topology__t}{cpuid\_topology\_t}};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{154     uint32\_t                \mbox{\hyperlink{cpuid_8h_abbcb4dfa38ce9aab1477fed03af9976b}{max\_cpuid}};}
+\DoxyCodeLine{155     uint32\_t                \mbox{\hyperlink{cpuid_8h_a697fe5753b18645a86a19b0aba7e9f46}{max\_xcpuid}};}
+\DoxyCodeLine{156     uint32\_t                \mbox{\hyperlink{cpuid_8h_ac369136b0d60175728d3533335d91678}{dts\_pmp}};}
+\DoxyCodeLine{157     \mbox{\hyperlink{cpuid_8h_unioncpuid__version__t}{cpuid\_version\_t}}         \mbox{\hyperlink{cpuid_8h_aa94126ef0a85a82372b4f5fe9a8a8825}{version}};}
+\DoxyCodeLine{158     \mbox{\hyperlink{cpuid_8h_unioncpuid__proc__info__t}{cpuid\_proc\_info\_t}}       \mbox{\hyperlink{cpuid_8h_ab730f582d24afe5d7fe8c925d09a3021}{proc\_info}};}
+\DoxyCodeLine{159     \mbox{\hyperlink{cpuid_8h_unioncpuid__feature__flags__t}{cpuid\_feature\_flags\_t}}   \mbox{\hyperlink{cpuid_8h_aec4296e2484ed81292bd54484c8cef76}{flags}};}
+\DoxyCodeLine{160     \mbox{\hyperlink{cpuid_8h_unioncpuid__vendor__string__t}{cpuid\_vendor\_string\_t}}   \mbox{\hyperlink{cpuid_8h_ad8230f6f3fc1e4ada36bd87f46c9c1e2}{vendor\_id}};}
+\DoxyCodeLine{161     \mbox{\hyperlink{cpuid_8h_unioncpuid__brand__string__t}{cpuid\_brand\_string\_t}}    \mbox{\hyperlink{cpuid_8h_aa12394374cef024c538cc1070b6e0d1a}{brand\_id}};}
+\DoxyCodeLine{162     \mbox{\hyperlink{cpuid_8h_unioncpuid__cache__info__t}{cpuid\_cache\_info\_t}}      \mbox{\hyperlink{cpuid_8h_a465f3e53d66d625614c20976d4ddcaac}{cache\_info}};}
+\DoxyCodeLine{163     \mbox{\hyperlink{cpuid_8h_unioncpuid__custom__features}{cpuid\_custom\_features}}   \mbox{\hyperlink{cpuid_8h_ae055c54f73078d9478be7116b68b63a2}{custom}};}
+\DoxyCodeLine{164     \mbox{\hyperlink{cpuid_8h_structcpuid__topology__t}{cpuid\_topology\_t}}        \mbox{\hyperlink{cpuid_8h_a9d57716532db57e5c66e07cf0cf9db63}{topology}};}
+\DoxyCodeLine{165 \} \mbox{\hyperlink{cpuid_8h_structcpuid__info__t}{cpuid\_info\_t}};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{168     uint32\_t        \mbox{\hyperlink{cpuid_8h_ae74e30eb29248fe645c63a0616c937ea}{raw}};}
+\DoxyCodeLine{169     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{170         uint32\_t    ctype                   : 5;}
+\DoxyCodeLine{171         uint32\_t    level                   : 3;}
+\DoxyCodeLine{172         uint32\_t    is\_self\_initializing    : 1;}
+\DoxyCodeLine{173         uint32\_t    is\_fully\_associative    : 1;}
+\DoxyCodeLine{174         uint32\_t    reserved                : 4;}
+\DoxyCodeLine{175         uint32\_t    num\_threads\_sharing     : 12;}
+\DoxyCodeLine{176         uint32\_t    num\_cores\_on\_die        : 6;}
+\DoxyCodeLine{177     \};}
+\DoxyCodeLine{178 \} \mbox{\hyperlink{cpuid_8h_unioncpuid4__eax__t}{cpuid4\_eax\_t}};}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{181     uint32\_t        \mbox{\hyperlink{cpuid_8h_a2aa3739a47e3722d832ce157c2c152e0}{raw}};}
+\DoxyCodeLine{182     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{183         uint32\_t    coherency\_line\_size     : 12;}
+\DoxyCodeLine{184         uint32\_t    physical\_line\_partition : 10;}
+\DoxyCodeLine{185         uint32\_t    ways\_of\_associativity   : 10;}
+\DoxyCodeLine{186     \};}
+\DoxyCodeLine{187 \} \mbox{\hyperlink{cpuid_8h_unioncpuid4__ebx__t}{cpuid4\_ebx\_t}};}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\{}
+\DoxyCodeLine{190     uint32\_t        \mbox{\hyperlink{cpuid_8h_ad83c7bcf2dc5d41b95fe6265b5970572}{raw}};}
+\DoxyCodeLine{191     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{192         uint32\_t    number\_of\_sets          : 32;}
+\DoxyCodeLine{193     \};}
+\DoxyCodeLine{194 \} \mbox{\hyperlink{cpuid_8h_unioncpuid4__ecx__t}{cpuid4\_ecx\_t}};}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{199 \textcolor{keyword}{extern} \mbox{\hyperlink{cpuid_8h_structcpuid__info__t}{cpuid\_info\_t}} \mbox{\hyperlink{cpuid_8h_a7fe370d39fee35d0945fcf660fc27c38}{cpuid\_info}};}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{204 \textcolor{keywordtype}{void} \mbox{\hyperlink{cpuid_8h_a366ad2db74acf179f3777a75ac5d351a}{cpuid\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{209 \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\_type\_t}} \mbox{\hyperlink{cpuid_8h_a9b239bad508d61a45347cbc73175c7d3}{get\_ap\_hybrid\_type}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{214 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{cpuid_8h_a7e36a193c1c5d485fc09f36a5efb4a53}{cpuid}}(uint32\_t op, uint32\_t count, uint32\_t *eax, uint32\_t *ebx, uint32\_t *ecx, uint32\_t *edx)}
+\DoxyCodeLine{215 \{}
+\DoxyCodeLine{216     *eax = op;}
+\DoxyCodeLine{217     *ecx = count;}
+\DoxyCodeLine{218     \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}cpuid"{}}}
+\DoxyCodeLine{219         : \textcolor{stringliteral}{"{}=a"{}} (*eax),}
+\DoxyCodeLine{220           \textcolor{stringliteral}{"{}=b"{}} (*ebx),}
+\DoxyCodeLine{221           \textcolor{stringliteral}{"{}=c"{}} (*ecx),}
+\DoxyCodeLine{222           \textcolor{stringliteral}{"{}=d"{}} (*edx)}
+\DoxyCodeLine{223         : \textcolor{stringliteral}{"{}0"{}}  (*eax),}
+\DoxyCodeLine{224           \textcolor{stringliteral}{"{}2"{}}  (*ecx)}
+\DoxyCodeLine{225     );}
+\DoxyCodeLine{226 \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CPUID\_H}}
+
+\end{DoxyCode}

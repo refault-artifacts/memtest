@@ -1,0 +1,135 @@
+\hypertarget{io_8h_source}{}\doxysection{io.\+h}
+\label{io_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/io.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/io.h}}
+\mbox{\hyperlink{io_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef IO\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define IO\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{19 \textcolor{comment}{ * Derived from memtest86+ io.h.}}
+\DoxyCodeLine{20 \textcolor{comment}{ * (original contained no copyright statement)}}
+\DoxyCodeLine{21 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef SLOW\_IO\_BY\_JUMPING}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define \_\_SLOW\_DOWN\_IO \_\_asm\_\_ \_\_volatile\_\_("{}jmp 1f\(\backslash\)n1:\(\backslash\)tjmp 1f\(\backslash\)n1:"{}})}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define \_\_SLOW\_DOWN\_IO \_\_asm\_\_ \_\_volatile\_\_("{}outb \%al,\$0x80"{}})}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifdef REALLY\_SLOW\_IO}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define SLOW\_DOWN\_IO \{ \_\_SLOW\_DOWN\_IO; \_\_SLOW\_DOWN\_IO; \_\_SLOW\_DOWN\_IO; \_\_SLOW\_DOWN\_IO; \}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define SLOW\_DOWN\_IO \_\_SLOW\_DOWN\_IO}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define \_\_OUT1(s,x) \(\backslash\)}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{static inline void \_\_out\#\#s(unsigned x value, unsigned short port) \{}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define \_\_OUT2(s,s1,s2) \(\backslash\)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\_\_asm\_\_ \_\_volatile\_\_ ("{}out"{}} \#s "{} \%"{} s1 "{}0,\%"{} s2 "{}1"{}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define \_\_OUT(s,s1,x) \(\backslash\)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\_\_OUT1(s,x) \_\_OUT2(s,s1,"{}w"{}}) : : "{}a"{} (value), "{}d"{} (port)); \} \(\backslash\)}
+\DoxyCodeLine{43 \_\_OUT1(s\#\#c,x) \_\_OUT2(s,s1,"{}"{}) : : "{}a"{} (value), "{}id"{} (port)); \} \(\backslash\)}
+\DoxyCodeLine{44 \_\_OUT1(s\#\#\_p,x) \_\_OUT2(s,s1,"{}w"{}) : : "{}a"{} (value), "{}d"{} (port)); SLOW\_DOWN\_IO; \} \(\backslash\)}
+\DoxyCodeLine{45 \_\_OUT1(s\#\#c\_p,x) \_\_OUT2(s,s1,"{}"{}) : : "{}a"{} (value), "{}id"{} (port)); SLOW\_DOWN\_IO; \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define \_\_IN1(s) \(\backslash\)}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{static inline RETURN\_TYPE \_\_in\#\#s(unsigned short port) \{ RETURN\_TYPE \_v;}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define \_\_IN2(s,s1,s2) \(\backslash\)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\_\_asm\_\_ \_\_volatile\_\_ ("{}in"{}} \#s "{} \%"{} s2 "{}1,\%"{} s1 "{}0"{}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define \_\_IN(s,s1,i...) \(\backslash\)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\_\_IN1(s) \_\_IN2(s,s1,"{}w"{}}) : "{}=a"{} (\_v) : "{}d"{} (port) ,\#\#i ); return \_v; \} \(\backslash\)}
+\DoxyCodeLine{55 \_\_IN1(s\#\#c) \_\_IN2(s,s1,"{}"{}) : "{}=a"{} (\_v) : "{}id"{} (port) ,\#\#i ); return \_v; \} \(\backslash\)}
+\DoxyCodeLine{56 \_\_IN1(s\#\#\_p) \_\_IN2(s,s1,"{}w"{}) : "{}=a"{} (\_v) : "{}d"{} (port) ,\#\#i ); SLOW\_DOWN\_IO; return \_v; \} \(\backslash\)}
+\DoxyCodeLine{57 \_\_IN1(s\#\#c\_p) \_\_IN2(s,s1,"{}"{}) : "{}=a"{} (\_v) : "{}id"{} (port) ,\#\#i ); SLOW\_DOWN\_IO; return \_v; \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define \_\_OUTS(s) \(\backslash\)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{static inline void outs\#\#s(unsigned short port, const void * addr, unsigned long count) \(\backslash\)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\{ \_\_asm\_\_ \_\_volatile\_\_ ("{}cld ; rep ; outs"{}} \#s \(\backslash\)}
+\DoxyCodeLine{62 : "{}=S"{} (addr), "{}=c"{} (count) : "{}d"{} (port),"{}0"{} (addr),"{}1"{} (count)); \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define RETURN\_TYPE unsigned char}}
+\DoxyCodeLine{65 \textcolor{comment}{/* \_\_IN(b,"{}b"{},"{}0"{} (0)) */}}
+\DoxyCodeLine{66 \mbox{\hyperlink{io_8h_a65f51c68152fc452f1e2334e787fc8f9}{\_\_IN}}(b,\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#undef RETURN\_TYPE}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define RETURN\_TYPE unsigned short}}
+\DoxyCodeLine{69 \textcolor{comment}{/* \_\_IN(w,"{}w"{},"{}0"{} (0)) */}}
+\DoxyCodeLine{70 \mbox{\hyperlink{io_8h_a65f51c68152fc452f1e2334e787fc8f9}{\_\_IN}}(w,\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#undef RETURN\_TYPE}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define RETURN\_TYPE unsigned int}}
+\DoxyCodeLine{73 \mbox{\hyperlink{io_8h_a65f51c68152fc452f1e2334e787fc8f9}{\_\_IN}}(l,\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#undef RETURN\_TYPE}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \mbox{\hyperlink{io_8h_ae804b83ca816955e285f916a6ec7b6c7}{\_\_OUT}}(b,\textcolor{stringliteral}{"{}b"{}},\textcolor{keywordtype}{char})}
+\DoxyCodeLine{77 \mbox{\hyperlink{io_8h_ae804b83ca816955e285f916a6ec7b6c7}{\_\_OUT}}(w,\textcolor{stringliteral}{"{}w"{}},\textcolor{keywordtype}{short})}
+\DoxyCodeLine{78 \mbox{\hyperlink{io_8h_ae804b83ca816955e285f916a6ec7b6c7}{\_\_OUT}}(l,,\textcolor{keywordtype}{int})}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \mbox{\hyperlink{io_8h_a1b46dad74f1e6e670e35555ef905aba6}{\_\_OUTS}}(b)}
+\DoxyCodeLine{81 \mbox{\hyperlink{io_8h_a1b46dad74f1e6e670e35555ef905aba6}{\_\_OUTS}}(w)}
+\DoxyCodeLine{82 \mbox{\hyperlink{io_8h_a1b46dad74f1e6e670e35555ef905aba6}{\_\_OUTS}}(l)}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define outb(val,port) \(\backslash\)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{    \_\_outbc((val),(port)) : \(\backslash\)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{    \_\_outb((val),(port)))}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define inb(port) \(\backslash\)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{    \_\_inbc(port) : \(\backslash\)}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{    \_\_inb(port))}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define outw(val,port) \(\backslash\)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{    \_\_outwc((val),(port)) : \(\backslash\)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{    \_\_outw((val),(port)))}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define inw(port) \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{    \_\_inwc(port) : \(\backslash\)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{    \_\_inw(port))}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define outl(val,port) \(\backslash\)}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{    \_\_outlc((val),(port)) : \(\backslash\)}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{    \_\_outl((val),(port)))}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define inl(port) \(\backslash\)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{    \_\_inlc(port) : \(\backslash\)}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{    \_\_inl(port))}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{keyword}{static} \_\_inline \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}}
+\DoxyCodeLine{122 \mbox{\hyperlink{io_8h_a89f218126b05d47ca83d302c8ffd9a0b}{inb\_p}} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} \_\_port)}
+\DoxyCodeLine{123 \{}
+\DoxyCodeLine{124     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \_v;}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}}}
+\DoxyCodeLine{127         \textcolor{stringliteral}{"{}inb    \%w1,\%0      \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{128         \textcolor{stringliteral}{"{}outb   \%\%al,\$0x80  \(\backslash\)n"{}}}
+\DoxyCodeLine{129         : \textcolor{stringliteral}{"{}=a"{}} (\_v)}
+\DoxyCodeLine{130         : \textcolor{stringliteral}{"{}Nd"{}} (\_\_port)}
+\DoxyCodeLine{131     );}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{keywordflow}{return} \_v;}
+\DoxyCodeLine{134 \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{keyword}{static} \_\_inline \textcolor{keywordtype}{void}}
+\DoxyCodeLine{137 \mbox{\hyperlink{io_8h_a5e4ea7400de04fdc37ee83e8d73f08ee}{outb\_p}} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \_\_value, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} \_\_port)}
+\DoxyCodeLine{138 \{}
+\DoxyCodeLine{139     \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}}}
+\DoxyCodeLine{140         \textcolor{stringliteral}{"{}outb   \%b0,\%w1     \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{141         \textcolor{stringliteral}{"{}outb   \%\%al,\$0x80  \(\backslash\)n"{}}}
+\DoxyCodeLine{142         : \textcolor{comment}{/* no outputs */}}
+\DoxyCodeLine{143         : \textcolor{stringliteral}{"{}a"{}} (\_\_value),}
+\DoxyCodeLine{144           \textcolor{stringliteral}{"{}Nd"{}} (\_\_port)}
+\DoxyCodeLine{145     );}
+\DoxyCodeLine{146 \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// IO\_H}}
+
+\end{DoxyCode}

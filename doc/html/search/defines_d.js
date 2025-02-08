@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['main_5fseg_0',['MAIN_SEG',['../boot_8h.html#a085292b4586ced582fb5e36bab0baadd',1,'boot.h']]],
+  ['max_5faps_1',['MAX_APS',['../boot_8h.html#ae345353a25ae903e76ec3c872d035ca9',1,'boot.h']]],
+  ['max_5fcpus_2',['MAX_CPUS',['../smp_8h.html#a87cbc7cff225b4ad63d67d47c21f933f',1,'smp.h']]],
+  ['max_5fmem_5fsegments_3',['MAX_MEM_SEGMENTS',['../pmem_8h.html#a9716979d0c7a4a73a3d0a65a31e7ecee',1,'pmem.h']]],
+  ['mb_4',['MB',['../memsize_8h.html#aa6b38d492364d98453284934ed7caee9',1,'memsize.h']]],
+  ['memcpy_5',['memcpy',['../string_8h.html#aed653b4838032a2c5ce8960421c8cfd7',1,'string.h']]],
+  ['memset_6',['memset',['../string_8h.html#a71dcb02253b987acc46948d01ab28696',1,'string.h']]],
+  ['msr_5famd64_5fcofvid_5fstatus_7',['MSR_AMD64_COFVID_STATUS',['../msr_8h.html#aff2bbbf6c7da5b891cb3ae2c1edb50f8',1,'msr.h']]],
+  ['msr_5famd64_5fnb_5fcfg_8',['MSR_AMD64_NB_CFG',['../msr_8h.html#ab6b20bd531d8be8de1cf61dcc3471fbe',1,'msr.h']]],
+  ['msr_5febc_5ffrequency_5fid_9',['MSR_EBC_FREQUENCY_ID',['../msr_8h.html#ae2fafcb20ab526203a70a0bf63d9446b',1,'msr.h']]],
+  ['msr_5fefer_10',['MSR_EFER',['../msr_8h.html#a6ccbf4c3059a646738b4ec7ffffe372d',1,'msr.h']]],
+  ['msr_5fia32_5fapic_5fbase_11',['MSR_IA32_APIC_BASE',['../msr_8h.html#a49318f6758d72a0279797a7821f95ff0',1,'msr.h']]],
+  ['msr_5fia32_5febl_5fcr_5fpoweron_12',['MSR_IA32_EBL_CR_POWERON',['../msr_8h.html#a6642a518367acc32329a3baa0cb49145',1,'msr.h']]],
+  ['msr_5fia32_5fmcg_5fctl_13',['MSR_IA32_MCG_CTL',['../msr_8h.html#abf817c21b6355e1a94f4a6a151d0bd37',1,'msr.h']]],
+  ['msr_5fia32_5fperf_5fstatus_14',['MSR_IA32_PERF_STATUS',['../msr_8h.html#afa364b9bc12f75f7a161eb3790dfe60d',1,'msr.h']]],
+  ['msr_5fia32_5fplatform_5fid_15',['MSR_IA32_PLATFORM_ID',['../msr_8h.html#a2bd2b1cf6cc8b68d31846b5ae8db6423',1,'msr.h']]],
+  ['msr_5fia32_5ftemperature_5ftarget_16',['MSR_IA32_TEMPERATURE_TARGET',['../msr_8h.html#a0ef09f5b6d38dc5c73f827206977f731',1,'msr.h']]],
+  ['msr_5fia32_5ftherm_5fstatus_17',['MSR_IA32_THERM_STATUS',['../msr_8h.html#a3940bd7e7cc81fd9476152b71e29ea7b',1,'msr.h']]],
+  ['msr_5fk7_5fhwcr_18',['MSR_K7_HWCR',['../msr_8h.html#a53b936bf70fbc31e9823aacb35114ba8',1,'msr.h']]],
+  ['msr_5fk7_5fvid_5fstatus_19',['MSR_K7_VID_STATUS',['../msr_8h.html#abb0be0827e822bc2a73588abc1827ad1',1,'msr.h']]],
+  ['msr_5fplatform_5finfo_20',['MSR_PLATFORM_INFO',['../msr_8h.html#a30d76dc344070f55f35daa5f99d92898',1,'msr.h']]],
+  ['mt_5fversion_21',['MT_VERSION',['../version_8h.html#ad8ba3857a5258498356f4ab0e81352a3',1,'version.h']]]
+];

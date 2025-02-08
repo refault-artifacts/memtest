@@ -1,0 +1,1686 @@
+\hypertarget{jedec__id_8h_source}{}\doxysection{jedec\+\_\+id.\+h}
+\label{jedec__id_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/jedec\_id.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/jedec\_id.h}}
+\mbox{\hyperlink{jedec__id_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* MemTest86+ V5 Specific code (GPL V2.0)}}
+\DoxyCodeLine{2 \textcolor{comment}{ * By Samuel DEMEULEMEESTER, memtest@memtest.org}}
+\DoxyCodeLine{3 \textcolor{comment}{ * https://x86.fr -\/ https://www.memtest.org}}
+\DoxyCodeLine{4 \textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Based on JEDEC JEP106-\/BA -\/ January 2022}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define JEDEC\_CONT\_CODE\_MAX 14}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define JEP106\_CNT \(\backslash\)}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{    sizeof(jep106)/sizeof(jep106[0])}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{struct }\mbox{\hyperlink{jedec__id_8h_structspd__jedec__manufacturer}{spd\_jedec\_manufacturer}} \{}
+\DoxyCodeLine{14     uint16\_t \mbox{\hyperlink{jedec__id_8h_a9fd10202006e7c0e6a9b7b8b4cde6a2c}{jedec\_code}};}
+\DoxyCodeLine{15     \textcolor{keywordtype}{char} *\mbox{\hyperlink{jedec__id_8h_adacdd52869ccf5be7ae131183351c902}{name}};}
+\DoxyCodeLine{16 \};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{struct }\mbox{\hyperlink{jedec__id_8h_structspd__jedec__manufacturer}{spd\_jedec\_manufacturer}} \mbox{\hyperlink{jedec__id_8h_a24bb66f88af7fb0e946c158e3399a161}{jep106}}[] = \{}
+\DoxyCodeLine{19     \{ 0x0001, \textcolor{stringliteral}{"{}AMD"{}} \},}
+\DoxyCodeLine{20 \textcolor{comment}{//  \{ 0x0002, "{}AMI"{} \},}}
+\DoxyCodeLine{21 \textcolor{comment}{//  \{ 0x0003, "{}Fairchild"{} \},}}
+\DoxyCodeLine{22     \{ 0x0004, \textcolor{stringliteral}{"{}Fujitsu"{}} \},}
+\DoxyCodeLine{23     \{ 0x0005, \textcolor{stringliteral}{"{}GTE"{}} \},}
+\DoxyCodeLine{24 \textcolor{comment}{//  \{ 0x0006, "{}Harris"{} \},}}
+\DoxyCodeLine{25 \textcolor{comment}{//  \{ 0x0007, "{}Hitachi"{} \},}}
+\DoxyCodeLine{26 \textcolor{comment}{//  \{ 0x0008, "{}Inmos"{} \},}}
+\DoxyCodeLine{27     \{ 0x0009, \textcolor{stringliteral}{"{}Intel"{}} \},}
+\DoxyCodeLine{28 \textcolor{comment}{//  \{ 0x000A, "{}I.T.T."{} \},}}
+\DoxyCodeLine{29 \textcolor{comment}{//  \{ 0x000B, "{}Intersil"{} \},}}
+\DoxyCodeLine{30 \textcolor{comment}{//  \{ 0x000C, "{}Monolithic Memories"{} \},}}
+\DoxyCodeLine{31 \textcolor{comment}{//  \{ 0x000D, "{}Mostek"{} \},}}
+\DoxyCodeLine{32     \{ 0x000E, \textcolor{stringliteral}{"{}Freescale"{}} \},}
+\DoxyCodeLine{33 \textcolor{comment}{//  \{ 0x000F, "{}National"{} \},}}
+\DoxyCodeLine{34 \textcolor{comment}{//  \{ 0x0010, "{}NEC"{} \},}}
+\DoxyCodeLine{35 \textcolor{comment}{//  \{ 0x0011, "{}RCA"{} \},}}
+\DoxyCodeLine{36 \textcolor{comment}{//  \{ 0x0012, "{}Raytheon"{} \},}}
+\DoxyCodeLine{37 \textcolor{comment}{//  \{ 0x0013, "{}Conexant (Rockwell)"{} \},}}
+\DoxyCodeLine{38 \textcolor{comment}{//  \{ 0x0014, "{}Seeq"{} \},}}
+\DoxyCodeLine{39 \textcolor{comment}{//  \{ 0x0015, "{}NXP (Philips)"{} \},}}
+\DoxyCodeLine{40 \textcolor{comment}{//  \{ 0x0016, "{}Synertek"{} \},}}
+\DoxyCodeLine{41     \{ 0x0017, \textcolor{stringliteral}{"{}Texas Instruments"{}} \},}
+\DoxyCodeLine{42     \{ 0x0018, \textcolor{stringliteral}{"{}Kioxia (Toshiba)"{}} \},}
+\DoxyCodeLine{43 \textcolor{comment}{//  \{ 0x0019, "{}Xicor"{} \},}}
+\DoxyCodeLine{44 \textcolor{comment}{//  \{ 0x001A, "{}Zilog"{} \},}}
+\DoxyCodeLine{45 \textcolor{comment}{//  \{ 0x001B, "{}Eurotechnique"{} \},}}
+\DoxyCodeLine{46 \textcolor{comment}{//  \{ 0x001C, "{}Mitsubishi"{} \},}}
+\DoxyCodeLine{47 \textcolor{comment}{//  \{ 0x001D, "{}Lucent (AT\&T)"{} \},}}
+\DoxyCodeLine{48 \textcolor{comment}{//  \{ 0x001E, "{}Exel"{} \},}}
+\DoxyCodeLine{49 \textcolor{comment}{//  \{ 0x001F, "{}Atmel"{} \},}}
+\DoxyCodeLine{50     \{ 0x0020, \textcolor{stringliteral}{"{}STMicro."{}} \},}
+\DoxyCodeLine{51 \textcolor{comment}{//  \{ 0x0021, "{}Lattice Semi."{} \},}}
+\DoxyCodeLine{52 \textcolor{comment}{//  \{ 0x0022, "{}NCR"{} \},}}
+\DoxyCodeLine{53 \textcolor{comment}{//  \{ 0x0023, "{}Wafer Scale Integration"{} \},}}
+\DoxyCodeLine{54 \textcolor{comment}{//  \{ 0x0024, "{}IBM"{} \},}}
+\DoxyCodeLine{55 \textcolor{comment}{//  \{ 0x0025, "{}Tristar"{} \},}}
+\DoxyCodeLine{56 \textcolor{comment}{//  \{ 0x0026, "{}Visic"{} \},}}
+\DoxyCodeLine{57 \textcolor{comment}{//  \{ 0x0027, "{}Intl. CMOS Technology"{} \},}}
+\DoxyCodeLine{58 \textcolor{comment}{//  \{ 0x0028, "{}SSSI"{} \},}}
+\DoxyCodeLine{59     \{ 0x0029, \textcolor{stringliteral}{"{}Microchip"{}} \},}
+\DoxyCodeLine{60 \textcolor{comment}{//  \{ 0x002A, "{}Ricoh Ltd"{} \},}}
+\DoxyCodeLine{61 \textcolor{comment}{//  \{ 0x002B, "{}VLSI"{} \},}}
+\DoxyCodeLine{62     \{ 0x002C, \textcolor{stringliteral}{"{}Micron"{}} \},}
+\DoxyCodeLine{63     \{ 0x002D, \textcolor{stringliteral}{"{}SK Hynix"{}} \},}
+\DoxyCodeLine{64 \textcolor{comment}{//  \{ 0x002E, "{}OKI Semiconductor"{} \},}}
+\DoxyCodeLine{65 \textcolor{comment}{//  \{ 0x002F, "{}ACTEL"{} \},}}
+\DoxyCodeLine{66 \textcolor{comment}{//  \{ 0x0030, "{}Sharp"{} \},}}
+\DoxyCodeLine{67 \textcolor{comment}{//  \{ 0x0031, "{}Catalyst"{} \},}}
+\DoxyCodeLine{68 \textcolor{comment}{//  \{ 0x0032, "{}Panasonic"{} \},}}
+\DoxyCodeLine{69 \textcolor{comment}{//  \{ 0x0033, "{}IDT"{} \},}}
+\DoxyCodeLine{70 \textcolor{comment}{//  \{ 0x0034, "{}Cypress"{} \},}}
+\DoxyCodeLine{71 \textcolor{comment}{//  \{ 0x0035, "{}DEC"{} \},}}
+\DoxyCodeLine{72 \textcolor{comment}{//  \{ 0x0036, "{}LSI Logic"{} \},}}
+\DoxyCodeLine{73 \textcolor{comment}{//  \{ 0x0037, "{}Zarlink (Plessey)"{} \},}}
+\DoxyCodeLine{74 \textcolor{comment}{//  \{ 0x0038, "{}UTMC"{} \},}}
+\DoxyCodeLine{75 \textcolor{comment}{//  \{ 0x0039, "{}Thinking Machine"{} \},}}
+\DoxyCodeLine{76 \textcolor{comment}{//  \{ 0x003A, "{}Thomson CSF"{} \},}}
+\DoxyCodeLine{77 \textcolor{comment}{//  \{ 0x003B, "{}Integrated CMOS (Vertex)"{} \},}}
+\DoxyCodeLine{78 \textcolor{comment}{//  \{ 0x003C, "{}Honeywell"{} \},}}
+\DoxyCodeLine{79 \textcolor{comment}{//  \{ 0x003D, "{}Tektronix"{} \},}}
+\DoxyCodeLine{80 \textcolor{comment}{//  \{ 0x003E, "{}Oracle Corporation"{} \},}}
+\DoxyCodeLine{81 \textcolor{comment}{//  \{ 0x003F, "{}Silicon Storage Technology"{} \},}}
+\DoxyCodeLine{82     \{ 0x0040, \textcolor{stringliteral}{"{}MOSEL"{}} \},}
+\DoxyCodeLine{83     \{ 0x0041, \textcolor{stringliteral}{"{}Infineon"{}} \},}
+\DoxyCodeLine{84     \{ 0x0042, \textcolor{stringliteral}{"{}Macronix"{}} \},}
+\DoxyCodeLine{85 \textcolor{comment}{//  \{ 0x0043, "{}Xerox"{} \},}}
+\DoxyCodeLine{86 \textcolor{comment}{//  \{ 0x0044, "{}Plus Logic"{} \},}}
+\DoxyCodeLine{87 \textcolor{comment}{//  \{ 0x0045, "{}Western Digital Technologies Inc"{} \},}}
+\DoxyCodeLine{88 \textcolor{comment}{//  \{ 0x0046, "{}Elan Circuit Tech."{} \},}}
+\DoxyCodeLine{89 \textcolor{comment}{//  \{ 0x0047, "{}European Silicon Str."{} \},}}
+\DoxyCodeLine{90     \{ 0x0048, \textcolor{stringliteral}{"{}Apple Computer"{}} \},}
+\DoxyCodeLine{91 \textcolor{comment}{//  \{ 0x0049, "{}Xilinx"{} \},}}
+\DoxyCodeLine{92 \textcolor{comment}{//  \{ 0x004A, "{}Compaq"{} \},}}
+\DoxyCodeLine{93 \textcolor{comment}{//  \{ 0x004B, "{}Protocol Engines"{} \},}}
+\DoxyCodeLine{94 \textcolor{comment}{//  \{ 0x004C, "{}SCI"{} \},}}
+\DoxyCodeLine{95 \textcolor{comment}{//  \{ 0x004D, "{}Seiko Instruments"{} \},}}
+\DoxyCodeLine{96     \{ 0x004E, \textcolor{stringliteral}{"{}Samsung"{}} \},}
+\DoxyCodeLine{97 \textcolor{comment}{//  \{ 0x004F, "{}I3 Design System"{} \},}}
+\DoxyCodeLine{98 \textcolor{comment}{//  \{ 0x0050, "{}Klic"{} \},}}
+\DoxyCodeLine{99 \textcolor{comment}{//  \{ 0x0051, "{}Crosspoint Solutions"{} \},}}
+\DoxyCodeLine{100 \textcolor{comment}{//  \{ 0x0052, "{}Alliance Memory Inc"{} \},}}
+\DoxyCodeLine{101 \textcolor{comment}{//  \{ 0x0053, "{}Tandem"{} \},}}
+\DoxyCodeLine{102 \textcolor{comment}{//  \{ 0x0054, "{}Hewlett-\/Packard"{} \},}}
+\DoxyCodeLine{103 \textcolor{comment}{//  \{ 0x0055, "{}Integrated Silicon Solutions"{} \},}}
+\DoxyCodeLine{104 \textcolor{comment}{//  \{ 0x0056, "{}Brooktree"{} \},}}
+\DoxyCodeLine{105 \textcolor{comment}{//  \{ 0x0057, "{}New Media"{} \},}}
+\DoxyCodeLine{106 \textcolor{comment}{//  \{ 0x0058, "{}MHS Electronic"{} \},}}
+\DoxyCodeLine{107 \textcolor{comment}{//  \{ 0x0059, "{}Performance Semi."{} \},}}
+\DoxyCodeLine{108     \{ 0x005A, \textcolor{stringliteral}{"{}Winbond"{}} \},}
+\DoxyCodeLine{109 \textcolor{comment}{//  \{ 0x005B, "{}Kawasaki Steel"{} \},}}
+\DoxyCodeLine{110 \textcolor{comment}{//  \{ 0x005C, "{}Bright Micro"{} \},}}
+\DoxyCodeLine{111 \textcolor{comment}{//  \{ 0x005D, "{}TECMAR"{} \},}}
+\DoxyCodeLine{112 \textcolor{comment}{//  \{ 0x005E, "{}Exar"{} \},}}
+\DoxyCodeLine{113 \textcolor{comment}{//  \{ 0x005F, "{}PCMCIA"{} \},}}
+\DoxyCodeLine{114 \textcolor{comment}{//  \{ 0x0060, "{}LG Semi (Goldstar)"{} \},}}
+\DoxyCodeLine{115 \textcolor{comment}{//  \{ 0x0061, "{}Northern Telecom"{} \},}}
+\DoxyCodeLine{116     \{ 0x0062, \textcolor{stringliteral}{"{}Sanyo"{}} \},}
+\DoxyCodeLine{117 \textcolor{comment}{//  \{ 0x0063, "{}Array Microsystems"{} \},}}
+\DoxyCodeLine{118 \textcolor{comment}{//  \{ 0x0064, "{}Crystal Semiconductor"{} \},}}
+\DoxyCodeLine{119 \textcolor{comment}{//  \{ 0x0065, "{}Analog Devices"{} \},}}
+\DoxyCodeLine{120 \textcolor{comment}{//  \{ 0x0066, "{}PMC-\/Sierra"{} \},}}
+\DoxyCodeLine{121 \textcolor{comment}{//  \{ 0x0067, "{}Asparix"{} \},}}
+\DoxyCodeLine{122 \textcolor{comment}{//  \{ 0x0068, "{}Convex Computer"{} \},}}
+\DoxyCodeLine{123 \textcolor{comment}{//  \{ 0x0069, "{}Quality Semiconductor"{} \},}}
+\DoxyCodeLine{124 \textcolor{comment}{//  \{ 0x006A, "{}Nimbus Technology"{} \},}}
+\DoxyCodeLine{125 \textcolor{comment}{//  \{ 0x006B, "{}Transwitch"{} \},}}
+\DoxyCodeLine{126 \textcolor{comment}{//  \{ 0x006C, "{}Micronas (ITT Intermetall)"{} \},}}
+\DoxyCodeLine{127 \textcolor{comment}{//  \{ 0x006D, "{}Cannon"{} \},}}
+\DoxyCodeLine{128 \textcolor{comment}{//  \{ 0x006E, "{}Altera"{} \},}}
+\DoxyCodeLine{129 \textcolor{comment}{//  \{ 0x006F, "{}NEXCOM"{} \},}}
+\DoxyCodeLine{130 \textcolor{comment}{//  \{ 0x0070, "{}Qualcomm"{} \},}}
+\DoxyCodeLine{131 \textcolor{comment}{//  \{ 0x0071, "{}Sony"{} \},}}
+\DoxyCodeLine{132 \textcolor{comment}{//  \{ 0x0072, "{}Cray Research"{} \},}}
+\DoxyCodeLine{133 \textcolor{comment}{//  \{ 0x0073, "{}AMS(Austria Micro)"{} \},}}
+\DoxyCodeLine{134 \textcolor{comment}{//  \{ 0x0074, "{}Vitesse"{} \},}}
+\DoxyCodeLine{135 \textcolor{comment}{//  \{ 0x0075, "{}Aster Electronics"{} \},}}
+\DoxyCodeLine{136 \textcolor{comment}{//  \{ 0x0076, "{}Bay Networks (Synoptic)"{} \},}}
+\DoxyCodeLine{137 \textcolor{comment}{//  \{ 0x0077, "{}Zentrum/ZMD"{} \},}}
+\DoxyCodeLine{138 \textcolor{comment}{//  \{ 0x0078, "{}TRW"{} \},}}
+\DoxyCodeLine{139 \textcolor{comment}{//  \{ 0x0079, "{}Thesys"{} \},}}
+\DoxyCodeLine{140 \textcolor{comment}{//  \{ 0x007A, "{}Solbourne Computer"{} \},}}
+\DoxyCodeLine{141 \textcolor{comment}{//  \{ 0x007B, "{}Allied-\/Signal"{} \},}}
+\DoxyCodeLine{142 \textcolor{comment}{//  \{ 0x007C, "{}Dialog Semiconductor"{} \},}}
+\DoxyCodeLine{143 \textcolor{comment}{//  \{ 0x007D, "{}Media Vision"{} \},}}
+\DoxyCodeLine{144 \textcolor{comment}{//  \{ 0x007E, "{}Numonyx Corporation"{} \},}}
+\DoxyCodeLine{145 \textcolor{comment}{//  \{ 0x0101, "{}Cirrus Logic"{} \},}}
+\DoxyCodeLine{146 \textcolor{comment}{//  \{ 0x0102, "{}National Instruments"{} \},}}
+\DoxyCodeLine{147 \textcolor{comment}{//  \{ 0x0103, "{}ILC Data Device"{} \},}}
+\DoxyCodeLine{148 \textcolor{comment}{//  \{ 0x0104, "{}Alcatel Mietec"{} \},}}
+\DoxyCodeLine{149 \textcolor{comment}{//  \{ 0x0105, "{}Micro Linear"{} \},}}
+\DoxyCodeLine{150 \textcolor{comment}{//  \{ 0x0106, "{}Univ. of NC"{} \},}}
+\DoxyCodeLine{151 \textcolor{comment}{//  \{ 0x0107, "{}JTAG Technologies"{} \},}}
+\DoxyCodeLine{152 \textcolor{comment}{//  \{ 0x0108, "{}BAE Systems (Loral)"{} \},}}
+\DoxyCodeLine{153 \textcolor{comment}{//  \{ 0x0109, "{}Nchip"{} \},}}
+\DoxyCodeLine{154 \textcolor{comment}{//  \{ 0x010A, "{}Galileo Tech"{} \},}}
+\DoxyCodeLine{155 \textcolor{comment}{//  \{ 0x010B, "{}Bestlink Systems"{} \},}}
+\DoxyCodeLine{156 \textcolor{comment}{//  \{ 0x010C, "{}Graychip"{} \},}}
+\DoxyCodeLine{157 \textcolor{comment}{//  \{ 0x010D, "{}GENNUM"{} \},}}
+\DoxyCodeLine{158 \textcolor{comment}{//  \{ 0x010E, "{}VideoLogic"{} \},}}
+\DoxyCodeLine{159 \textcolor{comment}{//  \{ 0x010F, "{}Robert Bosch"{} \},}}
+\DoxyCodeLine{160 \textcolor{comment}{//  \{ 0x0110, "{}Chip Express"{} \},}}
+\DoxyCodeLine{161 \textcolor{comment}{//  \{ 0x0111, "{}DATARAM"{} \},}}
+\DoxyCodeLine{162 \textcolor{comment}{//  \{ 0x0112, "{}United Microelectronics Corp"{} \},}}
+\DoxyCodeLine{163 \textcolor{comment}{//  \{ 0x0113, "{}TCSI"{} \},}}
+\DoxyCodeLine{164     \{ 0x0114, \textcolor{stringliteral}{"{}Smart Modular"{}} \},}
+\DoxyCodeLine{165 \textcolor{comment}{//  \{ 0x0115, "{}Hughes Aircraft"{} \},}}
+\DoxyCodeLine{166 \textcolor{comment}{//  \{ 0x0116, "{}Lanstar Semiconductor"{} \},}}
+\DoxyCodeLine{167 \textcolor{comment}{//  \{ 0x0117, "{}Qlogic"{} \},}}
+\DoxyCodeLine{168     \{ 0x0118, \textcolor{stringliteral}{"{}Kingston"{}} \},}
+\DoxyCodeLine{169 \textcolor{comment}{//  \{ 0x0119, "{}Music Semi"{} \},}}
+\DoxyCodeLine{170 \textcolor{comment}{//  \{ 0x011A, "{}Ericsson Components"{} \},}}
+\DoxyCodeLine{171 \textcolor{comment}{//  \{ 0x011B, "{}SpaSE"{} \},}}
+\DoxyCodeLine{172 \textcolor{comment}{//  \{ 0x011C, "{}Eon Silicon Devices"{} \},}}
+\DoxyCodeLine{173 \textcolor{comment}{//  \{ 0x011D, "{}Integrated Silicon Solution (ISSI)"{} \},}}
+\DoxyCodeLine{174 \textcolor{comment}{//  \{ 0x011E, "{}DoD"{} \},}}
+\DoxyCodeLine{175 \textcolor{comment}{//  \{ 0x011F, "{}Integ. Memories Tech."{} \},}}
+\DoxyCodeLine{176 \textcolor{comment}{//  \{ 0x0120, "{}Corollary Inc"{} \},}}
+\DoxyCodeLine{177 \textcolor{comment}{//  \{ 0x0121, "{}Dallas Semiconductor"{} \},}}
+\DoxyCodeLine{178 \textcolor{comment}{//  \{ 0x0122, "{}Omnivision"{} \},}}
+\DoxyCodeLine{179 \textcolor{comment}{//  \{ 0x0123, "{}EIV(Switzerland)"{} \},}}
+\DoxyCodeLine{180 \textcolor{comment}{//  \{ 0x0124, "{}Novatel Wireless"{} \},}}
+\DoxyCodeLine{181 \textcolor{comment}{//  \{ 0x0125, "{}Zarlink (Mitel)"{} \},}}
+\DoxyCodeLine{182 \textcolor{comment}{//  \{ 0x0126, "{}Clearpoint"{} \},}}
+\DoxyCodeLine{183 \textcolor{comment}{//  \{ 0x0127, "{}Cabletron"{} \},}}
+\DoxyCodeLine{184 \textcolor{comment}{//  \{ 0x0128, "{}STEC (Silicon Tech)"{} \},}}
+\DoxyCodeLine{185 \textcolor{comment}{//  \{ 0x0129, "{}Vanguard"{} \},}}
+\DoxyCodeLine{186 \textcolor{comment}{//  \{ 0x012A, "{}Hagiwara Sys-\/Com"{} \},}}
+\DoxyCodeLine{187 \textcolor{comment}{//  \{ 0x012B, "{}Vantis"{} \},}}
+\DoxyCodeLine{188 \textcolor{comment}{//  \{ 0x012C, "{}Celestica"{} \},}}
+\DoxyCodeLine{189 \textcolor{comment}{//  \{ 0x012D, "{}Century"{} \},}}
+\DoxyCodeLine{190 \textcolor{comment}{//  \{ 0x012E, "{}Hal Computers"{} \},}}
+\DoxyCodeLine{191 \textcolor{comment}{//  \{ 0x012F, "{}Rohm Company Ltd"{} \},}}
+\DoxyCodeLine{192 \textcolor{comment}{//  \{ 0x0130, "{}Juniper Networks"{} \},}}
+\DoxyCodeLine{193 \textcolor{comment}{//  \{ 0x0131, "{}Libit Signal Processing"{} \},}}
+\DoxyCodeLine{194 \textcolor{comment}{//  \{ 0x0132, "{}Mushkin Enhanced Memory"{} \},}}
+\DoxyCodeLine{195 \textcolor{comment}{//  \{ 0x0133, "{}Tundra Semiconductor"{} \},}}
+\DoxyCodeLine{196 \textcolor{comment}{//  \{ 0x0134, "{}Adaptec Inc"{} \},}}
+\DoxyCodeLine{197 \textcolor{comment}{//  \{ 0x0135, "{}LightSpeed Semi."{} \},}}
+\DoxyCodeLine{198 \textcolor{comment}{//  \{ 0x0136, "{}ZSP Corp"{} \},}}
+\DoxyCodeLine{199 \textcolor{comment}{//  \{ 0x0137, "{}AMIC Technology"{} \},}}
+\DoxyCodeLine{200 \textcolor{comment}{//  \{ 0x0138, "{}Adobe Systems"{} \},}}
+\DoxyCodeLine{201 \textcolor{comment}{//  \{ 0x0139, "{}Dynachip"{} \},}}
+\DoxyCodeLine{202     \{ 0x013A, \textcolor{stringliteral}{"{}PNY"{}} \},}
+\DoxyCodeLine{203 \textcolor{comment}{//  \{ 0x013B, "{}Newport Digital"{} \},}}
+\DoxyCodeLine{204 \textcolor{comment}{//  \{ 0x013C, "{}MMC Networks"{} \},}}
+\DoxyCodeLine{205 \textcolor{comment}{//  \{ 0x013D, "{}T Square"{} \},}}
+\DoxyCodeLine{206 \textcolor{comment}{//  \{ 0x013E, "{}Seiko Epson"{} \},}}
+\DoxyCodeLine{207 \textcolor{comment}{//  \{ 0x013F, "{}Broadcom"{} \},}}
+\DoxyCodeLine{208 \textcolor{comment}{//  \{ 0x0140, "{}Viking Components"{} \},}}
+\DoxyCodeLine{209 \textcolor{comment}{//  \{ 0x0141, "{}V3 Semiconductor"{} \},}}
+\DoxyCodeLine{210     \{ 0x0142, \textcolor{stringliteral}{"{}Flextronics"{}} \},}
+\DoxyCodeLine{211 \textcolor{comment}{//  \{ 0x0143, "{}Suwa Electronics"{} \},}}
+\DoxyCodeLine{212 \textcolor{comment}{//  \{ 0x0144, "{}Transmeta"{} \},}}
+\DoxyCodeLine{213     \{ 0x0145, \textcolor{stringliteral}{"{}Micron CMS"{}} \},}
+\DoxyCodeLine{214 \textcolor{comment}{//  \{ 0x0147, "{}Enhance 3000 Inc"{} \},}}
+\DoxyCodeLine{215 \textcolor{comment}{//  \{ 0x0148, "{}Tower Semiconductor"{} \},}}
+\DoxyCodeLine{216 \textcolor{comment}{//  \{ 0x0149, "{}CPU Design"{} \},}}
+\DoxyCodeLine{217 \textcolor{comment}{//  \{ 0x014A, "{}Price Point"{} \},}}
+\DoxyCodeLine{218 \textcolor{comment}{//  \{ 0x014B, "{}Maxim Integrated Product"{} \},}}
+\DoxyCodeLine{219 \textcolor{comment}{//  \{ 0x014C, "{}Tellabs"{} \},}}
+\DoxyCodeLine{220 \textcolor{comment}{//  \{ 0x014D, "{}Centaur Technology"{} \},}}
+\DoxyCodeLine{221 \textcolor{comment}{//  \{ 0x014E, "{}Unigen Corporation"{} \},}}
+\DoxyCodeLine{222     \{ 0x014F, \textcolor{stringliteral}{"{}Transcend"{}} \},}
+\DoxyCodeLine{223 \textcolor{comment}{//  \{ 0x0150, "{}Memory Card Technology"{} \},}}
+\DoxyCodeLine{224 \textcolor{comment}{//  \{ 0x0151, "{}CKD Corporation Ltd"{} \},}}
+\DoxyCodeLine{225 \textcolor{comment}{//  \{ 0x0152, "{}Capital Instruments Inc"{} \},}}
+\DoxyCodeLine{226 \textcolor{comment}{//  \{ 0x0153, "{}Aica Kogyo Ltd"{} \},}}
+\DoxyCodeLine{227 \textcolor{comment}{//  \{ 0x0154, "{}Linvex Technology"{} \},}}
+\DoxyCodeLine{228 \textcolor{comment}{//  \{ 0x0155, "{}MSC Vertriebs GmbH"{} \},}}
+\DoxyCodeLine{229 \textcolor{comment}{//  \{ 0x0156, "{}AKM Company Ltd"{} \},}}
+\DoxyCodeLine{230 \textcolor{comment}{//  \{ 0x0157, "{}Dynamem Inc"{} \},}}
+\DoxyCodeLine{231 \textcolor{comment}{//  \{ 0x0158, "{}NERA ASA"{} \},}}
+\DoxyCodeLine{232 \textcolor{comment}{//  \{ 0x0159, "{}GSI Technology"{} \},}}
+\DoxyCodeLine{233     \{ 0x015A, \textcolor{stringliteral}{"{}Dane-\/Elec"{}} \},}
+\DoxyCodeLine{234 \textcolor{comment}{//  \{ 0x015B, "{}Acorn Computers"{} \},}}
+\DoxyCodeLine{235 \textcolor{comment}{//  \{ 0x015C, "{}Lara Technology"{} \},}}
+\DoxyCodeLine{236 \textcolor{comment}{//  \{ 0x015D, "{}Oak Technology Inc"{} \},}}
+\DoxyCodeLine{237 \textcolor{comment}{//  \{ 0x015E, "{}Itec Memory"{} \},}}
+\DoxyCodeLine{238 \textcolor{comment}{//  \{ 0x015F, "{}Tanisys Technology"{} \},}}
+\DoxyCodeLine{239 \textcolor{comment}{//  \{ 0x0160, "{}Truevision"{} \},}}
+\DoxyCodeLine{240     \{ 0x0161, \textcolor{stringliteral}{"{}Wintec"{}} \},}
+\DoxyCodeLine{241 \textcolor{comment}{//  \{ 0x0162, "{}Super PC Memory"{} \},}}
+\DoxyCodeLine{242 \textcolor{comment}{//  \{ 0x0163, "{}MGV Memory"{} \},}}
+\DoxyCodeLine{243 \textcolor{comment}{//  \{ 0x0164, "{}Galvantech"{} \},}}
+\DoxyCodeLine{244 \textcolor{comment}{//  \{ 0x0165, "{}Gadzoox Networks"{} \},}}
+\DoxyCodeLine{245 \textcolor{comment}{//  \{ 0x0166, "{}Multi Dimensional Cons."{} \},}}
+\DoxyCodeLine{246 \textcolor{comment}{//  \{ 0x0167, "{}GateField"{} \},}}
+\DoxyCodeLine{247 \textcolor{comment}{//  \{ 0x0168, "{}Integrated Memory System"{} \},}}
+\DoxyCodeLine{248 \textcolor{comment}{//  \{ 0x0169, "{}Triscend"{} \},}}
+\DoxyCodeLine{249 \textcolor{comment}{//  \{ 0x016A, "{}XaQti"{} \},}}
+\DoxyCodeLine{250 \textcolor{comment}{//  \{ 0x016B, "{}Goldenram"{} \},}}
+\DoxyCodeLine{251 \textcolor{comment}{//  \{ 0x016C, "{}Clear Logic"{} \},}}
+\DoxyCodeLine{252 \textcolor{comment}{//  \{ 0x016D, "{}Cimaron Communications"{} \},}}
+\DoxyCodeLine{253 \textcolor{comment}{//  \{ 0x016E, "{}Nippon Steel Semi. Corp"{} \},}}
+\DoxyCodeLine{254 \textcolor{comment}{//  \{ 0x016F, "{}Advantage Memory"{} \},}}
+\DoxyCodeLine{255 \textcolor{comment}{//  \{ 0x0170, "{}AMCC"{} \},}}
+\DoxyCodeLine{256 \textcolor{comment}{//  \{ 0x0171, "{}LeCroy"{} \},}}
+\DoxyCodeLine{257 \textcolor{comment}{//  \{ 0x0172, "{}Yamaha Corporation"{} \},}}
+\DoxyCodeLine{258 \textcolor{comment}{//  \{ 0x0173, "{}Digital Microwave"{} \},}}
+\DoxyCodeLine{259 \textcolor{comment}{//  \{ 0x0174, "{}NetLogic Microsystems"{} \},}}
+\DoxyCodeLine{260 \textcolor{comment}{//  \{ 0x0175, "{}MIMOS Semiconductor"{} \},}}
+\DoxyCodeLine{261 \textcolor{comment}{//  \{ 0x0176, "{}Advanced Fibre"{} \},}}
+\DoxyCodeLine{262 \textcolor{comment}{//  \{ 0x0177, "{}BF Goodrich Data."{} \},}}
+\DoxyCodeLine{263 \textcolor{comment}{//  \{ 0x0178, "{}Epigram"{} \},}}
+\DoxyCodeLine{264     \{ 0x0179, \textcolor{stringliteral}{"{}Acbel"{}} \},}
+\DoxyCodeLine{265     \{ 0x017A, \textcolor{stringliteral}{"{}Apacer"{}} \},}
+\DoxyCodeLine{266 \textcolor{comment}{//  \{ 0x017B, "{}Admor Memory"{} \},}}
+\DoxyCodeLine{267     \{ 0x017C, \textcolor{stringliteral}{"{}FOXCONN"{}} \},}
+\DoxyCodeLine{268 \textcolor{comment}{//  \{ 0x017D, "{}Quadratics Superconductor"{} \},}}
+\DoxyCodeLine{269 \textcolor{comment}{//  \{ 0x017E, "{}3COM"{} \},}}
+\DoxyCodeLine{270 \textcolor{comment}{//  \{ 0x0201, "{}Camintonn Corporation"{} \},}}
+\DoxyCodeLine{271 \textcolor{comment}{//  \{ 0x0202, "{}ISOA Incorporated"{} \},}}
+\DoxyCodeLine{272 \textcolor{comment}{//  \{ 0x0203, "{}Agate Semiconductor"{} \},}}
+\DoxyCodeLine{273 \textcolor{comment}{//  \{ 0x0204, "{}ADMtek Incorporated"{} \},}}
+\DoxyCodeLine{274 \textcolor{comment}{//  \{ 0x0205, "{}HYPERTEC"{} \},}}
+\DoxyCodeLine{275 \textcolor{comment}{//  \{ 0x0206, "{}Adhoc Technologies"{} \},}}
+\DoxyCodeLine{276 \textcolor{comment}{//  \{ 0x0207, "{}MOSAID Technologies"{} \},}}
+\DoxyCodeLine{277 \textcolor{comment}{//  \{ 0x0208, "{}Ardent Technologies"{} \},}}
+\DoxyCodeLine{278 \textcolor{comment}{//  \{ 0x0209, "{}Switchcore"{} \},}}
+\DoxyCodeLine{279 \textcolor{comment}{//  \{ 0x020A, "{}Cisco Systems Inc"{} \},}}
+\DoxyCodeLine{280 \textcolor{comment}{//  \{ 0x020B, "{}Allayer Technologies"{} \},}}
+\DoxyCodeLine{281 \textcolor{comment}{//  \{ 0x020C, "{}WorkX AG (Wichman)"{} \},}}
+\DoxyCodeLine{282 \textcolor{comment}{//  \{ 0x020D, "{}Oasis Semiconductor"{} \},}}
+\DoxyCodeLine{283 \textcolor{comment}{//  \{ 0x020E, "{}Novanet Semiconductor"{} \},}}
+\DoxyCodeLine{284 \textcolor{comment}{//  \{ 0x020F, "{}E-\/M Solutions"{} \},}}
+\DoxyCodeLine{285 \textcolor{comment}{//  \{ 0x0210, "{}Power General"{} \},}}
+\DoxyCodeLine{286 \textcolor{comment}{//  \{ 0x0211, "{}Advanced Hardware Arch."{} \},}}
+\DoxyCodeLine{287 \textcolor{comment}{//  \{ 0x0212, "{}Inova Semiconductors GmbH"{} \},}}
+\DoxyCodeLine{288 \textcolor{comment}{//  \{ 0x0213, "{}Telocity"{} \},}}
+\DoxyCodeLine{289 \textcolor{comment}{//  \{ 0x0214, "{}Delkin Devices"{} \},}}
+\DoxyCodeLine{290 \textcolor{comment}{//  \{ 0x0215, "{}Symagery Microsystems"{} \},}}
+\DoxyCodeLine{291 \textcolor{comment}{//  \{ 0x0216, "{}C-\/Port Corporation"{} \},}}
+\DoxyCodeLine{292 \textcolor{comment}{//  \{ 0x0217, "{}SiberCore Technologies"{} \},}}
+\DoxyCodeLine{293 \textcolor{comment}{//  \{ 0x0218, "{}Southland Microsystems"{} \},}}
+\DoxyCodeLine{294 \textcolor{comment}{//  \{ 0x0219, "{}Malleable Technologies"{} \},}}
+\DoxyCodeLine{295 \textcolor{comment}{//  \{ 0x021A, "{}Kendin Communications"{} \},}}
+\DoxyCodeLine{296 \textcolor{comment}{//  \{ 0x021B, "{}Great Technology Microcomputer"{} \},}}
+\DoxyCodeLine{297 \textcolor{comment}{//  \{ 0x021C, "{}Sanmina Corporation"{} \},}}
+\DoxyCodeLine{298 \textcolor{comment}{//  \{ 0x021D, "{}HADCO Corporation"{} \},}}
+\DoxyCodeLine{299     \{ 0x021E, \textcolor{stringliteral}{"{}Corsair"{}} \},}
+\DoxyCodeLine{300 \textcolor{comment}{//  \{ 0x021F, "{}Actrans System Inc"{} \},}}
+\DoxyCodeLine{301 \textcolor{comment}{//  \{ 0x0220, "{}ALPHA Technologies"{} \},}}
+\DoxyCodeLine{302 \textcolor{comment}{//  \{ 0x0221, "{}Silicon Laboratories Inc (Cygnal)"{} \},}}
+\DoxyCodeLine{303 \textcolor{comment}{//  \{ 0x0222, "{}Artesyn Technologies"{} \},}}
+\DoxyCodeLine{304 \textcolor{comment}{//  \{ 0x0223, "{}Align Manufacturing"{} \},}}
+\DoxyCodeLine{305 \textcolor{comment}{//  \{ 0x0224, "{}Peregrine Semiconductor"{} \},}}
+\DoxyCodeLine{306 \textcolor{comment}{//  \{ 0x0225, "{}Chameleon Systems"{} \},}}
+\DoxyCodeLine{307 \textcolor{comment}{//  \{ 0x0226, "{}Aplus Flash Technology"{} \},}}
+\DoxyCodeLine{308 \textcolor{comment}{//  \{ 0x0227, "{}MIPS Technologies"{} \},}}
+\DoxyCodeLine{309 \textcolor{comment}{//  \{ 0x0228, "{}Chrysalis ITS"{} \},}}
+\DoxyCodeLine{310 \textcolor{comment}{//  \{ 0x0229, "{}ADTEC Corporation"{} \},}}
+\DoxyCodeLine{311     \{ 0x022A, \textcolor{stringliteral}{"{}Kentron"{}} \},}
+\DoxyCodeLine{312 \textcolor{comment}{//  \{ 0x022B, "{}Win Technologies"{} \},}}
+\DoxyCodeLine{313 \textcolor{comment}{//  \{ 0x022C, "{}Tezzaron Semiconductor"{} \},}}
+\DoxyCodeLine{314 \textcolor{comment}{//  \{ 0x022D, "{}Extreme Packet Devices"{} \},}}
+\DoxyCodeLine{315 \textcolor{comment}{//  \{ 0x022E, "{}RF Micro Devices"{} \},}}
+\DoxyCodeLine{316     \{ 0x022F, \textcolor{stringliteral}{"{}Siemens AG"{}} \},}
+\DoxyCodeLine{317 \textcolor{comment}{//  \{ 0x0230, "{}Sarnoff Corporation"{} \},}}
+\DoxyCodeLine{318 \textcolor{comment}{//  \{ 0x0231, "{}Itautec SA"{} \},}}
+\DoxyCodeLine{319 \textcolor{comment}{//  \{ 0x0232, "{}Radiata Inc"{} \},}}
+\DoxyCodeLine{320 \textcolor{comment}{//  \{ 0x0233, "{}Benchmark Elect. (AVEX)"{} \},}}
+\DoxyCodeLine{321 \textcolor{comment}{//  \{ 0x0234, "{}Legend"{} \},}}
+\DoxyCodeLine{322     \{ 0x0235, \textcolor{stringliteral}{"{}SpecTek"{}} \},}
+\DoxyCodeLine{323 \textcolor{comment}{//  \{ 0x0236, "{}Hi/fn"{} \},}}
+\DoxyCodeLine{324 \textcolor{comment}{//  \{ 0x0237, "{}Enikia Incorporated"{} \},}}
+\DoxyCodeLine{325 \textcolor{comment}{//  \{ 0x0238, "{}SwitchOn Networks"{} \},}}
+\DoxyCodeLine{326 \textcolor{comment}{//  \{ 0x0239, "{}AANetcom Incorporated"{} \},}}
+\DoxyCodeLine{327 \textcolor{comment}{//  \{ 0x023A, "{}Micro Memory Bank"{} \},}}
+\DoxyCodeLine{328 \textcolor{comment}{//  \{ 0x023B, "{}ESS Technology"{} \},}}
+\DoxyCodeLine{329 \textcolor{comment}{//  \{ 0x023C, "{}Virata Corporation"{} \},}}
+\DoxyCodeLine{330 \textcolor{comment}{//  \{ 0x023D, "{}Excess Bandwidth"{} \},}}
+\DoxyCodeLine{331 \textcolor{comment}{//  \{ 0x023E, "{}West Bay Semiconductor"{} \},}}
+\DoxyCodeLine{332 \textcolor{comment}{//  \{ 0x023F, "{}DSP Group"{} \},}}
+\DoxyCodeLine{333 \textcolor{comment}{//  \{ 0x0240, "{}Newport Communications"{} \},}}
+\DoxyCodeLine{334 \textcolor{comment}{//  \{ 0x0241, "{}Chip2Chip Incorporated"{} \},}}
+\DoxyCodeLine{335 \textcolor{comment}{//  \{ 0x0242, "{}Phobos Corporation"{} \},}}
+\DoxyCodeLine{336 \textcolor{comment}{//  \{ 0x0243, "{}Intellitech Corporation"{} \},}}
+\DoxyCodeLine{337 \textcolor{comment}{//  \{ 0x0244, "{}Nordic VLSI ASA"{} \},}}
+\DoxyCodeLine{338 \textcolor{comment}{//  \{ 0x0245, "{}Ishoni Networks"{} \},}}
+\DoxyCodeLine{339 \textcolor{comment}{//  \{ 0x0246, "{}Silicon Spice"{} \},}}
+\DoxyCodeLine{340 \textcolor{comment}{//  \{ 0x0247, "{}Alchemy Semiconductor"{} \},}}
+\DoxyCodeLine{341 \textcolor{comment}{//  \{ 0x0248, "{}Agilent Technologies"{} \},}}
+\DoxyCodeLine{342 \textcolor{comment}{//  \{ 0x0249, "{}Centillium Communications"{} \},}}
+\DoxyCodeLine{343 \textcolor{comment}{//  \{ 0x024A, "{}W.L. Gore"{} \},}}
+\DoxyCodeLine{344 \textcolor{comment}{//  \{ 0x024B, "{}HanBit Electronics"{} \},}}
+\DoxyCodeLine{345 \textcolor{comment}{//  \{ 0x024C, "{}GlobeSpan"{} \},}}
+\DoxyCodeLine{346 \textcolor{comment}{//  \{ 0x024D, "{}Element 14"{} \},}}
+\DoxyCodeLine{347 \textcolor{comment}{//  \{ 0x024E, "{}Pycon"{} \},}}
+\DoxyCodeLine{348 \textcolor{comment}{//  \{ 0x024F, "{}Saifun Semiconductors"{} \},}}
+\DoxyCodeLine{349 \textcolor{comment}{//  \{ 0x0250, "{}Sibyte Incorporated"{} \},}}
+\DoxyCodeLine{350 \textcolor{comment}{//  \{ 0x0251, "{}MetaLink Technologies"{} \},}}
+\DoxyCodeLine{351 \textcolor{comment}{//  \{ 0x0252, "{}Feiya Technology"{} \},}}
+\DoxyCodeLine{352 \textcolor{comment}{//  \{ 0x0253, "{}I \& C Technology"{} \},}}
+\DoxyCodeLine{353 \textcolor{comment}{//  \{ 0x0254, "{}Shikatronics"{} \},}}
+\DoxyCodeLine{354 \textcolor{comment}{//  \{ 0x0255, "{}Elektrobit"{} \},}}
+\DoxyCodeLine{355 \textcolor{comment}{//  \{ 0x0256, "{}Megic"{} \},}}
+\DoxyCodeLine{356 \textcolor{comment}{//  \{ 0x0257, "{}Com-\/Tier"{} \},}}
+\DoxyCodeLine{357 \textcolor{comment}{//  \{ 0x0258, "{}Malaysia Micro Solutions"{} \},}}
+\DoxyCodeLine{358 \textcolor{comment}{//  \{ 0x0259, "{}Hyperchip"{} \},}}
+\DoxyCodeLine{359 \textcolor{comment}{//  \{ 0x025A, "{}Gemstone Communications"{} \},}}
+\DoxyCodeLine{360 \textcolor{comment}{//  \{ 0x025B, "{}Anadigm (Anadyne)"{} \},}}
+\DoxyCodeLine{361 \textcolor{comment}{//  \{ 0x025C, "{}3ParData"{} \},}}
+\DoxyCodeLine{362 \textcolor{comment}{//  \{ 0x025D, "{}Mellanox Technologies"{} \},}}
+\DoxyCodeLine{363 \textcolor{comment}{//  \{ 0x025E, "{}Tenx Technologies"{} \},}}
+\DoxyCodeLine{364 \textcolor{comment}{//  \{ 0x025F, "{}Helix AG"{} \},}}
+\DoxyCodeLine{365 \textcolor{comment}{//  \{ 0x0260, "{}Domosys"{} \},}}
+\DoxyCodeLine{366 \textcolor{comment}{//  \{ 0x0261, "{}Skyup Technology"{} \},}}
+\DoxyCodeLine{367 \textcolor{comment}{//  \{ 0x0262, "{}HiNT Corporation"{} \},}}
+\DoxyCodeLine{368 \textcolor{comment}{//  \{ 0x0263, "{}Chiaro"{} \},}}
+\DoxyCodeLine{369 \textcolor{comment}{//  \{ 0x0264, "{}MDT Technologies GmbH"{} \},}}
+\DoxyCodeLine{370 \textcolor{comment}{//  \{ 0x0265, "{}Exbit Technology A/S"{} \},}}
+\DoxyCodeLine{371 \textcolor{comment}{//  \{ 0x0266, "{}Integrated Technology Express"{} \},}}
+\DoxyCodeLine{372 \textcolor{comment}{//  \{ 0x0267, "{}AVED Memory"{} \},}}
+\DoxyCodeLine{373 \textcolor{comment}{//  \{ 0x0268, "{}Legerity"{} \},}}
+\DoxyCodeLine{374 \textcolor{comment}{//  \{ 0x0269, "{}Jasmine Networks"{} \},}}
+\DoxyCodeLine{375 \textcolor{comment}{//  \{ 0x026A, "{}Caspian Networks"{} \},}}
+\DoxyCodeLine{376 \textcolor{comment}{//  \{ 0x026B, "{}nCUBE"{} \},}}
+\DoxyCodeLine{377 \textcolor{comment}{//  \{ 0x026C, "{}Silicon Access Networks"{} \},}}
+\DoxyCodeLine{378 \textcolor{comment}{//  \{ 0x026D, "{}FDK Corporation"{} \},}}
+\DoxyCodeLine{379 \textcolor{comment}{//  \{ 0x026E, "{}High Bandwidth Access"{} \},}}
+\DoxyCodeLine{380 \textcolor{comment}{//  \{ 0x026F, "{}MultiLink Technology"{} \},}}
+\DoxyCodeLine{381 \textcolor{comment}{//  \{ 0x0270, "{}BRECIS"{} \},}}
+\DoxyCodeLine{382 \textcolor{comment}{//  \{ 0x0271, "{}World Wide Packets"{} \},}}
+\DoxyCodeLine{383 \textcolor{comment}{//  \{ 0x0272, "{}APW"{} \},}}
+\DoxyCodeLine{384 \textcolor{comment}{//  \{ 0x0273, "{}Chicory Systems"{} \},}}
+\DoxyCodeLine{385 \textcolor{comment}{//  \{ 0x0274, "{}Xstream Logic"{} \},}}
+\DoxyCodeLine{386 \textcolor{comment}{//  \{ 0x0275, "{}Fast-\/Chip"{} \},}}
+\DoxyCodeLine{387 \textcolor{comment}{//  \{ 0x0276, "{}Zucotto Wireless"{} \},}}
+\DoxyCodeLine{388 \textcolor{comment}{//  \{ 0x0277, "{}Realchip"{} \},}}
+\DoxyCodeLine{389 \textcolor{comment}{//  \{ 0x0278, "{}Galaxy Power"{} \},}}
+\DoxyCodeLine{390 \textcolor{comment}{//  \{ 0x0279, "{}eSilicon"{} \},}}
+\DoxyCodeLine{391 \textcolor{comment}{//  \{ 0x027A, "{}Morphics Technology"{} \},}}
+\DoxyCodeLine{392 \textcolor{comment}{//  \{ 0x027B, "{}Accelerant Networks"{} \},}}
+\DoxyCodeLine{393 \textcolor{comment}{//  \{ 0x027C, "{}Silicon Wave"{} \},}}
+\DoxyCodeLine{394 \textcolor{comment}{//  \{ 0x027D, "{}SandCraft"{} \},}}
+\DoxyCodeLine{395     \{ 0x027E, \textcolor{stringliteral}{"{}Elpida"{}} \},}
+\DoxyCodeLine{396 \textcolor{comment}{//  \{ 0x0301, "{}Solectron"{} \},}}
+\DoxyCodeLine{397 \textcolor{comment}{//  \{ 0x0302, "{}Optosys Technologies"{} \},}}
+\DoxyCodeLine{398 \textcolor{comment}{//  \{ 0x0303, "{}Buffalo (Formerly Melco)"{} \},}}
+\DoxyCodeLine{399 \textcolor{comment}{//  \{ 0x0304, "{}TriMedia Technologies"{} \},}}
+\DoxyCodeLine{400 \textcolor{comment}{//  \{ 0x0305, "{}Cyan Technologies"{} \},}}
+\DoxyCodeLine{401 \textcolor{comment}{//  \{ 0x0306, "{}Global Locate"{} \},}}
+\DoxyCodeLine{402 \textcolor{comment}{//  \{ 0x0307, "{}Optillion"{} \},}}
+\DoxyCodeLine{403 \textcolor{comment}{//  \{ 0x0308, "{}Terago Communications"{} \},}}
+\DoxyCodeLine{404 \textcolor{comment}{//  \{ 0x0309, "{}Ikanos Communications"{} \},}}
+\DoxyCodeLine{405 \textcolor{comment}{//  \{ 0x030A, "{}Princeton Technology"{} \},}}
+\DoxyCodeLine{406     \{ 0x030B, \textcolor{stringliteral}{"{}Nanya"{}} \},}
+\DoxyCodeLine{407 \textcolor{comment}{//  \{ 0x030C, "{}Elite Flash Storage"{} \},}}
+\DoxyCodeLine{408 \textcolor{comment}{//  \{ 0x030D, "{}Mysticom"{} \},}}
+\DoxyCodeLine{409 \textcolor{comment}{//  \{ 0x030E, "{}LightSand Communications"{} \},}}
+\DoxyCodeLine{410     \{ 0x030F, \textcolor{stringliteral}{"{}ATI"{}} \},}
+\DoxyCodeLine{411 \textcolor{comment}{//  \{ 0x0310, "{}Agere Systems"{} \},}}
+\DoxyCodeLine{412 \textcolor{comment}{//  \{ 0x0311, "{}NeoMagic"{} \},}}
+\DoxyCodeLine{413 \textcolor{comment}{//  \{ 0x0312, "{}AuroraNetics"{} \},}}
+\DoxyCodeLine{414     \{ 0x0313, \textcolor{stringliteral}{"{}GEIL"{}} \},}
+\DoxyCodeLine{415     \{ 0x0314, \textcolor{stringliteral}{"{}Mushkin"{}} \},}
+\DoxyCodeLine{416 \textcolor{comment}{//  \{ 0x0315, "{}Tioga Technologies"{} \},}}
+\DoxyCodeLine{417     \{ 0x0316, \textcolor{stringliteral}{"{}Netlist"{}} \},}
+\DoxyCodeLine{418 \textcolor{comment}{//  \{ 0x0317, "{}TeraLogic"{} \},}}
+\DoxyCodeLine{419 \textcolor{comment}{//  \{ 0x0318, "{}Cicada Semiconductor"{} \},}}
+\DoxyCodeLine{420 \textcolor{comment}{//  \{ 0x0319, "{}Centon Electronics"{} \},}}
+\DoxyCodeLine{421 \textcolor{comment}{//  \{ 0x031A, "{}Tyco Electronics"{} \},}}
+\DoxyCodeLine{422 \textcolor{comment}{//  \{ 0x031B, "{}Magis Works"{} \},}}
+\DoxyCodeLine{423 \textcolor{comment}{//  \{ 0x031C, "{}Zettacom"{} \},}}
+\DoxyCodeLine{424 \textcolor{comment}{//  \{ 0x031D, "{}Cogency Semiconductor"{} \},}}
+\DoxyCodeLine{425 \textcolor{comment}{//  \{ 0x031E, "{}Chipcon AS"{} \},}}
+\DoxyCodeLine{426 \textcolor{comment}{//  \{ 0x031F, "{}Aspex Technology"{} \},}}
+\DoxyCodeLine{427 \textcolor{comment}{//  \{ 0x0320, "{}F5 Networks"{} \},}}
+\DoxyCodeLine{428 \textcolor{comment}{//  \{ 0x0321, "{}Programmable Silicon Solutions"{} \},}}
+\DoxyCodeLine{429 \textcolor{comment}{//  \{ 0x0322, "{}ChipWrights"{} \},}}
+\DoxyCodeLine{430 \textcolor{comment}{//  \{ 0x0323, "{}Acorn Networks"{} \},}}
+\DoxyCodeLine{431 \textcolor{comment}{//  \{ 0x0324, "{}Quicklogic"{} \},}}
+\DoxyCodeLine{432     \{ 0x0325, \textcolor{stringliteral}{"{}Kingmax"{}} \},}
+\DoxyCodeLine{433 \textcolor{comment}{//  \{ 0x0326, "{}BOPS"{} \},}}
+\DoxyCodeLine{434 \textcolor{comment}{//  \{ 0x0327, "{}Flasys"{} \},}}
+\DoxyCodeLine{435 \textcolor{comment}{//  \{ 0x0328, "{}BitBlitz Communications"{} \},}}
+\DoxyCodeLine{436 \textcolor{comment}{//  \{ 0x0329, "{}eMemory Technology"{} \},}}
+\DoxyCodeLine{437 \textcolor{comment}{//  \{ 0x032A, "{}Procket Networks"{} \},}}
+\DoxyCodeLine{438 \textcolor{comment}{//  \{ 0x032B, "{}Purple Ray"{} \},}}
+\DoxyCodeLine{439 \textcolor{comment}{//  \{ 0x032C, "{}Trebia Networks"{} \},}}
+\DoxyCodeLine{440 \textcolor{comment}{//  \{ 0x032D, "{}Delta Electronics"{} \},}}
+\DoxyCodeLine{441 \textcolor{comment}{//  \{ 0x032E, "{}Onex Communications"{} \},}}
+\DoxyCodeLine{442 \textcolor{comment}{//  \{ 0x032F, "{}Ample Communications"{} \},}}
+\DoxyCodeLine{443 \textcolor{comment}{//  \{ 0x0330, "{}Memory Experts Intl"{} \},}}
+\DoxyCodeLine{444 \textcolor{comment}{//  \{ 0x0331, "{}Astute Networks"{} \},}}
+\DoxyCodeLine{445 \textcolor{comment}{//  \{ 0x0332, "{}Azanda Network Devices"{} \},}}
+\DoxyCodeLine{446 \textcolor{comment}{//  \{ 0x0333, "{}Dibcom"{} \},}}
+\DoxyCodeLine{447     \{ 0x0334, \textcolor{stringliteral}{"{}Tekmos"{}} \},}
+\DoxyCodeLine{448 \textcolor{comment}{//  \{ 0x0335, "{}API NetWorks"{} \},}}
+\DoxyCodeLine{449 \textcolor{comment}{//  \{ 0x0336, "{}Bay Microsystems"{} \},}}
+\DoxyCodeLine{450 \textcolor{comment}{//  \{ 0x0337, "{}Firecron Ltd"{} \},}}
+\DoxyCodeLine{451 \textcolor{comment}{//  \{ 0x0338, "{}Resonext Communications"{} \},}}
+\DoxyCodeLine{452 \textcolor{comment}{//  \{ 0x0339, "{}Tachys Technologies"{} \},}}
+\DoxyCodeLine{453 \textcolor{comment}{//  \{ 0x033A, "{}Equator Technology"{} \},}}
+\DoxyCodeLine{454 \textcolor{comment}{//  \{ 0x033B, "{}Concept Computer"{} \},}}
+\DoxyCodeLine{455 \textcolor{comment}{//  \{ 0x033C, "{}SILCOM"{} \},}}
+\DoxyCodeLine{456 \textcolor{comment}{//  \{ 0x033D, "{}3Dlabs"{} \},}}
+\DoxyCodeLine{457 \textcolor{comment}{//  \{ 0x033E, "{}c\&t Magazine"{} \},}}
+\DoxyCodeLine{458 \textcolor{comment}{//  \{ 0x033F, "{}Sanera Systems"{} \},}}
+\DoxyCodeLine{459 \textcolor{comment}{//  \{ 0x0340, "{}Silicon Packets"{} \},}}
+\DoxyCodeLine{460 \textcolor{comment}{//  \{ 0x0341, "{}Viasystems Group"{} \},}}
+\DoxyCodeLine{461 \textcolor{comment}{//  \{ 0x0342, "{}Simtek"{} \},}}
+\DoxyCodeLine{462 \textcolor{comment}{//  \{ 0x0343, "{}Semicon Devices Singapore"{} \},}}
+\DoxyCodeLine{463 \textcolor{comment}{//  \{ 0x0344, "{}Satron Handelsges"{} \},}}
+\DoxyCodeLine{464 \textcolor{comment}{//  \{ 0x0345, "{}Improv Systems"{} \},}}
+\DoxyCodeLine{465 \textcolor{comment}{//  \{ 0x0346, "{}INDUSYS GmbH"{} \},}}
+\DoxyCodeLine{466 \textcolor{comment}{//  \{ 0x0347, "{}Corrent"{} \},}}
+\DoxyCodeLine{467 \textcolor{comment}{//  \{ 0x0348, "{}Infrant Technologies"{} \},}}
+\DoxyCodeLine{468 \textcolor{comment}{//  \{ 0x0349, "{}Ritek Corp"{} \},}}
+\DoxyCodeLine{469 \textcolor{comment}{//  \{ 0x034A, "{}empowerTel Networks"{} \},}}
+\DoxyCodeLine{470 \textcolor{comment}{//  \{ 0x034B, "{}Hypertec"{} \},}}
+\DoxyCodeLine{471 \textcolor{comment}{//  \{ 0x034C, "{}Cavium Networks"{} \},}}
+\DoxyCodeLine{472 \textcolor{comment}{//  \{ 0x034D, "{}PLX Technology"{} \},}}
+\DoxyCodeLine{473 \textcolor{comment}{//  \{ 0x034E, "{}Massana Design"{} \},}}
+\DoxyCodeLine{474 \textcolor{comment}{//  \{ 0x034F, "{}Intrinsity"{} \},}}
+\DoxyCodeLine{475 \textcolor{comment}{//  \{ 0x0350, "{}Valence Semiconductor"{} \},}}
+\DoxyCodeLine{476 \textcolor{comment}{//  \{ 0x0351, "{}Terawave Communications"{} \},}}
+\DoxyCodeLine{477 \textcolor{comment}{//  \{ 0x0352, "{}IceFyre Semiconductor"{} \},}}
+\DoxyCodeLine{478 \textcolor{comment}{//  \{ 0x0353, "{}Primarion"{} \},}}
+\DoxyCodeLine{479 \textcolor{comment}{//  \{ 0x0354, "{}Picochip Designs Ltd"{} \},}}
+\DoxyCodeLine{480 \textcolor{comment}{//  \{ 0x0355, "{}Silverback Systems"{} \},}}
+\DoxyCodeLine{481 \textcolor{comment}{//  \{ 0x0356, "{}Jade Star Technologies"{} \},}}
+\DoxyCodeLine{482 \textcolor{comment}{//  \{ 0x0357, "{}Pijnenburg Securealink"{} \},}}
+\DoxyCodeLine{483     \{ 0x0358, \textcolor{stringliteral}{"{}takeMS"{}} \}, \textcolor{comment}{// Ultron AG}}
+\DoxyCodeLine{484 \textcolor{comment}{//  \{ 0x0359, "{}Cambridge Silicon Radio"{} \},}}
+\DoxyCodeLine{485     \{ 0x035A, \textcolor{stringliteral}{"{}Swissbit"{}} \},}
+\DoxyCodeLine{486 \textcolor{comment}{//  \{ 0x035B, "{}Nazomi Communications"{} \},}}
+\DoxyCodeLine{487 \textcolor{comment}{//  \{ 0x035C, "{}eWave System"{} \},}}
+\DoxyCodeLine{488 \textcolor{comment}{//  \{ 0x035D, "{}Rockwell Collins"{} \},}}
+\DoxyCodeLine{489 \textcolor{comment}{//  \{ 0x035E, "{}Picocel Co Ltd (Paion)"{} \},}}
+\DoxyCodeLine{490 \textcolor{comment}{//  \{ 0x035F, "{}Alphamosaic Ltd"{} \},}}
+\DoxyCodeLine{491 \textcolor{comment}{//  \{ 0x0360, "{}Sandburst"{} \},}}
+\DoxyCodeLine{492 \textcolor{comment}{//  \{ 0x0361, "{}SiCon Video"{} \},}}
+\DoxyCodeLine{493 \textcolor{comment}{//  \{ 0x0362, "{}NanoAmp Solutions"{} \},}}
+\DoxyCodeLine{494 \textcolor{comment}{//  \{ 0x0363, "{}Ericsson Technology"{} \},}}
+\DoxyCodeLine{495 \textcolor{comment}{//  \{ 0x0364, "{}PrairieComm"{} \},}}
+\DoxyCodeLine{496 \textcolor{comment}{//  \{ 0x0365, "{}Mitac International"{} \},}}
+\DoxyCodeLine{497 \textcolor{comment}{//  \{ 0x0366, "{}Layer N Networks"{} \},}}
+\DoxyCodeLine{498 \textcolor{comment}{//  \{ 0x0367, "{}MtekVision (Atsana)"{} \},}}
+\DoxyCodeLine{499 \textcolor{comment}{//  \{ 0x0368, "{}Allegro Networks"{} \},}}
+\DoxyCodeLine{500 \textcolor{comment}{//  \{ 0x0369, "{}Marvell Semiconductors"{} \},}}
+\DoxyCodeLine{501 \textcolor{comment}{//  \{ 0x036A, "{}Netergy Microelectronic"{} \},}}
+\DoxyCodeLine{502     \{ 0x036B, \textcolor{stringliteral}{"{}NVIDIA"{}} \},}
+\DoxyCodeLine{503 \textcolor{comment}{//  \{ 0x036C, "{}Internet Machines"{} \},}}
+\DoxyCodeLine{504 \textcolor{comment}{//  \{ 0x036D, "{}Memorysolution GmbH"{} \},}}
+\DoxyCodeLine{505 \textcolor{comment}{//  \{ 0x036E, "{}Litchfield Communication"{} \},}}
+\DoxyCodeLine{506 \textcolor{comment}{//  \{ 0x036F, "{}Accton Technology"{} \},}}
+\DoxyCodeLine{507 \textcolor{comment}{//  \{ 0x0370, "{}Teradiant Networks"{} \},}}
+\DoxyCodeLine{508 \textcolor{comment}{//  \{ 0x0371, "{}Scaleo Chip"{} \},}}
+\DoxyCodeLine{509 \textcolor{comment}{//  \{ 0x0372, "{}Cortina Systems"{} \},}}
+\DoxyCodeLine{510 \textcolor{comment}{//  \{ 0x0373, "{}RAM Components"{} \},}}
+\DoxyCodeLine{511 \textcolor{comment}{//  \{ 0x0374, "{}Raqia Networks"{} \},}}
+\DoxyCodeLine{512 \textcolor{comment}{//  \{ 0x0375, "{}ClearSpeed"{} \},}}
+\DoxyCodeLine{513 \textcolor{comment}{//  \{ 0x0376, "{}Matsushita Battery"{} \},}}
+\DoxyCodeLine{514 \textcolor{comment}{//  \{ 0x0377, "{}Xelerated"{} \},}}
+\DoxyCodeLine{515 \textcolor{comment}{//  \{ 0x0378, "{}SimpleTech"{} \},}}
+\DoxyCodeLine{516     \{ 0x0379, \textcolor{stringliteral}{"{}Utron"{}} \},}
+\DoxyCodeLine{517 \textcolor{comment}{//  \{ 0x037A, "{}Astec International"{} \},}}
+\DoxyCodeLine{518 \textcolor{comment}{//  \{ 0x037B, "{}AVM gmbH"{} \},}}
+\DoxyCodeLine{519 \textcolor{comment}{//  \{ 0x037C, "{}Redux Communications"{} \},}}
+\DoxyCodeLine{520 \textcolor{comment}{//  \{ 0x037D, "{}Dot Hill Systems"{} \},}}
+\DoxyCodeLine{521 \textcolor{comment}{//  \{ 0x037E, "{}TeraChip"{} \},}}
+\DoxyCodeLine{522 \textcolor{comment}{//  \{ 0x0401, "{}T-\/RAM Incorporated"{} \},}}
+\DoxyCodeLine{523 \textcolor{comment}{//  \{ 0x0402, "{}Innovics Wireless"{} \},}}
+\DoxyCodeLine{524 \textcolor{comment}{//  \{ 0x0403, "{}Teknovus"{} \},}}
+\DoxyCodeLine{525 \textcolor{comment}{//  \{ 0x0404, "{}KeyEye Communications"{} \},}}
+\DoxyCodeLine{526 \textcolor{comment}{//  \{ 0x0405, "{}Runcom Technologies"{} \},}}
+\DoxyCodeLine{527 \textcolor{comment}{//  \{ 0x0406, "{}RedSwitch"{} \},}}
+\DoxyCodeLine{528 \textcolor{comment}{//  \{ 0x0407, "{}Dotcast"{} \},}}
+\DoxyCodeLine{529 \textcolor{comment}{//  \{ 0x0408, "{}Silicon Mountain Memory"{} \},}}
+\DoxyCodeLine{530 \textcolor{comment}{//  \{ 0x0409, "{}Signia Technologies"{} \},}}
+\DoxyCodeLine{531 \textcolor{comment}{//  \{ 0x040A, "{}Pixim"{} \},}}
+\DoxyCodeLine{532 \textcolor{comment}{//  \{ 0x040B, "{}Galazar Networks"{} \},}}
+\DoxyCodeLine{533 \textcolor{comment}{//  \{ 0x040C, "{}White Electronic Designs"{} \},}}
+\DoxyCodeLine{534 \textcolor{comment}{//  \{ 0x040D, "{}Patriot Scientific"{} \},}}
+\DoxyCodeLine{535 \textcolor{comment}{//  \{ 0x040E, "{}Neoaxiom Corporation"{} \},}}
+\DoxyCodeLine{536 \textcolor{comment}{//  \{ 0x040F, "{}3Y Power Technology"{} \},}}
+\DoxyCodeLine{537 \textcolor{comment}{//  \{ 0x0410, "{}Scaleo Chip"{} \},}}
+\DoxyCodeLine{538 \textcolor{comment}{//  \{ 0x0411, "{}Potentia Power Systems"{} \},}}
+\DoxyCodeLine{539 \textcolor{comment}{//  \{ 0x0412, "{}C-\/guys Incorporated"{} \},}}
+\DoxyCodeLine{540 \textcolor{comment}{//  \{ 0x0413, "{}Digital Communications Technology Inc"{} \},}}
+\DoxyCodeLine{541 \textcolor{comment}{//  \{ 0x0414, "{}Silicon-\/Based Technology"{} \},}}
+\DoxyCodeLine{542 \textcolor{comment}{//  \{ 0x0415, "{}Fulcrum Microsystems"{} \},}}
+\DoxyCodeLine{543     \{ 0x0416, \textcolor{stringliteral}{"{}Positivo"{}} \},}
+\DoxyCodeLine{544 \textcolor{comment}{//  \{ 0x0417, "{}XIOtech Corporation"{} \},}}
+\DoxyCodeLine{545 \textcolor{comment}{//  \{ 0x0418, "{}PortalPlayer"{} \},}}
+\DoxyCodeLine{546 \textcolor{comment}{//  \{ 0x0419, "{}Zhiying Software"{} \},}}
+\DoxyCodeLine{547 \textcolor{comment}{//  \{ 0x041A, "{}ParkerVision Inc"{} \},}}
+\DoxyCodeLine{548 \textcolor{comment}{//  \{ 0x041B, "{}Phonex Broadband"{} \},}}
+\DoxyCodeLine{549 \textcolor{comment}{//  \{ 0x041C, "{}Skyworks Solutions"{} \},}}
+\DoxyCodeLine{550 \textcolor{comment}{//  \{ 0x041D, "{}Entropic Communications"{} \},}}
+\DoxyCodeLine{551 \textcolor{comment}{//  \{ 0x041E, "{}I\&M Intelligent Memory Ltd"{} \},}}
+\DoxyCodeLine{552 \textcolor{comment}{//  \{ 0x041F, "{}Zensys A/S"{} \},}}
+\DoxyCodeLine{553 \textcolor{comment}{//  \{ 0x0420, "{}Legend Silicon Corp"{} \},}}
+\DoxyCodeLine{554 \textcolor{comment}{//  \{ 0x0421, "{}Sci-\/worx GmbH"{} \},}}
+\DoxyCodeLine{555 \textcolor{comment}{//  \{ 0x0422, "{}SMSC (Standard Microsystems)"{} \},}}
+\DoxyCodeLine{556 \textcolor{comment}{//  \{ 0x0423, "{}Renesas Electronics"{} \},}}
+\DoxyCodeLine{557 \textcolor{comment}{//  \{ 0x0424, "{}Raza Microelectronics"{} \},}}
+\DoxyCodeLine{558 \textcolor{comment}{//  \{ 0x0425, "{}Phyworks"{} \},}}
+\DoxyCodeLine{559     \{ 0x0426, \textcolor{stringliteral}{"{}MediaTek"{}} \},}
+\DoxyCodeLine{560 \textcolor{comment}{//  \{ 0x0427, "{}Non-\/cents Productions"{} \},}}
+\DoxyCodeLine{561 \textcolor{comment}{//  \{ 0x0428, "{}US Modular"{} \},}}
+\DoxyCodeLine{562 \textcolor{comment}{//  \{ 0x0429, "{}Wintegra Ltd"{} \},}}
+\DoxyCodeLine{563 \textcolor{comment}{//  \{ 0x042A, "{}Mathstar"{} \},}}
+\DoxyCodeLine{564 \textcolor{comment}{//  \{ 0x042B, "{}StarCore"{} \},}}
+\DoxyCodeLine{565 \textcolor{comment}{//  \{ 0x042C, "{}Oplus Technologies"{} \},}}
+\DoxyCodeLine{566 \textcolor{comment}{//  \{ 0x042D, "{}Mindspeed"{} \},}}
+\DoxyCodeLine{567 \textcolor{comment}{//  \{ 0x042E, "{}Just Young Computer"{} \},}}
+\DoxyCodeLine{568 \textcolor{comment}{//  \{ 0x042F, "{}Radia Communications"{} \},}}
+\DoxyCodeLine{569     \{ 0x0430, \textcolor{stringliteral}{"{}OCZ"{}} \},}
+\DoxyCodeLine{570 \textcolor{comment}{//  \{ 0x0431, "{}Emuzed"{} \},}}
+\DoxyCodeLine{571 \textcolor{comment}{//  \{ 0x0432, "{}LOGIC Devices"{} \},}}
+\DoxyCodeLine{572 \textcolor{comment}{//  \{ 0x0433, "{}Inphi Corporation"{} \},}}
+\DoxyCodeLine{573 \textcolor{comment}{//  \{ 0x0434, "{}Quake Technologies"{} \},}}
+\DoxyCodeLine{574 \textcolor{comment}{//  \{ 0x0435, "{}Vixel"{} \},}}
+\DoxyCodeLine{575 \textcolor{comment}{//  \{ 0x0436, "{}SolusTek"{} \},}}
+\DoxyCodeLine{576 \textcolor{comment}{//  \{ 0x0437, "{}Kongsberg Maritime"{} \},}}
+\DoxyCodeLine{577 \textcolor{comment}{//  \{ 0x0438, "{}Faraday Technology"{} \},}}
+\DoxyCodeLine{578 \textcolor{comment}{//  \{ 0x0439, "{}Altium Ltd"{} \},}}
+\DoxyCodeLine{579 \textcolor{comment}{//  \{ 0x043A, "{}Insyte"{} \},}}
+\DoxyCodeLine{580 \textcolor{comment}{//  \{ 0x043B, "{}ARM Ltd"{} \},}}
+\DoxyCodeLine{581 \textcolor{comment}{//  \{ 0x043C, "{}DigiVision"{} \},}}
+\DoxyCodeLine{582 \textcolor{comment}{//  \{ 0x043D, "{}Vativ Technologies"{} \},}}
+\DoxyCodeLine{583 \textcolor{comment}{//  \{ 0x043E, "{}Endicott Interconnect Technologies"{} \},}}
+\DoxyCodeLine{584 \textcolor{comment}{//  \{ 0x043F, "{}Pericom"{} \},}}
+\DoxyCodeLine{585 \textcolor{comment}{//  \{ 0x0440, "{}Bandspeed"{} \},}}
+\DoxyCodeLine{586 \textcolor{comment}{//  \{ 0x0441, "{}LeWiz Communications"{} \},}}
+\DoxyCodeLine{587 \textcolor{comment}{//  \{ 0x0442, "{}CPU Technology"{} \},}}
+\DoxyCodeLine{588     \{ 0x0443, \textcolor{stringliteral}{"{}Ramaxel"{}} \},}
+\DoxyCodeLine{589 \textcolor{comment}{//  \{ 0x0444, "{}DSP Group"{} \},}}
+\DoxyCodeLine{590 \textcolor{comment}{//  \{ 0x0445, "{}Axis Communications"{} \},}}
+\DoxyCodeLine{591 \textcolor{comment}{//  \{ 0x0446, "{}Legacy Electronics"{} \},}}
+\DoxyCodeLine{592 \textcolor{comment}{//  \{ 0x0447, "{}Chrontel"{} \},}}
+\DoxyCodeLine{593 \textcolor{comment}{//  \{ 0x0448, "{}Powerchip Semiconductor"{} \},}}
+\DoxyCodeLine{594 \textcolor{comment}{//  \{ 0x0449, "{}MobilEye Technologies"{} \},}}
+\DoxyCodeLine{595     \{ 0x044A, \textcolor{stringliteral}{"{}Excel"{}} \},}
+\DoxyCodeLine{596     \{ 0x044B, \textcolor{stringliteral}{"{}A-\/DATA"{}} \},}
+\DoxyCodeLine{597 \textcolor{comment}{//  \{ 0x044C, "{}VirtualDigm"{} \},}}
+\DoxyCodeLine{598     \{ 0x044D, \textcolor{stringliteral}{"{}G.Skill"{}} \},}
+\DoxyCodeLine{599     \{ 0x044E, \textcolor{stringliteral}{"{}Quanta"{}} \},}
+\DoxyCodeLine{600 \textcolor{comment}{//  \{ 0x044F, "{}Yield Microelectronics"{} \},}}
+\DoxyCodeLine{601 \textcolor{comment}{//  \{ 0x0450, "{}Afa Technologies"{} \},}}
+\DoxyCodeLine{602 \textcolor{comment}{//  \{ 0x0451, "{}KINGBOX Technology Co Ltd"{} \},}}
+\DoxyCodeLine{603 \textcolor{comment}{//  \{ 0x0452, "{}Ceva"{} \},}}
+\DoxyCodeLine{604 \textcolor{comment}{//  \{ 0x0453, "{}iStor Networks"{} \},}}
+\DoxyCodeLine{605 \textcolor{comment}{//  \{ 0x0454, "{}Advance Modules"{} \},}}
+\DoxyCodeLine{606     \{ 0x0455, \textcolor{stringliteral}{"{}Microsoft"{}} \},}
+\DoxyCodeLine{607     \{ 0x0456, \textcolor{stringliteral}{"{}Open-\/Silicon"{}} \},}
+\DoxyCodeLine{608 \textcolor{comment}{//  \{ 0x0457, "{}Goal Semiconductor"{} \},}}
+\DoxyCodeLine{609 \textcolor{comment}{//  \{ 0x0458, "{}ARC International"{} \},}}
+\DoxyCodeLine{610 \textcolor{comment}{//  \{ 0x0459, "{}Simmtec"{} \},}}
+\DoxyCodeLine{611 \textcolor{comment}{//  \{ 0x045A, "{}Metanoia"{} \},}}
+\DoxyCodeLine{612 \textcolor{comment}{//  \{ 0x045B, "{}Key Stream"{} \},}}
+\DoxyCodeLine{613 \textcolor{comment}{//  \{ 0x045C, "{}Lowrance Electronics"{} \},}}
+\DoxyCodeLine{614 \textcolor{comment}{//  \{ 0x045D, "{}Adimos"{} \},}}
+\DoxyCodeLine{615 \textcolor{comment}{//  \{ 0x045E, "{}SiGe Semiconductor"{} \},}}
+\DoxyCodeLine{616 \textcolor{comment}{//  \{ 0x045F, "{}Fodus Communications"{} \},}}
+\DoxyCodeLine{617 \textcolor{comment}{//  \{ 0x0460, "{}Credence Systems Corp"{} \},}}
+\DoxyCodeLine{618 \textcolor{comment}{//  \{ 0x0461, "{}Genesis Microchip Inc"{} \},}}
+\DoxyCodeLine{619 \textcolor{comment}{//  \{ 0x0462, "{}Vihana Inc"{} \},}}
+\DoxyCodeLine{620 \textcolor{comment}{//  \{ 0x0463, "{}WIS Technologies"{} \},}}
+\DoxyCodeLine{621 \textcolor{comment}{//  \{ 0x0464, "{}GateChange Technologies"{} \},}}
+\DoxyCodeLine{622 \textcolor{comment}{//  \{ 0x0465, "{}High Density Devices AS"{} \},}}
+\DoxyCodeLine{623 \textcolor{comment}{//  \{ 0x0466, "{}Synopsys"{} \},}}
+\DoxyCodeLine{624     \{ 0x0467, \textcolor{stringliteral}{"{}Gigaram"{}} \},}
+\DoxyCodeLine{625 \textcolor{comment}{//  \{ 0x0468, "{}Enigma Semiconductor Inc"{} \},}}
+\DoxyCodeLine{626 \textcolor{comment}{//  \{ 0x0469, "{}Century Micro Inc"{} \},}}
+\DoxyCodeLine{627 \textcolor{comment}{//  \{ 0x046A, "{}Icera Semiconductor"{} \},}}
+\DoxyCodeLine{628 \textcolor{comment}{//  \{ 0x046B, "{}Mediaworks Integrated Systems"{} \},}}
+\DoxyCodeLine{629 \textcolor{comment}{//  \{ 0x046C, "{}O?Neil Product Development"{} \},}}
+\DoxyCodeLine{630 \textcolor{comment}{//  \{ 0x046D, "{}Supreme Top Technology Ltd"{} \},}}
+\DoxyCodeLine{631 \textcolor{comment}{//  \{ 0x046E, "{}MicroDisplay Corporation"{} \},}}
+\DoxyCodeLine{632     \{ 0x046F, \textcolor{stringliteral}{"{}Team Group"{}} \},}
+\DoxyCodeLine{633 \textcolor{comment}{//  \{ 0x0470, "{}Sinett Corporation"{} \},}}
+\DoxyCodeLine{634     \{ 0x0471, \textcolor{stringliteral}{"{}Toshiba"{}} \},}
+\DoxyCodeLine{635 \textcolor{comment}{//  \{ 0x0472, "{}Tensilica"{} \},}}
+\DoxyCodeLine{636 \textcolor{comment}{//  \{ 0x0473, "{}SiRF Technology"{} \},}}
+\DoxyCodeLine{637 \textcolor{comment}{//  \{ 0x0474, "{}Bacoc Inc"{} \},}}
+\DoxyCodeLine{638 \textcolor{comment}{//  \{ 0x0475, "{}SMaL Camera Technologies"{} \},}}
+\DoxyCodeLine{639     \{ 0x0476, \textcolor{stringliteral}{"{}Thomson SC"{}} \},}
+\DoxyCodeLine{640 \textcolor{comment}{//  \{ 0x0477, "{}Airgo Networks"{} \},}}
+\DoxyCodeLine{641 \textcolor{comment}{//  \{ 0x0478, "{}Wisair Ltd"{} \},}}
+\DoxyCodeLine{642 \textcolor{comment}{//  \{ 0x0479, "{}SigmaTel"{} \},}}
+\DoxyCodeLine{643 \textcolor{comment}{//  \{ 0x047A, "{}Arkados"{} \},}}
+\DoxyCodeLine{644 \textcolor{comment}{//  \{ 0x047B, "{}Compete IT gmbH Co KG"{} \},}}
+\DoxyCodeLine{645 \textcolor{comment}{//  \{ 0x047C, "{}Eudar Technology Inc"{} \},}}
+\DoxyCodeLine{646 \textcolor{comment}{//  \{ 0x047D, "{}Focus Enhancements"{} \},}}
+\DoxyCodeLine{647 \textcolor{comment}{//  \{ 0x047E, "{}Xyratex"{} \},}}
+\DoxyCodeLine{648 \textcolor{comment}{//  \{ 0x0501, "{}Specular Networks"{} \},}}
+\DoxyCodeLine{649     \{ 0x0502, \textcolor{stringliteral}{"{}Patriot"{}} \},}
+\DoxyCodeLine{650 \textcolor{comment}{//  \{ 0x0503, "{}U-\/Chip Technology Corp"{} \},}}
+\DoxyCodeLine{651 \textcolor{comment}{//  \{ 0x0504, "{}Silicon Optix"{} \},}}
+\DoxyCodeLine{652 \textcolor{comment}{//  \{ 0x0505, "{}Greenfield Networks"{} \},}}
+\DoxyCodeLine{653     \{ 0x0506, \textcolor{stringliteral}{"{}CompuRAM"{}} \},}
+\DoxyCodeLine{654 \textcolor{comment}{//  \{ 0x0507, "{}Stargen Inc"{} \},}}
+\DoxyCodeLine{655 \textcolor{comment}{//  \{ 0x0508, "{}NetCell Corporation"{} \},}}
+\DoxyCodeLine{656 \textcolor{comment}{//  \{ 0x0509, "{}Excalibrus Technologies Ltd"{} \},}}
+\DoxyCodeLine{657 \textcolor{comment}{//  \{ 0x050A, "{}SCM Microsystems"{} \},}}
+\DoxyCodeLine{658 \textcolor{comment}{//  \{ 0x050B, "{}Xsigo Systems Inc"{} \},}}
+\DoxyCodeLine{659 \textcolor{comment}{//  \{ 0x050C, "{}CHIPS \& Systems Inc"{} \},}}
+\DoxyCodeLine{660 \textcolor{comment}{//  \{ 0x050D, "{}Tier 1 Multichip Solutions"{} \},}}
+\DoxyCodeLine{661 \textcolor{comment}{//  \{ 0x050E, "{}CWRL Labs"{} \},}}
+\DoxyCodeLine{662 \textcolor{comment}{//  \{ 0x050F, "{}Teradici"{} \},}}
+\DoxyCodeLine{663     \{ 0x0510, \textcolor{stringliteral}{"{}Gigaram"{}} \},}
+\DoxyCodeLine{664 \textcolor{comment}{//  \{ 0x0511, "{}g2 Microsystems"{} \},}}
+\DoxyCodeLine{665 \textcolor{comment}{//  \{ 0x0512, "{}PowerFlash Semiconductor"{} \},}}
+\DoxyCodeLine{666 \textcolor{comment}{//  \{ 0x0513, "{}P.A. Semi Inc"{} \},}}
+\DoxyCodeLine{667 \textcolor{comment}{//  \{ 0x0514, "{}NovaTech Solutions S.A."{} \},}}
+\DoxyCodeLine{668 \textcolor{comment}{//  \{ 0x0515, "{}c2 Microsystems Inc"{} \},}}
+\DoxyCodeLine{669 \textcolor{comment}{//  \{ 0x0516, "{}Level5 Networks"{} \},}}
+\DoxyCodeLine{670     \{ 0x0517, \textcolor{stringliteral}{"{}COS Memory"{}} \},}
+\DoxyCodeLine{671 \textcolor{comment}{//  \{ 0x0518, "{}Innovasic Semiconductor"{} \},}}
+\DoxyCodeLine{672 \textcolor{comment}{//  \{ 0x0519, "{}02IC Co Ltd"{} \},}}
+\DoxyCodeLine{673 \textcolor{comment}{//  \{ 0x051A, "{}Tabula Inc"{} \},}}
+\DoxyCodeLine{674     \{ 0x051B, \textcolor{stringliteral}{"{}Crucial"{}} \},}
+\DoxyCodeLine{675 \textcolor{comment}{//  \{ 0x051C, "{}Chelsio Communications"{} \},}}
+\DoxyCodeLine{676 \textcolor{comment}{//  \{ 0x051D, "{}Solarflare Communications"{} \},}}
+\DoxyCodeLine{677 \textcolor{comment}{//  \{ 0x051E, "{}Xambala Inc"{} \},}}
+\DoxyCodeLine{678 \textcolor{comment}{//  \{ 0x051F, "{}EADS Astrium"{} \},}}
+\DoxyCodeLine{679 \textcolor{comment}{//  \{ 0x0520, "{}Terra Semiconductor Inc"{} \},}}
+\DoxyCodeLine{680 \textcolor{comment}{//  \{ 0x0521, "{}Imaging Works Inc"{} \},}}
+\DoxyCodeLine{681 \textcolor{comment}{//  \{ 0x0522, "{}Astute Networks Inc"{} \},}}
+\DoxyCodeLine{682 \textcolor{comment}{//  \{ 0x0523, "{}Tzero"{} \},}}
+\DoxyCodeLine{683 \textcolor{comment}{//  \{ 0x0524, "{}Emulex"{} \},}}
+\DoxyCodeLine{684 \textcolor{comment}{//  \{ 0x0525, "{}Power-\/One"{} \},}}
+\DoxyCodeLine{685 \textcolor{comment}{//  \{ 0x0526, "{}Pulse\string~LINK Inc"{} \},}}
+\DoxyCodeLine{686 \textcolor{comment}{//  \{ 0x0527, "{}Hon Hai Precision Industry"{} \},}}
+\DoxyCodeLine{687 \textcolor{comment}{//  \{ 0x0528, "{}White Rock Networks Inc"{} \},}}
+\DoxyCodeLine{688 \textcolor{comment}{//  \{ 0x0529, "{}Telegent Systems USA Inc"{} \},}}
+\DoxyCodeLine{689 \textcolor{comment}{//  \{ 0x052A, "{}Atrua Technologies Inc"{} \},}}
+\DoxyCodeLine{690     \{ 0x052B, \textcolor{stringliteral}{"{}Acbel"{}} \},}
+\DoxyCodeLine{691 \textcolor{comment}{//  \{ 0x052C, "{}eRide Inc"{} \},}}
+\DoxyCodeLine{692 \textcolor{comment}{//  \{ 0x052D, "{}ULi Electronics Inc"{} \},}}
+\DoxyCodeLine{693 \textcolor{comment}{//  \{ 0x052E, "{}Magnum Semiconductor Inc"{} \},}}
+\DoxyCodeLine{694 \textcolor{comment}{//  \{ 0x052F, "{}neoOne Technology Inc"{} \},}}
+\DoxyCodeLine{695 \textcolor{comment}{//  \{ 0x0530, "{}Connex Technology Inc"{} \},}}
+\DoxyCodeLine{696 \textcolor{comment}{//  \{ 0x0531, "{}Stream Processors Inc"{} \},}}
+\DoxyCodeLine{697 \textcolor{comment}{//  \{ 0x0532, "{}Focus Enhancements"{} \},}}
+\DoxyCodeLine{698 \textcolor{comment}{//  \{ 0x0533, "{}Telecis Wireless Inc"{} \},}}
+\DoxyCodeLine{699 \textcolor{comment}{//  \{ 0x0534, "{}uNav Microelectronics"{} \},}}
+\DoxyCodeLine{700 \textcolor{comment}{//  \{ 0x0535, "{}Tarari Inc"{} \},}}
+\DoxyCodeLine{701 \textcolor{comment}{//  \{ 0x0536, "{}Ambric Inc"{} \},}}
+\DoxyCodeLine{702 \textcolor{comment}{//  \{ 0x0537, "{}Newport Media Inc"{} \},}}
+\DoxyCodeLine{703 \textcolor{comment}{//  \{ 0x0538, "{}VMTS"{} \},}}
+\DoxyCodeLine{704 \textcolor{comment}{//  \{ 0x0539, "{}Enuclia Semiconductor Inc"{} \},}}
+\DoxyCodeLine{705 \textcolor{comment}{//  \{ 0x053A, "{}Virtium Technology Inc"{} \},}}
+\DoxyCodeLine{706 \textcolor{comment}{//  \{ 0x053B, "{}Solid State System Co Ltd"{} \},}}
+\DoxyCodeLine{707 \textcolor{comment}{//  \{ 0x053C, "{}Kian Tech LLC"{} \},}}
+\DoxyCodeLine{708 \textcolor{comment}{//  \{ 0x053D, "{}Artimi"{} \},}}
+\DoxyCodeLine{709     \{ 0x053E, \textcolor{stringliteral}{"{}PQI"{}} \},}
+\DoxyCodeLine{710 \textcolor{comment}{//  \{ 0x053F, "{}Avago Technologies"{} \},}}
+\DoxyCodeLine{711 \textcolor{comment}{//  \{ 0x0540, "{}ADTechnology"{} \},}}
+\DoxyCodeLine{712 \textcolor{comment}{//  \{ 0x0541, "{}Sigma Designs"{} \},}}
+\DoxyCodeLine{713 \textcolor{comment}{//  \{ 0x0542, "{}SiCortex Inc"{} \},}}
+\DoxyCodeLine{714 \textcolor{comment}{//  \{ 0x0543, "{}Ventura Technology Group"{} \},}}
+\DoxyCodeLine{715 \textcolor{comment}{//  \{ 0x0544, "{}eASIC"{} \},}}
+\DoxyCodeLine{716 \textcolor{comment}{//  \{ 0x0545, "{}M.H.S. SAS"{} \},}}
+\DoxyCodeLine{717     \{ 0x0546, \textcolor{stringliteral}{"{}MSI"{}} \},}
+\DoxyCodeLine{718 \textcolor{comment}{//  \{ 0x0547, "{}Rapport Inc"{} \},}}
+\DoxyCodeLine{719 \textcolor{comment}{//  \{ 0x0548, "{}Makway International"{} \},}}
+\DoxyCodeLine{720 \textcolor{comment}{//  \{ 0x0549, "{}Broad Reach Engineering Co"{} \},}}
+\DoxyCodeLine{721 \textcolor{comment}{//  \{ 0x054A, "{}Semiconductor Mfg Intl Corp"{} \},}}
+\DoxyCodeLine{722 \textcolor{comment}{//  \{ 0x054B, "{}SiConnect"{} \},}}
+\DoxyCodeLine{723 \textcolor{comment}{//  \{ 0x054C, "{}FCI USA Inc"{} \},}}
+\DoxyCodeLine{724 \textcolor{comment}{//  \{ 0x054D, "{}Validity Sensors"{} \},}}
+\DoxyCodeLine{725 \textcolor{comment}{//  \{ 0x054E, "{}Coney Technology Co Ltd"{} \},}}
+\DoxyCodeLine{726 \textcolor{comment}{//  \{ 0x054F, "{}Spans Logic"{} \},}}
+\DoxyCodeLine{727 \textcolor{comment}{//  \{ 0x0550, "{}Neterion Inc"{} \},}}
+\DoxyCodeLine{728     \{ 0x0551, \textcolor{stringliteral}{"{}Qimonda"{}} \},}
+\DoxyCodeLine{729 \textcolor{comment}{//  \{ 0x0552, "{}New Japan Radio Co Ltd"{} \},}}
+\DoxyCodeLine{730 \textcolor{comment}{//  \{ 0x0553, "{}Velogix"{} \},}}
+\DoxyCodeLine{731 \textcolor{comment}{//  \{ 0x0554, "{}Montalvo Systems"{} \},}}
+\DoxyCodeLine{732 \textcolor{comment}{//  \{ 0x0555, "{}iVivity Inc"{} \},}}
+\DoxyCodeLine{733     \{ 0x0556, \textcolor{stringliteral}{"{}Walton Chaintech"{}} \},}
+\DoxyCodeLine{734     \{ 0x0557, \textcolor{stringliteral}{"{}AENEON"{}} \},}
+\DoxyCodeLine{735 \textcolor{comment}{//  \{ 0x0558, "{}Lorom Industrial Co Ltd"{} \},}}
+\DoxyCodeLine{736 \textcolor{comment}{//  \{ 0x0559, "{}Radiospire Networks"{} \},}}
+\DoxyCodeLine{737 \textcolor{comment}{//  \{ 0x055A, "{}Sensio Technologies Inc"{} \},}}
+\DoxyCodeLine{738 \textcolor{comment}{//  \{ 0x055B, "{}Nethra Imaging"{} \},}}
+\DoxyCodeLine{739     \{ 0x055C, \textcolor{stringliteral}{"{}Hexon"{}} \},}
+\DoxyCodeLine{740 \textcolor{comment}{//  \{ 0x055D, "{}CompuStocx (CSX)"{} \},}}
+\DoxyCodeLine{741 \textcolor{comment}{//  \{ 0x055E, "{}Methode Electronics Inc"{} \},}}
+\DoxyCodeLine{742 \textcolor{comment}{//  \{ 0x055F, "{}Connect One Ltd"{} \},}}
+\DoxyCodeLine{743 \textcolor{comment}{//  \{ 0x0560, "{}Opulan Technologies"{} \},}}
+\DoxyCodeLine{744 \textcolor{comment}{//  \{ 0x0561, "{}Septentrio NV"{} \},}}
+\DoxyCodeLine{745     \{ 0x0562, \textcolor{stringliteral}{"{}Goldenmars"{}} \},}
+\DoxyCodeLine{746     \{ 0x0563, \textcolor{stringliteral}{"{}Kreton Corp."{}} \},}
+\DoxyCodeLine{747 \textcolor{comment}{//  \{ 0x0564, "{}Cochlear Ltd"{} \},}}
+\DoxyCodeLine{748 \textcolor{comment}{//  \{ 0x0565, "{}Altair Semiconductor"{} \},}}
+\DoxyCodeLine{749 \textcolor{comment}{//  \{ 0x0566, "{}NetEffect Inc"{} \},}}
+\DoxyCodeLine{750     \{ 0x0567, \textcolor{stringliteral}{"{}Spansion"{}} \},}
+\DoxyCodeLine{751 \textcolor{comment}{//  \{ 0x0568, "{}Taiwan Semiconductor Mfg"{} \},}}
+\DoxyCodeLine{752 \textcolor{comment}{//  \{ 0x0569, "{}Emphany Systems Inc"{} \},}}
+\DoxyCodeLine{753 \textcolor{comment}{//  \{ 0x056A, "{}ApaceWave Technologies"{} \},}}
+\DoxyCodeLine{754 \textcolor{comment}{//  \{ 0x056B, "{}Mobilygen Corporation"{} \},}}
+\DoxyCodeLine{755 \textcolor{comment}{//  \{ 0x056C, "{}Tego"{} \},}}
+\DoxyCodeLine{756 \textcolor{comment}{//  \{ 0x056D, "{}Cswitch Corporation"{} \},}}
+\DoxyCodeLine{757 \textcolor{comment}{//  \{ 0x056E, "{}Haier (Beijing) IC Design Co"{} \},}}
+\DoxyCodeLine{758 \textcolor{comment}{//  \{ 0x056F, "{}MetaRAM"{} \},}}
+\DoxyCodeLine{759 \textcolor{comment}{//  \{ 0x0570, "{}Axel Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{760 \textcolor{comment}{//  \{ 0x0571, "{}Tilera Corporation"{} \},}}
+\DoxyCodeLine{761 \textcolor{comment}{//  \{ 0x0572, "{}Aquantia"{} \},}}
+\DoxyCodeLine{762 \textcolor{comment}{//  \{ 0x0573, "{}Vivace Semiconductor"{} \},}}
+\DoxyCodeLine{763 \textcolor{comment}{//  \{ 0x0574, "{}Redpine Signals"{} \},}}
+\DoxyCodeLine{764 \textcolor{comment}{//  \{ 0x0575, "{}Octalica"{} \},}}
+\DoxyCodeLine{765 \textcolor{comment}{//  \{ 0x0576, "{}InterDigital Communications"{} \},}}
+\DoxyCodeLine{766 \textcolor{comment}{//  \{ 0x0577, "{}Avant Technology"{} \},}}
+\DoxyCodeLine{767     \{ 0x0578, \textcolor{stringliteral}{"{}Asrock"{}} \},}
+\DoxyCodeLine{768 \textcolor{comment}{//  \{ 0x0579, "{}Availink"{} \},}}
+\DoxyCodeLine{769 \textcolor{comment}{//  \{ 0x057A, "{}Quartics Inc"{} \},}}
+\DoxyCodeLine{770 \textcolor{comment}{//  \{ 0x057B, "{}Element CXI"{} \},}}
+\DoxyCodeLine{771 \textcolor{comment}{//  \{ 0x057C, "{}Innovaciones Microelectronicas"{} \},}}
+\DoxyCodeLine{772 \textcolor{comment}{//  \{ 0x057D, "{}VeriSilicon Microelectronics"{} \},}}
+\DoxyCodeLine{773 \textcolor{comment}{//  \{ 0x057E, "{}W5 Networks"{} \},}}
+\DoxyCodeLine{774 \textcolor{comment}{//  \{ 0x0601, "{}MOVEKING"{} \},}}
+\DoxyCodeLine{775 \textcolor{comment}{//  \{ 0x0602, "{}Mavrix Technology Inc"{} \},}}
+\DoxyCodeLine{776 \textcolor{comment}{//  \{ 0x0603, "{}CellGuide Ltd"{} \},}}
+\DoxyCodeLine{777 \textcolor{comment}{//  \{ 0x0604, "{}Faraday Technology"{} \},}}
+\DoxyCodeLine{778 \textcolor{comment}{//  \{ 0x0605, "{}Diablo Technologies Inc"{} \},}}
+\DoxyCodeLine{779 \textcolor{comment}{//  \{ 0x0606, "{}Jennic"{} \},}}
+\DoxyCodeLine{780 \textcolor{comment}{//  \{ 0x0607, "{}Octasic"{} \},}}
+\DoxyCodeLine{781 \textcolor{comment}{//  \{ 0x0608, "{}Molex Incorporated"{} \},}}
+\DoxyCodeLine{782 \textcolor{comment}{//  \{ 0x0609, "{}3Leaf Networks"{} \},}}
+\DoxyCodeLine{783 \textcolor{comment}{//  \{ 0x060A, "{}Bright Micron Technology"{} \},}}
+\DoxyCodeLine{784 \textcolor{comment}{//  \{ 0x060B, "{}Netxen"{} \},}}
+\DoxyCodeLine{785 \textcolor{comment}{//  \{ 0x060C, "{}NextWave Broadband Inc"{} \},}}
+\DoxyCodeLine{786 \textcolor{comment}{//  \{ 0x060D, "{}DisplayLink"{} \},}}
+\DoxyCodeLine{787 \textcolor{comment}{//  \{ 0x060E, "{}ZMOS Technology"{} \},}}
+\DoxyCodeLine{788 \textcolor{comment}{//  \{ 0x060F, "{}Tec-\/Hill"{} \},}}
+\DoxyCodeLine{789 \textcolor{comment}{//  \{ 0x0610, "{}Multigig Inc"{} \},}}
+\DoxyCodeLine{790 \textcolor{comment}{//  \{ 0x0611, "{}Amimon"{} \},}}
+\DoxyCodeLine{791 \textcolor{comment}{//  \{ 0x0612, "{}Euphonic Technologies Inc"{} \},}}
+\DoxyCodeLine{792 \textcolor{comment}{//  \{ 0x0613, "{}BRN Phoenix"{} \},}}
+\DoxyCodeLine{793 \textcolor{comment}{//  \{ 0x0614, "{}InSilica"{} \},}}
+\DoxyCodeLine{794 \textcolor{comment}{//  \{ 0x0615, "{}Ember Corporation"{} \},}}
+\DoxyCodeLine{795     \{ 0x0616, \textcolor{stringliteral}{"{}Avexir"{}} \},}
+\DoxyCodeLine{796 \textcolor{comment}{//  \{ 0x0617, "{}Echelon Corporation"{} \},}}
+\DoxyCodeLine{797 \textcolor{comment}{//  \{ 0x0618, "{}Edgewater Computer Systems"{} \},}}
+\DoxyCodeLine{798 \textcolor{comment}{//  \{ 0x0619, "{}XMOS Semiconductor Ltd"{} \},}}
+\DoxyCodeLine{799 \textcolor{comment}{//  \{ 0x061A, "{}GENUSION Inc"{} \},}}
+\DoxyCodeLine{800 \textcolor{comment}{//  \{ 0x061B, "{}Memory Corp NV"{} \},}}
+\DoxyCodeLine{801 \textcolor{comment}{//  \{ 0x061C, "{}SiliconBlue Technologies"{} \},}}
+\DoxyCodeLine{802     \{ 0x061D, \textcolor{stringliteral}{"{}Rambus"{}} \},}
+\DoxyCodeLine{803 \textcolor{comment}{//  \{ 0x061E, "{}Andes Technology Corporation"{} \},}}
+\DoxyCodeLine{804 \textcolor{comment}{//  \{ 0x061F, "{}Coronis Systems"{} \},}}
+\DoxyCodeLine{805 \textcolor{comment}{//  \{ 0x0620, "{}Achronix Semiconductor"{} \},}}
+\DoxyCodeLine{806 \textcolor{comment}{//  \{ 0x0621, "{}Siano Mobile Silicon Ltd"{} \},}}
+\DoxyCodeLine{807 \textcolor{comment}{//  \{ 0x0622, "{}Semtech Corporation"{} \},}}
+\DoxyCodeLine{808 \textcolor{comment}{//  \{ 0x0623, "{}Pixelworks Inc"{} \},}}
+\DoxyCodeLine{809 \textcolor{comment}{//  \{ 0x0624, "{}Gaisler Research AB"{} \},}}
+\DoxyCodeLine{810 \textcolor{comment}{//  \{ 0x0625, "{}Teranetics"{} \},}}
+\DoxyCodeLine{811 \textcolor{comment}{//  \{ 0x0626, "{}Toppan Printing Co Ltd"{} \},}}
+\DoxyCodeLine{812 \textcolor{comment}{//  \{ 0x0627, "{}Kingxcon"{} \},}}
+\DoxyCodeLine{813 \textcolor{comment}{//  \{ 0x0628, "{}Silicon Integrated Systems"{} \},}}
+\DoxyCodeLine{814 \textcolor{comment}{//  \{ 0x0629, "{}I-\/O Data Device Inc"{} \},}}
+\DoxyCodeLine{815 \textcolor{comment}{//  \{ 0x062A, "{}NDS Americas Inc"{} \},}}
+\DoxyCodeLine{816 \textcolor{comment}{//  \{ 0x062B, "{}Solomon Systech Limited"{} \},}}
+\DoxyCodeLine{817 \textcolor{comment}{//  \{ 0x062C, "{}On Demand Microelectronics"{} \},}}
+\DoxyCodeLine{818 \textcolor{comment}{//  \{ 0x062D, "{}Amicus Wireless Inc"{} \},}}
+\DoxyCodeLine{819 \textcolor{comment}{//  \{ 0x062E, "{}SMARDTV SNC"{} \},}}
+\DoxyCodeLine{820 \textcolor{comment}{//  \{ 0x062F, "{}Comsys Communication Ltd"{} \},}}
+\DoxyCodeLine{821 \textcolor{comment}{//  \{ 0x0630, "{}Movidia Ltd"{} \},}}
+\DoxyCodeLine{822 \textcolor{comment}{//  \{ 0x0631, "{}Javad GNSS Inc"{} \},}}
+\DoxyCodeLine{823 \textcolor{comment}{//  \{ 0x0632, "{}Montage Technology Group"{} \},}}
+\DoxyCodeLine{824 \textcolor{comment}{//  \{ 0x0633, "{}Trident Microsystems"{} \},}}
+\DoxyCodeLine{825     \{ 0x0634, \textcolor{stringliteral}{"{}Super Talent"{}} \},}
+\DoxyCodeLine{826 \textcolor{comment}{//  \{ 0x0635, "{}Optichron Inc"{} \},}}
+\DoxyCodeLine{827 \textcolor{comment}{//  \{ 0x0636, "{}Future Waves UK Ltd"{} \},}}
+\DoxyCodeLine{828 \textcolor{comment}{//  \{ 0x0637, "{}SiBEAM Inc"{} \},}}
+\DoxyCodeLine{829 \textcolor{comment}{//  \{ 0x0638, "{}InicoreInc"{} \},}}
+\DoxyCodeLine{830 \textcolor{comment}{//  \{ 0x0639, "{}Virident Systems"{} \},}}
+\DoxyCodeLine{831 \textcolor{comment}{//  \{ 0x063A, "{}M2000 Inc"{} \},}}
+\DoxyCodeLine{832 \textcolor{comment}{//  \{ 0x063B, "{}ZeroG Wireless Inc"{} \},}}
+\DoxyCodeLine{833 \textcolor{comment}{//  \{ 0x063C, "{}Gingle Technology Co Ltd"{} \},}}
+\DoxyCodeLine{834 \textcolor{comment}{//  \{ 0x063D, "{}Space Micro Inc"{} \},}}
+\DoxyCodeLine{835 \textcolor{comment}{//  \{ 0x063E, "{}Wilocity"{} \},}}
+\DoxyCodeLine{836 \textcolor{comment}{//  \{ 0x063F, "{}Novafora Inc"{} \},}}
+\DoxyCodeLine{837 \textcolor{comment}{//  \{ 0x0640, "{}iKoa Corporation"{} \},}}
+\DoxyCodeLine{838     \{ 0x0641, \textcolor{stringliteral}{"{}ASint"{}} \},}
+\DoxyCodeLine{839     \{ 0x0642, \textcolor{stringliteral}{"{}Ramtron"{}} \},}
+\DoxyCodeLine{840 \textcolor{comment}{//  \{ 0x0643, "{}Plato Networks Inc"{} \},}}
+\DoxyCodeLine{841 \textcolor{comment}{//  \{ 0x0644, "{}IPtronics AS"{} \},}}
+\DoxyCodeLine{842 \textcolor{comment}{//  \{ 0x0645, "{}Infinite-\/Memories"{} \},}}
+\DoxyCodeLine{843 \textcolor{comment}{//  \{ 0x0646, "{}Parade Technologies Inc"{} \},}}
+\DoxyCodeLine{844 \textcolor{comment}{//  \{ 0x0647, "{}Dune Networks"{} \},}}
+\DoxyCodeLine{845     \{ 0x0648, \textcolor{stringliteral}{"{}GigaDevice"{}} \},}
+\DoxyCodeLine{846 \textcolor{comment}{//  \{ 0x0649, "{}Modu Ltd"{} \},}}
+\DoxyCodeLine{847 \textcolor{comment}{//  \{ 0x064A, "{}CEITEC"{} \},}}
+\DoxyCodeLine{848     \{ 0x064B, \textcolor{stringliteral}{"{}Northrop Grumman"{}} \},}
+\DoxyCodeLine{849 \textcolor{comment}{//  \{ 0x064C, "{}XRONET Corporation"{} \},}}
+\DoxyCodeLine{850 \textcolor{comment}{//  \{ 0x064D, "{}Sicon Semiconductor AB"{} \},}}
+\DoxyCodeLine{851 \textcolor{comment}{//  \{ 0x064E, "{}Atla Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{852 \textcolor{comment}{//  \{ 0x064F, "{}TOPRAM Technology"{} \},}}
+\DoxyCodeLine{853 \textcolor{comment}{//  \{ 0x0650, "{}Silego Technology Inc"{} \},}}
+\DoxyCodeLine{854     \{ 0x0651, \textcolor{stringliteral}{"{}Kinglife"{}} \},}
+\DoxyCodeLine{855 \textcolor{comment}{//  \{ 0x0652, "{}Ability Industries Ltd"{} \},}}
+\DoxyCodeLine{856 \textcolor{comment}{//  \{ 0x0654, "{}Augusta Technology Inc"{} \},}}
+\DoxyCodeLine{857 \textcolor{comment}{//  \{ 0x0655, "{}Nantronics Semiconductors"{} \},}}
+\DoxyCodeLine{858 \textcolor{comment}{//  \{ 0x0656, "{}Hilscher Gesellschaft"{} \},}}
+\DoxyCodeLine{859 \textcolor{comment}{//  \{ 0x0657, "{}Quixant Ltd"{} \},}}
+\DoxyCodeLine{860 \textcolor{comment}{//  \{ 0x0658, "{}Percello Ltd"{} \},}}
+\DoxyCodeLine{861 \textcolor{comment}{//  \{ 0x0659, "{}NextIO Inc"{} \},}}
+\DoxyCodeLine{862 \textcolor{comment}{//  \{ 0x065A, "{}Scanimetrics Inc"{} \},}}
+\DoxyCodeLine{863 \textcolor{comment}{//  \{ 0x065B, "{}FS-\/Semi Company Ltd"{} \},}}
+\DoxyCodeLine{864 \textcolor{comment}{//  \{ 0x065C, "{}Infinera Corporation"{} \},}}
+\DoxyCodeLine{865     \{ 0x065D, \textcolor{stringliteral}{"{}SandForce"{}} \},}
+\DoxyCodeLine{866     \{ 0x065E, \textcolor{stringliteral}{"{}Lexar Media"{}} \},}
+\DoxyCodeLine{867 \textcolor{comment}{//  \{ 0x065F, "{}Teradyne Inc"{} \},}}
+\DoxyCodeLine{868 \textcolor{comment}{//  \{ 0x0660, "{}Memory Exchange Corp"{} \},}}
+\DoxyCodeLine{869     \{ 0x0661, \textcolor{stringliteral}{"{}Smartek"{}} \},}
+\DoxyCodeLine{870 \textcolor{comment}{//  \{ 0x0662, "{}Avantium Corporation"{} \},}}
+\DoxyCodeLine{871 \textcolor{comment}{//  \{ 0x0663, "{}ATP Electronics Inc"{} \},}}
+\DoxyCodeLine{872 \textcolor{comment}{//  \{ 0x0664, "{}Valens Semiconductor Ltd"{} \},}}
+\DoxyCodeLine{873 \textcolor{comment}{//  \{ 0x0665, "{}Agate Logic Inc"{} \},}}
+\DoxyCodeLine{874 \textcolor{comment}{//  \{ 0x0666, "{}Netronome"{} \},}}
+\DoxyCodeLine{875 \textcolor{comment}{//  \{ 0x0667, "{}Zenverge Inc"{} \},}}
+\DoxyCodeLine{876 \textcolor{comment}{//  \{ 0x0668, "{}N-\/trig Ltd"{} \},}}
+\DoxyCodeLine{877     \{ 0x0669, \textcolor{stringliteral}{"{}SanMax"{}} \},}
+\DoxyCodeLine{878 \textcolor{comment}{//  \{ 0x066A, "{}Contour Semiconductor Inc"{} \},}}
+\DoxyCodeLine{879     \{ 0x066B, \textcolor{stringliteral}{"{}TwinMOS"{}} \},}
+\DoxyCodeLine{880 \textcolor{comment}{//  \{ 0x066C, "{}Silicon Systems Inc"{} \},}}
+\DoxyCodeLine{881 \textcolor{comment}{//  \{ 0x066D, "{}V-\/Color Technology Inc"{} \},}}
+\DoxyCodeLine{882 \textcolor{comment}{//  \{ 0x066E, "{}Certicom Corporation"{} \},}}
+\DoxyCodeLine{883 \textcolor{comment}{//  \{ 0x066F, "{}JSC ICC Milandr"{} \},}}
+\DoxyCodeLine{884 \textcolor{comment}{//  \{ 0x0670, "{}PhotoFast Global Inc"{} \},}}
+\DoxyCodeLine{885 \textcolor{comment}{//  \{ 0x0671, "{}InnoDisk Corporation"{} \},}}
+\DoxyCodeLine{886 \textcolor{comment}{//  \{ 0x0672, "{}Muscle Power"{} \},}}
+\DoxyCodeLine{887 \textcolor{comment}{//  \{ 0x0673, "{}Energy Micro"{} \},}}
+\DoxyCodeLine{888 \textcolor{comment}{//  \{ 0x0674, "{}Innofidei"{} \},}}
+\DoxyCodeLine{889 \textcolor{comment}{//  \{ 0x0675, "{}CopperGate Communications"{} \},}}
+\DoxyCodeLine{890 \textcolor{comment}{//  \{ 0x0676, "{}Holtek Semiconductor Inc"{} \},}}
+\DoxyCodeLine{891 \textcolor{comment}{//  \{ 0x0677, "{}Myson Century Inc"{} \},}}
+\DoxyCodeLine{892 \textcolor{comment}{//  \{ 0x0678, "{}FIDELIX"{} \},}}
+\DoxyCodeLine{893 \textcolor{comment}{//  \{ 0x0679, "{}Red Digital Cinema"{} \},}}
+\DoxyCodeLine{894 \textcolor{comment}{//  \{ 0x067A, "{}Densbits Technology"{} \},}}
+\DoxyCodeLine{895 \textcolor{comment}{//  \{ 0x067B, "{}Zempro"{} \},}}
+\DoxyCodeLine{896 \textcolor{comment}{//  \{ 0x067C, "{}MoSys"{} \},}}
+\DoxyCodeLine{897 \textcolor{comment}{//  \{ 0x067D, "{}Provigent"{} \},}}
+\DoxyCodeLine{898 \textcolor{comment}{//  \{ 0x067E, "{}Triad Semiconductor Inc"{} \},}}
+\DoxyCodeLine{899 \textcolor{comment}{//  \{ 0x0701, "{}Siklu Communication Ltd"{} \},}}
+\DoxyCodeLine{900 \textcolor{comment}{//  \{ 0x0702, "{}A Force Manufacturing Ltd"{} \},}}
+\DoxyCodeLine{901 \textcolor{comment}{//  \{ 0x0703, "{}Strontium"{} \},}}
+\DoxyCodeLine{902 \textcolor{comment}{//  \{ 0x0704, "{}ALi Corp (Abilis Systems)"{} \},}}
+\DoxyCodeLine{903 \textcolor{comment}{//  \{ 0x0705, "{}Siglead Inc"{} \},}}
+\DoxyCodeLine{904 \textcolor{comment}{//  \{ 0x0706, "{}Ubicom Inc"{} \},}}
+\DoxyCodeLine{905 \textcolor{comment}{//  \{ 0x0707, "{}Unifosa Corporation"{} \},}}
+\DoxyCodeLine{906 \textcolor{comment}{//  \{ 0x0708, "{}Stretch Inc"{} \},}}
+\DoxyCodeLine{907 \textcolor{comment}{//  \{ 0x0709, "{}Lantiq Deutschland GmbH"{} \},}}
+\DoxyCodeLine{908 \textcolor{comment}{//  \{ 0x070A, "{}Visipro."{} \},}}
+\DoxyCodeLine{909 \textcolor{comment}{//  \{ 0x070B, "{}EKMemory"{} \},}}
+\DoxyCodeLine{910 \textcolor{comment}{//  \{ 0x070C, "{}Microelectronics Institute ZTE"{} \},}}
+\DoxyCodeLine{911 \textcolor{comment}{//  \{ 0x070D, "{}u-\/blox AG"{} \},}}
+\DoxyCodeLine{912 \textcolor{comment}{//  \{ 0x070E, "{}Carry Technology Co Ltd"{} \},}}
+\DoxyCodeLine{913 \textcolor{comment}{//  \{ 0x070F, "{}Nokia"{} \},}}
+\DoxyCodeLine{914     \{ 0x0710, \textcolor{stringliteral}{"{}King Tiger"{}} \},}
+\DoxyCodeLine{915 \textcolor{comment}{//  \{ 0x0711, "{}Sierra Wireless"{} \},}}
+\DoxyCodeLine{916 \textcolor{comment}{//  \{ 0x0712, "{}HT Micron"{} \},}}
+\DoxyCodeLine{917 \textcolor{comment}{//  \{ 0x0713, "{}Albatron Technology Co Ltd"{} \},}}
+\DoxyCodeLine{918 \textcolor{comment}{//  \{ 0x0714, "{}Leica Geosystems AG"{} \},}}
+\DoxyCodeLine{919 \textcolor{comment}{//  \{ 0x0715, "{}BroadLight"{} \},}}
+\DoxyCodeLine{920 \textcolor{comment}{//  \{ 0x0716, "{}AEXEA"{} \},}}
+\DoxyCodeLine{921 \textcolor{comment}{//  \{ 0x0717, "{}ClariPhy Communications Inc"{} \},}}
+\DoxyCodeLine{922 \textcolor{comment}{//  \{ 0x0718, "{}Green Plug"{} \},}}
+\DoxyCodeLine{923 \textcolor{comment}{//  \{ 0x0719, "{}Design Art Networks"{} \},}}
+\DoxyCodeLine{924 \textcolor{comment}{//  \{ 0x071A, "{}Mach Xtreme Technology Ltd"{} \},}}
+\DoxyCodeLine{925 \textcolor{comment}{//  \{ 0x071B, "{}ATO Solutions Co Ltd"{} \},}}
+\DoxyCodeLine{926 \textcolor{comment}{//  \{ 0x071C, "{}Ramsta"{} \},}}
+\DoxyCodeLine{927 \textcolor{comment}{//  \{ 0x071D, "{}Greenliant Systems Ltd"{} \},}}
+\DoxyCodeLine{928 \textcolor{comment}{//  \{ 0x071E, "{}Teikon"{} \},}}
+\DoxyCodeLine{929 \textcolor{comment}{//  \{ 0x071F, "{}Antec Hadron"{} \},}}
+\DoxyCodeLine{930 \textcolor{comment}{//  \{ 0x0720, "{}NavCom Technology Inc"{} \},}}
+\DoxyCodeLine{931 \textcolor{comment}{//  \{ 0x0721, "{}Shanghai Fudan Microelectronics"{} \},}}
+\DoxyCodeLine{932 \textcolor{comment}{//  \{ 0x0722, "{}Calxeda Inc"{} \},}}
+\DoxyCodeLine{933 \textcolor{comment}{//  \{ 0x0723, "{}JSC EDC Electronics"{} \},}}
+\DoxyCodeLine{934 \textcolor{comment}{//  \{ 0x0724, "{}Kandit Technology Co Ltd"{} \},}}
+\DoxyCodeLine{935     \{ 0x0725, \textcolor{stringliteral}{"{}Ramos"{}} \},}
+\DoxyCodeLine{936 \textcolor{comment}{//  \{ 0x0726, "{}Goldenmars Technology"{} \},}}
+\DoxyCodeLine{937 \textcolor{comment}{//  \{ 0x0727, "{}XeL Technology Inc"{} \},}}
+\DoxyCodeLine{938 \textcolor{comment}{//  \{ 0x0728, "{}Newzone Corporation"{} \},}}
+\DoxyCodeLine{939 \textcolor{comment}{//  \{ 0x0729, "{}ShenZhen MercyPower Tech"{} \},}}
+\DoxyCodeLine{940 \textcolor{comment}{//  \{ 0x072A, "{}Nanjing Yihuo Technology"{} \},}}
+\DoxyCodeLine{941 \textcolor{comment}{//  \{ 0x072B, "{}Nethra Imaging Inc"{} \},}}
+\DoxyCodeLine{942 \textcolor{comment}{//  \{ 0x072C, "{}SiTel Semiconductor BV"{} \},}}
+\DoxyCodeLine{943 \textcolor{comment}{//  \{ 0x072D, "{}SolidGear Corporation"{} \},}}
+\DoxyCodeLine{944     \{ 0x072E, \textcolor{stringliteral}{"{}Topower"{}} \},}
+\DoxyCodeLine{945 \textcolor{comment}{//  \{ 0x072F, "{}Wilocity"{} \},}}
+\DoxyCodeLine{946 \textcolor{comment}{//  \{ 0x0730, "{}Profichip GmbH"{} \},}}
+\DoxyCodeLine{947 \textcolor{comment}{//  \{ 0x0731, "{}Gerad Technologies"{} \},}}
+\DoxyCodeLine{948     \{ 0x0732, \textcolor{stringliteral}{"{}Ritek"{}} \},}
+\DoxyCodeLine{949 \textcolor{comment}{//  \{ 0x0733, "{}Gomos Technology Limited"{} \},}}
+\DoxyCodeLine{950 \textcolor{comment}{//  \{ 0x0734, "{}Memoright Corporation"{} \},}}
+\DoxyCodeLine{951 \textcolor{comment}{//  \{ 0x0735, "{}D-\/Broad Inc"{} \},}}
+\DoxyCodeLine{952 \textcolor{comment}{//  \{ 0x0736, "{}HiSilicon Technologies"{} \},}}
+\DoxyCodeLine{953 \textcolor{comment}{//  \{ 0x0737, "{}Syndiant Inc."{} \},}}
+\DoxyCodeLine{954 \textcolor{comment}{//  \{ 0x0738, "{}Enverv Inc"{} \},}}
+\DoxyCodeLine{955 \textcolor{comment}{//  \{ 0x0739, "{}Cognex"{} \},}}
+\DoxyCodeLine{956 \textcolor{comment}{//  \{ 0x073A, "{}Xinnova Technology Inc"{} \},}}
+\DoxyCodeLine{957 \textcolor{comment}{//  \{ 0x073B, "{}Ultron AG"{} \},}}
+\DoxyCodeLine{958 \textcolor{comment}{//  \{ 0x073C, "{}Concord Idea Corporation"{} \},}}
+\DoxyCodeLine{959 \textcolor{comment}{//  \{ 0x073D, "{}AIM Corporation"{} \},}}
+\DoxyCodeLine{960 \textcolor{comment}{//  \{ 0x073E, "{}Lifetime Memory Products"{} \},}}
+\DoxyCodeLine{961 \textcolor{comment}{//  \{ 0x073F, "{}Ramsway"{} \},}}
+\DoxyCodeLine{962 \textcolor{comment}{//  \{ 0x0740, "{}Recore Systems B.V."{} \},}}
+\DoxyCodeLine{963 \textcolor{comment}{//  \{ 0x0741, "{}Haotian Jinshibo Science Tech"{} \},}}
+\DoxyCodeLine{964 \textcolor{comment}{//  \{ 0x0742, "{}Being Advanced Memory"{} \},}}
+\DoxyCodeLine{965 \textcolor{comment}{//  \{ 0x0743, "{}Adesto Technologies"{} \},}}
+\DoxyCodeLine{966 \textcolor{comment}{//  \{ 0x0744, "{}Giantec Semiconductor Inc"{} \},}}
+\DoxyCodeLine{967 \textcolor{comment}{//  \{ 0x0745, "{}HMD Electronics AG"{} \},}}
+\DoxyCodeLine{968 \textcolor{comment}{//  \{ 0x0746, "{}Gloway International (HK)"{} \},}}
+\DoxyCodeLine{969 \textcolor{comment}{//  \{ 0x0747, "{}Kingcore"{} \},}}
+\DoxyCodeLine{970 \textcolor{comment}{//  \{ 0x0748, "{}Anucell Technology Holding"{} \},}}
+\DoxyCodeLine{971 \textcolor{comment}{//  \{ 0x0749, "{}Accord Software \& Systems Pvt. Ltd"{} \},}}
+\DoxyCodeLine{972 \textcolor{comment}{//  \{ 0x074A, "{}Active-\/Semi Inc"{} \},}}
+\DoxyCodeLine{973 \textcolor{comment}{//  \{ 0x074B, "{}Denso Corporation"{} \},}}
+\DoxyCodeLine{974 \textcolor{comment}{//  \{ 0x074C, "{}TLSI Inc"{} \},}}
+\DoxyCodeLine{975 \textcolor{comment}{//  \{ 0x074D, "{}Qidan"{} \},}}
+\DoxyCodeLine{976 \textcolor{comment}{//  \{ 0x074E, "{}Mustang"{} \},}}
+\DoxyCodeLine{977 \textcolor{comment}{//  \{ 0x074F, "{}Orca Systems"{} \},}}
+\DoxyCodeLine{978 \textcolor{comment}{//  \{ 0x0750, "{}Passif Semiconductor"{} \},}}
+\DoxyCodeLine{979 \textcolor{comment}{//  \{ 0x0752, "{}Memphis Electronic"{} \},}}
+\DoxyCodeLine{980 \textcolor{comment}{//  \{ 0x0753, "{}Beckhoff Automation GmbH"{} \},}}
+\DoxyCodeLine{981 \textcolor{comment}{//  \{ 0x0754, "{}Harmony Semiconductor Corp"{} \},}}
+\DoxyCodeLine{982 \textcolor{comment}{//  \{ 0x0755, "{}Air Computers SRL"{} \},}}
+\DoxyCodeLine{983 \textcolor{comment}{//  \{ 0x0756, "{}TMT Memory"{} \},}}
+\DoxyCodeLine{984 \textcolor{comment}{//  \{ 0x0757, "{}Eorex Corporation"{} \},}}
+\DoxyCodeLine{985 \textcolor{comment}{//  \{ 0x0758, "{}Xingtera"{} \},}}
+\DoxyCodeLine{986 \textcolor{comment}{//  \{ 0x0759, "{}Netsol"{} \},}}
+\DoxyCodeLine{987 \textcolor{comment}{//  \{ 0x075A, "{}Bestdon Technology Co Ltd"{} \},}}
+\DoxyCodeLine{988 \textcolor{comment}{//  \{ 0x075B, "{}Baysand Inc"{} \},}}
+\DoxyCodeLine{989 \textcolor{comment}{//  \{ 0x075C, "{}Uroad Technology Co Ltd"{} \},}}
+\DoxyCodeLine{990     \{ 0x075D, \textcolor{stringliteral}{"{}Wilk Elektronik"{}} \},}
+\DoxyCodeLine{991 \textcolor{comment}{//  \{ 0x075E, "{}AAI"{} \},}}
+\DoxyCodeLine{992 \textcolor{comment}{//  \{ 0x075F, "{}Harman"{} \},}}
+\DoxyCodeLine{993 \textcolor{comment}{//  \{ 0x0760, "{}Berg Microelectronics Inc"{} \},}}
+\DoxyCodeLine{994 \textcolor{comment}{//  \{ 0x0761, "{}ASSIA Inc"{} \},}}
+\DoxyCodeLine{995 \textcolor{comment}{//  \{ 0x0762, "{}Visiontek Products LLC"{} \},}}
+\DoxyCodeLine{996     \{ 0x0763, \textcolor{stringliteral}{"{}OCMEMORY"{}} \},}
+\DoxyCodeLine{997 \textcolor{comment}{//  \{ 0x0764, "{}Welink Solution Inc"{} \},}}
+\DoxyCodeLine{998 \textcolor{comment}{//  \{ 0x0765, "{}Shark Gaming"{} \},}}
+\DoxyCodeLine{999 \textcolor{comment}{//  \{ 0x0766, "{}Avalanche Technology"{} \},}}
+\DoxyCodeLine{1000 \textcolor{comment}{//  \{ 0x0767, "{}R\&D Center ELVEES OJSC"{} \},}}
+\DoxyCodeLine{1001     \{ 0x0768, \textcolor{stringliteral}{"{}KingboMars"{}} \},}
+\DoxyCodeLine{1002     \{ 0x076A, \textcolor{stringliteral}{"{}Transcend"{}} \},}
+\DoxyCodeLine{1003 \textcolor{comment}{//  \{ 0x076B, "{}Everspin Technologies"{} \},}}
+\DoxyCodeLine{1004 \textcolor{comment}{//  \{ 0x076C, "{}Hon-\/Hai Precision"{} \},}}
+\DoxyCodeLine{1005 \textcolor{comment}{//  \{ 0x076D, "{}Smart Storage Systems"{} \},}}
+\DoxyCodeLine{1006 \textcolor{comment}{//  \{ 0x076E, "{}Toumaz Group"{} \},}}
+\DoxyCodeLine{1007 \textcolor{comment}{//  \{ 0x076F, "{}Zentel Electronics Corporation"{} \},}}
+\DoxyCodeLine{1008 \textcolor{comment}{//  \{ 0x0770, "{}Panram International Corporation"{} \},}}
+\DoxyCodeLine{1009 \textcolor{comment}{//  \{ 0x0771, "{}Silicon Space Technology"{} \},}}
+\DoxyCodeLine{1010     \{ 0x0772, \textcolor{stringliteral}{"{}LITE-\/ON"{}} \},}
+\DoxyCodeLine{1011 \textcolor{comment}{//  \{ 0x0773, "{}Inuitive"{} \},}}
+\DoxyCodeLine{1012 \textcolor{comment}{//  \{ 0x0774, "{}HMicro"{} \},}}
+\DoxyCodeLine{1013 \textcolor{comment}{//  \{ 0x0775, "{}BittWare Inc"{} \},}}
+\DoxyCodeLine{1014 \textcolor{comment}{//  \{ 0x0776, "{}GLOBALFOUNDRIES"{} \},}}
+\DoxyCodeLine{1015 \textcolor{comment}{//  \{ 0x0777, "{}ACPI Digital Co Ltd"{} \},}}
+\DoxyCodeLine{1016 \textcolor{comment}{//  \{ 0x0778, "{}Annapurna Labs"{} \},}}
+\DoxyCodeLine{1017 \textcolor{comment}{//  \{ 0x0779, "{}AcSiP Technology Corporation"{} \},}}
+\DoxyCodeLine{1018 \textcolor{comment}{//  \{ 0x077A, "{}Idea! Electronic Systems"{} \},}}
+\DoxyCodeLine{1019 \textcolor{comment}{//  \{ 0x077B, "{}Gowe Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1020 \textcolor{comment}{//  \{ 0x077C, "{}Hermes Testing Solutions Inc"{} \},}}
+\DoxyCodeLine{1021 \textcolor{comment}{//  \{ 0x077D, "{}Positivo BGH"{} \},}}
+\DoxyCodeLine{1022 \textcolor{comment}{//  \{ 0x077E, "{}Intelligence  Silicon Technology"{} \},}}
+\DoxyCodeLine{1023 \textcolor{comment}{//  \{ 0x0801, "{}3D PLUS"{} \},}}
+\DoxyCodeLine{1024 \textcolor{comment}{//  \{ 0x0802, "{}Diehl Aerospace"{} \},}}
+\DoxyCodeLine{1025 \textcolor{comment}{//  \{ 0x0803, "{}Fairchild"{} \},}}
+\DoxyCodeLine{1026 \textcolor{comment}{//  \{ 0x0804, "{}Mercury Systems"{} \},}}
+\DoxyCodeLine{1027 \textcolor{comment}{//  \{ 0x0805, "{}Sonics Inc"{} \},}}
+\DoxyCodeLine{1028 \textcolor{comment}{//  \{ 0x0806, "{}Emerson Automation Solutions"{} \},}}
+\DoxyCodeLine{1029 \textcolor{comment}{//  \{ 0x0807, "{}Shenzhen Jinge Information Co Ltd"{} \},}}
+\DoxyCodeLine{1030 \textcolor{comment}{//  \{ 0x0808, "{}SCWW"{} \},}}
+\DoxyCodeLine{1031 \textcolor{comment}{//  \{ 0x0809, "{}Silicon Motion Inc"{} \},}}
+\DoxyCodeLine{1032 \textcolor{comment}{//  \{ 0x080A, "{}Anurag"{} \},}}
+\DoxyCodeLine{1033 \textcolor{comment}{//  \{ 0x080B, "{}King Kong"{} \},}}
+\DoxyCodeLine{1034 \textcolor{comment}{//  \{ 0x080C, "{}FROM30 Co Ltd"{} \},}}
+\DoxyCodeLine{1035 \textcolor{comment}{//  \{ 0x080D, "{}Gowin Semiconductor Corp"{} \},}}
+\DoxyCodeLine{1036 \textcolor{comment}{//  \{ 0x080E, "{}Fremont Micro Devices Ltd"{} \},}}
+\DoxyCodeLine{1037 \textcolor{comment}{//  \{ 0x080F, "{}Ericsson Modems"{} \},}}
+\DoxyCodeLine{1038 \textcolor{comment}{//  \{ 0x0810, "{}Exelis"{} \},}}
+\DoxyCodeLine{1039 \textcolor{comment}{//  \{ 0x0811, "{}Satixfy Ltd"{} \},}}
+\DoxyCodeLine{1040 \textcolor{comment}{//  \{ 0x0812, "{}Galaxy Microsystems Ltd"{} \},}}
+\DoxyCodeLine{1041     \{ 0x0813, \textcolor{stringliteral}{"{}Gloway"{}} \},}
+\DoxyCodeLine{1042 \textcolor{comment}{//  \{ 0x0814, "{}Lab"{} \},}}
+\DoxyCodeLine{1043 \textcolor{comment}{//  \{ 0x0815, "{}Smart Energy Instruments"{} \},}}
+\DoxyCodeLine{1044 \textcolor{comment}{//  \{ 0x0816, "{}Approved Memory Corporation"{} \},}}
+\DoxyCodeLine{1045 \textcolor{comment}{//  \{ 0x0817, "{}Axell Corporation"{} \},}}
+\DoxyCodeLine{1046     \{ 0x0818, \textcolor{stringliteral}{"{}KLEVV"{}} \},}
+\DoxyCodeLine{1047 \textcolor{comment}{//  \{ 0x0819, "{}Phytium"{} \},}}
+\DoxyCodeLine{1048 \textcolor{comment}{//  \{ 0x081A, "{}Xi'an UniIC Semiconductors Co Ltd"{} \},}}
+\DoxyCodeLine{1049 \textcolor{comment}{//  \{ 0x081B, "{}Ambiq Micro"{} \},}}
+\DoxyCodeLine{1050 \textcolor{comment}{//  \{ 0x081C, "{}eveRAM Technology Inc"{} \},}}
+\DoxyCodeLine{1051 \textcolor{comment}{//  \{ 0x081D, "{}Infomax"{} \},}}
+\DoxyCodeLine{1052 \textcolor{comment}{//  \{ 0x081E, "{}Butterfly Network Inc"{} \},}}
+\DoxyCodeLine{1053 \textcolor{comment}{//  \{ 0x081F, "{}Shenzhen City Gcai Electronics"{} \},}}
+\DoxyCodeLine{1054 \textcolor{comment}{//  \{ 0x0820, "{}Stack Devices Corporation"{} \},}}
+\DoxyCodeLine{1055 \textcolor{comment}{//  \{ 0x0821, "{}ADK Media Group"{} \},}}
+\DoxyCodeLine{1056 \textcolor{comment}{//  \{ 0x0822, "{}TSP Global Co Ltd"{} \},}}
+\DoxyCodeLine{1057 \textcolor{comment}{//  \{ 0x0823, "{}HighX"{} \},}}
+\DoxyCodeLine{1058 \textcolor{comment}{//  \{ 0x0824, "{}Shenzhen Elicks Technology"{} \},}}
+\DoxyCodeLine{1059 \textcolor{comment}{//  \{ 0x0825, "{}XinKai/Silicon Kaiser"{} \},}}
+\DoxyCodeLine{1060     \{ 0x0826, \textcolor{stringliteral}{"{}Google"{}} \},}
+\DoxyCodeLine{1061 \textcolor{comment}{//  \{ 0x0827, "{}Dasima International Development"{} \},}}
+\DoxyCodeLine{1062 \textcolor{comment}{//  \{ 0x0828, "{}Leahkinn Technology Limited"{} \},}}
+\DoxyCodeLine{1063 \textcolor{comment}{//  \{ 0x0829, "{}HIMA Paul Hildebrandt GmbH Co KG"{} \},}}
+\DoxyCodeLine{1064     \{ 0x082A, \textcolor{stringliteral}{"{}Keysight"{}} \},}
+\DoxyCodeLine{1065 \textcolor{comment}{//  \{ 0x082B, "{}Techcomp International (Fastable)"{} \},}}
+\DoxyCodeLine{1066 \textcolor{comment}{//  \{ 0x082C, "{}Ancore Technology Corporation"{} \},}}
+\DoxyCodeLine{1067 \textcolor{comment}{//  \{ 0x082D, "{}Nuvoton"{} \},}}
+\DoxyCodeLine{1068 \textcolor{comment}{//  \{ 0x082E, "{}Korea Uhbele International Group Ltd"{} \},}}
+\DoxyCodeLine{1069 \textcolor{comment}{//  \{ 0x082F, "{}Ikegami Tsushinki Co Ltd"{} \},}}
+\DoxyCodeLine{1070 \textcolor{comment}{//  \{ 0x0830, "{}RelChip Inc"{} \},}}
+\DoxyCodeLine{1071 \textcolor{comment}{//  \{ 0x0831, "{}Baikal Electronics"{} \},}}
+\DoxyCodeLine{1072 \textcolor{comment}{//  \{ 0x0832, "{}Nemostech Inc"{} \},}}
+\DoxyCodeLine{1073     \{ 0x0833, \textcolor{stringliteral}{"{}Memorysolution"{}} \},}
+\DoxyCodeLine{1074 \textcolor{comment}{//  \{ 0x0834, "{}Silicon Integrated Systems Corporation"{} \},}}
+\DoxyCodeLine{1075 \textcolor{comment}{//  \{ 0x0835, "{}Xiede"{} \},}}
+\DoxyCodeLine{1076 \textcolor{comment}{//  \{ 0x0836, "{}BRC"{} \},}}
+\DoxyCodeLine{1077 \textcolor{comment}{//  \{ 0x0837, "{}Flash Chi"{} \},}}
+\DoxyCodeLine{1078 \textcolor{comment}{//  \{ 0x0838, "{}Jone"{} \},}}
+\DoxyCodeLine{1079 \textcolor{comment}{//  \{ 0x0839, "{}GCT Semiconductor Inc"{} \},}}
+\DoxyCodeLine{1080 \textcolor{comment}{//  \{ 0x083A, "{}Hong Kong Zetta Device Technology"{} \},}}
+\DoxyCodeLine{1081 \textcolor{comment}{//  \{ 0x083B, "{}Unimemory Technology(s) Pte Ltd"{} \},}}
+\DoxyCodeLine{1082 \textcolor{comment}{//  \{ 0x083C, "{}Cuso"{} \},}}
+\DoxyCodeLine{1083 \textcolor{comment}{//  \{ 0x083D, "{}Kuso"{} \},}}
+\DoxyCodeLine{1084 \textcolor{comment}{//  \{ 0x083E, "{}Uniquify Inc"{} \},}}
+\DoxyCodeLine{1085 \textcolor{comment}{//  \{ 0x083F, "{}Skymedi Corporation"{} \},}}
+\DoxyCodeLine{1086 \textcolor{comment}{//  \{ 0x0840, "{}Core Chance Co Ltd"{} \},}}
+\DoxyCodeLine{1087 \textcolor{comment}{//  \{ 0x0841, "{}Tekism Co Ltd"{} \},}}
+\DoxyCodeLine{1088 \textcolor{comment}{//  \{ 0x0842, "{}Seagate Technology PLC"{} \},}}
+\DoxyCodeLine{1089 \textcolor{comment}{//  \{ 0x0843, "{}Hong Kong Gaia Group Co Limited"{} \},}}
+\DoxyCodeLine{1090 \textcolor{comment}{//  \{ 0x0844, "{}Gigacom Semiconductor LLC"{} \},}}
+\DoxyCodeLine{1091 \textcolor{comment}{//  \{ 0x0845, "{}V2 Technologies"{} \},}}
+\DoxyCodeLine{1092 \textcolor{comment}{//  \{ 0x0846, "{}TLi"{} \},}}
+\DoxyCodeLine{1093 \textcolor{comment}{//  \{ 0x0847, "{}Neotion"{} \},}}
+\DoxyCodeLine{1094     \{ 0x0848, \textcolor{stringliteral}{"{}Lenovo"{}} \},}
+\DoxyCodeLine{1095 \textcolor{comment}{//  \{ 0x0849, "{}Shenzhen Zhongteng Electronic Corp Ltd"{} \},}}
+\DoxyCodeLine{1096 \textcolor{comment}{//  \{ 0x084A, "{}Compound Photonics"{} \},}}
+\DoxyCodeLine{1097 \textcolor{comment}{//  \{ 0x084B, "{}in2H2 inc"{} \},}}
+\DoxyCodeLine{1098 \textcolor{comment}{//  \{ 0x084C, "{}Shenzhen Pango Microsystems Co Ltd"{} \},}}
+\DoxyCodeLine{1099 \textcolor{comment}{//  \{ 0x084D, "{}Vasekey"{} \},}}
+\DoxyCodeLine{1100 \textcolor{comment}{//  \{ 0x084F, "{}Eyenix Co Ltd"{} \},}}
+\DoxyCodeLine{1101     \{ 0x0850, \textcolor{stringliteral}{"{}Heoriady"{}} \},}
+\DoxyCodeLine{1102 \textcolor{comment}{//  \{ 0x0851, "{}Accelerated Memory Production Inc"{} \},}}
+\DoxyCodeLine{1103 \textcolor{comment}{//  \{ 0x0852, "{}INVECAS Inc"{} \},}}
+\DoxyCodeLine{1104 \textcolor{comment}{//  \{ 0x0853, "{}AP Memory"{} \},}}
+\DoxyCodeLine{1105 \textcolor{comment}{//  \{ 0x0854, "{}Douqi Technology"{} \},}}
+\DoxyCodeLine{1106 \textcolor{comment}{//  \{ 0x0855, "{}Etron Technology Inc"{} \},}}
+\DoxyCodeLine{1107 \textcolor{comment}{//  \{ 0x0856, "{}Indie Semiconductor"{} \},}}
+\DoxyCodeLine{1108 \textcolor{comment}{//  \{ 0x0857, "{}Socionext Inc"{} \},}}
+\DoxyCodeLine{1109     \{ 0x0858, \textcolor{stringliteral}{"{}HGST"{}} \},}
+\DoxyCodeLine{1110     \{ 0x0859, \textcolor{stringliteral}{"{}EVGA"{}} \},}
+\DoxyCodeLine{1111 \textcolor{comment}{//  \{ 0x085A, "{}Audience Inc"{} \},}}
+\DoxyCodeLine{1112 \textcolor{comment}{//  \{ 0x085B, "{}EpicGear"{} \},}}
+\DoxyCodeLine{1113 \textcolor{comment}{//  \{ 0x085C, "{}Vitesse Enterprise Co"{} \},}}
+\DoxyCodeLine{1114 \textcolor{comment}{//  \{ 0x085D, "{}Foxtronn International Corporation"{} \},}}
+\DoxyCodeLine{1115 \textcolor{comment}{//  \{ 0x085E, "{}Bretelon Inc"{} \},}}
+\DoxyCodeLine{1116 \textcolor{comment}{//  \{ 0x085F, "{}Graphcore"{} \},}}
+\DoxyCodeLine{1117 \textcolor{comment}{//  \{ 0x0860, "{}Eoplex Inc"{} \},}}
+\DoxyCodeLine{1118 \textcolor{comment}{//  \{ 0x0861, "{}MaxLinear Inc"{} \},}}
+\DoxyCodeLine{1119 \textcolor{comment}{//  \{ 0x0862, "{}ETA Devices"{} \},}}
+\DoxyCodeLine{1120 \textcolor{comment}{//  \{ 0x0863, "{}LOKI"{} \},}}
+\DoxyCodeLine{1121 \textcolor{comment}{//  \{ 0x0864, "{}IMS Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1122 \textcolor{comment}{//  \{ 0x0865, "{}Dosilicon Co Ltd"{} \},}}
+\DoxyCodeLine{1123 \textcolor{comment}{//  \{ 0x0866, "{}Dolphin Integration"{} \},}}
+\DoxyCodeLine{1124 \textcolor{comment}{//  \{ 0x0867, "{}Shenzhen Mic Electronics Technolog"{} \},}}
+\DoxyCodeLine{1125 \textcolor{comment}{//  \{ 0x0868, "{}Boya Microelectronics Inc"{} \},}}
+\DoxyCodeLine{1126 \textcolor{comment}{//  \{ 0x0869, "{}Geniachip (Roche)"{} \},}}
+\DoxyCodeLine{1127 \textcolor{comment}{//  \{ 0x086A, "{}Axign"{} \},}}
+\DoxyCodeLine{1128 \textcolor{comment}{//  \{ 0x086B, "{}Kingred Electronic Technology Ltd"{} \},}}
+\DoxyCodeLine{1129 \textcolor{comment}{//  \{ 0x086C, "{}Chao Yue Zhuo Computer Business Dept."{} \},}}
+\DoxyCodeLine{1130 \textcolor{comment}{//  \{ 0x086E, "{}Crocus Technology Inc"{} \},}}
+\DoxyCodeLine{1131 \textcolor{comment}{//  \{ 0x086F, "{}Creative Chips GmbH"{} \},}}
+\DoxyCodeLine{1132 \textcolor{comment}{//  \{ 0x0870, "{}GE Aviation Systems LLC."{} \},}}
+\DoxyCodeLine{1133 \textcolor{comment}{//  \{ 0x0871, "{}Asgard"{} \},}}
+\DoxyCodeLine{1134 \textcolor{comment}{//  \{ 0x0872, "{}Good Wealth Technology Ltd"{} \},}}
+\DoxyCodeLine{1135 \textcolor{comment}{//  \{ 0x0873, "{}TriCor Technologies"{} \},}}
+\DoxyCodeLine{1136 \textcolor{comment}{//  \{ 0x0874, "{}Nova-\/Systems GmbH"{} \},}}
+\DoxyCodeLine{1137 \textcolor{comment}{//  \{ 0x0875, "{}JUHOR"{} \},}}
+\DoxyCodeLine{1138 \textcolor{comment}{//  \{ 0x0876, "{}Zhuhai Douke Commerce Co Ltd"{} \},}}
+\DoxyCodeLine{1139 \textcolor{comment}{//  \{ 0x0877, "{}DSL Memory"{} \},}}
+\DoxyCodeLine{1140 \textcolor{comment}{//  \{ 0x0878, "{}Anvo-\/Systems Dresden GmbH"{} \},}}
+\DoxyCodeLine{1141     \{ 0x0879, \textcolor{stringliteral}{"{}Realtek"{}} \},}
+\DoxyCodeLine{1142 \textcolor{comment}{//  \{ 0x087A, "{}AltoBeam"{} \},}}
+\DoxyCodeLine{1143 \textcolor{comment}{//  \{ 0x087B, "{}Wave Computing"{} \},}}
+\DoxyCodeLine{1144 \textcolor{comment}{//  \{ 0x087C, "{}Beijing TrustNet Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1145 \textcolor{comment}{//  \{ 0x087D, "{}Innovium Inc"{} \},}}
+\DoxyCodeLine{1146 \textcolor{comment}{//  \{ 0x087E, "{}Starsway Technology Limited"{} \},}}
+\DoxyCodeLine{1147 \textcolor{comment}{//  \{ 0x0901, "{}Weltronics Co LTD"{} \},}}
+\DoxyCodeLine{1148     \{ 0x0902, \textcolor{stringliteral}{"{}VMware"{}} \},}
+\DoxyCodeLine{1149     \{ 0x0903, \textcolor{stringliteral}{"{}HPE"{}} \},}
+\DoxyCodeLine{1150 \textcolor{comment}{//  \{ 0x0904, "{}INTENSO"{} \},}}
+\DoxyCodeLine{1151 \textcolor{comment}{//  \{ 0x0905, "{}Puya Semiconductor"{} \},}}
+\DoxyCodeLine{1152 \textcolor{comment}{//  \{ 0x0906, "{}MEMORFI"{} \},}}
+\DoxyCodeLine{1153 \textcolor{comment}{//  \{ 0x0907, "{}MSC Technologies GmbH"{} \},}}
+\DoxyCodeLine{1154 \textcolor{comment}{//  \{ 0x0908, "{}Txrui"{} \},}}
+\DoxyCodeLine{1155 \textcolor{comment}{//  \{ 0x0909, "{}SiFive Inc"{} \},}}
+\DoxyCodeLine{1156 \textcolor{comment}{//  \{ 0x090A, "{}Spreadtrum Communications"{} \},}}
+\DoxyCodeLine{1157 \textcolor{comment}{//  \{ 0x090B, "{}XTX Technology Limited"{} \},}}
+\DoxyCodeLine{1158 \textcolor{comment}{//  \{ 0x090C, "{}UMAX Technology"{} \},}}
+\DoxyCodeLine{1159 \textcolor{comment}{//  \{ 0x090D, "{}Shenzhen Yong Sheng Technology"{} \},}}
+\DoxyCodeLine{1160 \textcolor{comment}{//  \{ 0x090E, "{}SNOAMOO (Shenzhen Kai Zhuo Yue)"{} \},}}
+\DoxyCodeLine{1161 \textcolor{comment}{//  \{ 0x090F, "{}Daten Tecnologia LTDA"{} \},}}
+\DoxyCodeLine{1162 \textcolor{comment}{//  \{ 0x0910, "{}Shenzhen XinRuiYan Electronics"{} \},}}
+\DoxyCodeLine{1163 \textcolor{comment}{//  \{ 0x0911, "{}Eta Compute"{} \},}}
+\DoxyCodeLine{1164 \textcolor{comment}{//  \{ 0x0912, "{}Energous"{} \},}}
+\DoxyCodeLine{1165 \textcolor{comment}{//  \{ 0x0913, "{}Raspberry Pi Trading Ltd"{} \},}}
+\DoxyCodeLine{1166 \textcolor{comment}{//  \{ 0x0914, "{}Shenzhen Chixingzhe Tech Co Ltd"{} \},}}
+\DoxyCodeLine{1167 \textcolor{comment}{//  \{ 0x0915, "{}Silicon Mobility"{} \},}}
+\DoxyCodeLine{1168 \textcolor{comment}{//  \{ 0x0916, "{}IQ-\/Analog Corporation"{} \},}}
+\DoxyCodeLine{1169 \textcolor{comment}{//  \{ 0x0917, "{}Uhnder Inc"{} \},}}
+\DoxyCodeLine{1170 \textcolor{comment}{//  \{ 0x0918, "{}Impinj"{} \},}}
+\DoxyCodeLine{1171 \textcolor{comment}{//  \{ 0x0919, "{}DEPO Computers"{} \},}}
+\DoxyCodeLine{1172 \textcolor{comment}{//  \{ 0x091A, "{}Nespeed Sysems"{} \},}}
+\DoxyCodeLine{1173 \textcolor{comment}{//  \{ 0x091B, "{}Yangtze Memory Technologies Co Ltd"{} \},}}
+\DoxyCodeLine{1174 \textcolor{comment}{//  \{ 0x091C, "{}MemxPro Inc"{} \},}}
+\DoxyCodeLine{1175 \textcolor{comment}{//  \{ 0x091D, "{}Tammuz Co Ltd"{} \},}}
+\DoxyCodeLine{1176     \{ 0x091E, \textcolor{stringliteral}{"{}Allwinner"{}} \},}
+\DoxyCodeLine{1177 \textcolor{comment}{//  \{ 0x0920, "{}XMC"{} \},}}
+\DoxyCodeLine{1178 \textcolor{comment}{//  \{ 0x0921, "{}Teclast"{} \},}}
+\DoxyCodeLine{1179 \textcolor{comment}{//  \{ 0x0922, "{}Maxsun"{} \},}}
+\DoxyCodeLine{1180 \textcolor{comment}{//  \{ 0x0923, "{}Haiguang Integrated Circuit Design"{} \},}}
+\DoxyCodeLine{1181     \{ 0x0924, \textcolor{stringliteral}{"{}RamCENTER"{}} \},}
+\DoxyCodeLine{1182 \textcolor{comment}{//  \{ 0x0925, "{}Phison Electronics Corporation"{} \},}}
+\DoxyCodeLine{1183 \textcolor{comment}{//  \{ 0x0926, "{}Guizhou Huaxintong Semi-\/Conductor"{} \},}}
+\DoxyCodeLine{1184 \textcolor{comment}{//  \{ 0x0927, "{}Network Intelligence"{} \},}}
+\DoxyCodeLine{1185 \textcolor{comment}{//  \{ 0x0928, "{}Continental Technology (Holdings)"{} \},}}
+\DoxyCodeLine{1186 \textcolor{comment}{//  \{ 0x0929, "{}Guangzhou Huayan Suning Electronic"{} \},}}
+\DoxyCodeLine{1187 \textcolor{comment}{//  \{ 0x092A, "{}Guangzhou Zhouji Electronic Co Ltd"{} \},}}
+\DoxyCodeLine{1188 \textcolor{comment}{//  \{ 0x092B, "{}Shenzhen Giant Hui Kang Tech Co Ltd"{} \},}}
+\DoxyCodeLine{1189 \textcolor{comment}{//  \{ 0x092C, "{}Shenzhen Yilong Innovative Co Ltd"{} \},}}
+\DoxyCodeLine{1190 \textcolor{comment}{//  \{ 0x092D, "{}Neo Forza"{} \},}}
+\DoxyCodeLine{1191 \textcolor{comment}{//  \{ 0x092E, "{}Lyontek Inc"{} \},}}
+\DoxyCodeLine{1192 \textcolor{comment}{//  \{ 0x092F, "{}Shanghai Kuxin Microelectronics Ltd"{} \},}}
+\DoxyCodeLine{1193 \textcolor{comment}{//  \{ 0x0930, "{}Shenzhen Larix Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1194 \textcolor{comment}{//  \{ 0x0931, "{}Qbit Semiconductor Ltd"{} \},}}
+\DoxyCodeLine{1195 \textcolor{comment}{//  \{ 0x0932, "{}Insignis Technology Corporation"{} \},}}
+\DoxyCodeLine{1196 \textcolor{comment}{//  \{ 0x0933, "{}Lanson Memory Co Ltd"{} \},}}
+\DoxyCodeLine{1197 \textcolor{comment}{//  \{ 0x0934, "{}Shenzhen Superway Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1198 \textcolor{comment}{//  \{ 0x0935, "{}Canaan-\/Creative Co Ltd"{} \},}}
+\DoxyCodeLine{1199 \textcolor{comment}{//  \{ 0x0936, "{}Black Diamond Memory"{} \},}}
+\DoxyCodeLine{1200 \textcolor{comment}{//  \{ 0x0937, "{}Shenzhen City Parker Baking Electronics"{} \},}}
+\DoxyCodeLine{1201 \textcolor{comment}{//  \{ 0x0938, "{}Shenzhen Baihong Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1202 \textcolor{comment}{//  \{ 0x0939, "{}GEO Semiconductors"{} \},}}
+\DoxyCodeLine{1203 \textcolor{comment}{//  \{ 0x093A, "{}OCPC"{} \},}}
+\DoxyCodeLine{1204 \textcolor{comment}{//  \{ 0x093B, "{}Artery Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1205 \textcolor{comment}{//  \{ 0x093C, "{}Jinyu"{} \},}}
+\DoxyCodeLine{1206 \textcolor{comment}{//  \{ 0x093D, "{}ShenzhenYing Chi Technology Development"{} \},}}
+\DoxyCodeLine{1207 \textcolor{comment}{//  \{ 0x093E, "{}Shenzhen Pengcheng Xin Technology"{} \},}}
+\DoxyCodeLine{1208 \textcolor{comment}{//  \{ 0x093F, "{}Pegasus Semiconductor (Shanghai) Co"{} \},}}
+\DoxyCodeLine{1209 \textcolor{comment}{//  \{ 0x0940, "{}Mythic Inc"{} \},}}
+\DoxyCodeLine{1210 \textcolor{comment}{//  \{ 0x0941, "{}Elmos Semiconductor AG"{} \},}}
+\DoxyCodeLine{1211     \{ 0x0942, \textcolor{stringliteral}{"{}Kllisre"{}} \},}
+\DoxyCodeLine{1212 \textcolor{comment}{//  \{ 0x0943, "{}Shenzhen Winconway Technology"{} \},}}
+\DoxyCodeLine{1213 \textcolor{comment}{//  \{ 0x0944, "{}Shenzhen Xingmem Technology Corp"{} \},}}
+\DoxyCodeLine{1214 \textcolor{comment}{//  \{ 0x0945, "{}Gold Key Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1215 \textcolor{comment}{//  \{ 0x0946, "{}Habana Labs Ltd"{} \},}}
+\DoxyCodeLine{1216 \textcolor{comment}{//  \{ 0x0947, "{}Hoodisk Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1217 \textcolor{comment}{//  \{ 0x0948, "{}SemsoTai (SZ) Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1218 \textcolor{comment}{//  \{ 0x0949, "{}OM Nanotech Pvt. Ltd"{} \},}}
+\DoxyCodeLine{1219 \textcolor{comment}{//  \{ 0x094A, "{}Shenzhen Zhifeng Weiye Technology"{} \},}}
+\DoxyCodeLine{1220 \textcolor{comment}{//  \{ 0x094B, "{}Xinshirui (Shenzhen) Electronics Co"{} \},}}
+\DoxyCodeLine{1221 \textcolor{comment}{//  \{ 0x094C, "{}Guangzhou Zhong Hao Tian Electronic"{} \},}}
+\DoxyCodeLine{1222 \textcolor{comment}{//  \{ 0x094D, "{}Shenzhen Longsys Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1223 \textcolor{comment}{//  \{ 0x094E, "{}Deciso B.V."{} \},}}
+\DoxyCodeLine{1224 \textcolor{comment}{//  \{ 0x094F, "{}Puya Semiconductor (Shenzhen)"{} \},}}
+\DoxyCodeLine{1225 \textcolor{comment}{//  \{ 0x0950, "{}Shenzhen Veineda Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1226 \textcolor{comment}{//  \{ 0x0951, "{}Antec Memory"{} \},}}
+\DoxyCodeLine{1227 \textcolor{comment}{//  \{ 0x0952, "{}Cortus SAS"{} \},}}
+\DoxyCodeLine{1228 \textcolor{comment}{//  \{ 0x0953, "{}Dust Leopard"{} \},}}
+\DoxyCodeLine{1229 \textcolor{comment}{//  \{ 0x0954, "{}MyWo AS"{} \},}}
+\DoxyCodeLine{1230 \textcolor{comment}{//  \{ 0x0955, "{}J\&A Information Inc"{} \},}}
+\DoxyCodeLine{1231 \textcolor{comment}{//  \{ 0x0956, "{}Shenzhen JIEPEI Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1232 \textcolor{comment}{//  \{ 0x0957, "{}Heidelberg University"{} \},}}
+\DoxyCodeLine{1233 \textcolor{comment}{//  \{ 0x0958, "{}Flexxon PTE Ltd"{} \},}}
+\DoxyCodeLine{1234 \textcolor{comment}{//  \{ 0x0959, "{}Wiliot"{} \},}}
+\DoxyCodeLine{1235 \textcolor{comment}{//  \{ 0x095A, "{}Raysun Electronics International Ltd"{} \},}}
+\DoxyCodeLine{1236 \textcolor{comment}{//  \{ 0x095B, "{}Aquarius Production Company LLC"{} \},}}
+\DoxyCodeLine{1237 \textcolor{comment}{//  \{ 0x095C, "{}MACNICA DHW LTDA"{} \},}}
+\DoxyCodeLine{1238 \textcolor{comment}{//  \{ 0x095D, "{}Intelimem"{} \},}}
+\DoxyCodeLine{1239 \textcolor{comment}{//  \{ 0x095E, "{}Zbit Semiconductor Inc"{} \},}}
+\DoxyCodeLine{1240 \textcolor{comment}{//  \{ 0x095F, "{}Shenzhen Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1241 \textcolor{comment}{//  \{ 0x0960, "{}Signalchip"{} \},}}
+\DoxyCodeLine{1242 \textcolor{comment}{//  \{ 0x0961, "{}Shenzen Recadata Storage Technology"{} \},}}
+\DoxyCodeLine{1243 \textcolor{comment}{//  \{ 0x0962, "{}Hyundai Technology"{} \},}}
+\DoxyCodeLine{1244 \textcolor{comment}{//  \{ 0x0963, "{}Shanghai Fudi Investment Development"{} \},}}
+\DoxyCodeLine{1245 \textcolor{comment}{//  \{ 0x0964, "{}Aixi Technology"{} \},}}
+\DoxyCodeLine{1246 \textcolor{comment}{//  \{ 0x0965, "{}Tecon MT"{} \},}}
+\DoxyCodeLine{1247 \textcolor{comment}{//  \{ 0x0966, "{}Onda Electric Co Ltd"{} \},}}
+\DoxyCodeLine{1248 \textcolor{comment}{//  \{ 0x0967, "{}Jinshen"{} \},}}
+\DoxyCodeLine{1249 \textcolor{comment}{//  \{ 0x0968, "{}Kimtigo Semiconductor (HK) Limited"{} \},}}
+\DoxyCodeLine{1250 \textcolor{comment}{//  \{ 0x0969, "{}IIT Madras"{} \},}}
+\DoxyCodeLine{1251 \textcolor{comment}{//  \{ 0x096A, "{}Shenshan (Shenzhen) Electronic"{} \},}}
+\DoxyCodeLine{1252 \textcolor{comment}{//  \{ 0x096B, "{}Hefei Core Storage Electronic Limited"{} \},}}
+\DoxyCodeLine{1253 \textcolor{comment}{//  \{ 0x096C, "{}Colorful Technology Ltd"{} \},}}
+\DoxyCodeLine{1254 \textcolor{comment}{//  \{ 0x096D, "{}Visenta (Xiamen) Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1255 \textcolor{comment}{//  \{ 0x096E, "{}Roa Logic BV"{} \},}}
+\DoxyCodeLine{1256 \textcolor{comment}{//  \{ 0x096F, "{}NSITEXE Inc"{} \},}}
+\DoxyCodeLine{1257 \textcolor{comment}{//  \{ 0x0970, "{}Hong Kong Hyunion Electronics"{} \},}}
+\DoxyCodeLine{1258 \textcolor{comment}{//  \{ 0x0971, "{}ASK Technology Group Limited"{} \},}}
+\DoxyCodeLine{1259     \{ 0x0972, \textcolor{stringliteral}{"{}GIGABYTE"{}} \},}
+\DoxyCodeLine{1260 \textcolor{comment}{//  \{ 0x0973, "{}Terabyte Co Ltd"{} \},}}
+\DoxyCodeLine{1261 \textcolor{comment}{//  \{ 0x0974, "{}Hyundai Inc"{} \},}}
+\DoxyCodeLine{1262 \textcolor{comment}{//  \{ 0x0975, "{}EXCELERAM"{} \},}}
+\DoxyCodeLine{1263 \textcolor{comment}{//  \{ 0x0976, "{}PsiKick"{} \},}}
+\DoxyCodeLine{1264     \{ 0x0977, \textcolor{stringliteral}{"{}Netac"{}} \},}
+\DoxyCodeLine{1265     \{ 0x0978, \textcolor{stringliteral}{"{}PCCOOLER"{}} \},}
+\DoxyCodeLine{1266 \textcolor{comment}{//  \{ 0x0979, "{}Jiangsu Huacun Electronic Technology"{} \},}}
+\DoxyCodeLine{1267 \textcolor{comment}{//  \{ 0x097A, "{}Shenzhen Micro Innovation Industry"{} \},}}
+\DoxyCodeLine{1268 \textcolor{comment}{//  \{ 0x097B, "{}Beijing Tongfang Microelectronics Co"{} \},}}
+\DoxyCodeLine{1269 \textcolor{comment}{//  \{ 0x097C, "{}XZN Storage Technology"{} \},}}
+\DoxyCodeLine{1270 \textcolor{comment}{//  \{ 0x097D, "{}ChipCraft Sp. z.o.o."{} \},}}
+\DoxyCodeLine{1271 \textcolor{comment}{//  \{ 0x097E, "{}ALLFLASH Technology Limited"{} \},}}
+\DoxyCodeLine{1272 \textcolor{comment}{//  \{ 0x0A01, "{}Foerd Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1273     \{ 0x0A02, \textcolor{stringliteral}{"{}KingSpec"{}} \},}
+\DoxyCodeLine{1274 \textcolor{comment}{//  \{ 0x0A03, "{}Codasip GmbH"{} \},}}
+\DoxyCodeLine{1275 \textcolor{comment}{//  \{ 0x0A04, "{}SL Link Co Ltd"{} \},}}
+\DoxyCodeLine{1276 \textcolor{comment}{//  \{ 0x0A05, "{}Shenzhen Kefu Technology Co Limited"{} \},}}
+\DoxyCodeLine{1277 \textcolor{comment}{//  \{ 0x0A06, "{}Shenzhen ZST Electronics Technology"{} \},}}
+\DoxyCodeLine{1278 \textcolor{comment}{//  \{ 0x0A07, "{}Kyokuto Electronic Inc"{} \},}}
+\DoxyCodeLine{1279 \textcolor{comment}{//  \{ 0x0A08, "{}Warrior Technology"{} \},}}
+\DoxyCodeLine{1280 \textcolor{comment}{//  \{ 0x0A09, "{}TRINAMIC Motion Control GmbH \& Co"{} \},}}
+\DoxyCodeLine{1281 \textcolor{comment}{//  \{ 0x0A0A, "{}PixelDisplay Inc"{} \},}}
+\DoxyCodeLine{1282 \textcolor{comment}{//  \{ 0x0A0B, "{}Shenzhen Futian District Bo Yueda Elec"{} \},}}
+\DoxyCodeLine{1283 \textcolor{comment}{//  \{ 0x0A0C, "{}Richtek Power"{} \},}}
+\DoxyCodeLine{1284 \textcolor{comment}{//  \{ 0x0A0D, "{}Shenzhen LianTeng Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1285 \textcolor{comment}{//  \{ 0x0A0E, "{}AITC Memory"{} \},}}
+\DoxyCodeLine{1286 \textcolor{comment}{//  \{ 0x0A0F, "{}UNIC Memory Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1287 \textcolor{comment}{//  \{ 0x0A10, "{}Shenzhen Huafeng Science Technology"{} \},}}
+\DoxyCodeLine{1288 \textcolor{comment}{//  \{ 0x0A11, "{}CXMT"{} \},}}
+\DoxyCodeLine{1289 \textcolor{comment}{//  \{ 0x0A13, "{}SambaNova Systems"{} \},}}
+\DoxyCodeLine{1290 \textcolor{comment}{//  \{ 0x0A14, "{}V-\/GEN"{} \},}}
+\DoxyCodeLine{1291 \textcolor{comment}{//  \{ 0x0A15, "{}Jump Trading"{} \},}}
+\DoxyCodeLine{1292 \textcolor{comment}{//  \{ 0x0A16, "{}Ampere Computing"{} \},}}
+\DoxyCodeLine{1293 \textcolor{comment}{//  \{ 0x0A17, "{}Shenzhen Zhongshi Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1294 \textcolor{comment}{//  \{ 0x0A18, "{}Shenzhen Zhongtian Bozhong Technology"{} \},}}
+\DoxyCodeLine{1295 \textcolor{comment}{//  \{ 0x0A19, "{}Tri-\/Tech International"{} \},}}
+\DoxyCodeLine{1296 \textcolor{comment}{//  \{ 0x0A1A, "{}Silicon Intergrated Systems Corporation"{} \},}}
+\DoxyCodeLine{1297 \textcolor{comment}{//  \{ 0x0A1B, "{}Shenzhen HongDingChen Information"{} \},}}
+\DoxyCodeLine{1298 \textcolor{comment}{//  \{ 0x0A1C, "{}Plexton Holdings Limited"{} \},}}
+\DoxyCodeLine{1299 \textcolor{comment}{//  \{ 0x0A1D, "{}AMS (Jiangsu Advanced Memory Semi)"{} \},}}
+\DoxyCodeLine{1300 \textcolor{comment}{//  \{ 0x0A1E, "{}Wuhan Jing Tian Interconnected Tech Co"{} \},}}
+\DoxyCodeLine{1301 \textcolor{comment}{//  \{ 0x0A1F, "{}Axia Memory Technology"{} \},}}
+\DoxyCodeLine{1302 \textcolor{comment}{//  \{ 0x0A20, "{}Chipset Technology Holding Limited"{} \},}}
+\DoxyCodeLine{1303 \textcolor{comment}{//  \{ 0x0A21, "{}Shenzhen Xinshida Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1304 \textcolor{comment}{//  \{ 0x0A22, "{}Shenzhen Chuangshifeida Technology"{} \},}}
+\DoxyCodeLine{1305 \textcolor{comment}{//  \{ 0x0A23, "{}Guangzhou MiaoYuanJi Technology"{} \},}}
+\DoxyCodeLine{1306 \textcolor{comment}{//  \{ 0x0A24, "{}ADVAN Inc"{} \},}}
+\DoxyCodeLine{1307 \textcolor{comment}{//  \{ 0x0A26, "{}Guangzhou Guang Xie Cheng Trading"{} \},}}
+\DoxyCodeLine{1308 \textcolor{comment}{//  \{ 0x0A27, "{}StarRam International Co Ltd"{} \},}}
+\DoxyCodeLine{1309 \textcolor{comment}{//  \{ 0x0A28, "{}Shen Zhen XinShenHua Tech Co Ltd"{} \},}}
+\DoxyCodeLine{1310 \textcolor{comment}{//  \{ 0x0A29, "{}UltraMemory Inc"{} \},}}
+\DoxyCodeLine{1311 \textcolor{comment}{//  \{ 0x0A2A, "{}New Coastline Global Tech Industry Co"{} \},}}
+\DoxyCodeLine{1312 \textcolor{comment}{//  \{ 0x0A2B, "{}Sinker"{} \},}}
+\DoxyCodeLine{1313 \textcolor{comment}{//  \{ 0x0A2C, "{}Diamond"{} \},}}
+\DoxyCodeLine{1314 \textcolor{comment}{//  \{ 0x0A2D, "{}PUSKILL"{} \},}}
+\DoxyCodeLine{1315 \textcolor{comment}{//  \{ 0x0A2E, "{}Guangzhou Hao Jia Ye Technology Co"{} \},}}
+\DoxyCodeLine{1316 \textcolor{comment}{//  \{ 0x0A2F, "{}Ming Xin Limited"{} \},}}
+\DoxyCodeLine{1317 \textcolor{comment}{//  \{ 0x0A30, "{}Barefoot Networks"{} \},}}
+\DoxyCodeLine{1318 \textcolor{comment}{//  \{ 0x0A31, "{}Biwin Semiconductor (HK) Co Ltd"{} \},}}
+\DoxyCodeLine{1319 \textcolor{comment}{//  \{ 0x0A32, "{}UD INFO Corporation"{} \},}}
+\DoxyCodeLine{1320 \textcolor{comment}{//  \{ 0x0A33, "{}Trek Technology (S) PTE Ltd"{} \},}}
+\DoxyCodeLine{1321 \textcolor{comment}{//  \{ 0x0A34, "{}Xiamen Kingblaze Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1322 \textcolor{comment}{//  \{ 0x0A35, "{}Shenzhen Lomica Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1323 \textcolor{comment}{//  \{ 0x0A36, "{}Nuclei System Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1324 \textcolor{comment}{//  \{ 0x0A37, "{}Wuhan Xun Zhan Electronic Technology"{} \},}}
+\DoxyCodeLine{1325 \textcolor{comment}{//  \{ 0x0A38, "{}Shenzhen Ingacom Semiconductor Ltd"{} \},}}
+\DoxyCodeLine{1326 \textcolor{comment}{//  \{ 0x0A39, "{}Zotac Technology Ltd"{} \},}}
+\DoxyCodeLine{1327 \textcolor{comment}{//  \{ 0x0A3A, "{}Foxline"{} \},}}
+\DoxyCodeLine{1328 \textcolor{comment}{//  \{ 0x0A3B, "{}Shenzhen Farasia Science Technology"{} \},}}
+\DoxyCodeLine{1329 \textcolor{comment}{//  \{ 0x0A3C, "{}Efinix Inc"{} \},}}
+\DoxyCodeLine{1330 \textcolor{comment}{//  \{ 0x0A3D, "{}Hua Nan San Xian Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1331 \textcolor{comment}{//  \{ 0x0A3E, "{}Goldtech Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1332 \textcolor{comment}{//  \{ 0x0A3F, "{}Shanghai Han Rong Microelectronics Co"{} \},}}
+\DoxyCodeLine{1333 \textcolor{comment}{//  \{ 0x0A40, "{}Shenzhen Zhongguang Yunhe Trading"{} \},}}
+\DoxyCodeLine{1334 \textcolor{comment}{//  \{ 0x0A41, "{}Smart Shine(QingDao) Microelectronics"{} \},}}
+\DoxyCodeLine{1335 \textcolor{comment}{//  \{ 0x0A42, "{}Thermaltake Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1336 \textcolor{comment}{//  \{ 0x0A43, "{}Shenzhen O?Yang Maile Technology Ltd"{} \},}}
+\DoxyCodeLine{1337 \textcolor{comment}{//  \{ 0x0A44, "{}UPMEM"{} \},}}
+\DoxyCodeLine{1338     \{ 0x0A45, \textcolor{stringliteral}{"{}Chun Well"{}} \},}
+\DoxyCodeLine{1339 \textcolor{comment}{//  \{ 0x0A46, "{}Astera Labs Inc"{} \},}}
+\DoxyCodeLine{1340 \textcolor{comment}{//  \{ 0x0A47, "{}Winconway"{} \},}}
+\DoxyCodeLine{1341 \textcolor{comment}{//  \{ 0x0A48, "{}Advantech Co Ltd"{} \},}}
+\DoxyCodeLine{1342 \textcolor{comment}{//  \{ 0x0A49, "{}Chengdu Fengcai Electronic Technology"{} \},}}
+\DoxyCodeLine{1343 \textcolor{comment}{//  \{ 0x0A4A, "{}The Boeing Company"{} \},}}
+\DoxyCodeLine{1344 \textcolor{comment}{//  \{ 0x0A4B, "{}Blaize Inc"{} \},}}
+\DoxyCodeLine{1345 \textcolor{comment}{//  \{ 0x0A4C, "{}Ramonster Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1346 \textcolor{comment}{//  \{ 0x0A4D, "{}Wuhan Naonongmai Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1347 \textcolor{comment}{//  \{ 0x0A4E, "{}Shenzhen Hui ShingTong Technology"{} \},}}
+\DoxyCodeLine{1348 \textcolor{comment}{//  \{ 0x0A4F, "{}Yourlyon"{} \},}}
+\DoxyCodeLine{1349 \textcolor{comment}{//  \{ 0x0A50, "{}Fabu Technology"{} \},}}
+\DoxyCodeLine{1350 \textcolor{comment}{//  \{ 0x0A51, "{}Shenzhen Yikesheng Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1351 \textcolor{comment}{//  \{ 0x0A52, "{}NOR-\/MEM"{} \},}}
+\DoxyCodeLine{1352 \textcolor{comment}{//  \{ 0x0A53, "{}Cervoz Co Ltd"{} \},}}
+\DoxyCodeLine{1353 \textcolor{comment}{//  \{ 0x0A54, "{}Bitmain Technologies Inc."{} \},}}
+\DoxyCodeLine{1354     \{ 0x0A55, \textcolor{stringliteral}{"{}Facebook"{}} \},}
+\DoxyCodeLine{1355 \textcolor{comment}{//  \{ 0x0A56, "{}Shenzhen Longsys Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1356 \textcolor{comment}{//  \{ 0x0A57, "{}Guangzhou Siye Electronic Technology"{} \},}}
+\DoxyCodeLine{1357 \textcolor{comment}{//  \{ 0x0A58, "{}Silergy"{} \},}}
+\DoxyCodeLine{1358 \textcolor{comment}{//  \{ 0x0A59, "{}Adamway"{} \},}}
+\DoxyCodeLine{1359 \textcolor{comment}{//  \{ 0x0A5A, "{}PZG"{} \},}}
+\DoxyCodeLine{1360 \textcolor{comment}{//  \{ 0x0A5B, "{}Shenzhen King Power Electronics"{} \},}}
+\DoxyCodeLine{1361 \textcolor{comment}{//  \{ 0x0A5C, "{}Guangzhou ZiaoFu Tranding Co Ltd"{} \},}}
+\DoxyCodeLine{1362 \textcolor{comment}{//  \{ 0x0A5D, "{}Shenzhen SKIHOTAR Semiconductor"{} \},}}
+\DoxyCodeLine{1363 \textcolor{comment}{//  \{ 0x0A5E, "{}PulseRain Technology"{} \},}}
+\DoxyCodeLine{1364 \textcolor{comment}{//  \{ 0x0A5F, "{}Seeker Technology Limited"{} \},}}
+\DoxyCodeLine{1365 \textcolor{comment}{//  \{ 0x0A60, "{}Shenzhen OSCOO Tech Co Ltd"{} \},}}
+\DoxyCodeLine{1366 \textcolor{comment}{//  \{ 0x0A61, "{}Shenzhen Yze Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1367 \textcolor{comment}{//  \{ 0x0A62, "{}Shenzhen Jieshuo Electronic Commerce"{} \},}}
+\DoxyCodeLine{1368 \textcolor{comment}{//  \{ 0x0A63, "{}Gazda"{} \},}}
+\DoxyCodeLine{1369 \textcolor{comment}{//  \{ 0x0A64, "{}Hua Wei Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1370 \textcolor{comment}{//  \{ 0x0A65, "{}Esperanto Technologies"{} \},}}
+\DoxyCodeLine{1371 \textcolor{comment}{//  \{ 0x0A66, "{}JinSheng Electronic (Shenzhen) Co Ltd"{} \},}}
+\DoxyCodeLine{1372 \textcolor{comment}{//  \{ 0x0A67, "{}Shenzhen Shi Bolunshuai Technology"{} \},}}
+\DoxyCodeLine{1373 \textcolor{comment}{//  \{ 0x0A68, "{}Shanghai Rei Zuan Information Tech"{} \},}}
+\DoxyCodeLine{1374     \{ 0x0A69, \textcolor{stringliteral}{"{}Fraunhofer IIS"{}} \},}
+\DoxyCodeLine{1375 \textcolor{comment}{//  \{ 0x0A6A, "{}Kandou Bus SA"{} \},}}
+\DoxyCodeLine{1376     \{ 0x0A6B, \textcolor{stringliteral}{"{}Acer"{}} \},}
+\DoxyCodeLine{1377 \textcolor{comment}{//  \{ 0x0A6C, "{}Artmem Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1378 \textcolor{comment}{//  \{ 0x0A6D, "{}Gstar Semiconductor Co Ltd"{} \},}}
+\DoxyCodeLine{1379 \textcolor{comment}{//  \{ 0x0A6E, "{}ShineDisk"{} \},}}
+\DoxyCodeLine{1380 \textcolor{comment}{//  \{ 0x0A6F, "{}Shenzhen CHN Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1381 \textcolor{comment}{//  \{ 0x0A70, "{}UnionChip Semiconductor Co Ltd"{} \},}}
+\DoxyCodeLine{1382 \textcolor{comment}{//  \{ 0x0A71, "{}Tanbassh"{} \},}}
+\DoxyCodeLine{1383 \textcolor{comment}{//  \{ 0x0A72, "{}Shenzhen Tianyu Jieyun Intl Logistics"{} \},}}
+\DoxyCodeLine{1384 \textcolor{comment}{//  \{ 0x0A73, "{}MCLogic Inc"{} \},}}
+\DoxyCodeLine{1385 \textcolor{comment}{//  \{ 0x0A74, "{}Eorex Corporation"{} \},}}
+\DoxyCodeLine{1386 \textcolor{comment}{//  \{ 0x0A75, "{}Arm Technology (China) Co Ltd"{} \},}}
+\DoxyCodeLine{1387     \{ 0x0A76, \textcolor{stringliteral}{"{}Lexar"{}} \},}
+\DoxyCodeLine{1388 \textcolor{comment}{//  \{ 0x0A77, "{}QinetiQ Group plc"{} \},}}
+\DoxyCodeLine{1389 \textcolor{comment}{//  \{ 0x0A78, "{}Exascend"{} \},}}
+\DoxyCodeLine{1390 \textcolor{comment}{//  \{ 0x0A79, "{}Hong Kong Hyunion Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1391 \textcolor{comment}{//  \{ 0x0A7A, "{}Shenzhen Banghong Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1392 \textcolor{comment}{//  \{ 0x0A7B, "{}MBit Wireless Inc"{} \},}}
+\DoxyCodeLine{1393 \textcolor{comment}{//  \{ 0x0A7C, "{}Hex Five Security Inc"{} \},}}
+\DoxyCodeLine{1394 \textcolor{comment}{//  \{ 0x0A7D, "{}ShenZhen Juhor Precision Tech Co Ltd"{} \},}}
+\DoxyCodeLine{1395 \textcolor{comment}{//  \{ 0x0A7E, "{}Shenzhen Reeinno Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1396 \textcolor{comment}{//  \{ 0x0B01, "{}ABIT Electronics (Shenzhen) Co Ltd"{} \},}}
+\DoxyCodeLine{1397 \textcolor{comment}{//  \{ 0x0B02, "{}Semidrive"{} \},}}
+\DoxyCodeLine{1398 \textcolor{comment}{//  \{ 0x0B03, "{}MyTek Electronics Corp"{} \},}}
+\DoxyCodeLine{1399 \textcolor{comment}{//  \{ 0x0B04, "{}Wxilicon Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1400 \textcolor{comment}{//  \{ 0x0B05, "{}Shenzhen Meixin Electronics Ltd"{} \},}}
+\DoxyCodeLine{1401 \textcolor{comment}{//  \{ 0x0B06, "{}Ghost Wolf"{} \},}}
+\DoxyCodeLine{1402 \textcolor{comment}{//  \{ 0x0B07, "{}LiSion Technologies Inc"{} \},}}
+\DoxyCodeLine{1403 \textcolor{comment}{//  \{ 0x0B08, "{}Power Active Co Ltd"{} \},}}
+\DoxyCodeLine{1404 \textcolor{comment}{//  \{ 0x0B09, "{}Pioneer High Fidelity Taiwan Co. Ltd"{} \},}}
+\DoxyCodeLine{1405 \textcolor{comment}{//  \{ 0x0B0A, "{}LuoSilk"{} \},}}
+\DoxyCodeLine{1406 \textcolor{comment}{//  \{ 0x0B0B, "{}Shenzhen Chuangshifeida Technology"{} \},}}
+\DoxyCodeLine{1407 \textcolor{comment}{//  \{ 0x0B0C, "{}Black Sesame Technologies Inc"{} \},}}
+\DoxyCodeLine{1408 \textcolor{comment}{//  \{ 0x0B0D, "{}Jiangsu Xinsheng Intelligent Technology"{} \},}}
+\DoxyCodeLine{1409 \textcolor{comment}{//  \{ 0x0B0E, "{}MLOONG"{} \},}}
+\DoxyCodeLine{1410 \textcolor{comment}{//  \{ 0x0B0F, "{}Quadratica LLC"{} \},}}
+\DoxyCodeLine{1411 \textcolor{comment}{//  \{ 0x0B10, "{}Anpec Electronics"{} \},}}
+\DoxyCodeLine{1412 \textcolor{comment}{//  \{ 0x0B11, "{}Xi'an Morebeck Semiconductor Tech Co"{} \},}}
+\DoxyCodeLine{1413     \{ 0x0B12, \textcolor{stringliteral}{"{}Kingbank"{}} \},}
+\DoxyCodeLine{1414 \textcolor{comment}{//  \{ 0x0B13, "{}ITRenew Inc"{} \},}}
+\DoxyCodeLine{1415 \textcolor{comment}{//  \{ 0x0B14, "{}Shenzhen Eaget Innovation Tech Ltd"{} \},}}
+\DoxyCodeLine{1416 \textcolor{comment}{//  \{ 0x0B15, "{}Jazer"{} \},}}
+\DoxyCodeLine{1417 \textcolor{comment}{//  \{ 0x0B16, "{}Xiamen Semiconductor Investment Group"{} \},}}
+\DoxyCodeLine{1418 \textcolor{comment}{//  \{ 0x0B17, "{}Guangzhou Longdao Network Tech Co"{} \},}}
+\DoxyCodeLine{1419 \textcolor{comment}{//  \{ 0x0B18, "{}Shenzhen Futian SEC Electronic Market"{} \},}}
+\DoxyCodeLine{1420     \{ 0x0B19, \textcolor{stringliteral}{"{}Allegro"{}} \},}
+\DoxyCodeLine{1421 \textcolor{comment}{//  \{ 0x0B1A, "{}Hunan RunCore Innovation Technology"{} \},}}
+\DoxyCodeLine{1422 \textcolor{comment}{//  \{ 0x0B1B, "{}C-\/Corsa Technology"{} \},}}
+\DoxyCodeLine{1423 \textcolor{comment}{//  \{ 0x0B1C, "{}Zhuhai Chuangfeixin Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1424 \textcolor{comment}{//  \{ 0x0B1D, "{}Beijing InnoMem Technologies Co Ltd"{} \},}}
+\DoxyCodeLine{1425 \textcolor{comment}{//  \{ 0x0B1E, "{}YooTin"{} \},}}
+\DoxyCodeLine{1426 \textcolor{comment}{//  \{ 0x0B1F, "{}Shenzhen Pengxiong Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1427 \textcolor{comment}{//  \{ 0x0B20, "{}Dongguan Yingbang Commercial Trading Co"{} \},}}
+\DoxyCodeLine{1428 \textcolor{comment}{//  \{ 0x0B21, "{}Shenzhen Ronisys Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1429 \textcolor{comment}{//  \{ 0x0B22, "{}Hongkong Xinlan Guangke Co Ltd"{} \},}}
+\DoxyCodeLine{1430 \textcolor{comment}{//  \{ 0x0B23, "{}Apex Microelectronics Co Ltd"{} \},}}
+\DoxyCodeLine{1431 \textcolor{comment}{//  \{ 0x0B24, "{}Beijing Hongda Jinming Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1432 \textcolor{comment}{//  \{ 0x0B25, "{}Ling Rui Technology (Shenzhen) Co Ltd"{} \},}}
+\DoxyCodeLine{1433 \textcolor{comment}{//  \{ 0x0B26, "{}Hongkong Hyunion Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1434 \textcolor{comment}{//  \{ 0x0B27, "{}Starsystems Inc"{} \},}}
+\DoxyCodeLine{1435 \textcolor{comment}{//  \{ 0x0B28, "{}Shenzhen Yingjiaxun Industrial Co Ltd"{} \},}}
+\DoxyCodeLine{1436 \textcolor{comment}{//  \{ 0x0B29, "{}Dongguan Crown Code Electronic Commerce"{} \},}}
+\DoxyCodeLine{1437 \textcolor{comment}{//  \{ 0x0B2A, "{}Monolithic Power Systems Inc"{} \},}}
+\DoxyCodeLine{1438 \textcolor{comment}{//  \{ 0x0B2B, "{}WuHan SenNaiBo E-\/Commerce Co Ltd"{} \},}}
+\DoxyCodeLine{1439 \textcolor{comment}{//  \{ 0x0B2C, "{}Hangzhou Hikstorage Technology Co"{} \},}}
+\DoxyCodeLine{1440 \textcolor{comment}{//  \{ 0x0B2D, "{}Shenzhen Goodix Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1441 \textcolor{comment}{//  \{ 0x0B2E, "{}Aigo Electronic Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1442 \textcolor{comment}{//  \{ 0x0B2F, "{}Hefei Konsemi Storage Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1443 \textcolor{comment}{//  \{ 0x0B30, "{}Cactus Technologies Limited"{} \},}}
+\DoxyCodeLine{1444 \textcolor{comment}{//  \{ 0x0B31, "{}DSIN"{} \},}}
+\DoxyCodeLine{1445 \textcolor{comment}{//  \{ 0x0B32, "{}Blu Wireless Technology"{} \},}}
+\DoxyCodeLine{1446 \textcolor{comment}{//  \{ 0x0B33, "{}Nanjing UCUN Technology Inc"{} \},}}
+\DoxyCodeLine{1447 \textcolor{comment}{//  \{ 0x0B34, "{}Acacia Communications"{} \},}}
+\DoxyCodeLine{1448 \textcolor{comment}{//  \{ 0x0B35, "{}Beijinjinshengyihe Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1449 \textcolor{comment}{//  \{ 0x0B36, "{}Zyzyx"{} \},}}
+\DoxyCodeLine{1450 \textcolor{comment}{//  \{ 0x0B37, "{}T-\/HEAD Semiconductor Co Ltd"{} \},}}
+\DoxyCodeLine{1451 \textcolor{comment}{//  \{ 0x0B38, "{}Shenzhen Hystou Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1452 \textcolor{comment}{//  \{ 0x0B39, "{}Syzexion"{} \},}}
+\DoxyCodeLine{1453 \textcolor{comment}{//  \{ 0x0B3A, "{}Kembona"{} \},}}
+\DoxyCodeLine{1454 \textcolor{comment}{//  \{ 0x0B3B, "{}Qingdao Thunderobot Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1455 \textcolor{comment}{//  \{ 0x0B3C, "{}Morse Micro"{} \},}}
+\DoxyCodeLine{1456 \textcolor{comment}{//  \{ 0x0B3D, "{}Shenzhen Envida  Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1457 \textcolor{comment}{//  \{ 0x0B3E, "{}UDStore Solution Limited"{} \},}}
+\DoxyCodeLine{1458 \textcolor{comment}{//  \{ 0x0B3F, "{}Shunlie"{} \},}}
+\DoxyCodeLine{1459 \textcolor{comment}{//  \{ 0x0B40, "{}Shenzhen Xin Hong Rui Tech Ltd"{} \},}}
+\DoxyCodeLine{1460 \textcolor{comment}{//  \{ 0x0B41, "{}Shenzhen Yze Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1461 \textcolor{comment}{//  \{ 0x0B42, "{}Shenzhen Huang Pu He Xin Technology"{} \},}}
+\DoxyCodeLine{1462 \textcolor{comment}{//  \{ 0x0B43, "{}Xiamen Pengpai Microelectronics Co Ltd"{} \},}}
+\DoxyCodeLine{1463 \textcolor{comment}{//  \{ 0x0B44, "{}JISHUN"{} \},}}
+\DoxyCodeLine{1464 \textcolor{comment}{//  \{ 0x0B45, "{}Shenzhen WODPOSIT Technology Co"{} \},}}
+\DoxyCodeLine{1465 \textcolor{comment}{//  \{ 0x0B46, "{}Unistar"{} \},}}
+\DoxyCodeLine{1466 \textcolor{comment}{//  \{ 0x0B47, "{}UNICORE Electronic (Suzhou) Co Ltd"{} \},}}
+\DoxyCodeLine{1467 \textcolor{comment}{//  \{ 0x0B48, "{}Axonne Inc"{} \},}}
+\DoxyCodeLine{1468 \textcolor{comment}{//  \{ 0x0B49, "{}Shenzhen SOVERECA Technology Co"{} \},}}
+\DoxyCodeLine{1469 \textcolor{comment}{//  \{ 0x0B4A, "{}Dire Wolf"{} \},}}
+\DoxyCodeLine{1470 \textcolor{comment}{//  \{ 0x0B4B, "{}Whampoa Core Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1471 \textcolor{comment}{//  \{ 0x0B4C, "{}CSI Halbleiter GmbH"{} \},}}
+\DoxyCodeLine{1472 \textcolor{comment}{//  \{ 0x0B4D, "{}ONE Semiconductor"{} \},}}
+\DoxyCodeLine{1473 \textcolor{comment}{//  \{ 0x0B4E, "{}SimpleMachines Inc"{} \},}}
+\DoxyCodeLine{1474 \textcolor{comment}{//  \{ 0x0B4F, "{}Shenzhen Chengyi Qingdian Electronic"{} \},}}
+\DoxyCodeLine{1475 \textcolor{comment}{//  \{ 0x0B50, "{}Shenzhen Xinlianxin Network Technology"{} \},}}
+\DoxyCodeLine{1476 \textcolor{comment}{//  \{ 0x0B51, "{}Vayyar Imaging Ltd"{} \},}}
+\DoxyCodeLine{1477 \textcolor{comment}{//  \{ 0x0B52, "{}Paisen Network Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1478 \textcolor{comment}{//  \{ 0x0B53, "{}Shenzhen Fengwensi Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1479 \textcolor{comment}{//  \{ 0x0B54, "{}Caplink Technology Limited"{} \},}}
+\DoxyCodeLine{1480 \textcolor{comment}{//  \{ 0x0B55, "{}JJT Solution Co Ltd"{} \},}}
+\DoxyCodeLine{1481 \textcolor{comment}{//  \{ 0x0B56, "{}HOSIN Global Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1482 \textcolor{comment}{//  \{ 0x0B57, "{}Shenzhen KingDisk Century Technology"{} \},}}
+\DoxyCodeLine{1483     \{ 0x0B58, \textcolor{stringliteral}{"{}SOYO"{}} \},}
+\DoxyCodeLine{1484 \textcolor{comment}{//  \{ 0x0B59, "{}DIT Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1485 \textcolor{comment}{//  \{ 0x0B5A, "{}iFound"{} \},}}
+\DoxyCodeLine{1486 \textcolor{comment}{//  \{ 0x0B5B, "{}Aril Computer Company"{} \},}}
+\DoxyCodeLine{1487     \{ 0x0B5C, \textcolor{stringliteral}{"{}ASUS"{}} \},}
+\DoxyCodeLine{1488 \textcolor{comment}{//  \{ 0x0B5D, "{}Shenzhen Ruiyingtong Technology Co"{} \},}}
+\DoxyCodeLine{1489 \textcolor{comment}{//  \{ 0x0B5E, "{}HANA Micron"{} \},}}
+\DoxyCodeLine{1490 \textcolor{comment}{//  \{ 0x0B5F, "{}RANSOR"{} \},}}
+\DoxyCodeLine{1491 \textcolor{comment}{//  \{ 0x0B60, "{}Axiado Corporation"{} \},}}
+\DoxyCodeLine{1492 \textcolor{comment}{//  \{ 0x0B61, "{}Tesla Corporation"{} \},}}
+\DoxyCodeLine{1493 \textcolor{comment}{//  \{ 0x0B62, "{}Pingtouge (Shanghai) Semiconductor Co"{} \},}}
+\DoxyCodeLine{1494 \textcolor{comment}{//  \{ 0x0B63, "{}S3Plus Technologies SA"{} \},}}
+\DoxyCodeLine{1495 \textcolor{comment}{//  \{ 0x0B64, "{}Integrated Silicon Solution Israel Ltd"{} \},}}
+\DoxyCodeLine{1496 \textcolor{comment}{//  \{ 0x0B65, "{}GreenWaves Technologies"{} \},}}
+\DoxyCodeLine{1497 \textcolor{comment}{//  \{ 0x0B66, "{}NUVIA Inc"{} \},}}
+\DoxyCodeLine{1498 \textcolor{comment}{//  \{ 0x0B67, "{}Guangzhou Shuvrwine Technology Co"{} \},}}
+\DoxyCodeLine{1499 \textcolor{comment}{//  \{ 0x0B68, "{}Shenzhen Hangshun Chip Technology"{} \},}}
+\DoxyCodeLine{1500 \textcolor{comment}{//  \{ 0x0B69, "{}Chengboliwei Electronic Business"{} \},}}
+\DoxyCodeLine{1501 \textcolor{comment}{//  \{ 0x0B6A, "{}Kowin Memory Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1502 \textcolor{comment}{//  \{ 0x0B6B, "{}Euronet Technology Inc"{} \},}}
+\DoxyCodeLine{1503 \textcolor{comment}{//  \{ 0x0B6C, "{}SCY"{} \},}}
+\DoxyCodeLine{1504 \textcolor{comment}{//  \{ 0x0B6D, "{}Shenzhen Xinhongyusheng Electrical"{} \},}}
+\DoxyCodeLine{1505 \textcolor{comment}{//  \{ 0x0B6E, "{}PICOCOM"{} \},}}
+\DoxyCodeLine{1506 \textcolor{comment}{//  \{ 0x0B6F, "{}Shenzhen Toooogo Memory Technology"{} \},}}
+\DoxyCodeLine{1507 \textcolor{comment}{//  \{ 0x0B70, "{}VLSI Solution"{} \},}}
+\DoxyCodeLine{1508 \textcolor{comment}{//  \{ 0x0B71, "{}Costar Electronics Inc"{} \},}}
+\DoxyCodeLine{1509 \textcolor{comment}{//  \{ 0x0B72, "{}Shenzhen Huatop Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1510 \textcolor{comment}{//  \{ 0x0B73, "{}Inspur Electronic Information Industry"{} \},}}
+\DoxyCodeLine{1511 \textcolor{comment}{//  \{ 0x0B74, "{}Shenzhen Boyuan Computer Technology"{} \},}}
+\DoxyCodeLine{1512 \textcolor{comment}{//  \{ 0x0B75, "{}Beijing Welldisk Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1513 \textcolor{comment}{//  \{ 0x0B76, "{}Suzhou EP Semicon Co Ltd"{} \},}}
+\DoxyCodeLine{1514 \textcolor{comment}{//  \{ 0x0B77, "{}Zhejiang Dahua Memory Technology"{} \},}}
+\DoxyCodeLine{1515 \textcolor{comment}{//  \{ 0x0B78, "{}Virtu Financial"{} \},}}
+\DoxyCodeLine{1516 \textcolor{comment}{//  \{ 0x0B79, "{}Datotek International Co Ltd"{} \},}}
+\DoxyCodeLine{1517 \textcolor{comment}{//  \{ 0x0B7A, "{}Telecom and Microelectronics Industries"{} \},}}
+\DoxyCodeLine{1518 \textcolor{comment}{//  \{ 0x0B7B, "{}Echow Technology Ltd"{} \},}}
+\DoxyCodeLine{1519 \textcolor{comment}{//  \{ 0x0B7C, "{}APEX-\/INFO"{} \},}}
+\DoxyCodeLine{1520 \textcolor{comment}{//  \{ 0x0B7D, "{}Yingpark"{} \},}}
+\DoxyCodeLine{1521 \textcolor{comment}{//  \{ 0x0B7E, "{}Shenzhen Bigway Tech Co Ltd"{} \},}}
+\DoxyCodeLine{1522 \textcolor{comment}{//  \{ 0x0C01, "{}Beijing Haawking Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1523 \textcolor{comment}{//  \{ 0x0C02, "{}Open HW Group"{} \},}}
+\DoxyCodeLine{1524 \textcolor{comment}{//  \{ 0x0C03, "{}JHICC"{} \},}}
+\DoxyCodeLine{1525 \textcolor{comment}{//  \{ 0x0C04, "{}ncoder AG"{} \},}}
+\DoxyCodeLine{1526 \textcolor{comment}{//  \{ 0x0C05, "{}ThinkTech Information Technology Co"{} \},}}
+\DoxyCodeLine{1527 \textcolor{comment}{//  \{ 0x0C06, "{}Shenzhen Chixingzhe Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1528 \textcolor{comment}{//  \{ 0x0C07, "{}Biao Ram Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1529 \textcolor{comment}{//  \{ 0x0C08, "{}Shenzhen Kaizhuoyue Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1530 \textcolor{comment}{//  \{ 0x0C09, "{}Shenzhen YC Storage Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1531 \textcolor{comment}{//  \{ 0x0C0A, "{}Shenzhen Chixingzhe Technology Co"{} \},}}
+\DoxyCodeLine{1532 \textcolor{comment}{//  \{ 0x0C0B, "{}Wink Semiconductor  (Shenzhen) Co Ltd"{} \},}}
+\DoxyCodeLine{1533 \textcolor{comment}{//  \{ 0x0C0C, "{}AISTOR"{} \},}}
+\DoxyCodeLine{1534 \textcolor{comment}{//  \{ 0x0C0D, "{}Palma Ceia SemiDesign"{} \},}}
+\DoxyCodeLine{1535 \textcolor{comment}{//  \{ 0x0C0E, "{}EM Microelectronic-\/Marin SA"{} \},}}
+\DoxyCodeLine{1536 \textcolor{comment}{//  \{ 0x0C0F, "{}Shenzhen Monarch Memory Technology"{} \},}}
+\DoxyCodeLine{1537     \{ 0x0C10, \textcolor{stringliteral}{"{}Reliance Memory"{}} \},}
+\DoxyCodeLine{1538 \textcolor{comment}{//  \{ 0x0C11, "{}Jesis"{} \},}}
+\DoxyCodeLine{1539     \{ 0x0C12, \textcolor{stringliteral}{"{}Espressif"{}} \},}
+\DoxyCodeLine{1540 \textcolor{comment}{//  \{ 0x0C13, "{}Shenzhen Sati Smart Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1541 \textcolor{comment}{//  \{ 0x0C14, "{}NeuMem Co Ltd"{} \},}}
+\DoxyCodeLine{1542 \textcolor{comment}{//  \{ 0x0C15, "{}Lifelong"{} \},}}
+\DoxyCodeLine{1543 \textcolor{comment}{//  \{ 0x0C16, "{}Beijing Oitech Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1544     \{ 0x0C17, \textcolor{stringliteral}{"{}LDLC"{}} \},}
+\DoxyCodeLine{1545 \textcolor{comment}{//  \{ 0x0C18, "{}Semidynamics Technology Services SLU"{} \},}}
+\DoxyCodeLine{1546 \textcolor{comment}{//  \{ 0x0C19, "{}swordbill"{} \},}}
+\DoxyCodeLine{1547 \textcolor{comment}{//  \{ 0x0C1A, "{}YIREN"{} \},}}
+\DoxyCodeLine{1548 \textcolor{comment}{//  \{ 0x0C1B, "{}Shenzhen Yinxiang Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1549 \textcolor{comment}{//  \{ 0x0C1C, "{}PoweV Electronic Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1550 \textcolor{comment}{//  \{ 0x0C1D, "{}LEORICE"{} \},}}
+\DoxyCodeLine{1551 \textcolor{comment}{//  \{ 0x0C1E, "{}Waymo LLC"{} \},}}
+\DoxyCodeLine{1552 \textcolor{comment}{//  \{ 0x0C1F, "{}Ventana Micro Systems"{} \},}}
+\DoxyCodeLine{1553 \textcolor{comment}{//  \{ 0x0C20, "{}Hefei Guangxin Microelectronics Co Ltd"{} \},}}
+\DoxyCodeLine{1554 \textcolor{comment}{//  \{ 0x0C21, "{}Shenzhen Sooner Industrial Co Ltd"{} \},}}
+\DoxyCodeLine{1555 \textcolor{comment}{//  \{ 0x0C22, "{}Horizon Robotics"{} \},}}
+\DoxyCodeLine{1556 \textcolor{comment}{//  \{ 0x0C23, "{}Tangem AG"{} \},}}
+\DoxyCodeLine{1557 \textcolor{comment}{//  \{ 0x0C24, "{}FuturePath Technology (Shenzhen) Co"{} \},}}
+\DoxyCodeLine{1558 \textcolor{comment}{//  \{ 0x0C25, "{}RC Module"{} \},}}
+\DoxyCodeLine{1559     \{ 0x0C26, \textcolor{stringliteral}{"{}Timetec"{}} \},}
+\DoxyCodeLine{1560 \textcolor{comment}{//  \{ 0x0C27, "{}ICMAX Technologies Co Limited"{} \},}}
+\DoxyCodeLine{1561 \textcolor{comment}{//  \{ 0x0C28, "{}Lynxi Technologies Ltd Co"{} \},}}
+\DoxyCodeLine{1562 \textcolor{comment}{//  \{ 0x0C29, "{}Guangzhou Taisupanke Computer Equipment"{} \},}}
+\DoxyCodeLine{1563 \textcolor{comment}{//  \{ 0x0C2A, "{}Ceremorphic Inc"{} \},}}
+\DoxyCodeLine{1564 \textcolor{comment}{//  \{ 0x0C2B, "{}Biwin Storage Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1565 \textcolor{comment}{//  \{ 0x0C2C, "{}Beijing ESWIN Computing Technology"{} \},}}
+\DoxyCodeLine{1566 \textcolor{comment}{//  \{ 0x0C2D, "{}WeForce Co Ltd"{} \},}}
+\DoxyCodeLine{1567 \textcolor{comment}{//  \{ 0x0C2E, "{}Shenzhen Fanxiang Information Technology"{} \},}}
+\DoxyCodeLine{1568 \textcolor{comment}{//  \{ 0x0C2F, "{}Unisoc"{} \},}}
+\DoxyCodeLine{1569 \textcolor{comment}{//  \{ 0x0C30, "{}YingChu"{} \},}}
+\DoxyCodeLine{1570 \textcolor{comment}{//  \{ 0x0C31, "{}GUANCUN"{} \},}}
+\DoxyCodeLine{1571 \textcolor{comment}{//  \{ 0x0C32, "{}IPASON"{} \},}}
+\DoxyCodeLine{1572 \textcolor{comment}{//  \{ 0x0C33, "{}Ayar Labs"{} \},}}
+\DoxyCodeLine{1573     \{ 0x0C34, \textcolor{stringliteral}{"{}Amazon"{}} \},}
+\DoxyCodeLine{1574 \textcolor{comment}{//  \{ 0x0C35, "{}Shenzhen Xinxinshun Technology Co"{} \},}}
+\DoxyCodeLine{1575 \textcolor{comment}{//  \{ 0x0C36, "{}Galois Inc"{} \},}}
+\DoxyCodeLine{1576 \textcolor{comment}{//  \{ 0x0C37, "{}Ubilite Inc"{} \},}}
+\DoxyCodeLine{1577 \textcolor{comment}{//  \{ 0x0C38, "{}Shenzhen Quanxing Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1578 \textcolor{comment}{//  \{ 0x0C39, "{}Group RZX Technology LTDA"{} \},}}
+\DoxyCodeLine{1579 \textcolor{comment}{//  \{ 0x0C3A, "{}Yottac Technology (XI?AN) Cooperation"{} \},}}
+\DoxyCodeLine{1580 \textcolor{comment}{//  \{ 0x0C3B, "{}Shenzhen RuiRen Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1581 \textcolor{comment}{//  \{ 0x0C3C, "{}Group Star Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1582 \textcolor{comment}{//  \{ 0x0C3D, "{}RWA (Hong Kong) Ltd"{} \},}}
+\DoxyCodeLine{1583 \textcolor{comment}{//  \{ 0x0C3E, "{}Genesys Logic Inc"{} \},}}
+\DoxyCodeLine{1584 \textcolor{comment}{//  \{ 0x0C3F, "{}T3 Robotics Inc."{} \},}}
+\DoxyCodeLine{1585 \textcolor{comment}{//  \{ 0x0C40, "{}Biostar Microtech International Corp"{} \},}}
+\DoxyCodeLine{1586 \textcolor{comment}{//  \{ 0x0C41, "{}Shenzhen SXmicro Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1587 \textcolor{comment}{//  \{ 0x0C42, "{}Shanghai Yili Computer Technology Co"{} \},}}
+\DoxyCodeLine{1588 \textcolor{comment}{//  \{ 0x0C43, "{}Zhixin Semicoducotor Co Ltd"{} \},}}
+\DoxyCodeLine{1589 \textcolor{comment}{//  \{ 0x0C44, "{}uFound"{} \},}}
+\DoxyCodeLine{1590 \textcolor{comment}{//  \{ 0x0C45, "{}Aigo Data Security Technology Co. Ltd"{} \},}}
+\DoxyCodeLine{1591 \textcolor{comment}{//  \{ 0x0C46, "{}.GXore Technologies"{} \},}}
+\DoxyCodeLine{1592 \textcolor{comment}{//  \{ 0x0C47, "{}Shenzhen Pradeon Intelligent Technology"{} \},}}
+\DoxyCodeLine{1593 \textcolor{comment}{//  \{ 0x0C48, "{}Power LSI"{} \},}}
+\DoxyCodeLine{1594 \textcolor{comment}{//  \{ 0x0C49, "{}PRIME"{} \},}}
+\DoxyCodeLine{1595 \textcolor{comment}{//  \{ 0x0C4A, "{}Shenzhen Juyang Innovative Technology"{} \},}}
+\DoxyCodeLine{1596 \textcolor{comment}{//  \{ 0x0C4B, "{}CERVO"{} \},}}
+\DoxyCodeLine{1597 \textcolor{comment}{//  \{ 0x0C4C, "{}SiEngine Technology Co., Ltd."{} \},}}
+\DoxyCodeLine{1598 \textcolor{comment}{//  \{ 0x0C4D, "{}Beijing Unigroup Tsingteng MicroSystem"{} \},}}
+\DoxyCodeLine{1599 \textcolor{comment}{//  \{ 0x0C4E, "{}Brainsao GmbH"{} \},}}
+\DoxyCodeLine{1600 \textcolor{comment}{//  \{ 0x0C4F, "{}Credo Technology Group Ltd"{} \},}}
+\DoxyCodeLine{1601 \textcolor{comment}{//  \{ 0x0C50, "{}Shanghai Biren Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1602 \textcolor{comment}{//  \{ 0x0C51, "{}Nucleu Semiconductor"{} \},}}
+\DoxyCodeLine{1603 \textcolor{comment}{//  \{ 0x0C52, "{}Shenzhen Guangshuo Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1604 \textcolor{comment}{//  \{ 0x0C53, "{}ZhongsihangTechnology Co Ltd"{} \},}}
+\DoxyCodeLine{1605 \textcolor{comment}{//  \{ 0x0C54, "{}Suzhou Mainshine Electronic Co Ltd."{} \},}}
+\DoxyCodeLine{1606 \textcolor{comment}{//  \{ 0x0C55, "{}Guangzhou Riss Electronic Technology"{} \},}}
+\DoxyCodeLine{1607 \textcolor{comment}{//  \{ 0x0C56, "{}Shenzhen Cloud Security Storage  Co"{} \},}}
+\DoxyCodeLine{1608     \{ 0x0C57, \textcolor{stringliteral}{"{}ROG"{}} \},}
+\DoxyCodeLine{1609 \textcolor{comment}{//  \{ 0x0C58, "{}Perceive"{} \},}}
+\DoxyCodeLine{1610 \textcolor{comment}{//  \{ 0x0C59, "{}e-\/peas"{} \},}}
+\DoxyCodeLine{1611 \textcolor{comment}{//  \{ 0x0C5A, "{}Fraunhofer IPMS"{} \},}}
+\DoxyCodeLine{1612 \textcolor{comment}{//  \{ 0x0C5B, "{}Shenzhen Daxinlang Electronic Tech Co"{} \},}}
+\DoxyCodeLine{1613 \textcolor{comment}{//  \{ 0x0C5C, "{}Abacus Peripherals Private Limited"{} \},}}
+\DoxyCodeLine{1614     \{ 0x0C5D, \textcolor{stringliteral}{"{}OLOy"{}} \},}
+\DoxyCodeLine{1615 \textcolor{comment}{//  \{ 0x0C5E, "{}Wuhan P\&S Semiconductor Co Ltd"{} \},}}
+\DoxyCodeLine{1616 \textcolor{comment}{//  \{ 0x0C5F, "{}Sitrus Technology"{} \},}}
+\DoxyCodeLine{1617 \textcolor{comment}{//  \{ 0x0C60, "{}AnHui Conner Storage Co Ltd"{} \},}}
+\DoxyCodeLine{1618 \textcolor{comment}{//  \{ 0x0C61, "{}Rochester Electronics"{} \},}}
+\DoxyCodeLine{1619 \textcolor{comment}{//  \{ 0x0C62, "{}Wuxi Petabyte Technologies Co Ltd"{} \},}}
+\DoxyCodeLine{1620     \{ 0x0C63, \textcolor{stringliteral}{"{}Star Memory"{}} \},}
+\DoxyCodeLine{1621 \textcolor{comment}{//  \{ 0x0C64, "{}Agile Memory Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1622 \textcolor{comment}{//  \{ 0x0C65, "{}MEJEC"{} \},}}
+\DoxyCodeLine{1623 \textcolor{comment}{//  \{ 0x0C66, "{}Rockchip Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1624 \textcolor{comment}{//  \{ 0x0C67, "{}Dongguan Guanma e-\/commerce Co Ltd"{} \},}}
+\DoxyCodeLine{1625 \textcolor{comment}{//  \{ 0x0C68, "{}Rayson Hi-\/Tech (SZ) Limited"{} \},}}
+\DoxyCodeLine{1626 \textcolor{comment}{//  \{ 0x0C69, "{}MINRES Technologies GmbH"{} \},}}
+\DoxyCodeLine{1627 \textcolor{comment}{//  \{ 0x0C6A, "{}Himax Technologies Inc"{} \},}}
+\DoxyCodeLine{1628 \textcolor{comment}{//  \{ 0x0C6B, "{}Shenzhen Cwinner Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1629 \textcolor{comment}{//  \{ 0x0C6C, "{}Tecmiyo"{} \},}}
+\DoxyCodeLine{1630 \textcolor{comment}{//  \{ 0x0C6D, "{}Shenzhen Suhuicun Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1631 \textcolor{comment}{//  \{ 0x0C6E, "{}Vickter Electronics Co. Ltd."{} \},}}
+\DoxyCodeLine{1632 \textcolor{comment}{//  \{ 0x0C6F, "{}lowRISC"{} \},}}
+\DoxyCodeLine{1633 \textcolor{comment}{//  \{ 0x0C70, "{}EXEGate FZE"{} \},}}
+\DoxyCodeLine{1634 \textcolor{comment}{//  \{ 0x0C71, "{}Shenzhen 9 Chapter Technologies Co"{} \},}}
+\DoxyCodeLine{1635 \textcolor{comment}{//  \{ 0x0C72, "{}Addlink"{} \},}}
+\DoxyCodeLine{1636 \textcolor{comment}{//  \{ 0x0C73, "{}Starsway"{} \},}}
+\DoxyCodeLine{1637 \textcolor{comment}{//  \{ 0x0C74, "{}Pensando Systems Inc."{} \},}}
+\DoxyCodeLine{1638 \textcolor{comment}{//  \{ 0x0C75, "{}AirDisk"{} \},}}
+\DoxyCodeLine{1639 \textcolor{comment}{//  \{ 0x0C76, "{}Shenzhen Speedmobile Technology Co"{} \},}}
+\DoxyCodeLine{1640 \textcolor{comment}{//  \{ 0x0C77, "{}PEZY Computing"{} \},}}
+\DoxyCodeLine{1641 \textcolor{comment}{//  \{ 0x0C78, "{}Extreme Engineering Solutions Inc"{} \},}}
+\DoxyCodeLine{1642 \textcolor{comment}{//  \{ 0x0C79, "{}Shangxin Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1643 \textcolor{comment}{//  \{ 0x0C7A, "{}Shanghai Zhaoxin Semiconductor Co"{} \},}}
+\DoxyCodeLine{1644 \textcolor{comment}{//  \{ 0x0C7B, "{}Xsight Labs Ltd"{} \},}}
+\DoxyCodeLine{1645 \textcolor{comment}{//  \{ 0x0C7C, "{}Hangzhou Hikstorage Technology Co"{} \},}}
+\DoxyCodeLine{1646 \textcolor{comment}{//  \{ 0x0C7D, "{}Dell Technologies"{} \},}}
+\DoxyCodeLine{1647 \textcolor{comment}{//  \{ 0x0C7E, "{}Guangdong StarFive Technology Co"{} \},}}
+\DoxyCodeLine{1648 \textcolor{comment}{//  \{ 0x0D01, "{}TECOTON"{} \},}}
+\DoxyCodeLine{1649 \textcolor{comment}{//  \{ 0x0D02, "{}Abko Co Ltd"{} \},}}
+\DoxyCodeLine{1650 \textcolor{comment}{//  \{ 0x0D03, "{}Shenzhen Feisrike Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1651 \textcolor{comment}{//  \{ 0x0D04, "{}Shenzhen Sunhome Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1652 \textcolor{comment}{//  \{ 0x0D05, "{}Global Mixed-\/mode Technology Inc"{} \},}}
+\DoxyCodeLine{1653 \textcolor{comment}{//  \{ 0x0D06, "{}Shenzhen Weien Electronics Co. Ltd."{} \},}}
+\DoxyCodeLine{1654 \textcolor{comment}{//  \{ 0x0D07, "{}Shenzhen Cooyes Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1655 \textcolor{comment}{//  \{ 0x0D08, "{}Keymos Electronics Co., Limited"{} \},}}
+\DoxyCodeLine{1656 \textcolor{comment}{//  \{ 0x0D09, "{}E-\/Rockic Technology Company Limited"{} \},}}
+\DoxyCodeLine{1657 \textcolor{comment}{//  \{ 0x0D0A, "{}Aerospace Science Memory Shenzhen"{} \},}}
+\DoxyCodeLine{1658 \textcolor{comment}{//  \{ 0x0D0B, "{}Shenzhen Quanji Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1659 \textcolor{comment}{//  \{ 0x0D0C, "{}Dukosi"{} \},}}
+\DoxyCodeLine{1660 \textcolor{comment}{//  \{ 0x0D0D, "{}Maxell Corporation of America"{} \},}}
+\DoxyCodeLine{1661 \textcolor{comment}{//  \{ 0x0D0E, "{}Shenshen Xinxintao Electronics Co Ltd"{} \},}}
+\DoxyCodeLine{1662 \textcolor{comment}{//  \{ 0x0D0F, "{}Zhuhai Sanxia Semiconductor Co Ltd"{} \},}}
+\DoxyCodeLine{1663 \textcolor{comment}{//  \{ 0x0D10, "{}Groq Inc"{} \},}}
+\DoxyCodeLine{1664 \textcolor{comment}{//  \{ 0x0D11, "{}AstraTek"{} \},}}
+\DoxyCodeLine{1665 \textcolor{comment}{//  \{ 0x0D12, "{}Shenzhen Xinyuze Technology  Co Ltd"{} \},}}
+\DoxyCodeLine{1666 \textcolor{comment}{//  \{ 0x0D13, "{}All Bit Semiconductor"{} \},}}
+\DoxyCodeLine{1667 \textcolor{comment}{//  \{ 0x0D14, "{}ACFlow"{} \},}}
+\DoxyCodeLine{1668 \textcolor{comment}{//  \{ 0x0D15, "{}Shenzhen Sipeed Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1669 \textcolor{comment}{//  \{ 0x0D16, "{}Linzhi Hong Kong Co Limited"{} \},}}
+\DoxyCodeLine{1670 \textcolor{comment}{//  \{ 0x0D17, "{}Supreme Wise Limited"{} \},}}
+\DoxyCodeLine{1671 \textcolor{comment}{//  \{ 0x0D18, "{}Blue Cheetah Analog Design Inc"{} \},}}
+\DoxyCodeLine{1672 \textcolor{comment}{//  \{ 0x0D19, "{}Hefei Laiku Technology Co Ltd"{} \},}}
+\DoxyCodeLine{1673 \textcolor{comment}{//  \{ 0x0D1A, "{}Zord"{} \},}}
+\DoxyCodeLine{1674 \textcolor{comment}{//  \{ 0x0D1B, "{}SBO Hearing A/S"{} \},}}
+\DoxyCodeLine{1675 \textcolor{comment}{//  \{ 0x0D1C, "{}Regent Sharp International Limited"{} \},}}
+\DoxyCodeLine{1676 \textcolor{comment}{//  \{ 0x0D1D, "{}Permanent Potential Limited"{} \},}}
+\DoxyCodeLine{1677 \textcolor{comment}{//  \{ 0x0D1E, "{}Creative World International Limited"{} \},}}
+\DoxyCodeLine{1678 \textcolor{comment}{//  \{ 0x0D1F, "{}Base Creation International Limited"{} \},}}
+\DoxyCodeLine{1679     \{ 0xFFFF, \textcolor{stringliteral}{"{}Unknown"{}}\}}
+\DoxyCodeLine{1680 \};}
+
+\end{DoxyCode}

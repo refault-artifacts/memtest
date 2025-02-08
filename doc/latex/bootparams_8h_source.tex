@@ -1,0 +1,109 @@
+\hypertarget{bootparams_8h_source}{}\doxysection{bootparams.\+h}
+\label{bootparams_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/bootparams.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/bootparams.h}}
+\mbox{\hyperlink{bootparams_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef BOOTPARAMS\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define BOOTPARAMS\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{boot_8h}{boot.h}}>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{21     uint8\_t     \mbox{\hyperlink{bootparams_8h_a47f314f2ae5076d0422cfc5a331291d2}{orig\_x}};}
+\DoxyCodeLine{22     uint8\_t     \mbox{\hyperlink{bootparams_8h_ae31fb760595e280f79428362ecdab12f}{orig\_y}};}
+\DoxyCodeLine{23     uint16\_t    \mbox{\hyperlink{bootparams_8h_a797651e157b8cf202147baebde1215dc}{ext\_mem\_k}};}
+\DoxyCodeLine{24     uint16\_t    \mbox{\hyperlink{bootparams_8h_a3b4493a8692c24909c50b4960e4b7208}{orig\_video\_page}};}
+\DoxyCodeLine{25     uint8\_t     \mbox{\hyperlink{bootparams_8h_afd32472ca3358cc42c5f169046e4035c}{orig\_video\_mode}};}
+\DoxyCodeLine{26     uint8\_t     \mbox{\hyperlink{bootparams_8h_a323c89a3d3f87323bfd51e7d50e03cbb}{orig\_video\_cols}};}
+\DoxyCodeLine{27     uint8\_t     \mbox{\hyperlink{bootparams_8h_ad23caa76f87ba2e78ff50f0a96e82a14}{flags}};}
+\DoxyCodeLine{28     uint8\_t     \mbox{\hyperlink{bootparams_8h_a4494e450d8952f83e59b8c3c2510f795}{unused2}};}
+\DoxyCodeLine{29     uint16\_t    \mbox{\hyperlink{bootparams_8h_af26fe47b4e0e98f05c400b787dd650c4}{orig\_video\_ega\_bx}};}
+\DoxyCodeLine{30     uint16\_t    \mbox{\hyperlink{bootparams_8h_acbc0c8c3bbf05477e4f1f59d7561ba78}{unused3}};}
+\DoxyCodeLine{31     uint8\_t     \mbox{\hyperlink{bootparams_8h_abbaf4c5c92cbfe0b5db61b83ed5eb0a6}{orig\_video\_lines}};}
+\DoxyCodeLine{32     uint8\_t     \mbox{\hyperlink{bootparams_8h_a0379add00feb69bb315bba790e8ad284}{orig\_video\_isVGA}};}
+\DoxyCodeLine{33     uint16\_t    \mbox{\hyperlink{bootparams_8h_a4acb886b27fdf4334eab52fdc117b15c}{orig\_video\_points}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     uint16\_t    \mbox{\hyperlink{bootparams_8h_ab42ac8a2ba8ea5bf97b89e2920716685}{lfb\_width}};}
+\DoxyCodeLine{36     uint16\_t    \mbox{\hyperlink{bootparams_8h_a07a321d36ca92752d241b9573513f7e0}{lfb\_height}};}
+\DoxyCodeLine{37     uint16\_t    \mbox{\hyperlink{bootparams_8h_a9efb5b06b5131881b2ad2277ac3fc749}{lfb\_depth}};}
+\DoxyCodeLine{38     uint32\_t    \mbox{\hyperlink{bootparams_8h_aab8d9b5028cb9aaebf227e360ea49c54}{lfb\_base}};}
+\DoxyCodeLine{39     uint32\_t    \mbox{\hyperlink{bootparams_8h_a871575fd951becc02fe1dffebafc5cf1}{lfb\_size}};}
+\DoxyCodeLine{40     uint16\_t    \mbox{\hyperlink{bootparams_8h_ac71a942b0bc7f002692e134293a97054}{cl\_magic}}, cl\_offset;}
+\DoxyCodeLine{41     uint16\_t    \mbox{\hyperlink{bootparams_8h_a6ccadaeeb1ab24fa9304ddb3e2e2045d}{lfb\_linelength}};}
+\DoxyCodeLine{42     uint8\_t     \mbox{\hyperlink{bootparams_8h_a7a9d9e60d6394db9efc2e48076249cab}{red\_size}};}
+\DoxyCodeLine{43     uint8\_t     \mbox{\hyperlink{bootparams_8h_ad13765667e9adc0c2e08c5afec9787b6}{red\_pos}};}
+\DoxyCodeLine{44     uint8\_t     \mbox{\hyperlink{bootparams_8h_a79c8a8b57dbe460be2cec3e64de82c32}{green\_size}};}
+\DoxyCodeLine{45     uint8\_t     \mbox{\hyperlink{bootparams_8h_a50913490dc6545d67070996870c10c16}{green\_pos}};}
+\DoxyCodeLine{46     uint8\_t     \mbox{\hyperlink{bootparams_8h_a527c36a5c37dea2d3deeb87151716e2c}{blue\_size}};}
+\DoxyCodeLine{47     uint8\_t     \mbox{\hyperlink{bootparams_8h_ae905f301ed955ce797813bb36994493c}{blue\_pos}};}
+\DoxyCodeLine{48     uint8\_t     \mbox{\hyperlink{bootparams_8h_a5ca67900ae4b0a0cd02c2534bbca9277}{rsvd\_size}};}
+\DoxyCodeLine{49     uint8\_t     \mbox{\hyperlink{bootparams_8h_af5686328346c63da51575ae932840fbd}{rsvd\_pos}};}
+\DoxyCodeLine{50     uint16\_t    \mbox{\hyperlink{bootparams_8h_ab077354d67fc0be43ea4d0e43cd2ee03}{vesapm\_seg}};}
+\DoxyCodeLine{51     uint16\_t    \mbox{\hyperlink{bootparams_8h_a94bb025d54906b406410a318e9dbff43}{vesapm\_off}};}
+\DoxyCodeLine{52     uint16\_t    \mbox{\hyperlink{bootparams_8h_aa5a7371906a658472ae580698fa7bb6b}{pages}};}
+\DoxyCodeLine{53     uint16\_t    \mbox{\hyperlink{bootparams_8h_aa0fffd04765d0c2decce7723bab0e0b2}{vesa\_attributes}};}
+\DoxyCodeLine{54     uint32\_t    \mbox{\hyperlink{bootparams_8h_a8e0356a3acb93c933e2bc772a58ec27f}{capabilities}};}
+\DoxyCodeLine{55     uint32\_t    \mbox{\hyperlink{bootparams_8h_abf13183eaf66f92c580d152f9501197a}{ext\_lfb\_base}};}
+\DoxyCodeLine{56     uint8\_t     \_reserved[2];}
+\DoxyCodeLine{57 \} \_\_attribute\_\_((packed)) \mbox{\hyperlink{bootparams_8h_structscreen__info__t}{screen\_info\_t}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define VIDEO\_TYPE\_VLFB             0x23    }\textcolor{comment}{// VESA VGA in graphic mode}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define VIDEO\_TYPE\_EFI              0x70    }\textcolor{comment}{// EFI graphic mode}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define VIDEO\_TYPE\_NONE             0xff    }\textcolor{comment}{// no video display (added for Memtest86+)}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define LFB\_CAPABILITY\_64BIT\_BASE   (1 << 1)}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{66     uint32\_t    \mbox{\hyperlink{bootparams_8h_a463eaa29b9058b219ae0013433b778b3}{loader\_signature}};}
+\DoxyCodeLine{67     uint32\_t    \mbox{\hyperlink{bootparams_8h_a3cedc0c9f5f8dcc7086f16ccb4490c0c}{sys\_tab}};}
+\DoxyCodeLine{68     uint32\_t    \mbox{\hyperlink{bootparams_8h_a300ecfa21d1684a465444e56d1599931}{mem\_desc\_size}};}
+\DoxyCodeLine{69     uint32\_t    \mbox{\hyperlink{bootparams_8h_a830b859b0acb93df4deb6ca088a897eb}{mem\_desc\_version}};}
+\DoxyCodeLine{70     uint32\_t    \mbox{\hyperlink{bootparams_8h_a27812160863bd9d5e9387dbf7805d66e}{mem\_map}};}
+\DoxyCodeLine{71     uint32\_t    \mbox{\hyperlink{bootparams_8h_a3123d9e14505bec47f18dd2952476cd9}{mem\_map\_size}};}
+\DoxyCodeLine{72     uint32\_t    \mbox{\hyperlink{bootparams_8h_a86a9fee9f977d7d9efbd3de4bc9981fe}{sys\_tab\_hi}};}
+\DoxyCodeLine{73     uint32\_t    \mbox{\hyperlink{bootparams_8h_a7a2a335f4689620ef30a8b4bbd25dca0}{mem\_map\_hi}};}
+\DoxyCodeLine{74 \} \_\_attribute\_\_((packed)) \mbox{\hyperlink{bootparams_8h_structefi__info__t}{efi\_info\_t}};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define EFI32\_LOADER\_SIGNATURE  ('E' | ('L' << 8) | ('3' << 16) | ('2' << 24))}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define EFI64\_LOADER\_SIGNATURE  ('E' | ('L' << 8) | ('6' << 16) | ('4' << 24))}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{80     \mbox{\hyperlink{bootparams_8h_a694c253d55ab5d63f45bd57bc463bf6ba7d0ae03b415daa507a05c7ce8a015b7c}{E820\_NONE}}       = 0,}
+\DoxyCodeLine{81     \mbox{\hyperlink{bootparams_8h_a694c253d55ab5d63f45bd57bc463bf6baff06c97f651b12a634503166f4216aee}{E820\_RAM}}        = 1,}
+\DoxyCodeLine{82     \mbox{\hyperlink{bootparams_8h_a694c253d55ab5d63f45bd57bc463bf6ba3d38bc831894be85695150449bf4169f}{E820\_RESERVED}}   = 2,}
+\DoxyCodeLine{83     \mbox{\hyperlink{bootparams_8h_a694c253d55ab5d63f45bd57bc463bf6bacb68529a87ad3dbec09d04b76db9d531}{E820\_ACPI}}       = 3,    \textcolor{comment}{// usable as RAM once ACPI tables have been read}}
+\DoxyCodeLine{84     \mbox{\hyperlink{bootparams_8h_a694c253d55ab5d63f45bd57bc463bf6ba187f79adf8b86d5b86fe761c91a24de8}{E820\_NVS}}        = 4}
+\DoxyCodeLine{85 \} \mbox{\hyperlink{bootparams_8h_a694c253d55ab5d63f45bd57bc463bf6b}{e820\_type\_t}};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{88     uint64\_t        \mbox{\hyperlink{bootparams_8h_a5a678b774a64e83a7c53102705dc9a9f}{addr}};}
+\DoxyCodeLine{89     uint64\_t        \mbox{\hyperlink{bootparams_8h_aca560b51af85c8d2ac6aa7d3009ada62}{size}};}
+\DoxyCodeLine{90     uint32\_t        \mbox{\hyperlink{bootparams_8h_a638d615c726df35f7f64a272afe79841}{type}};}
+\DoxyCodeLine{91 \} \_\_attribute\_\_((packed)) \mbox{\hyperlink{bootparams_8h_structe820__entry__t}{e820\_entry\_t}};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{94     \mbox{\hyperlink{bootparams_8h_structscreen__info__t}{screen\_info\_t}}   \mbox{\hyperlink{bootparams_8h_a3c993f4d9ea7b0505ff95367cabf243c}{screen\_info}};}
+\DoxyCodeLine{95     uint8\_t         unused1[0x070 -\/ 0x040];}
+\DoxyCodeLine{96     uint64\_t        \mbox{\hyperlink{bootparams_8h_a921f1e963937703987df1dae25aa4061}{acpi\_rsdp\_addr}};}
+\DoxyCodeLine{97     uint8\_t         unused2[0x1c0 -\/ 0x078];}
+\DoxyCodeLine{98     \mbox{\hyperlink{bootparams_8h_structefi__info__t}{efi\_info\_t}}      \mbox{\hyperlink{bootparams_8h_a97bbb397abc32a1225331d9f8fad971a}{efi\_info}};}
+\DoxyCodeLine{99     uint8\_t         unused3[0x1e8 -\/ 0x1e0];}
+\DoxyCodeLine{100     uint8\_t         \mbox{\hyperlink{bootparams_8h_afd108c696e24af66f4b56cab0bfacc95}{e820\_entries}};}
+\DoxyCodeLine{101     uint8\_t         unused4[0x214 -\/ 0x1e9];}
+\DoxyCodeLine{102     uint32\_t        \mbox{\hyperlink{bootparams_8h_a05bea461e01b800ee14e70038950eba9}{code32\_start}};}
+\DoxyCodeLine{103     uint8\_t         unused5[0x228 -\/ 0x218];}
+\DoxyCodeLine{104     uint32\_t        \mbox{\hyperlink{bootparams_8h_a791a03fed75b2498e572aeba2e99ef2f}{cmd\_line\_ptr}};}
+\DoxyCodeLine{105     uint8\_t         unused6[0x238 -\/ 0x22c];}
+\DoxyCodeLine{106     uint32\_t        \mbox{\hyperlink{bootparams_8h_a20766e18825ff521c9dabcd635f24c1b}{cmd\_line\_size}};}
+\DoxyCodeLine{107     uint8\_t         unused7[0x2d0 -\/ 0x23c];}
+\DoxyCodeLine{108     \mbox{\hyperlink{bootparams_8h_structe820__entry__t}{e820\_entry\_t}}    e820\_map[\mbox{\hyperlink{boot_8h_a23b1e3eb12d037f8f43d481b190d0fbb}{E820\_MAP\_SIZE}}];}
+\DoxyCodeLine{109     uint8\_t         unused8[0xeec -\/ 0xd00];}
+\DoxyCodeLine{110 \} \_\_attribute\_\_((packed)) \mbox{\hyperlink{bootparams_8h_structboot__params__t}{boot\_params\_t}};}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BOOTPARAMS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

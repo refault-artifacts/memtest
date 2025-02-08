@@ -1,0 +1,63 @@
+\hypertarget{test__helper_8h_source}{}\doxysection{test\+\_\+helper.\+h}
+\label{test__helper_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/test\_helper.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/test\_helper.h}}
+\mbox{\hyperlink{test__helper_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef TEST\_HELPER\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define TEST\_HELPER\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{12 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{test_8h}{test.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef \_\_x86\_64\_\_}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memrw64_8h}{memrw64.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define read\_word   read64}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define write\_word  write64}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memrw32_8h}{memrw32.h}}"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define read\_word   read32}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define write\_word  write32}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define unlikely(x) \_\_builtin\_expect(!!(x), 0)}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define SPIN\_SIZE (1 << 27)  }\textcolor{comment}{// in testwords}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define BAILOUT if (bail) return ticks}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{52 \textcolor{keyword}{static} \textcolor{keyword}{inline} uintptr\_t \mbox{\hyperlink{test__helper_8h_ac1eae55cdc5c8a5b5cf758cbf880aa39}{round\_down}}(uintptr\_t value, \textcolor{keywordtype}{size\_t} align\_size)}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} value \& \string~(align\_size -\/ 1);}
+\DoxyCodeLine{55 \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60 \textcolor{keyword}{static} \textcolor{keyword}{inline} uintptr\_t \mbox{\hyperlink{test__helper_8h_a32a92254be8464bd31e2236df187ded9}{round\_up}}(uintptr\_t value, \textcolor{keywordtype}{size\_t} align\_size)}
+\DoxyCodeLine{61 \{}
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} (value + (align\_size -\/ 1)) \& \string~(align\_size -\/ 1);}
+\DoxyCodeLine{63 \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{69 \textcolor{keyword}{static} \textcolor{keyword}{inline} \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} \mbox{\hyperlink{test__helper_8h_a59a7a11623a5ec493766cf775df4b3ba}{prsg}}(\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} state)}
+\DoxyCodeLine{70 \{}
+\DoxyCodeLine{71     \textcolor{comment}{// This uses the algorithms described at https://en.wikipedia.org/wiki/Xorshift}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#ifdef \_\_x86\_64\_\_}}
+\DoxyCodeLine{73     state \string^= state << 13;}
+\DoxyCodeLine{74     state \string^= state >> 7;}
+\DoxyCodeLine{75     state \string^= state << 17;}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{77     state \string^= state << 13;}
+\DoxyCodeLine{78     state \string^= state >> 17;}
+\DoxyCodeLine{79     state \string^= state << 5;}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{81     \textcolor{keywordflow}{return} state;}
+\DoxyCodeLine{82 \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{89 \textcolor{keywordtype}{void} \mbox{\hyperlink{test__helper_8h_aa12bca540f1f51aa17968f9eedd325e5}{calculate\_chunk}}(\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} **start, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} **end, \textcolor{keywordtype}{int} my\_cpu, \textcolor{keywordtype}{int} segment, \textcolor{keywordtype}{size\_t} chunk\_align);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{95 \textcolor{keywordtype}{void} \mbox{\hyperlink{test__helper_8h_a579037ab8247c1e2129832093619a872}{flush\_caches}}(\textcolor{keywordtype}{int} my\_cpu);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TEST\_HELPER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,152 @@
+\hypertarget{tests_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/tests/tests.h File Reference}
+\label{tests_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/tests.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/tests.h}}
+
+
+Provides support for identifying and running the memory tests.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{tests_8h_structtest__pattern__t}{test\+\_\+pattern\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tests_8h_a73015e97c4f51e590fef60a05635986e}{NUM\+\_\+\+TEST\+\_\+\+PATTERNS}}~11
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033}{pass\+\_\+type\+\_\+t}} \{ \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ac196b847262a51b0751189e24d53bd05}{FAST\+\_\+\+PASS}}
+, \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033abedbafcf12711902ec3d15f381fb30fc}{FULL\+\_\+\+PASS}}
+, \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}{NUM\+\_\+\+PASS\+\_\+\+TYPES}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{tests_8h_a75e21bf9a41e98b143445846ab3d2a9c}{run\+\_\+test}} (int my\+\_\+cpu, int test, int stage, int iterations)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tests_8h_structtest__pattern__t}{test\+\_\+pattern\+\_\+t}} \mbox{\hyperlink{tests_8h_a093fc77a552a19522091b7385390e2e7}{test\+\_\+list}} \mbox{[}\mbox{\hyperlink{tests_8h_a73015e97c4f51e590fef60a05635986e}{NUM\+\_\+\+TEST\+\_\+\+PATTERNS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{tests_8h_afdb99ae10ea744a173685edc566cdd8d}{ticks\+\_\+per\+\_\+pass}} \mbox{[}\mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}{NUM\+\_\+\+PASS\+\_\+\+TYPES}}\mbox{]}
+\item 
+int \mbox{\hyperlink{tests_8h_ae5bb633b60c829f122bea7838b5ce35a}{ticks\+\_\+per\+\_\+test}} \mbox{[}\mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}{NUM\+\_\+\+PASS\+\_\+\+TYPES}}\mbox{]}\mbox{[}\mbox{\hyperlink{tests_8h_a73015e97c4f51e590fef60a05635986e}{NUM\+\_\+\+TEST\+\_\+\+PATTERNS}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides support for identifying and running the memory tests. 
+
+
+
+\doxysubsection{Data Structure Documentation}
+\index{test\_pattern\_t@{test\_pattern\_t}}\label{structtest__pattern__t}
+\Hypertarget{tests_8h_structtest__pattern__t}
+\doxysubsubsection{struct test\+\_\+pattern\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{tests_8h_a2cdb01e97023a534131ec81cf1fa7f64}\label{tests_8h_a2cdb01e97023a534131ec81cf1fa7f64}} 
+bool&
+enabled&
+\\
+\hline
+
+\mbox{\Hypertarget{tests_8h_ac755ab5f6a587a99bad0e892d5f03fd8}\label{tests_8h_ac755ab5f6a587a99bad0e892d5f03fd8}} 
+\mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529}{cpu\_mode\_t}}&
+cpu\_mode&
+\\
+\hline
+
+\mbox{\Hypertarget{tests_8h_abb720aedb754eb2d5fc4416b8c4a0bd8}\label{tests_8h_abb720aedb754eb2d5fc4416b8c4a0bd8}} 
+int&
+stages&
+\\
+\hline
+
+\mbox{\Hypertarget{tests_8h_ac8e09f49cef8b151e03d6aebc43465da}\label{tests_8h_ac8e09f49cef8b151e03d6aebc43465da}} 
+int&
+iterations&
+\\
+\hline
+
+\mbox{\Hypertarget{tests_8h_ac2332a14789dd5940b06e47976e01f1d}\label{tests_8h_ac2332a14789dd5940b06e47976e01f1d}} 
+int&
+errors&
+\\
+\hline
+
+\mbox{\Hypertarget{tests_8h_afbe53144c00365ecc6f9674968673bcf}\label{tests_8h_afbe53144c00365ecc6f9674968673bcf}} 
+char $\ast$&
+description&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{tests_8h_a73015e97c4f51e590fef60a05635986e}\label{tests_8h_a73015e97c4f51e590fef60a05635986e}} 
+\index{tests.h@{tests.h}!NUM\_TEST\_PATTERNS@{NUM\_TEST\_PATTERNS}}
+\index{NUM\_TEST\_PATTERNS@{NUM\_TEST\_PATTERNS}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_TEST\_PATTERNS}{NUM\_TEST\_PATTERNS}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+TEST\+\_\+\+PATTERNS~11}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033}\label{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033}} 
+\index{tests.h@{tests.h}!pass\_type\_t@{pass\_type\_t}}
+\index{pass\_type\_t@{pass\_type\_t}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{pass\_type\_t}{pass\_type\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033}{pass\+\_\+type\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAST\_PASS@{FAST\_PASS}!tests.h@{tests.h}}\index{tests.h@{tests.h}!FAST\_PASS@{FAST\_PASS}}}\mbox{\Hypertarget{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ac196b847262a51b0751189e24d53bd05}\label{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ac196b847262a51b0751189e24d53bd05}} 
+FAST\+\_\+\+PASS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FULL\_PASS@{FULL\_PASS}!tests.h@{tests.h}}\index{tests.h@{tests.h}!FULL\_PASS@{FULL\_PASS}}}\mbox{\Hypertarget{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033abedbafcf12711902ec3d15f381fb30fc}\label{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033abedbafcf12711902ec3d15f381fb30fc}} 
+FULL\+\_\+\+PASS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_PASS\_TYPES@{NUM\_PASS\_TYPES}!tests.h@{tests.h}}\index{tests.h@{tests.h}!NUM\_PASS\_TYPES@{NUM\_PASS\_TYPES}}}\mbox{\Hypertarget{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}\label{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}} 
+NUM\+\_\+\+PASS\+\_\+\+TYPES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tests_8h_a75e21bf9a41e98b143445846ab3d2a9c}\label{tests_8h_a75e21bf9a41e98b143445846ab3d2a9c}} 
+\index{tests.h@{tests.h}!run\_test@{run\_test}}
+\index{run\_test@{run\_test}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{run\_test()}{run\_test()}}
+{\footnotesize\ttfamily int run\+\_\+test (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu,  }\item[{int}]{test,  }\item[{int}]{stage,  }\item[{int}]{iterations }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{tests_8h_a093fc77a552a19522091b7385390e2e7}\label{tests_8h_a093fc77a552a19522091b7385390e2e7}} 
+\index{tests.h@{tests.h}!test\_list@{test\_list}}
+\index{test\_list@{test\_list}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{test\_list}{test\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tests_8h_structtest__pattern__t}{test\+\_\+pattern\+\_\+t}} test\+\_\+list\mbox{[}\mbox{\hyperlink{tests_8h_a73015e97c4f51e590fef60a05635986e}{NUM\+\_\+\+TEST\+\_\+\+PATTERNS}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{tests_8h_afdb99ae10ea744a173685edc566cdd8d}\label{tests_8h_afdb99ae10ea744a173685edc566cdd8d}} 
+\index{tests.h@{tests.h}!ticks\_per\_pass@{ticks\_per\_pass}}
+\index{ticks\_per\_pass@{ticks\_per\_pass}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{ticks\_per\_pass}{ticks\_per\_pass}}
+{\footnotesize\ttfamily int ticks\+\_\+per\+\_\+pass\mbox{[}\mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}{NUM\+\_\+\+PASS\+\_\+\+TYPES}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{tests_8h_ae5bb633b60c829f122bea7838b5ce35a}\label{tests_8h_ae5bb633b60c829f122bea7838b5ce35a}} 
+\index{tests.h@{tests.h}!ticks\_per\_test@{ticks\_per\_test}}
+\index{ticks\_per\_test@{ticks\_per\_test}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{ticks\_per\_test}{ticks\_per\_test}}
+{\footnotesize\ttfamily int ticks\+\_\+per\+\_\+test\mbox{[}\mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}{NUM\+\_\+\+PASS\+\_\+\+TYPES}}\mbox{]}\mbox{[}\mbox{\hyperlink{tests_8h_a73015e97c4f51e590fef60a05635986e}{NUM\+\_\+\+TEST\+\_\+\+PATTERNS}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -1,0 +1,42 @@
+\hypertarget{hwquirks_8h_source}{}\doxysection{hwquirks.\+h}
+\label{hwquirks_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/hwquirks.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/hwquirks.h}}
+\mbox{\hyperlink{hwquirks_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{comment}{// Copyright (C) 2004-\/2022 Sam Demeulemeester}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef \_QUIRK\_H\_}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define \_QUIRK\_H\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define QUIRK\_TYPE\_NONE     (1 << 0)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define QUIRK\_TYPE\_USB      (1 << 1)}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define QUIRK\_TYPE\_SMP      (1 << 2)}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define QUIRK\_TYPE\_SMBIOS   (1 << 3)}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define QUIRK\_TYPE\_SMBUS    (1 << 4)}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define QUIRK\_TYPE\_TIMER    (1 << 5)}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define QUIRK\_TYPE\_MEM\_SIZE (1 << 6)}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{24     \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7af7b3204dfd3f8d2b0dfbe69a84be8a3c}{QUIRK\_NONE}},}
+\DoxyCodeLine{25     \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7a06e237ae3f7c925bda8cd440c4c72c2a}{QUIRK\_TUSL2}},}
+\DoxyCodeLine{26     \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7a2a62752cde5e5d81066f61f0f6960aa6}{QUIRK\_ALI\_ALADDIN\_V}},}
+\DoxyCodeLine{27     \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7aea361f7cb9f55689ae16d1456fe60b9b}{QUIRK\_X10SDV\_NOSMP}}}
+\DoxyCodeLine{28 \} \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7}{quirk\_id\_t}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{31     \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7}{quirk\_id\_t}}   \mbox{\hyperlink{structquirk__t_af3bb9081d41e0cb289b1f08275a581f6}{id}};}
+\DoxyCodeLine{32     uint8\_t      \mbox{\hyperlink{structquirk__t_a947debfe9af3a615dca3b4c25392995e}{type}};}
+\DoxyCodeLine{33     uint16\_t     \mbox{\hyperlink{structquirk__t_aa9dff5bf172afe84eb7a7aa698f4def8}{root\_vid}};}
+\DoxyCodeLine{34     uint16\_t     \mbox{\hyperlink{structquirk__t_a4ffd21fa885af4300a9221145f572ccb}{root\_did}};}
+\DoxyCodeLine{35     void (*process)(void);}
+\DoxyCodeLine{36 \} \mbox{\hyperlink{structquirk__t}{quirk\_t}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{extern} \mbox{\hyperlink{structquirk__t}{quirk\_t}} \mbox{\hyperlink{hwquirks_8h_a4ee12ff8946d9f0819ca94125ac399bf}{quirk}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keywordtype}{void} \mbox{\hyperlink{hwquirks_8h_a5a9d0c1260d96ab391b92f5f1b237a30}{quirks\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_QUIRK\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

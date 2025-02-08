@@ -1,0 +1,121 @@
+\hypertarget{smbus_8h_source}{}\doxysection{smbus.\+h}
+\label{smbus_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smbus.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smbus.h}}
+\mbox{\hyperlink{smbus_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_SMBUS\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_SMBUS\_H\_}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define I2C\_WRITE   0}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define I2C\_READ    1}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define SPD5\_MR11 11}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{/* i801 Hosts Addresses */}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define SMBHSTSTS   smbusbase}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define SMBHSTCNT   smbusbase + 2}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define SMBHSTCMD   smbusbase + 3}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define SMBHSTADD   smbusbase + 4}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define SMBHSTDAT0  smbusbase + 5}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define SMBHSTDAT1  smbusbase + 6}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define SMBBLKDAT   smbusbase + 7}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define SMBPEC      smbusbase + 8}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define SMBAUXSTS   smbusbase + 12}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define SMBAUXCTL   smbusbase + 13}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{/* i801 Hosts Status register bits */}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define SMBHSTSTS\_BYTE\_DONE     0x80}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define SMBHSTSTS\_INUSE\_STS     0x40}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define SMBHSTSTS\_SMBALERT\_STS  0x20}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define SMBHSTSTS\_FAILED        0x10}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define SMBHSTSTS\_BUS\_ERR       0x08}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define SMBHSTSTS\_DEV\_ERR       0x04}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define SMBHSTSTS\_INTR          0x02}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define SMBHSTSTS\_HOST\_BUSY     0x01}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define SMBHSTCNT\_QUICK             0x00}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define SMBHSTCNT\_BYTE              0x04}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define SMBHSTCNT\_BYTE\_DATA         0x08}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define SMBHSTCNT\_WORD\_DATA         0x0C}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define SMBHSTCNT\_BLOCK\_DATA        0x14}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define SMBHSTCNT\_I2C\_BLOCK\_DATA    0x18}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define SMBHSTCNT\_LAST\_BYTE         0x20}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define SMBHSTCNT\_START             0x40}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{/* AMD-\/Specific constants */}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define AMD\_INDEX\_IO\_PORT   0xCD6}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define AMD\_DATA\_IO\_PORT    0xCD7}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define AMD\_SMBUS\_BASE\_REG  0x2C}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define AMD\_PM\_INDEX        0x00}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{/* nVidia-\/Specific constants */}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define NV\_SMBUS\_ADR\_REG        0x20}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define NV\_OLD\_SMBUS\_ADR\_REG    0x50}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define NVSMBCNT    smbusbase + 0}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define NVSMBSTS    smbusbase + 1}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define NVSMBADD    smbusbase + 2}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define NVSMBCMD    smbusbase + 3}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define NVSMBDAT(x) (smbusbase + 4 + (x))}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define NVSMBCNT\_WRITE      0x00}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define NVSMBCNT\_READ       0x01}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define NVSMBCNT\_QUICK      0x02}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define NVSMBCNT\_BYTE       0x04}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define NVSMBCNT\_BYTE\_DATA  0x06}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define NVSMBCNT\_WORD\_DATA  0x08}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define NVSMBSTS\_DONE       0x80}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define NVSMBSTS\_ALRM       0x40}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define NVSMBSTS\_RES        0x20}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define NVSMBSTS\_STATUS     0x1f}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define DDR5\_ROUNDING\_FACTOR    30}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define ROUNDING\_FACTOR         0.9f}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define SPD\_SKU\_LEN         32}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define PIIX4\_SMB\_BASE\_ADR\_DEFAULT  0x90}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define PIIX4\_SMB\_BASE\_ADR\_VIAPRO   0xD0}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{struct }\mbox{\hyperlink{structpci__smbus__controller}{pci\_smbus\_controller}} \{}
+\DoxyCodeLine{92     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{structpci__smbus__controller_a75a77a7a1c81164e866447aed8dca028}{vendor}};}
+\DoxyCodeLine{93     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{structpci__smbus__controller_afdc1457530285d328415f83269bb6817}{device}};}
+\DoxyCodeLine{94     void (*\mbox{\hyperlink{structpci__smbus__controller_ae5f63fbc91c1b852692510f880360b25}{get\_adr}})(void);}
+\DoxyCodeLine{95 \};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }spd\_infos \{}
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool}        \mbox{\hyperlink{smbus_8h_aaefa99598478f4beba35791f2bab5688}{isValid}};}
+\DoxyCodeLine{99     uint8\_t     \mbox{\hyperlink{smbus_8h_a2bec3a61372d7e42c6b4b79964f6a986}{slot\_num}};}
+\DoxyCodeLine{100     uint16\_t    \mbox{\hyperlink{smbus_8h_a14a3a1cdae25267ef9704fb1b13977cc}{jedec\_code}};}
+\DoxyCodeLine{101     uint32\_t    \mbox{\hyperlink{smbus_8h_a439527154a4b1a0d31798dedba64c9d7}{module\_size}};}
+\DoxyCodeLine{102     \textcolor{keywordtype}{char}        *\mbox{\hyperlink{smbus_8h_a145f816854e7105f4b8c4e77f8aa5274}{type}};}
+\DoxyCodeLine{103     \textcolor{keywordtype}{char}        sku[\mbox{\hyperlink{smbus_8h_a7af89fd4788ddae557d3c3a5cee2771a}{SPD\_SKU\_LEN}} + 1];}
+\DoxyCodeLine{104     uint8\_t     \mbox{\hyperlink{smbus_8h_a1b1afb082339968282a194cd178315f0}{XMP}};}
+\DoxyCodeLine{105     uint16\_t    \mbox{\hyperlink{smbus_8h_af8bf20cdca902df4111241323a8a1371}{freq}};}
+\DoxyCodeLine{106     \textcolor{keywordtype}{bool}        \mbox{\hyperlink{smbus_8h_af42c75e785059dc8ac33dd6e79213ba2}{hasECC}};}
+\DoxyCodeLine{107     uint8\_t     \mbox{\hyperlink{smbus_8h_af710db1fcdf9c80843aa838c919290c0}{fab\_year}};}
+\DoxyCodeLine{108     uint8\_t     \mbox{\hyperlink{smbus_8h_a9169041c6ecdde29e92935a44601a5d3}{fab\_week}};}
+\DoxyCodeLine{109     uint16\_t    \mbox{\hyperlink{smbus_8h_a5d0f82cac308501bba6478b187415ea2}{tCL}};}
+\DoxyCodeLine{110     uint8\_t     \mbox{\hyperlink{smbus_8h_a64d177410635c626a02b6f1f1e89bc01}{tCL\_dec}};}
+\DoxyCodeLine{111     uint16\_t    \mbox{\hyperlink{smbus_8h_ac2bb0463442741ca89da566493f283cb}{tRCD}};}
+\DoxyCodeLine{112     uint16\_t    \mbox{\hyperlink{smbus_8h_a2f79bf789c69f93eba0f6786b00dc753}{tRP}};}
+\DoxyCodeLine{113     uint16\_t    \mbox{\hyperlink{smbus_8h_a678e982a13eaa2be508169e5f38bc458}{tRAS}};}
+\DoxyCodeLine{114     uint16\_t    \mbox{\hyperlink{smbus_8h_a28af5d4ddd1c27bb0840f897b4c31803}{tRC}};}
+\DoxyCodeLine{115 \} \mbox{\hyperlink{smbus_8h_structspd__info}{spd\_info}};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ram\_infos \{}
+\DoxyCodeLine{118     uint16\_t    \mbox{\hyperlink{smbus_8h_a5c6e92ca9b2146fda783c7d3d1b91c63}{freq}};}
+\DoxyCodeLine{119     uint16\_t    \mbox{\hyperlink{smbus_8h_a6b77fa9430b39842fd07d905334b6501}{tCL}};}
+\DoxyCodeLine{120     uint8\_t     \mbox{\hyperlink{smbus_8h_a30f739fc598951f0add27a0392ed7439}{tCL\_dec}};}
+\DoxyCodeLine{121     uint16\_t    \mbox{\hyperlink{smbus_8h_a3952a75087aee86ee1937d1392bcb8a8}{tRCD}};}
+\DoxyCodeLine{122     uint16\_t    \mbox{\hyperlink{smbus_8h_a5c15df5dd5d06ab1f1b14ffa09e99617}{tRP}};}
+\DoxyCodeLine{123     uint16\_t    \mbox{\hyperlink{smbus_8h_a8cef916bab001d24ec2547915901bc92}{tRAS}};}
+\DoxyCodeLine{124     \textcolor{keywordtype}{char}        *\mbox{\hyperlink{smbus_8h_a5cfcec53c8e69a59b0de099773cc3441}{type}};}
+\DoxyCodeLine{125 \} \mbox{\hyperlink{smbus_8h_structram__info}{ram\_info}};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{extern} \mbox{\hyperlink{smbus_8h_structram__info}{ram\_info}} \mbox{\hyperlink{smbus_8h_ac9a217ca53247eebc2fe3dfa19ed11cd}{ram}};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{133 \textcolor{keywordtype}{void} \mbox{\hyperlink{smbus_8h_afe1ebbaf5fcd52c3065baea3974eeae2}{print\_smbus\_startup\_info}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SMBUS\_H}}
+
+\end{DoxyCode}

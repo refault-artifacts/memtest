@@ -1,0 +1,166 @@
+\hypertarget{usbhcd_8h_source}{}\doxysection{usbhcd.\+h}
+\label{usbhcd_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/usbhcd.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/usbhcd.h}}
+\mbox{\hyperlink{usbhcd_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef USBHCD\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define USBHCD\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{22 \textcolor{comment}{ * Copyright (C) 2021-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{23 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{usb_8h}{usb.h}}"{}}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define HCD\_DATA\_BUFFER\_SIZE    512  }\textcolor{comment}{// bytes}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define HCD\_KC\_BUFFER\_SIZE      8  }\textcolor{comment}{// keycodes}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}  \_\_attribute\_\_ ((packed)) \{}
+\DoxyCodeLine{45     \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23ac9755ae6b86f8148054fd6a342c74acc}{USB\_SPEED\_UNKNOWN}}   = 0,}
+\DoxyCodeLine{46     \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0ec4f8f66feaf7ee8f2ee618302e9470}{USB\_SPEED\_LOW}}       = 1,}
+\DoxyCodeLine{47     \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0f17d0b9928086c6114fea73e08f1780}{USB\_SPEED\_FULL}}      = 2,}
+\DoxyCodeLine{48     \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a57eeede6d769b09c01ac9c9c62fef8c9}{USB\_SPEED\_HIGH}}      = 3}
+\DoxyCodeLine{49 \} \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_ ((packed)) \{}
+\DoxyCodeLine{55     uintptr\_t       \mbox{\hyperlink{usbhcd_8h_ae85e93620c3b1b2c77eaa95e5a8d8af3}{driver\_data}};}
+\DoxyCodeLine{56     \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}}     \mbox{\hyperlink{usbhcd_8h_a670c768e4b576fbb2cc6c9cef34cb265}{device\_speed}};}
+\DoxyCodeLine{57     uint8\_t         \mbox{\hyperlink{usbhcd_8h_a418eaa332f32c93621c5d4c347541df6}{device\_id}};}
+\DoxyCodeLine{58     uint8\_t         \mbox{\hyperlink{usbhcd_8h_aa505229dc1960c45a10552c047147131}{interface\_num}};}
+\DoxyCodeLine{59     uint8\_t         \mbox{\hyperlink{usbhcd_8h_aae3cdeab57e64d586d825fd670ca35ee}{endpoint\_num}};}
+\DoxyCodeLine{60     uint16\_t        \mbox{\hyperlink{usbhcd_8h_a2f696b04e22c5a83909139c8a25616aa}{max\_packet\_size}};}
+\DoxyCodeLine{61     uint8\_t         \mbox{\hyperlink{usbhcd_8h_ae3fc962baa1fdc111b3f8a2efccd1954}{interval}};}
+\DoxyCodeLine{62     uint8\_t         \mbox{\hyperlink{usbhcd_8h_acbed7a590aa42eb754db62b83b58aa7d}{reserved}};}
+\DoxyCodeLine{63 \} \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_ ((packed)) \{}
+\DoxyCodeLine{69     uint8\_t         \mbox{\hyperlink{usbhcd_8h_ac81f4811ed82c0ca01e86c63ac33c476}{device\_id}};}
+\DoxyCodeLine{70     uint8\_t         \mbox{\hyperlink{usbhcd_8h_a7e05d550f220d07c1bd891296e1e75cf}{port\_num}};}
+\DoxyCodeLine{71 \} \mbox{\hyperlink{usbhcd_8h_structusb__parent__t}{usb\_parent\_t}};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_ ((packed)) \{}
+\DoxyCodeLine{77     \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}}  *\mbox{\hyperlink{usbhcd_8h_a0dc010609d61074f74293c0c9e742d46}{ep0}};}
+\DoxyCodeLine{78     uint32\_t        \mbox{\hyperlink{usbhcd_8h_a9ce2ce4ce275753064fb07ea76d54d0b}{route}};}
+\DoxyCodeLine{79     uint8\_t         \mbox{\hyperlink{usbhcd_8h_a1db2f47ac532335cea8527afd88357c4}{level}};}
+\DoxyCodeLine{80     uint8\_t         \mbox{\hyperlink{usbhcd_8h_a140d5a461a05c08de9a97748c3417546}{num\_ports}};}
+\DoxyCodeLine{81     uint8\_t         \mbox{\hyperlink{usbhcd_8h_a8c980c6d5bc259355f3fc2b664e10ec3}{tt\_think\_time}};}
+\DoxyCodeLine{82     uint8\_t         \mbox{\hyperlink{usbhcd_8h_a6629945e4c56ea25fd3bb2471b9748a9}{power\_up\_delay}};}
+\DoxyCodeLine{83     \mbox{\hyperlink{usbhcd_8h_structusb__parent__t}{usb\_parent\_t}}    \mbox{\hyperlink{usbhcd_8h_a3cd82d78c399177c69d982b2c823d08c}{hs\_parent}};}
+\DoxyCodeLine{84     uint16\_t        \mbox{\hyperlink{usbhcd_8h_a985d35a9a0fb314659fe93754246374e}{reserved}};}
+\DoxyCodeLine{85 \} \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\_hub\_t}};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{90 \textcolor{keyword}{typedef} \textcolor{keyword}{const} \textcolor{keyword}{struct }usb\_hcd\_s *\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{95 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{96     bool    (*reset\_root\_hub\_port)  (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}}, int);}
+\DoxyCodeLine{97     int     (*allocate\_slot)        (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}});}
+\DoxyCodeLine{98     bool    (*release\_slot)         (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}}, int);}
+\DoxyCodeLine{99     bool    (*assign\_address)       (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}}, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\_hub\_t}} *, int, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}}, int, \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}} *);}
+\DoxyCodeLine{100     bool    (*configure\_hub\_ep)     (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}}, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}} *, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\_hub\_t}} *);}
+\DoxyCodeLine{101     bool    (*configure\_kbd\_ep)     (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}}, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}} *, int);}
+\DoxyCodeLine{102     bool    (*setup\_request)        (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}}, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}} *, \textcolor{keyword}{const} \mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\_setup\_pkt\_t}} *);}
+\DoxyCodeLine{103     bool    (*get\_data\_request)     (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}}, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}} *, \textcolor{keyword}{const} \mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\_setup\_pkt\_t}} *, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *, size\_t);}
+\DoxyCodeLine{104     void    (*poll\_keyboards)       (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\_hcd\_r}});}
+\DoxyCodeLine{105 \} \mbox{\hyperlink{structhcd__methods__t}{hcd\_methods\_t}};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{111 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{112     uint8\_t         data\_buffer[\mbox{\hyperlink{usbhcd_8h_a993585880a7365bbd8b5ac0d346b7ce6}{HCD\_DATA\_BUFFER\_SIZE}}];}
+\DoxyCodeLine{113     \textcolor{keywordtype}{size\_t}          \mbox{\hyperlink{usbhcd_8h_a7cfa5c28b4e7c13e493bc9de1fe69755}{data\_length}};}
+\DoxyCodeLine{114     uint8\_t         kc\_buffer[\mbox{\hyperlink{usbhcd_8h_a1e8a77a74ee374683b1efa3c816400b4}{HCD\_KC\_BUFFER\_SIZE}}];}
+\DoxyCodeLine{115     int8\_t          \mbox{\hyperlink{usbhcd_8h_adb518855de5da75669e2a8e04ae3edf8}{kc\_index\_i}};}
+\DoxyCodeLine{116     int8\_t          \mbox{\hyperlink{usbhcd_8h_aa329bf3593ce0a87596c5d0be13a55e2}{kc\_index\_o}};}
+\DoxyCodeLine{117 \} \mbox{\hyperlink{usbhcd_8h_structhcd__workspace__t}{hcd\_workspace\_t}};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{122 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }usb\_hcd\_s \{}
+\DoxyCodeLine{123     \textcolor{keyword}{const} \mbox{\hyperlink{structhcd__methods__t}{hcd\_methods\_t}} *\mbox{\hyperlink{usbhcd_8h_a6d129b19a3d0bc9189006b720a595548}{methods}};}
+\DoxyCodeLine{124     \mbox{\hyperlink{usbhcd_8h_structhcd__workspace__t}{hcd\_workspace\_t}}     *\mbox{\hyperlink{usbhcd_8h_a6290e99494e7b67474d826921ec06a13}{ws}};}
+\DoxyCodeLine{125 \} \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\_hcd\_t}};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{130 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{131     \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3a6f2bcb231c49ecf65bd7cc1a3ba329c8}{USB\_DEFAULT\_INIT}}    = 0,}
+\DoxyCodeLine{132     \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3af3f71cbb370a6ac30aa5a427fddcc1a4}{USB\_EXTRA\_RESET}}     = 1 << 0,}
+\DoxyCodeLine{133     \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3aa10389fa2534b94bdb068e5476f205c4}{USB\_IGNORE\_EHCI}}     = 1 << 1,}
+\DoxyCodeLine{134     \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3abf79edc8c6caadae4bd329ec6aab4522}{USB\_2\_STEP\_INIT}}     = 1 << 2,}
+\DoxyCodeLine{135     \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3aa6546b3c3b452f7084c258af117c901d}{USB\_DEBUG}}           = 1 << 3}
+\DoxyCodeLine{136 \} \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3}{usb\_init\_options\_t}};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{143 \textcolor{keyword}{extern} \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3}{usb\_init\_options\_t}} \mbox{\hyperlink{usbhcd_8h_aa0ff1e49014a85a25554ae5abd93c552}{usb\_init\_options}};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{150 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{usbhcd_8h_a4c02e8db7f7981375afb479b73e985cf}{build\_setup\_packet}}(\mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\_setup\_pkt\_t}} *pkt, \textcolor{keywordtype}{int} type, \textcolor{keywordtype}{int} request, \textcolor{keywordtype}{int} value, \textcolor{keywordtype}{int} index, \textcolor{keywordtype}{int} length)}
+\DoxyCodeLine{151 \{}
+\DoxyCodeLine{152     pkt-\/>\mbox{\hyperlink{usb_8h_a5ae91c60e3d254d5dc31955f4888f717}{type}}    = type;}
+\DoxyCodeLine{153     pkt-\/>\mbox{\hyperlink{usb_8h_a4dc2f77abd1edebdc501df8e8430fbef}{request}} = request;}
+\DoxyCodeLine{154     pkt-\/>\mbox{\hyperlink{usb_8h_a52c499b60f7d4461166ecb227df10bc2}{value}}   = value;}
+\DoxyCodeLine{155     pkt-\/>\mbox{\hyperlink{usb_8h_a6c2f366f2738f6e9ff1a0e7ffc5d98cb}{index}}   = index;}
+\DoxyCodeLine{156     pkt-\/>\mbox{\hyperlink{usb_8h_aca919908316fb27ac10dde4a9e3154c0}{length}}  = length;}
+\DoxyCodeLine{157 \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{comment}{/* Returns the default maximum packet size for a USB device running at the}}
+\DoxyCodeLine{160 \textcolor{comment}{ * given speed.}}
+\DoxyCodeLine{161 \textcolor{comment}{ *}}
+\DoxyCodeLine{162 \textcolor{comment}{ * Used internally by the various HCI drivers.}}
+\DoxyCodeLine{163 \textcolor{comment}{ */}}
+\DoxyCodeLine{164 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{usbhcd_8h_a15591137f1ff93a44465904971b0eead}{default\_max\_packet\_size}}(\mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}} device\_speed)}
+\DoxyCodeLine{165 \{}
+\DoxyCodeLine{166     \textcolor{keywordflow}{switch} (device\_speed) \{}
+\DoxyCodeLine{167       \textcolor{keywordflow}{case} \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0ec4f8f66feaf7ee8f2ee618302e9470}{USB\_SPEED\_LOW}}:}
+\DoxyCodeLine{168         \textcolor{keywordflow}{return} 8;}
+\DoxyCodeLine{169       \textcolor{keywordflow}{case} \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0f17d0b9928086c6114fea73e08f1780}{USB\_SPEED\_FULL}}:}
+\DoxyCodeLine{170         \textcolor{keywordflow}{return} 64;}
+\DoxyCodeLine{171       \textcolor{keywordflow}{case} \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a57eeede6d769b09c01ac9c9c62fef8c9}{USB\_SPEED\_HIGH}}:}
+\DoxyCodeLine{172         \textcolor{keywordflow}{return} 64;}
+\DoxyCodeLine{173       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{174         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176 \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{184 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_aee3608913e6d0080ae3ea822ebbdbf1e}{valid\_usb\_max\_packet\_size}}(\textcolor{keywordtype}{int} size, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}} speed)}
+\DoxyCodeLine{185 \{}
+\DoxyCodeLine{186     \textcolor{keywordflow}{return} (size == 8) || ((speed != \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0ec4f8f66feaf7ee8f2ee618302e9470}{USB\_SPEED\_LOW}}) \&\& (size == 16 || size == 32 || size == 64));}
+\DoxyCodeLine{187 \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{194 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_a05ebccc68ac9716003a418cc0f0be87f}{valid\_usb\_device\_descriptor}}(\textcolor{keyword}{const} uint8\_t *buffer)}
+\DoxyCodeLine{195 \{}
+\DoxyCodeLine{196     \mbox{\hyperlink{usb_8h_structusb__desc__header__t}{usb\_desc\_header\_t}} *desc = (\mbox{\hyperlink{usb_8h_structusb__desc__header__t}{usb\_desc\_header\_t}} *)buffer;}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198     \textcolor{keywordflow}{return} desc-\/>\mbox{\hyperlink{usb_8h_a56eb3b60ed00aede3f1a50e73f3b42a3}{length}} == \textcolor{keyword}{sizeof}(\mbox{\hyperlink{usb_8h_structusb__device__desc__t}{usb\_device\_desc\_t}}) \&\& desc-\/>\mbox{\hyperlink{usb_8h_a4559491a0a78ba17e0c76539ed80f9ce}{type}} == \mbox{\hyperlink{usb_8h_aefeff68c3a236749d1105d94ed9bad68}{USB\_DESC\_DEVICE}};}
+\DoxyCodeLine{199 \}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{207 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_ac0e1c8c04b9b86179bfe4d8cf6019fa9}{valid\_usb\_config\_descriptor}}(\textcolor{keyword}{const} uint8\_t *buffer)}
+\DoxyCodeLine{208 \{}
+\DoxyCodeLine{209     \mbox{\hyperlink{usb_8h_structusb__desc__header__t}{usb\_desc\_header\_t}} *desc = (\mbox{\hyperlink{usb_8h_structusb__desc__header__t}{usb\_desc\_header\_t}} *)buffer;}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \textcolor{keywordflow}{return} desc-\/>\mbox{\hyperlink{usb_8h_a56eb3b60ed00aede3f1a50e73f3b42a3}{length}} == \textcolor{keyword}{sizeof}(\mbox{\hyperlink{usb_8h_structusb__config__desc__t}{usb\_config\_desc\_t}}) \&\& desc-\/>\mbox{\hyperlink{usb_8h_a4559491a0a78ba17e0c76539ed80f9ce}{type}} == \mbox{\hyperlink{usb_8h_a7764131f2e59070eb032bd9d68d32620}{USB\_DESC\_CONFIGURATION}};}
+\DoxyCodeLine{212 \}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{221 uint32\_t \mbox{\hyperlink{usbhcd_8h_a51acaad27de7a066a805cf5e5b85d1b2}{usb\_route}}(\textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\_hub\_t}} *hub, \textcolor{keywordtype}{int} port\_num);}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{232 \mbox{\hyperlink{usbhcd_8h_structusb__parent__t}{usb\_parent\_t}} \mbox{\hyperlink{usbhcd_8h_a339f0b8c31ef59fe59a6b4ac6d4f1b05}{usb\_hs\_parent}}(\textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\_hub\_t}} *hub, \textcolor{keywordtype}{int} port\_num, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}} device\_speed);}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{240 \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_a5829457f339a240387aa00c71f3435ea}{wait\_until\_clr}}(\textcolor{keyword}{const} \textcolor{keyword}{volatile} uint32\_t *reg, uint32\_t bit\_mask, \textcolor{keywordtype}{int} max\_time);}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{248 \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_ae72a76c17baa3b162f8b3475afb9834c}{wait\_until\_set}}(\textcolor{keyword}{const} \textcolor{keyword}{volatile} uint32\_t *reg, uint32\_t bit\_mask, \textcolor{keywordtype}{int} max\_time);}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{256 \textcolor{keywordtype}{void} \mbox{\hyperlink{usbhcd_8h_abd3e5955be3bdfd7d37b23b37bf01659}{print\_usb\_info}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{263 \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_a2470645732bb221059c678ac9c70c512}{reset\_usb\_hub\_port}}(\textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\_hcd\_t}} *hcd, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\_hub\_t}} *hub, \textcolor{keywordtype}{int} port\_num);}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{274 \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_ae4dcb40f0b95c82525c1f137e049b90e}{assign\_usb\_address}}(\textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\_hcd\_t}} *hcd, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\_hub\_t}} *hub, \textcolor{keywordtype}{int} port\_num,}
+\DoxyCodeLine{275                         \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}} device\_speed, \textcolor{keywordtype}{int} device\_id, \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}} *ep0);}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{287 \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_a3d344ddf5b4f93ced2ccf900b21b8128}{find\_attached\_usb\_keyboards}}(\textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\_hcd\_t}} *hcd, \textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\_hub\_t}} *hub, \textcolor{keywordtype}{int} port\_num,}
+\DoxyCodeLine{288                                  \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}} device\_speed, \textcolor{keywordtype}{int} device\_id, \textcolor{keywordtype}{int} *num\_devices,}
+\DoxyCodeLine{289                                  \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}} keyboards[], \textcolor{keywordtype}{int} max\_keyboards, \textcolor{keywordtype}{int} *num\_keyboards);}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{299 \textcolor{keywordtype}{bool} \mbox{\hyperlink{usbhcd_8h_a45b67629c3b42103978f48157f3c6520}{process\_usb\_keyboard\_report}}(\textcolor{keyword}{const} \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\_hcd\_t}} *hcd, \textcolor{keyword}{const} \mbox{\hyperlink{usb_8h_structhid__kbd__rpt__t}{hid\_kbd\_rpt\_t}} *report, \textcolor{keyword}{const} \mbox{\hyperlink{usb_8h_structhid__kbd__rpt__t}{hid\_kbd\_rpt\_t}} *prev\_report);}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{309 \textcolor{keywordtype}{void} \mbox{\hyperlink{usbhcd_8h_a0ee83531624febe54a69a70ef39e434c}{find\_usb\_keyboards}}(\textcolor{keywordtype}{bool} pause\_if\_none);}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{318 uint8\_t \mbox{\hyperlink{usbhcd_8h_a06ae5e3a9ad76285187783f2b4cf6282}{get\_usb\_keycode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// USBHCD\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,140 @@
+\hypertarget{hwquirks_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/hwquirks.h File Reference}
+\label{hwquirks_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/hwquirks.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/hwquirks.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structquirk__t}{quirk\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hwquirks_8h_a586608c17ce9e46e3c84f699b05cf214}{QUIRK\+\_\+\+TYPE\+\_\+\+NONE}}~(1 $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em Provides support for hardware quirks. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{hwquirks_8h_abbb83472e81af3eec5eaba29d01f69b6}{QUIRK\+\_\+\+TYPE\+\_\+\+USB}}~(1 $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{hwquirks_8h_ac4f87cda9cee4d76774bf47335fc9d2e}{QUIRK\+\_\+\+TYPE\+\_\+\+SMP}}~(1 $<$$<$ 2)
+\item 
+\#define \mbox{\hyperlink{hwquirks_8h_a7098c468c0c272ba59333be3369e3f88}{QUIRK\+\_\+\+TYPE\+\_\+\+SMBIOS}}~(1 $<$$<$ 3)
+\item 
+\#define \mbox{\hyperlink{hwquirks_8h_a26e86f2aa5cfcf00d1b4546194b9bc8b}{QUIRK\+\_\+\+TYPE\+\_\+\+SMBUS}}~(1 $<$$<$ 4)
+\item 
+\#define \mbox{\hyperlink{hwquirks_8h_a60669bf2ece0af7fb8f55d8420cc468d}{QUIRK\+\_\+\+TYPE\+\_\+\+TIMER}}~(1 $<$$<$ 5)
+\item 
+\#define \mbox{\hyperlink{hwquirks_8h_ab1b86b4b69aaf4fdf09b7ef01bca284c}{QUIRK\+\_\+\+TYPE\+\_\+\+MEM\+\_\+\+SIZE}}~(1 $<$$<$ 6)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7}{quirk\+\_\+id\+\_\+t}} \{ \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7af7b3204dfd3f8d2b0dfbe69a84be8a3c}{QUIRK\+\_\+\+NONE}}
+, \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7a06e237ae3f7c925bda8cd440c4c72c2a}{QUIRK\+\_\+\+TUSL2}}
+, \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7a2a62752cde5e5d81066f61f0f6960aa6}{QUIRK\+\_\+\+ALI\+\_\+\+ALADDIN\+\_\+V}}
+, \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7aea361f7cb9f55689ae16d1456fe60b9b}{QUIRK\+\_\+\+X10\+SDV\+\_\+\+NOSMP}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hwquirks_8h_a5a9d0c1260d96ab391b92f5f1b237a30}{quirks\+\_\+init}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structquirk__t}{quirk\+\_\+t}} \mbox{\hyperlink{hwquirks_8h_a4ee12ff8946d9f0819ca94125ac399bf}{quirk}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hwquirks_8h_a586608c17ce9e46e3c84f699b05cf214}\label{hwquirks_8h_a586608c17ce9e46e3c84f699b05cf214}} 
+\index{hwquirks.h@{hwquirks.h}!QUIRK\_TYPE\_NONE@{QUIRK\_TYPE\_NONE}}
+\index{QUIRK\_TYPE\_NONE@{QUIRK\_TYPE\_NONE}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{QUIRK\_TYPE\_NONE}{QUIRK\_TYPE\_NONE}}
+{\footnotesize\ttfamily \#define QUIRK\+\_\+\+TYPE\+\_\+\+NONE~(1 $<$$<$ 0)}
+
+
+
+Provides support for hardware quirks. 
+
+\mbox{\Hypertarget{hwquirks_8h_abbb83472e81af3eec5eaba29d01f69b6}\label{hwquirks_8h_abbb83472e81af3eec5eaba29d01f69b6}} 
+\index{hwquirks.h@{hwquirks.h}!QUIRK\_TYPE\_USB@{QUIRK\_TYPE\_USB}}
+\index{QUIRK\_TYPE\_USB@{QUIRK\_TYPE\_USB}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{QUIRK\_TYPE\_USB}{QUIRK\_TYPE\_USB}}
+{\footnotesize\ttfamily \#define QUIRK\+\_\+\+TYPE\+\_\+\+USB~(1 $<$$<$ 1)}
+
+\mbox{\Hypertarget{hwquirks_8h_ac4f87cda9cee4d76774bf47335fc9d2e}\label{hwquirks_8h_ac4f87cda9cee4d76774bf47335fc9d2e}} 
+\index{hwquirks.h@{hwquirks.h}!QUIRK\_TYPE\_SMP@{QUIRK\_TYPE\_SMP}}
+\index{QUIRK\_TYPE\_SMP@{QUIRK\_TYPE\_SMP}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{QUIRK\_TYPE\_SMP}{QUIRK\_TYPE\_SMP}}
+{\footnotesize\ttfamily \#define QUIRK\+\_\+\+TYPE\+\_\+\+SMP~(1 $<$$<$ 2)}
+
+\mbox{\Hypertarget{hwquirks_8h_a7098c468c0c272ba59333be3369e3f88}\label{hwquirks_8h_a7098c468c0c272ba59333be3369e3f88}} 
+\index{hwquirks.h@{hwquirks.h}!QUIRK\_TYPE\_SMBIOS@{QUIRK\_TYPE\_SMBIOS}}
+\index{QUIRK\_TYPE\_SMBIOS@{QUIRK\_TYPE\_SMBIOS}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{QUIRK\_TYPE\_SMBIOS}{QUIRK\_TYPE\_SMBIOS}}
+{\footnotesize\ttfamily \#define QUIRK\+\_\+\+TYPE\+\_\+\+SMBIOS~(1 $<$$<$ 3)}
+
+\mbox{\Hypertarget{hwquirks_8h_a26e86f2aa5cfcf00d1b4546194b9bc8b}\label{hwquirks_8h_a26e86f2aa5cfcf00d1b4546194b9bc8b}} 
+\index{hwquirks.h@{hwquirks.h}!QUIRK\_TYPE\_SMBUS@{QUIRK\_TYPE\_SMBUS}}
+\index{QUIRK\_TYPE\_SMBUS@{QUIRK\_TYPE\_SMBUS}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{QUIRK\_TYPE\_SMBUS}{QUIRK\_TYPE\_SMBUS}}
+{\footnotesize\ttfamily \#define QUIRK\+\_\+\+TYPE\+\_\+\+SMBUS~(1 $<$$<$ 4)}
+
+\mbox{\Hypertarget{hwquirks_8h_a60669bf2ece0af7fb8f55d8420cc468d}\label{hwquirks_8h_a60669bf2ece0af7fb8f55d8420cc468d}} 
+\index{hwquirks.h@{hwquirks.h}!QUIRK\_TYPE\_TIMER@{QUIRK\_TYPE\_TIMER}}
+\index{QUIRK\_TYPE\_TIMER@{QUIRK\_TYPE\_TIMER}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{QUIRK\_TYPE\_TIMER}{QUIRK\_TYPE\_TIMER}}
+{\footnotesize\ttfamily \#define QUIRK\+\_\+\+TYPE\+\_\+\+TIMER~(1 $<$$<$ 5)}
+
+\mbox{\Hypertarget{hwquirks_8h_ab1b86b4b69aaf4fdf09b7ef01bca284c}\label{hwquirks_8h_ab1b86b4b69aaf4fdf09b7ef01bca284c}} 
+\index{hwquirks.h@{hwquirks.h}!QUIRK\_TYPE\_MEM\_SIZE@{QUIRK\_TYPE\_MEM\_SIZE}}
+\index{QUIRK\_TYPE\_MEM\_SIZE@{QUIRK\_TYPE\_MEM\_SIZE}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{QUIRK\_TYPE\_MEM\_SIZE}{QUIRK\_TYPE\_MEM\_SIZE}}
+{\footnotesize\ttfamily \#define QUIRK\+\_\+\+TYPE\+\_\+\+MEM\+\_\+\+SIZE~(1 $<$$<$ 6)}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7}\label{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7}} 
+\index{hwquirks.h@{hwquirks.h}!quirk\_id\_t@{quirk\_id\_t}}
+\index{quirk\_id\_t@{quirk\_id\_t}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{quirk\_id\_t}{quirk\_id\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7}{quirk\+\_\+id\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUIRK\_NONE@{QUIRK\_NONE}!hwquirks.h@{hwquirks.h}}\index{hwquirks.h@{hwquirks.h}!QUIRK\_NONE@{QUIRK\_NONE}}}\mbox{\Hypertarget{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7af7b3204dfd3f8d2b0dfbe69a84be8a3c}\label{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7af7b3204dfd3f8d2b0dfbe69a84be8a3c}} 
+QUIRK\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUIRK\_TUSL2@{QUIRK\_TUSL2}!hwquirks.h@{hwquirks.h}}\index{hwquirks.h@{hwquirks.h}!QUIRK\_TUSL2@{QUIRK\_TUSL2}}}\mbox{\Hypertarget{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7a06e237ae3f7c925bda8cd440c4c72c2a}\label{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7a06e237ae3f7c925bda8cd440c4c72c2a}} 
+QUIRK\+\_\+\+TUSL2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUIRK\_ALI\_ALADDIN\_V@{QUIRK\_ALI\_ALADDIN\_V}!hwquirks.h@{hwquirks.h}}\index{hwquirks.h@{hwquirks.h}!QUIRK\_ALI\_ALADDIN\_V@{QUIRK\_ALI\_ALADDIN\_V}}}\mbox{\Hypertarget{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7a2a62752cde5e5d81066f61f0f6960aa6}\label{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7a2a62752cde5e5d81066f61f0f6960aa6}} 
+QUIRK\+\_\+\+ALI\+\_\+\+ALADDIN\+\_\+V&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUIRK\_X10SDV\_NOSMP@{QUIRK\_X10SDV\_NOSMP}!hwquirks.h@{hwquirks.h}}\index{hwquirks.h@{hwquirks.h}!QUIRK\_X10SDV\_NOSMP@{QUIRK\_X10SDV\_NOSMP}}}\mbox{\Hypertarget{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7aea361f7cb9f55689ae16d1456fe60b9b}\label{hwquirks_8h_aa2341030b8b148bb2bf1bcb6d79156f7aea361f7cb9f55689ae16d1456fe60b9b}} 
+QUIRK\+\_\+\+X10\+SDV\+\_\+\+NOSMP&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{hwquirks_8h_a5a9d0c1260d96ab391b92f5f1b237a30}\label{hwquirks_8h_a5a9d0c1260d96ab391b92f5f1b237a30}} 
+\index{hwquirks.h@{hwquirks.h}!quirks\_init@{quirks\_init}}
+\index{quirks\_init@{quirks\_init}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{quirks\_init()}{quirks\_init()}}
+{\footnotesize\ttfamily void quirks\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{hwquirks_8h_a4ee12ff8946d9f0819ca94125ac399bf}\label{hwquirks_8h_a4ee12ff8946d9f0819ca94125ac399bf}} 
+\index{hwquirks.h@{hwquirks.h}!quirk@{quirk}}
+\index{quirk@{quirk}!hwquirks.h@{hwquirks.h}}
+\doxysubsubsection{\texorpdfstring{quirk}{quirk}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structquirk__t}{quirk\+\_\+t}} quirk\hspace{0.3cm}{\ttfamily [extern]}}
+

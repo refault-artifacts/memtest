@@ -1,0 +1,24 @@
+\hypertarget{assert_8h_source}{}\doxysection{assert.\+h}
+\label{assert_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/assert.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/assert.h}}
+\mbox{\hyperlink{assert_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef ASSERT\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define ASSERT\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2022 Martin Whitaker.}}
+\DoxyCodeLine{12 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{comment}{/*}}
+\DoxyCodeLine{15 \textcolor{comment}{ * Terminates the program (using a breakpoint exception) if expr is equal}}
+\DoxyCodeLine{16 \textcolor{comment}{ * to zero.}}
+\DoxyCodeLine{17 \textcolor{comment}{ */}}
+\DoxyCodeLine{18 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{assert_8h_a76f9a97c274e49cf8188651927fb0c15}{assert}}(\textcolor{keywordtype}{int} expr)}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keywordflow}{if} (!expr) \{}
+\DoxyCodeLine{21         \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}int \$3"{}});}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ASSERT\_H}}
+
+\end{DoxyCode}

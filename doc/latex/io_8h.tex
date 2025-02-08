@@ -1,0 +1,259 @@
+\hypertarget{io_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/io.h File Reference}
+\label{io_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/io.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/io.h}}
+
+
+Provides macro definitions for the x86 IO instructions inb/inw/inl/outb/outw/outl and the \char`\"{}string versions\char`\"{} of the same (insb/insw/insl/outsb/outsw/outsl).  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{io_8h_ad3ee9c5bb89b17aedb2862f63aadf9ac}{\+\_\+\+\_\+\+SLOW\+\_\+\+DOWN\+\_\+\+IO}}~\+\_\+\+\_\+asm\+\_\+\+\_\+ \+\_\+\+\_\+volatile\+\_\+\+\_\+(\char`\"{}outb \%al,\$0x80\char`\"{})
+\item 
+\#define \mbox{\hyperlink{io_8h_ae20c42cf336aec12177625a933772898}{SLOW\+\_\+\+DOWN\+\_\+\+IO}}~\mbox{\hyperlink{io_8h_ad3ee9c5bb89b17aedb2862f63aadf9ac}{\+\_\+\+\_\+\+SLOW\+\_\+\+DOWN\+\_\+\+IO}}
+\item 
+\#define \mbox{\hyperlink{io_8h_a0081838b6b6a075d0cf4c1f7219389bf}{\+\_\+\+\_\+\+OUT1}}(s,  x)~static inline void \+\_\+\+\_\+out\#\#s(unsigned x value, unsigned short port) \{
+\item 
+\#define \mbox{\hyperlink{io_8h_add6ba5caa39778905af5dd219d4aecf7}{\+\_\+\+\_\+\+OUT2}}(s,  s1,  s2)~\+\_\+\+\_\+asm\+\_\+\+\_\+ \+\_\+\+\_\+volatile\+\_\+\+\_\+ (\char`\"{}out\char`\"{} \#s \char`\"{} \%\char`\"{} s1 \char`\"{}0,\%\char`\"{} s2 \char`\"{}1\char`\"{}
+\item 
+\#define \mbox{\hyperlink{io_8h_ae804b83ca816955e285f916a6ec7b6c7}{\+\_\+\+\_\+\+OUT}}(s,  s1,  x)
+\item 
+\#define \mbox{\hyperlink{io_8h_a7138a65db12af2689ddce325c40eb0d9}{\+\_\+\+\_\+\+IN1}}(s)~static inline \mbox{\hyperlink{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}{RETURN\+\_\+\+TYPE}} \+\_\+\+\_\+in\#\#s(unsigned short port) \{ \mbox{\hyperlink{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}{RETURN\+\_\+\+TYPE}} \+\_\+v;
+\item 
+\#define \mbox{\hyperlink{io_8h_adce1ce4c71cfddbdf6f85f044e032e28}{\+\_\+\+\_\+\+IN2}}(s,  s1,  s2)~\+\_\+\+\_\+asm\+\_\+\+\_\+ \+\_\+\+\_\+volatile\+\_\+\+\_\+ (\char`\"{}in\char`\"{} \#s \char`\"{} \%\char`\"{} s2 \char`\"{}1,\%\char`\"{} s1 \char`\"{}0\char`\"{}
+\item 
+\#define \mbox{\hyperlink{io_8h_a65f51c68152fc452f1e2334e787fc8f9}{\+\_\+\+\_\+\+IN}}(s,  s1,  i...)
+\item 
+\#define \mbox{\hyperlink{io_8h_a1b46dad74f1e6e670e35555ef905aba6}{\+\_\+\+\_\+\+OUTS}}(s)
+\item 
+\#define \mbox{\hyperlink{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}{RETURN\+\_\+\+TYPE}}~unsigned char
+\item 
+\#define \mbox{\hyperlink{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}{RETURN\+\_\+\+TYPE}}~unsigned short
+\item 
+\#define \mbox{\hyperlink{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}{RETURN\+\_\+\+TYPE}}~unsigned int
+\item 
+\#define \mbox{\hyperlink{io_8h_a13a08fb35b29adb9118a97a132f09005}{outb}}(val,  port)
+\begin{DoxyCompactList}\small\item\em Note that due to the way \+\_\+\+\_\+builtin\+\_\+constant\+\_\+p() works, you. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{io_8h_ad6488a48837d179b1833e2f48dac9665}{inb}}(port)
+\item 
+\#define \mbox{\hyperlink{io_8h_a7aa7a647758c2b7606c5e5f12dfc6bc5}{outw}}(val,  port)
+\item 
+\#define \mbox{\hyperlink{io_8h_ac4195d1c9d8dcc8366ae15a79f06514c}{inw}}(port)
+\item 
+\#define \mbox{\hyperlink{io_8h_abed73f39a32cbd9e5520785e96ce8198}{outl}}(val,  port)
+\item 
+\#define \mbox{\hyperlink{io_8h_ae285c9abe0ed43579db8e8ba941385f7}{inl}}(port)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \+\_\+\+\_\+inline unsigned char \mbox{\hyperlink{io_8h_a89f218126b05d47ca83d302c8ffd9a0b}{inb\+\_\+p}} (unsigned short int \+\_\+\+\_\+port)
+\item 
+static \+\_\+\+\_\+inline void \mbox{\hyperlink{io_8h_a5e4ea7400de04fdc37ee83e8d73f08ee}{outb\+\_\+p}} (unsigned char \+\_\+\+\_\+value, unsigned short int \+\_\+\+\_\+port)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides macro definitions for the x86 IO instructions inb/inw/inl/outb/outw/outl and the \char`\"{}string versions\char`\"{} of the same (insb/insw/insl/outsb/outsw/outsl). 
+
+You can also use \char`\"{}pausing\char`\"{} versions of the single-\/\+IO instructions (inb\+\_\+p/inw\+\_\+p/..).
+
+This file is not meant to be obfuscating\+: it\textquotesingle{}s just complicated to (a) handle it all in a way that makes gcc able to optimize it as well as possible and (b) trying to avoid writing the same thing over and over again with slight variations and possibly making a mistake somewhere. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{io_8h_ad3ee9c5bb89b17aedb2862f63aadf9ac}\label{io_8h_ad3ee9c5bb89b17aedb2862f63aadf9ac}} 
+\index{io.h@{io.h}!\_\_SLOW\_DOWN\_IO@{\_\_SLOW\_DOWN\_IO}}
+\index{\_\_SLOW\_DOWN\_IO@{\_\_SLOW\_DOWN\_IO}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{\_\_SLOW\_DOWN\_IO}{\_\_SLOW\_DOWN\_IO}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+SLOW\+\_\+\+DOWN\+\_\+\+IO~\+\_\+\+\_\+asm\+\_\+\+\_\+ \+\_\+\+\_\+volatile\+\_\+\+\_\+(\char`\"{}outb \%al,\$0x80\char`\"{})}
+
+\mbox{\Hypertarget{io_8h_ae20c42cf336aec12177625a933772898}\label{io_8h_ae20c42cf336aec12177625a933772898}} 
+\index{io.h@{io.h}!SLOW\_DOWN\_IO@{SLOW\_DOWN\_IO}}
+\index{SLOW\_DOWN\_IO@{SLOW\_DOWN\_IO}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{SLOW\_DOWN\_IO}{SLOW\_DOWN\_IO}}
+{\footnotesize\ttfamily \#define SLOW\+\_\+\+DOWN\+\_\+\+IO~\mbox{\hyperlink{io_8h_ad3ee9c5bb89b17aedb2862f63aadf9ac}{\+\_\+\+\_\+\+SLOW\+\_\+\+DOWN\+\_\+\+IO}}}
+
+\mbox{\Hypertarget{io_8h_a0081838b6b6a075d0cf4c1f7219389bf}\label{io_8h_a0081838b6b6a075d0cf4c1f7219389bf}} 
+\index{io.h@{io.h}!\_\_OUT1@{\_\_OUT1}}
+\index{\_\_OUT1@{\_\_OUT1}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{\_\_OUT1}{\_\_OUT1}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+OUT1(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{x }\end{DoxyParamCaption})~static inline void \+\_\+\+\_\+out\#\#s(unsigned x value, unsigned short port) \{}
+
+\mbox{\Hypertarget{io_8h_add6ba5caa39778905af5dd219d4aecf7}\label{io_8h_add6ba5caa39778905af5dd219d4aecf7}} 
+\index{io.h@{io.h}!\_\_OUT2@{\_\_OUT2}}
+\index{\_\_OUT2@{\_\_OUT2}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{\_\_OUT2}{\_\_OUT2}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+OUT2(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{s1,  }\item[{}]{s2 }\end{DoxyParamCaption})~\+\_\+\+\_\+asm\+\_\+\+\_\+ \+\_\+\+\_\+volatile\+\_\+\+\_\+ (\char`\"{}out\char`\"{} \#s \char`\"{} \%\char`\"{} s1 \char`\"{}0,\%\char`\"{} s2 \char`\"{}1\char`\"{}}
+
+\mbox{\Hypertarget{io_8h_ae804b83ca816955e285f916a6ec7b6c7}\label{io_8h_ae804b83ca816955e285f916a6ec7b6c7}} 
+\index{io.h@{io.h}!\_\_OUT@{\_\_OUT}}
+\index{\_\_OUT@{\_\_OUT}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{\_\_OUT}{\_\_OUT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+OUT(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{s1,  }\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{io_8h_a0081838b6b6a075d0cf4c1f7219389bf}{\_\_OUT1}}(s,x) \mbox{\hyperlink{io_8h_add6ba5caa39778905af5dd219d4aecf7}{\_\_OUT2}}(s,s1,\textcolor{stringliteral}{"{}w"{}}) : : \textcolor{stringliteral}{"{}a"{}} (value), \textcolor{stringliteral}{"{}d"{}} (port)); \} \(\backslash\)}
+\DoxyCodeLine{\_\_OUT1(s\#\#c,x) \mbox{\hyperlink{io_8h_add6ba5caa39778905af5dd219d4aecf7}{\_\_OUT2}}(s,s1,\textcolor{stringliteral}{"{}"{}}) : : \textcolor{stringliteral}{"{}a"{}} (value), \textcolor{stringliteral}{"{}id"{}} (port)); \} \(\backslash\)}
+\DoxyCodeLine{\_\_OUT1(s\#\#\_p,x) \mbox{\hyperlink{io_8h_add6ba5caa39778905af5dd219d4aecf7}{\_\_OUT2}}(s,s1,\textcolor{stringliteral}{"{}w"{}}) : : \textcolor{stringliteral}{"{}a"{}} (value), \textcolor{stringliteral}{"{}d"{}} (port)); \mbox{\hyperlink{io_8h_ae20c42cf336aec12177625a933772898}{SLOW\_DOWN\_IO}}; \} \(\backslash\)}
+\DoxyCodeLine{\_\_OUT1(s\#\#c\_p,x) \mbox{\hyperlink{io_8h_add6ba5caa39778905af5dd219d4aecf7}{\_\_OUT2}}(s,s1,\textcolor{stringliteral}{"{}"{}}) : : \textcolor{stringliteral}{"{}a"{}} (value), \textcolor{stringliteral}{"{}id"{}} (port)); \mbox{\hyperlink{io_8h_ae20c42cf336aec12177625a933772898}{SLOW\_DOWN\_IO}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{io_8h_a7138a65db12af2689ddce325c40eb0d9}\label{io_8h_a7138a65db12af2689ddce325c40eb0d9}} 
+\index{io.h@{io.h}!\_\_IN1@{\_\_IN1}}
+\index{\_\_IN1@{\_\_IN1}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{\_\_IN1}{\_\_IN1}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+IN1(\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})~static inline \mbox{\hyperlink{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}{RETURN\+\_\+\+TYPE}} \+\_\+\+\_\+in\#\#s(unsigned short port) \{ \mbox{\hyperlink{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}{RETURN\+\_\+\+TYPE}} \+\_\+v;}
+
+\mbox{\Hypertarget{io_8h_adce1ce4c71cfddbdf6f85f044e032e28}\label{io_8h_adce1ce4c71cfddbdf6f85f044e032e28}} 
+\index{io.h@{io.h}!\_\_IN2@{\_\_IN2}}
+\index{\_\_IN2@{\_\_IN2}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{\_\_IN2}{\_\_IN2}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+IN2(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{s1,  }\item[{}]{s2 }\end{DoxyParamCaption})~\+\_\+\+\_\+asm\+\_\+\+\_\+ \+\_\+\+\_\+volatile\+\_\+\+\_\+ (\char`\"{}in\char`\"{} \#s \char`\"{} \%\char`\"{} s2 \char`\"{}1,\%\char`\"{} s1 \char`\"{}0\char`\"{}}
+
+\mbox{\Hypertarget{io_8h_a65f51c68152fc452f1e2334e787fc8f9}\label{io_8h_a65f51c68152fc452f1e2334e787fc8f9}} 
+\index{io.h@{io.h}!\_\_IN@{\_\_IN}}
+\index{\_\_IN@{\_\_IN}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{\_\_IN}{\_\_IN}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+IN(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{s1,  }\item[{}]{i... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{io_8h_a7138a65db12af2689ddce325c40eb0d9}{\_\_IN1}}(s) \mbox{\hyperlink{io_8h_adce1ce4c71cfddbdf6f85f044e032e28}{\_\_IN2}}(s,s1,\textcolor{stringliteral}{"{}w"{}}) : \textcolor{stringliteral}{"{}=a"{}} (\_v) : \textcolor{stringliteral}{"{}d"{}} (port) ,\#\#i ); \textcolor{keywordflow}{return} \_v; \} \(\backslash\)}
+\DoxyCodeLine{\_\_IN1(s\#\#c) \mbox{\hyperlink{io_8h_adce1ce4c71cfddbdf6f85f044e032e28}{\_\_IN2}}(s,s1,\textcolor{stringliteral}{"{}"{}}) : \textcolor{stringliteral}{"{}=a"{}} (\_v) : \textcolor{stringliteral}{"{}id"{}} (port) ,\#\#i ); \textcolor{keywordflow}{return} \_v; \} \(\backslash\)}
+\DoxyCodeLine{\_\_IN1(s\#\#\_p) \mbox{\hyperlink{io_8h_adce1ce4c71cfddbdf6f85f044e032e28}{\_\_IN2}}(s,s1,\textcolor{stringliteral}{"{}w"{}}) : \textcolor{stringliteral}{"{}=a"{}} (\_v) : \textcolor{stringliteral}{"{}d"{}} (port) ,\#\#i ); \mbox{\hyperlink{io_8h_ae20c42cf336aec12177625a933772898}{SLOW\_DOWN\_IO}}; \textcolor{keywordflow}{return} \_v; \} \(\backslash\)}
+\DoxyCodeLine{\_\_IN1(s\#\#c\_p) \mbox{\hyperlink{io_8h_adce1ce4c71cfddbdf6f85f044e032e28}{\_\_IN2}}(s,s1,\textcolor{stringliteral}{"{}"{}}) : \textcolor{stringliteral}{"{}=a"{}} (\_v) : \textcolor{stringliteral}{"{}id"{}} (port) ,\#\#i ); \mbox{\hyperlink{io_8h_ae20c42cf336aec12177625a933772898}{SLOW\_DOWN\_IO}}; \textcolor{keywordflow}{return} \_v; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{io_8h_a1b46dad74f1e6e670e35555ef905aba6}\label{io_8h_a1b46dad74f1e6e670e35555ef905aba6}} 
+\index{io.h@{io.h}!\_\_OUTS@{\_\_OUTS}}
+\index{\_\_OUTS@{\_\_OUTS}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{\_\_OUTS}{\_\_OUTS}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+OUTS(\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} outs\#\#s(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} port, \textcolor{keyword}{const} \textcolor{keywordtype}{void} * addr, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} count) \(\backslash\)}
+\DoxyCodeLine{\{ \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}cld ; rep ; outs"{}} \#s \(\backslash\)}
+\DoxyCodeLine{: \textcolor{stringliteral}{"{}=S"{}} (addr), \textcolor{stringliteral}{"{}=c"{}} (count) : \textcolor{stringliteral}{"{}d"{}} (port),\textcolor{stringliteral}{"{}0"{}} (addr),\textcolor{stringliteral}{"{}1"{}} (count)); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}\label{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}} 
+\index{io.h@{io.h}!RETURN\_TYPE@{RETURN\_TYPE}}
+\index{RETURN\_TYPE@{RETURN\_TYPE}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{RETURN\_TYPE}{RETURN\_TYPE}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \#define RETURN\+\_\+\+TYPE~unsigned char}
+
+\mbox{\Hypertarget{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}\label{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}} 
+\index{io.h@{io.h}!RETURN\_TYPE@{RETURN\_TYPE}}
+\index{RETURN\_TYPE@{RETURN\_TYPE}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{RETURN\_TYPE}{RETURN\_TYPE}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \#define RETURN\+\_\+\+TYPE~unsigned short}
+
+\mbox{\Hypertarget{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}\label{io_8h_ad88b7a07c5c0a06e8c4b3ed09411af24}} 
+\index{io.h@{io.h}!RETURN\_TYPE@{RETURN\_TYPE}}
+\index{RETURN\_TYPE@{RETURN\_TYPE}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{RETURN\_TYPE}{RETURN\_TYPE}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \#define RETURN\+\_\+\+TYPE~unsigned int}
+
+\mbox{\Hypertarget{io_8h_a13a08fb35b29adb9118a97a132f09005}\label{io_8h_a13a08fb35b29adb9118a97a132f09005}} 
+\index{io.h@{io.h}!outb@{outb}}
+\index{outb@{outb}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{outb}{outb}}
+{\footnotesize\ttfamily \#define outb(\begin{DoxyParamCaption}\item[{}]{val,  }\item[{}]{port }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}
+\DoxyCodeLine{    \_\_outbc((val),(port)) : \(\backslash\)}
+\DoxyCodeLine{    \_\_outb((val),(port)))}
+
+\end{DoxyCode}
+
+
+Note that due to the way \+\_\+\+\_\+builtin\+\_\+constant\+\_\+p() works, you. 
+
+
+\begin{DoxyItemize}
+\item can\textquotesingle{}t use it inside a inline function (it will never be true)
+\item you don\textquotesingle{}t have to worry about side effects within the \+\_\+\+\_\+builtin.. 
+\end{DoxyItemize}\mbox{\Hypertarget{io_8h_ad6488a48837d179b1833e2f48dac9665}\label{io_8h_ad6488a48837d179b1833e2f48dac9665}} 
+\index{io.h@{io.h}!inb@{inb}}
+\index{inb@{inb}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{inb}{inb}}
+{\footnotesize\ttfamily \#define inb(\begin{DoxyParamCaption}\item[{}]{port }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}
+\DoxyCodeLine{    \_\_inbc(port) : \(\backslash\)}
+\DoxyCodeLine{    \_\_inb(port))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{io_8h_a7aa7a647758c2b7606c5e5f12dfc6bc5}\label{io_8h_a7aa7a647758c2b7606c5e5f12dfc6bc5}} 
+\index{io.h@{io.h}!outw@{outw}}
+\index{outw@{outw}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{outw}{outw}}
+{\footnotesize\ttfamily \#define outw(\begin{DoxyParamCaption}\item[{}]{val,  }\item[{}]{port }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}
+\DoxyCodeLine{    \_\_outwc((val),(port)) : \(\backslash\)}
+\DoxyCodeLine{    \_\_outw((val),(port)))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{io_8h_ac4195d1c9d8dcc8366ae15a79f06514c}\label{io_8h_ac4195d1c9d8dcc8366ae15a79f06514c}} 
+\index{io.h@{io.h}!inw@{inw}}
+\index{inw@{inw}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{inw}{inw}}
+{\footnotesize\ttfamily \#define inw(\begin{DoxyParamCaption}\item[{}]{port }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}
+\DoxyCodeLine{    \_\_inwc(port) : \(\backslash\)}
+\DoxyCodeLine{    \_\_inw(port))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{io_8h_abed73f39a32cbd9e5520785e96ce8198}\label{io_8h_abed73f39a32cbd9e5520785e96ce8198}} 
+\index{io.h@{io.h}!outl@{outl}}
+\index{outl@{outl}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{outl}{outl}}
+{\footnotesize\ttfamily \#define outl(\begin{DoxyParamCaption}\item[{}]{val,  }\item[{}]{port }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}
+\DoxyCodeLine{    \_\_outlc((val),(port)) : \(\backslash\)}
+\DoxyCodeLine{    \_\_outl((val),(port)))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{io_8h_ae285c9abe0ed43579db8e8ba941385f7}\label{io_8h_ae285c9abe0ed43579db8e8ba941385f7}} 
+\index{io.h@{io.h}!inl@{inl}}
+\index{inl@{inl}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{inl}{inl}}
+{\footnotesize\ttfamily \#define inl(\begin{DoxyParamCaption}\item[{}]{port }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_builtin\_constant\_p((port)) \&\& (port) < 256) ? \(\backslash\)}
+\DoxyCodeLine{    \_\_inlc(port) : \(\backslash\)}
+\DoxyCodeLine{    \_\_inl(port))}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{io_8h_a89f218126b05d47ca83d302c8ffd9a0b}\label{io_8h_a89f218126b05d47ca83d302c8ffd9a0b}} 
+\index{io.h@{io.h}!inb\_p@{inb\_p}}
+\index{inb\_p@{inb\_p}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{inb\_p()}{inb\_p()}}
+{\footnotesize\ttfamily static \+\_\+\+\_\+inline unsigned char inb\+\_\+p (\begin{DoxyParamCaption}\item[{unsigned short int}]{\+\_\+\+\_\+port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{io_8h_a5e4ea7400de04fdc37ee83e8d73f08ee}\label{io_8h_a5e4ea7400de04fdc37ee83e8d73f08ee}} 
+\index{io.h@{io.h}!outb\_p@{outb\_p}}
+\index{outb\_p@{outb\_p}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{outb\_p()}{outb\_p()}}
+{\footnotesize\ttfamily static \+\_\+\+\_\+inline void outb\+\_\+p (\begin{DoxyParamCaption}\item[{unsigned char}]{\+\_\+\+\_\+value,  }\item[{unsigned short int}]{\+\_\+\+\_\+port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+

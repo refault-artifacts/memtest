@@ -1,0 +1,165 @@
+\hypertarget{acpi_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/acpi.h File Reference}
+\label{acpi_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/acpi.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/acpi.h}}
+
+
+Provides support for ACPI (Find \& parse tables)  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{acpi_8h_structacpi__t}{acpi\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A struct containing various ACPI-\/related infos for later uses.  \mbox{\hyperlink{acpi_8h_structacpi__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{acpi_8h_a6cb1876f8fe98f016f30723327e2488d}{FADT\+\_\+\+PM\+\_\+\+TMR\+\_\+\+BLK\+\_\+\+OFFSET}}~76
+\item 
+\#define \mbox{\hyperlink{acpi_8h_ab6d4f18eda4d0dbdce2d651d1e28f02e}{FADT\+\_\+\+MINOR\+\_\+\+REV\+\_\+\+OFFSET}}~131
+\item 
+\#define \mbox{\hyperlink{acpi_8h_a0128ed14b4a66c3105158239bce29064}{FADT\+\_\+\+X\+\_\+\+PM\+\_\+\+TMR\+\_\+\+BLK\+\_\+\+OFFSET}}~208
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{acpi_8h_a5e8ce62162fa09e885723e08e697430c}{acpi\+\_\+checksum}} (const void $\ast$data, int length)
+\begin{DoxyCompactList}\small\item\em ACPI Table Checksum Function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{acpi_8h_a27b40b0ca6283205fa1fdf79c2b4188d}{acpi\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Look for specific ACPI Tables Addresses (RSDP, MADT, ...) and parse some of the tables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{acpi_8h_aade9f0e0261ebb347fd4606fc7adeba8}{rsdp\+\_\+source}}
+\begin{DoxyCompactList}\small\item\em The search step that located the ACPI RSDP (for debug). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{acpi_8h_structacpi__t}{acpi\+\_\+t}} \mbox{\hyperlink{acpi_8h_afdd0714a054ee4840feba56c81434f6b}{acpi\+\_\+config}}
+\begin{DoxyCompactList}\small\item\em Global ACPI config struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides support for ACPI (Find \& parse tables) 
+
+
+
+\doxysubsection{Data Structure Documentation}
+\index{acpi\_t@{acpi\_t}}\label{structacpi__t}
+\Hypertarget{acpi_8h_structacpi__t}
+\doxysubsubsection{struct acpi\+\_\+t}
+A struct containing various ACPI-\/related infos for later uses. \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{acpi_8h_abe145a80ed51d56171f5252d4d94473c}\label{acpi_8h_abe145a80ed51d56171f5252d4d94473c}} 
+uint8\_t&
+ver\_maj&
+\\
+\hline
+
+\mbox{\Hypertarget{acpi_8h_a1f9edc2d3cd7a6689b536e400676aa38}\label{acpi_8h_a1f9edc2d3cd7a6689b536e400676aa38}} 
+uint8\_t&
+ver\_min&
+\\
+\hline
+
+\mbox{\Hypertarget{acpi_8h_a557317290c8879770162fad2b9022109}\label{acpi_8h_a557317290c8879770162fad2b9022109}} 
+uintptr\_t&
+rsdp\_addr&
+\\
+\hline
+
+\mbox{\Hypertarget{acpi_8h_ae5eb9824e309cc46ed00e469d2f754f8}\label{acpi_8h_ae5eb9824e309cc46ed00e469d2f754f8}} 
+uintptr\_t&
+madt\_addr&
+\\
+\hline
+
+\mbox{\Hypertarget{acpi_8h_a7fbb5c16925b3a14d6d39f2301a9c578}\label{acpi_8h_a7fbb5c16925b3a14d6d39f2301a9c578}} 
+uintptr\_t&
+fadt\_addr&
+\\
+\hline
+
+\mbox{\Hypertarget{acpi_8h_a50939d5d65ff87d36104425f5251525d}\label{acpi_8h_a50939d5d65ff87d36104425f5251525d}} 
+uintptr\_t&
+hpet\_addr&
+\\
+\hline
+
+\mbox{\Hypertarget{acpi_8h_a47d08ae7e55ed0f45d7005dbc7d83cd4}\label{acpi_8h_a47d08ae7e55ed0f45d7005dbc7d83cd4}} 
+uintptr\_t&
+pm\_addr&
+\\
+\hline
+
+\mbox{\Hypertarget{acpi_8h_a84bb5981d9f3cdc7c18146173131d860}\label{acpi_8h_a84bb5981d9f3cdc7c18146173131d860}} 
+bool&
+pm\_is\_io&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{acpi_8h_a6cb1876f8fe98f016f30723327e2488d}\label{acpi_8h_a6cb1876f8fe98f016f30723327e2488d}} 
+\index{acpi.h@{acpi.h}!FADT\_PM\_TMR\_BLK\_OFFSET@{FADT\_PM\_TMR\_BLK\_OFFSET}}
+\index{FADT\_PM\_TMR\_BLK\_OFFSET@{FADT\_PM\_TMR\_BLK\_OFFSET}!acpi.h@{acpi.h}}
+\doxysubsubsection{\texorpdfstring{FADT\_PM\_TMR\_BLK\_OFFSET}{FADT\_PM\_TMR\_BLK\_OFFSET}}
+{\footnotesize\ttfamily \#define FADT\+\_\+\+PM\+\_\+\+TMR\+\_\+\+BLK\+\_\+\+OFFSET~76}
+
+\mbox{\Hypertarget{acpi_8h_ab6d4f18eda4d0dbdce2d651d1e28f02e}\label{acpi_8h_ab6d4f18eda4d0dbdce2d651d1e28f02e}} 
+\index{acpi.h@{acpi.h}!FADT\_MINOR\_REV\_OFFSET@{FADT\_MINOR\_REV\_OFFSET}}
+\index{FADT\_MINOR\_REV\_OFFSET@{FADT\_MINOR\_REV\_OFFSET}!acpi.h@{acpi.h}}
+\doxysubsubsection{\texorpdfstring{FADT\_MINOR\_REV\_OFFSET}{FADT\_MINOR\_REV\_OFFSET}}
+{\footnotesize\ttfamily \#define FADT\+\_\+\+MINOR\+\_\+\+REV\+\_\+\+OFFSET~131}
+
+\mbox{\Hypertarget{acpi_8h_a0128ed14b4a66c3105158239bce29064}\label{acpi_8h_a0128ed14b4a66c3105158239bce29064}} 
+\index{acpi.h@{acpi.h}!FADT\_X\_PM\_TMR\_BLK\_OFFSET@{FADT\_X\_PM\_TMR\_BLK\_OFFSET}}
+\index{FADT\_X\_PM\_TMR\_BLK\_OFFSET@{FADT\_X\_PM\_TMR\_BLK\_OFFSET}!acpi.h@{acpi.h}}
+\doxysubsubsection{\texorpdfstring{FADT\_X\_PM\_TMR\_BLK\_OFFSET}{FADT\_X\_PM\_TMR\_BLK\_OFFSET}}
+{\footnotesize\ttfamily \#define FADT\+\_\+\+X\+\_\+\+PM\+\_\+\+TMR\+\_\+\+BLK\+\_\+\+OFFSET~208}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{acpi_8h_a5e8ce62162fa09e885723e08e697430c}\label{acpi_8h_a5e8ce62162fa09e885723e08e697430c}} 
+\index{acpi.h@{acpi.h}!acpi\_checksum@{acpi\_checksum}}
+\index{acpi\_checksum@{acpi\_checksum}!acpi.h@{acpi.h}}
+\doxysubsubsection{\texorpdfstring{acpi\_checksum()}{acpi\_checksum()}}
+{\footnotesize\ttfamily int acpi\+\_\+checksum (\begin{DoxyParamCaption}\item[{const void $\ast$}]{data,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+ACPI Table Checksum Function. 
+
+\mbox{\Hypertarget{acpi_8h_a27b40b0ca6283205fa1fdf79c2b4188d}\label{acpi_8h_a27b40b0ca6283205fa1fdf79c2b4188d}} 
+\index{acpi.h@{acpi.h}!acpi\_init@{acpi\_init}}
+\index{acpi\_init@{acpi\_init}!acpi.h@{acpi.h}}
+\doxysubsubsection{\texorpdfstring{acpi\_init()}{acpi\_init()}}
+{\footnotesize\ttfamily void acpi\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Look for specific ACPI Tables Addresses (RSDP, MADT, ...) and parse some of the tables. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{acpi_8h_aade9f0e0261ebb347fd4606fc7adeba8}\label{acpi_8h_aade9f0e0261ebb347fd4606fc7adeba8}} 
+\index{acpi.h@{acpi.h}!rsdp\_source@{rsdp\_source}}
+\index{rsdp\_source@{rsdp\_source}!acpi.h@{acpi.h}}
+\doxysubsubsection{\texorpdfstring{rsdp\_source}{rsdp\_source}}
+{\footnotesize\ttfamily const char$\ast$ rsdp\+\_\+source\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The search step that located the ACPI RSDP (for debug). 
+
+\mbox{\Hypertarget{acpi_8h_afdd0714a054ee4840feba56c81434f6b}\label{acpi_8h_afdd0714a054ee4840feba56c81434f6b}} 
+\index{acpi.h@{acpi.h}!acpi\_config@{acpi\_config}}
+\index{acpi\_config@{acpi\_config}!acpi.h@{acpi.h}}
+\doxysubsubsection{\texorpdfstring{acpi\_config}{acpi\_config}}
+{\footnotesize\ttfamily \mbox{\hyperlink{acpi_8h_structacpi__t}{acpi\+\_\+t}} acpi\+\_\+config\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Global ACPI config struct. 
+

@@ -1,0 +1,167 @@
+\hypertarget{smp_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/smp.h File Reference}
+\label{smp_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smp.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smp.h}}
+
+
+Provides support for multi-\/threaded operation.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}boot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}barrier.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spinlock.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\+\_\+\+CPUS}}~(1 + \mbox{\hyperlink{boot_8h_ae345353a25ae903e76ec3c872d035ca9}{MAX\+\_\+\+APS}})
+\begin{DoxyCompactList}\small\item\em The maximum number of CPU cores that can be used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\+\_\+state\+\_\+t}} \{ \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61ebab997f5fa8b188b932fbdee4a2b79df13}{CPU\+\_\+\+STATE\+\_\+\+DISABLED}} = 0
+, \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eba946235c061227a21580448222561eeb8}{CPU\+\_\+\+STATE\+\_\+\+ENABLED}} = 1
+, \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eba0d0f2babaf08a6b817cef42bd2bd14e4}{CPU\+\_\+\+STATE\+\_\+\+RUNNING}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em The current state of a CPU core. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{smp_8h_a1fad7d6ac6a798d7166305c5cfb06f0f}{smp\+\_\+init}} (bool smp\+\_\+enable)
+\begin{DoxyCompactList}\small\item\em Initialises the SMP state and detects the number of available CPU cores. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{smp_8h_a7f52277f736301ea94722ff6f6238d83}{smp\+\_\+start}} (\mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\+\_\+state\+\_\+t}} \mbox{\hyperlink{config_8h_aff5d6e34b344119a5edad68147478650}{cpu\+\_\+state}}\mbox{[}\mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\+\_\+\+CPUS}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Starts the APs listed as enabled in cpu\+\_\+state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{smp_8h_ac90c08f700478c32bce43fc8c6b5b53f}{smp\+\_\+send\+\_\+nmi}} (int cpu\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Sends a non-\/maskable interrupt to the CPU core whose ordinal number is cpu\+\_\+num. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{smp_8h_a6442f4b9f4375505bf71d60d4fa831f7}{smp\+\_\+my\+\_\+cpu\+\_\+num}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the ordinal number of the calling CPU core. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$ \mbox{\hyperlink{smp_8h_a8e4a85ccdacddbf504f91d40f594081d}{smp\+\_\+alloc\+\_\+barrier}} (int num\+\_\+threads)
+\begin{DoxyCompactList}\small\item\em Allocates and initialises a barrier object in pinned memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}} $\ast$ \mbox{\hyperlink{smp_8h_a8e5c9a0a62015079649296bd7fc6bd55}{smp\+\_\+alloc\+\_\+mutex}} ()
+\begin{DoxyCompactList}\small\item\em Allocates and initialises a spinlock object in pinned memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{smp_8h_a53660d169499fbe770437f33909466d3}{num\+\_\+available\+\_\+cpus}}
+\begin{DoxyCompactList}\small\item\em The number of available CPU cores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides support for multi-\/threaded operation. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}\label{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}} 
+\index{smp.h@{smp.h}!MAX\_CPUS@{MAX\_CPUS}}
+\index{MAX\_CPUS@{MAX\_CPUS}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_CPUS}{MAX\_CPUS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+CPUS~(1 + \mbox{\hyperlink{boot_8h_ae345353a25ae903e76ec3c872d035ca9}{MAX\+\_\+\+APS}})}
+
+
+
+The maximum number of CPU cores that can be used. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}\label{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}} 
+\index{smp.h@{smp.h}!cpu\_state\_t@{cpu\_state\_t}}
+\index{cpu\_state\_t@{cpu\_state\_t}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{cpu\_state\_t}{cpu\_state\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\+\_\+state\+\_\+t}}}
+
+
+
+The current state of a CPU core. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CPU\_STATE\_DISABLED@{CPU\_STATE\_DISABLED}!smp.h@{smp.h}}\index{smp.h@{smp.h}!CPU\_STATE\_DISABLED@{CPU\_STATE\_DISABLED}}}\mbox{\Hypertarget{smp_8h_ad6d9db91247652a54cb6b13d774d61ebab997f5fa8b188b932fbdee4a2b79df13}\label{smp_8h_ad6d9db91247652a54cb6b13d774d61ebab997f5fa8b188b932fbdee4a2b79df13}} 
+CPU\+\_\+\+STATE\+\_\+\+DISABLED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CPU\_STATE\_ENABLED@{CPU\_STATE\_ENABLED}!smp.h@{smp.h}}\index{smp.h@{smp.h}!CPU\_STATE\_ENABLED@{CPU\_STATE\_ENABLED}}}\mbox{\Hypertarget{smp_8h_ad6d9db91247652a54cb6b13d774d61eba946235c061227a21580448222561eeb8}\label{smp_8h_ad6d9db91247652a54cb6b13d774d61eba946235c061227a21580448222561eeb8}} 
+CPU\+\_\+\+STATE\+\_\+\+ENABLED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CPU\_STATE\_RUNNING@{CPU\_STATE\_RUNNING}!smp.h@{smp.h}}\index{smp.h@{smp.h}!CPU\_STATE\_RUNNING@{CPU\_STATE\_RUNNING}}}\mbox{\Hypertarget{smp_8h_ad6d9db91247652a54cb6b13d774d61eba0d0f2babaf08a6b817cef42bd2bd14e4}\label{smp_8h_ad6d9db91247652a54cb6b13d774d61eba0d0f2babaf08a6b817cef42bd2bd14e4}} 
+CPU\+\_\+\+STATE\+\_\+\+RUNNING&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{smp_8h_a1fad7d6ac6a798d7166305c5cfb06f0f}\label{smp_8h_a1fad7d6ac6a798d7166305c5cfb06f0f}} 
+\index{smp.h@{smp.h}!smp\_init@{smp\_init}}
+\index{smp\_init@{smp\_init}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{smp\_init()}{smp\_init()}}
+{\footnotesize\ttfamily void smp\+\_\+init (\begin{DoxyParamCaption}\item[{bool}]{smp\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+Initialises the SMP state and detects the number of available CPU cores. 
+
+\mbox{\Hypertarget{smp_8h_a7f52277f736301ea94722ff6f6238d83}\label{smp_8h_a7f52277f736301ea94722ff6f6238d83}} 
+\index{smp.h@{smp.h}!smp\_start@{smp\_start}}
+\index{smp\_start@{smp\_start}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{smp\_start()}{smp\_start()}}
+{\footnotesize\ttfamily int smp\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\+\_\+state\+\_\+t}}}]{cpu\+\_\+state\mbox{[}\+MAX\+\_\+\+CPUS\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Starts the APs listed as enabled in cpu\+\_\+state. 
+
+Returns 0 on success or the index number of the lowest-\/numbered AP that failed to start. \mbox{\Hypertarget{smp_8h_ac90c08f700478c32bce43fc8c6b5b53f}\label{smp_8h_ac90c08f700478c32bce43fc8c6b5b53f}} 
+\index{smp.h@{smp.h}!smp\_send\_nmi@{smp\_send\_nmi}}
+\index{smp\_send\_nmi@{smp\_send\_nmi}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{smp\_send\_nmi()}{smp\_send\_nmi()}}
+{\footnotesize\ttfamily void smp\+\_\+send\+\_\+nmi (\begin{DoxyParamCaption}\item[{int}]{cpu\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Sends a non-\/maskable interrupt to the CPU core whose ordinal number is cpu\+\_\+num. 
+
+\mbox{\Hypertarget{smp_8h_a6442f4b9f4375505bf71d60d4fa831f7}\label{smp_8h_a6442f4b9f4375505bf71d60d4fa831f7}} 
+\index{smp.h@{smp.h}!smp\_my\_cpu\_num@{smp\_my\_cpu\_num}}
+\index{smp\_my\_cpu\_num@{smp\_my\_cpu\_num}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{smp\_my\_cpu\_num()}{smp\_my\_cpu\_num()}}
+{\footnotesize\ttfamily int smp\+\_\+my\+\_\+cpu\+\_\+num (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the ordinal number of the calling CPU core. 
+
+\mbox{\Hypertarget{smp_8h_a8e4a85ccdacddbf504f91d40f594081d}\label{smp_8h_a8e4a85ccdacddbf504f91d40f594081d}} 
+\index{smp.h@{smp.h}!smp\_alloc\_barrier@{smp\_alloc\_barrier}}
+\index{smp\_alloc\_barrier@{smp\_alloc\_barrier}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{smp\_alloc\_barrier()}{smp\_alloc\_barrier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$ smp\+\_\+alloc\+\_\+barrier (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+threads }\end{DoxyParamCaption})}
+
+
+
+Allocates and initialises a barrier object in pinned memory. 
+
+\mbox{\Hypertarget{smp_8h_a8e5c9a0a62015079649296bd7fc6bd55}\label{smp_8h_a8e5c9a0a62015079649296bd7fc6bd55}} 
+\index{smp.h@{smp.h}!smp\_alloc\_mutex@{smp\_alloc\_mutex}}
+\index{smp\_alloc\_mutex@{smp\_alloc\_mutex}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{smp\_alloc\_mutex()}{smp\_alloc\_mutex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}} $\ast$ smp\+\_\+alloc\+\_\+mutex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Allocates and initialises a spinlock object in pinned memory. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{smp_8h_a53660d169499fbe770437f33909466d3}\label{smp_8h_a53660d169499fbe770437f33909466d3}} 
+\index{smp.h@{smp.h}!num\_available\_cpus@{num\_available\_cpus}}
+\index{num\_available\_cpus@{num\_available\_cpus}!smp.h@{smp.h}}
+\doxysubsubsection{\texorpdfstring{num\_available\_cpus}{num\_available\_cpus}}
+{\footnotesize\ttfamily int num\+\_\+available\+\_\+cpus\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The number of available CPU cores. 
+
+Initially this is 1, but may increase after calling \mbox{\hyperlink{smp_8h_a1fad7d6ac6a798d7166305c5cfb06f0f}{smp\+\_\+init()}}. 

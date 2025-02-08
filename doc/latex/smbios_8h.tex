@@ -1,0 +1,542 @@
+\hypertarget{smbios_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/smbios.h File Reference}
+\label{smbios_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smbios.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smbios.h}}
+
+
+Provides functions for reading SMBIOS tables.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{smbios_8h_structsmbiosv2__t}{smbiosv2\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\+\_\+header}}
+\item 
+struct \mbox{\hyperlink{smbios_8h_structsystem__info}{system\+\_\+info}}
+\item 
+struct \mbox{\hyperlink{smbios_8h_structbaseboard__info}{baseboard\+\_\+info}}
+\item 
+struct \mbox{\hyperlink{smbios_8h_structmem__module}{mem\+\_\+module}}
+\item 
+struct \mbox{\hyperlink{smbios_8h_structmem__dev}{mem\+\_\+dev}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{smbios_8h_a0015f7488e23710482783a3723849ec6}{DMI\+\_\+\+SDR}}~0x0F
+\item 
+\#define \mbox{\hyperlink{smbios_8h_a9877d41a8b232689d08c442841da1e3b}{DMI\+\_\+\+RDRAM}}~0x11
+\item 
+\#define \mbox{\hyperlink{smbios_8h_a2c190f875b18b77439c171bd56995288}{DMI\+\_\+\+DDR}}~0x12
+\item 
+\#define \mbox{\hyperlink{smbios_8h_ae1d4a9c7db8cc3a9ca4ea21844cd4299}{DMI\+\_\+\+DDR2}}~0x13
+\item 
+\#define \mbox{\hyperlink{smbios_8h_ab507b1b5d87998af1cad295343fb7e90}{DMI\+\_\+\+DDR2\+\_\+\+FBDIMM}}~0x14
+\item 
+\#define \mbox{\hyperlink{smbios_8h_a15dec4303986b5d609641b82629b0495}{DMI\+\_\+\+DDR3}}~0x18
+\item 
+\#define \mbox{\hyperlink{smbios_8h_a78f1c942359dfdbf46495b5b93820232}{DMI\+\_\+\+DDR4}}~0x1A
+\item 
+\#define \mbox{\hyperlink{smbios_8h_ad8fbec976c1a90a457829545b823af0b}{DMI\+\_\+\+LPDDR}}~0x1B
+\item 
+\#define \mbox{\hyperlink{smbios_8h_a55218cb9f6f4025f716745b2ce68f2d7}{DMI\+\_\+\+LPDDR2}}~0x1C
+\item 
+\#define \mbox{\hyperlink{smbios_8h_aa09c0b18f534d4424814d7382e01d8e8}{DMI\+\_\+\+LPDDR3}}~0x1D
+\item 
+\#define \mbox{\hyperlink{smbios_8h_aecd9cd6df07f0330b28a25b581dbd10d}{DMI\+\_\+\+LPDDR4}}~0x1E
+\item 
+\#define \mbox{\hyperlink{smbios_8h_ad01388252698e582dec2f09cdc690e4e}{DMI\+\_\+\+DDR5}}~0x22
+\item 
+\#define \mbox{\hyperlink{smbios_8h_a22737b279881c70ec045faa039d1158b}{DMI\+\_\+\+LPDDR5}}~0x23
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{smbios_8h_a062e9397e5846970eaebac281be34003}{smbios\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize SMBIOS/\+DMI (locate struct) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{smbios_8h_af96fb34a44df320badaee73ed504c31d}{print\+\_\+smbios\+\_\+startup\+\_\+info}} (void)
+\begin{DoxyCompactList}\small\item\em Print DMI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{smbios_8h_structmem__dev}{mem\+\_\+dev}} $\ast$ \mbox{\hyperlink{smbios_8h_a4f0421efa363a587e73df293888a6934}{dmi\+\_\+memory\+\_\+device}}
+\begin{DoxyCompactList}\small\item\em Memory device Structure (used for SPD decoding) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions for reading SMBIOS tables. 
+
+Copyright (C) 2004-\/2022 Samuel Demeulemeester. 
+
+\doxysubsection{Data Structure Documentation}
+\index{smbiosv2\_t@{smbiosv2\_t}}\label{structsmbiosv2__t}
+\Hypertarget{smbios_8h_structsmbiosv2__t}
+\doxysubsubsection{struct smbiosv2\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{smbios_8h_afe6891872417fd7724003f58f192e2ab}\label{smbios_8h_afe6891872417fd7724003f58f192e2ab}} 
+uint8\_t&
+anchor\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_aa7974b9a68898f1d6bb2d7647a709086}\label{smbios_8h_aa7974b9a68898f1d6bb2d7647a709086}} 
+int8\_t&
+checksum&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ac7e00354ba2ec9192c0bf34f2a58d36c}\label{smbios_8h_ac7e00354ba2ec9192c0bf34f2a58d36c}} 
+uint8\_t&
+length&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_aac434d47815cd961ce4bde10103ce2ba}\label{smbios_8h_aac434d47815cd961ce4bde10103ce2ba}} 
+uint8\_t&
+majorversion&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ad9e95716e390836efdf0098f23829bfa}\label{smbios_8h_ad9e95716e390836efdf0098f23829bfa}} 
+uint8\_t&
+minorversion&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a8512fa6b687aca06e81f43b1455d2ba4}\label{smbios_8h_a8512fa6b687aca06e81f43b1455d2ba4}} 
+uint16\_t&
+maxstructsize&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a285dc256ad73d33e38697c0e47f58511}\label{smbios_8h_a285dc256ad73d33e38697c0e47f58511}} 
+uint8\_t&
+revision&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a3b8b482d3c71da2fb12e27887ca3bbb6}\label{smbios_8h_a3b8b482d3c71da2fb12e27887ca3bbb6}} 
+uint8\_t&
+pad\mbox{[}5\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a124f277a519687c8967ca1a012d4e478}\label{smbios_8h_a124f277a519687c8967ca1a012d4e478}} 
+uint8\_t&
+intanchor\mbox{[}5\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a45d22ae7edb0857001f3cabe7603b2fd}\label{smbios_8h_a45d22ae7edb0857001f3cabe7603b2fd}} 
+int8\_t&
+intchecksum&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a4c479797ac2801b5ebcf54bb3eef3926}\label{smbios_8h_a4c479797ac2801b5ebcf54bb3eef3926}} 
+uint16\_t&
+tablelength&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a9ae6cf4f0ae1e7b308b0f43159b8680a}\label{smbios_8h_a9ae6cf4f0ae1e7b308b0f43159b8680a}} 
+uint32\_t&
+tableaddress&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a888b69416788109d894778943f89b94d}\label{smbios_8h_a888b69416788109d894778943f89b94d}} 
+uint16\_t&
+numstructs&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a69dcf4fc70ed574199b768023f27b4fd}\label{smbios_8h_a69dcf4fc70ed574199b768023f27b4fd}} 
+uint8\_t&
+SMBIOSrev&
+\\
+\hline
+
+\end{DoxyFields}
+\index{tstruct\_header@{tstruct\_header}}\label{structtstruct__header}
+\Hypertarget{smbios_8h_structtstruct__header}
+\doxysubsubsection{struct tstruct\+\_\+header}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{smbios_8h_a7347a770d6d2777a7f9888badc0414a9}\label{smbios_8h_a7347a770d6d2777a7f9888badc0414a9}} 
+uint8\_t&
+type&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ade28866203237baa7bbebb91e69f79de}\label{smbios_8h_ade28866203237baa7bbebb91e69f79de}} 
+uint8\_t&
+length&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a5e7c8615f5ad0d0a51520f9a1e22c9b1}\label{smbios_8h_a5e7c8615f5ad0d0a51520f9a1e22c9b1}} 
+uint16\_t&
+handle&
+\\
+\hline
+
+\end{DoxyFields}
+\index{system\_info@{system\_info}}\label{structsystem__info}
+\Hypertarget{smbios_8h_structsystem__info}
+\doxysubsubsection{struct system\+\_\+info}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{smbios_8h_aa4f8a7d4460ca8355a12fd1e798bb39c}\label{smbios_8h_aa4f8a7d4460ca8355a12fd1e798bb39c}} 
+struct \mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}}&
+header&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ab138edf92d05315bc89f2faca3992720}\label{smbios_8h_ab138edf92d05315bc89f2faca3992720}} 
+uint8\_t&
+manufacturer&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ac0ea17311cd6a8b078e1e6683980e90b}\label{smbios_8h_ac0ea17311cd6a8b078e1e6683980e90b}} 
+uint8\_t&
+productname&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a3f55a9330b1b30084c0d6cca369f87d7}\label{smbios_8h_a3f55a9330b1b30084c0d6cca369f87d7}} 
+uint8\_t&
+version&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a905b3ca94bd025b06f6a8486f730a350}\label{smbios_8h_a905b3ca94bd025b06f6a8486f730a350}} 
+uint8\_t&
+serialnumber&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a9d445f3a074a236cadc36788788c8d5d}\label{smbios_8h_a9d445f3a074a236cadc36788788c8d5d}} 
+uint8\_t&
+uuidbytes\mbox{[}16\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a41f83bce6cde3e6f19a2256ddd9b4514}\label{smbios_8h_a41f83bce6cde3e6f19a2256ddd9b4514}} 
+uint8\_t&
+wut&
+\\
+\hline
+
+\end{DoxyFields}
+\index{baseboard\_info@{baseboard\_info}}\label{structbaseboard__info}
+\Hypertarget{smbios_8h_structbaseboard__info}
+\doxysubsubsection{struct baseboard\+\_\+info}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{smbios_8h_a09697fac59e6f5d14ebabe6f002a15bf}\label{smbios_8h_a09697fac59e6f5d14ebabe6f002a15bf}} 
+struct \mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}}&
+header&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a260dc68068097aa3f826fd7b5db4045a}\label{smbios_8h_a260dc68068097aa3f826fd7b5db4045a}} 
+uint8\_t&
+manufacturer&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a48f1e7562d69155c663338df8681912d}\label{smbios_8h_a48f1e7562d69155c663338df8681912d}} 
+uint8\_t&
+productname&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a5718f1b7a46ab4470b236dfc956dfc64}\label{smbios_8h_a5718f1b7a46ab4470b236dfc956dfc64}} 
+uint8\_t&
+version&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_aa1464e65786251631003001f73204074}\label{smbios_8h_aa1464e65786251631003001f73204074}} 
+uint8\_t&
+serialnumber&
+\\
+\hline
+
+\end{DoxyFields}
+\index{mem\_module@{mem\_module}}\label{structmem__module}
+\Hypertarget{smbios_8h_structmem__module}
+\doxysubsubsection{struct mem\+\_\+module}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{smbios_8h_a9f3b94d706c769a288ba0d9cdbb054c0}\label{smbios_8h_a9f3b94d706c769a288ba0d9cdbb054c0}} 
+struct \mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}}&
+header&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_aff7a385d80ec7b3ba6c31eb7eb016fda}\label{smbios_8h_aff7a385d80ec7b3ba6c31eb7eb016fda}} 
+uint8\_t&
+socket\_designation&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ae20bef32ed39fc2bfab4dab614ab1807}\label{smbios_8h_ae20bef32ed39fc2bfab4dab614ab1807}} 
+uint8\_t&
+bank\_connections&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ae9a133a44de320aa93555b241e154433}\label{smbios_8h_ae9a133a44de320aa93555b241e154433}} 
+uint8\_t&
+current\_speed&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a1bd98e5e1455a315896f8888f9bfe1f9}\label{smbios_8h_a1bd98e5e1455a315896f8888f9bfe1f9}} 
+uint16\_t&
+current\_memory\_type&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a1165d203c9d8fb63c8e5706ea7543f99}\label{smbios_8h_a1165d203c9d8fb63c8e5706ea7543f99}} 
+uint8\_t&
+installed\_size&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a8fdcd51075864606755e85a1714cb8b9}\label{smbios_8h_a8fdcd51075864606755e85a1714cb8b9}} 
+uint8\_t&
+enabled\_size&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_afd4e3a815fd893428425c759130996a2}\label{smbios_8h_afd4e3a815fd893428425c759130996a2}} 
+uint8\_t&
+error\_status&
+\\
+\hline
+
+\end{DoxyFields}
+\index{mem\_dev@{mem\_dev}}\label{structmem__dev}
+\Hypertarget{smbios_8h_structmem__dev}
+\doxysubsubsection{struct mem\+\_\+dev}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{smbios_8h_afe32e2afc2e576f2f2f32d44afbbc5d8}\label{smbios_8h_afe32e2afc2e576f2f2f32d44afbbc5d8}} 
+struct \mbox{\hyperlink{smbios_8h_structtstruct__header}{tstruct\_header}}&
+header&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a5a1ea5c490b8b22abdafd7f9e356c8a2}\label{smbios_8h_a5a1ea5c490b8b22abdafd7f9e356c8a2}} 
+uint16\_t&
+pma\_handle&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a6c320de30ba952ae79d7bbf800c58b73}\label{smbios_8h_a6c320de30ba952ae79d7bbf800c58b73}} 
+uint16\_t&
+err\_handle&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_aac4cee7111faf51792240f0fb6b8df0e}\label{smbios_8h_aac4cee7111faf51792240f0fb6b8df0e}} 
+uint16\_t&
+tot\_width&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a1a5c3e6a6f5133002e0e61597c58e7dc}\label{smbios_8h_a1a5c3e6a6f5133002e0e61597c58e7dc}} 
+uint16\_t&
+dat\_width&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a00e4372a8dd540151afb3306729fad5c}\label{smbios_8h_a00e4372a8dd540151afb3306729fad5c}} 
+uint16\_t&
+size&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ad7a66cb87b83a3d88599ffec449428a2}\label{smbios_8h_ad7a66cb87b83a3d88599ffec449428a2}} 
+uint8\_t&
+form&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a59366ce918bc2ce8b4c0e0b11b5bce24}\label{smbios_8h_a59366ce918bc2ce8b4c0e0b11b5bce24}} 
+uint8\_t&
+set&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a259a6aeceb318e8fba2108d6d2d2e4af}\label{smbios_8h_a259a6aeceb318e8fba2108d6d2d2e4af}} 
+uint8\_t&
+dev\_locator&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ac4955d205bb55443e50249e82af58769}\label{smbios_8h_ac4955d205bb55443e50249e82af58769}} 
+uint8\_t&
+bank\_locator&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ab31fc68f3f31253f03f760ab409f3b65}\label{smbios_8h_ab31fc68f3f31253f03f760ab409f3b65}} 
+uint8\_t&
+type&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a6c6a0f43aef951454a0c918541e71153}\label{smbios_8h_a6c6a0f43aef951454a0c918541e71153}} 
+uint16\_t&
+typedetail&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a6d7f0efc067411afacf1b7448a611acf}\label{smbios_8h_a6d7f0efc067411afacf1b7448a611acf}} 
+uint16\_t&
+speed&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a40ece5b4392522d2985f5b609878233d}\label{smbios_8h_a40ece5b4392522d2985f5b609878233d}} 
+uint8\_t&
+manufacturer&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a20bff9ac889e48db3ccdeacf7cffd13a}\label{smbios_8h_a20bff9ac889e48db3ccdeacf7cffd13a}} 
+uint8\_t&
+serialnum&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_a6cf773d41d1013f9860a755621aef76f}\label{smbios_8h_a6cf773d41d1013f9860a755621aef76f}} 
+uint8\_t&
+asset&
+\\
+\hline
+
+\mbox{\Hypertarget{smbios_8h_ac3fd4d615f5a44c53ef9399773991576}\label{smbios_8h_ac3fd4d615f5a44c53ef9399773991576}} 
+uint8\_t&
+partnum&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{smbios_8h_a0015f7488e23710482783a3723849ec6}\label{smbios_8h_a0015f7488e23710482783a3723849ec6}} 
+\index{smbios.h@{smbios.h}!DMI\_SDR@{DMI\_SDR}}
+\index{DMI\_SDR@{DMI\_SDR}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_SDR}{DMI\_SDR}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+SDR~0x0F}
+
+\mbox{\Hypertarget{smbios_8h_a9877d41a8b232689d08c442841da1e3b}\label{smbios_8h_a9877d41a8b232689d08c442841da1e3b}} 
+\index{smbios.h@{smbios.h}!DMI\_RDRAM@{DMI\_RDRAM}}
+\index{DMI\_RDRAM@{DMI\_RDRAM}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_RDRAM}{DMI\_RDRAM}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+RDRAM~0x11}
+
+\mbox{\Hypertarget{smbios_8h_a2c190f875b18b77439c171bd56995288}\label{smbios_8h_a2c190f875b18b77439c171bd56995288}} 
+\index{smbios.h@{smbios.h}!DMI\_DDR@{DMI\_DDR}}
+\index{DMI\_DDR@{DMI\_DDR}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_DDR}{DMI\_DDR}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+DDR~0x12}
+
+\mbox{\Hypertarget{smbios_8h_ae1d4a9c7db8cc3a9ca4ea21844cd4299}\label{smbios_8h_ae1d4a9c7db8cc3a9ca4ea21844cd4299}} 
+\index{smbios.h@{smbios.h}!DMI\_DDR2@{DMI\_DDR2}}
+\index{DMI\_DDR2@{DMI\_DDR2}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_DDR2}{DMI\_DDR2}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+DDR2~0x13}
+
+\mbox{\Hypertarget{smbios_8h_ab507b1b5d87998af1cad295343fb7e90}\label{smbios_8h_ab507b1b5d87998af1cad295343fb7e90}} 
+\index{smbios.h@{smbios.h}!DMI\_DDR2\_FBDIMM@{DMI\_DDR2\_FBDIMM}}
+\index{DMI\_DDR2\_FBDIMM@{DMI\_DDR2\_FBDIMM}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_DDR2\_FBDIMM}{DMI\_DDR2\_FBDIMM}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+DDR2\+\_\+\+FBDIMM~0x14}
+
+\mbox{\Hypertarget{smbios_8h_a15dec4303986b5d609641b82629b0495}\label{smbios_8h_a15dec4303986b5d609641b82629b0495}} 
+\index{smbios.h@{smbios.h}!DMI\_DDR3@{DMI\_DDR3}}
+\index{DMI\_DDR3@{DMI\_DDR3}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_DDR3}{DMI\_DDR3}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+DDR3~0x18}
+
+\mbox{\Hypertarget{smbios_8h_a78f1c942359dfdbf46495b5b93820232}\label{smbios_8h_a78f1c942359dfdbf46495b5b93820232}} 
+\index{smbios.h@{smbios.h}!DMI\_DDR4@{DMI\_DDR4}}
+\index{DMI\_DDR4@{DMI\_DDR4}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_DDR4}{DMI\_DDR4}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+DDR4~0x1A}
+
+\mbox{\Hypertarget{smbios_8h_ad8fbec976c1a90a457829545b823af0b}\label{smbios_8h_ad8fbec976c1a90a457829545b823af0b}} 
+\index{smbios.h@{smbios.h}!DMI\_LPDDR@{DMI\_LPDDR}}
+\index{DMI\_LPDDR@{DMI\_LPDDR}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_LPDDR}{DMI\_LPDDR}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+LPDDR~0x1B}
+
+\mbox{\Hypertarget{smbios_8h_a55218cb9f6f4025f716745b2ce68f2d7}\label{smbios_8h_a55218cb9f6f4025f716745b2ce68f2d7}} 
+\index{smbios.h@{smbios.h}!DMI\_LPDDR2@{DMI\_LPDDR2}}
+\index{DMI\_LPDDR2@{DMI\_LPDDR2}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_LPDDR2}{DMI\_LPDDR2}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+LPDDR2~0x1C}
+
+\mbox{\Hypertarget{smbios_8h_aa09c0b18f534d4424814d7382e01d8e8}\label{smbios_8h_aa09c0b18f534d4424814d7382e01d8e8}} 
+\index{smbios.h@{smbios.h}!DMI\_LPDDR3@{DMI\_LPDDR3}}
+\index{DMI\_LPDDR3@{DMI\_LPDDR3}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_LPDDR3}{DMI\_LPDDR3}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+LPDDR3~0x1D}
+
+\mbox{\Hypertarget{smbios_8h_aecd9cd6df07f0330b28a25b581dbd10d}\label{smbios_8h_aecd9cd6df07f0330b28a25b581dbd10d}} 
+\index{smbios.h@{smbios.h}!DMI\_LPDDR4@{DMI\_LPDDR4}}
+\index{DMI\_LPDDR4@{DMI\_LPDDR4}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_LPDDR4}{DMI\_LPDDR4}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+LPDDR4~0x1E}
+
+\mbox{\Hypertarget{smbios_8h_ad01388252698e582dec2f09cdc690e4e}\label{smbios_8h_ad01388252698e582dec2f09cdc690e4e}} 
+\index{smbios.h@{smbios.h}!DMI\_DDR5@{DMI\_DDR5}}
+\index{DMI\_DDR5@{DMI\_DDR5}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_DDR5}{DMI\_DDR5}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+DDR5~0x22}
+
+\mbox{\Hypertarget{smbios_8h_a22737b279881c70ec045faa039d1158b}\label{smbios_8h_a22737b279881c70ec045faa039d1158b}} 
+\index{smbios.h@{smbios.h}!DMI\_LPDDR5@{DMI\_LPDDR5}}
+\index{DMI\_LPDDR5@{DMI\_LPDDR5}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{DMI\_LPDDR5}{DMI\_LPDDR5}}
+{\footnotesize\ttfamily \#define DMI\+\_\+\+LPDDR5~0x23}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{smbios_8h_a062e9397e5846970eaebac281be34003}\label{smbios_8h_a062e9397e5846970eaebac281be34003}} 
+\index{smbios.h@{smbios.h}!smbios\_init@{smbios\_init}}
+\index{smbios\_init@{smbios\_init}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{smbios\_init()}{smbios\_init()}}
+{\footnotesize\ttfamily int smbios\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize SMBIOS/\+DMI (locate struct) 
+
+\mbox{\Hypertarget{smbios_8h_af96fb34a44df320badaee73ed504c31d}\label{smbios_8h_af96fb34a44df320badaee73ed504c31d}} 
+\index{smbios.h@{smbios.h}!print\_smbios\_startup\_info@{print\_smbios\_startup\_info}}
+\index{print\_smbios\_startup\_info@{print\_smbios\_startup\_info}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{print\_smbios\_startup\_info()}{print\_smbios\_startup\_info()}}
+{\footnotesize\ttfamily void print\+\_\+smbios\+\_\+startup\+\_\+info (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Print DMI. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{smbios_8h_a4f0421efa363a587e73df293888a6934}\label{smbios_8h_a4f0421efa363a587e73df293888a6934}} 
+\index{smbios.h@{smbios.h}!dmi\_memory\_device@{dmi\_memory\_device}}
+\index{dmi\_memory\_device@{dmi\_memory\_device}!smbios.h@{smbios.h}}
+\doxysubsubsection{\texorpdfstring{dmi\_memory\_device}{dmi\_memory\_device}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{smbios_8h_structmem__dev}{mem\+\_\+dev}}$\ast$ dmi\+\_\+memory\+\_\+device\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Memory device Structure (used for SPD decoding) 
+

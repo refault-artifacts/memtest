@@ -1,0 +1,32 @@
+\hypertarget{barrier_8h_source}{}\doxysection{barrier.\+h}
+\label{barrier_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/barrier.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/barrier.h}}
+\mbox{\hyperlink{barrier_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef BARRIER\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define BARRIER\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{cpulocal_8h}{cpulocal.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{spinlock_8h}{spinlock.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{20 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int}     \mbox{\hyperlink{barrier_8h_afdc08a70d39bc2c2e405c96eef357955}{flag\_num}};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int}     \mbox{\hyperlink{barrier_8h_a70ecbbc88287015db96cfd2643cbe5e9}{num\_threads}};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int}     \mbox{\hyperlink{barrier_8h_a24b7aea192552cb8e45d606d3d80b93a}{count}};}
+\DoxyCodeLine{25 \} \mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\_t}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{void} \mbox{\hyperlink{barrier_8h_aa95cf6f50300d330b0402e1835984c9a}{barrier\_init}}(\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\_t}} *barrier, \textcolor{keywordtype}{int} num\_threads);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{35 \textcolor{keywordtype}{void} \mbox{\hyperlink{barrier_8h_abcede8d8c7f01a2b5eac96f18f0a2496}{barrier\_reset}}(\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\_t}} *barrier, \textcolor{keywordtype}{int} num\_threads);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41 \textcolor{keywordtype}{void} \mbox{\hyperlink{barrier_8h_ac1eaeb8a95275004f094be83ed7dc5ce}{barrier\_spin\_wait}}(\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\_t}} *barrier);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{47 \textcolor{keywordtype}{void} \mbox{\hyperlink{barrier_8h_aeaa597d10beb790a10e6f7b13506628c}{barrier\_halt\_wait}}(\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\_t}} *barrier);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BARRIER\_H}}
+
+\end{DoxyCode}

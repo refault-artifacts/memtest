@@ -1,0 +1,756 @@
+\hypertarget{display_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/app/display.h File Reference}
+\label{display_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/display.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/display.h}}
+
+
+Provides (macro) functions that implement the UI display.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}screen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}print.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}test.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}}~10
+\item 
+\#define \mbox{\hyperlink{display_8h_a4af0a09aa9a2d8af4b2979212bdefbd0}{ROW\+\_\+\+MESSAGE\+\_\+B}}~(\mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}} -\/ 2)
+\item 
+\#define \mbox{\hyperlink{display_8h_ac9ff828ad8cbd9704cf33a43eebf8293}{ROW\+\_\+\+SCROLL\+\_\+T}}~(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}} + 2)
+\item 
+\#define \mbox{\hyperlink{display_8h_a89293e80d3d307e4d732e2f777725201}{ROW\+\_\+\+SCROLL\+\_\+B}}~(\mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}} -\/ 2)
+\item 
+\#define \mbox{\hyperlink{display_8h_afbf1a95bd442269b863033599b1586eb}{ROW\+\_\+\+FOOTER}}~(\mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}} -\/ 1)
+\item 
+\#define \mbox{\hyperlink{display_8h_aa26ce36e9802bc0f204ab4004d5a4c0b}{BAR\+\_\+\+LENGTH}}~40
+\item 
+\#define \mbox{\hyperlink{display_8h_afd8fd2d17c8cb28b12f3b28ba684eae5}{ERROR\+\_\+\+LIMIT}}~UINT64\+\_\+C(999999999999)
+\item 
+\#define \mbox{\hyperlink{display_8h_aa36f899d86c4d2a36f4972f2265578e2}{display\+\_\+cpu\+\_\+model}}(str)~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(0, 30, str)
+\item 
+\#define \mbox{\hyperlink{display_8h_a8d80339a21c583ec2f09e6336b429158}{display\+\_\+cpu\+\_\+clk}}(freq)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(1, 10, \char`\"{}\%i\+MHz\char`\"{}, freq)
+\item 
+\#define \mbox{\hyperlink{display_8h_a47c66bd885844808b579dd2350cd34d7}{display\+\_\+cpu\+\_\+addr\+\_\+mode}}(str)~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(4, 75, str)
+\item 
+\#define \mbox{\hyperlink{display_8h_ac8b5466fb18712cc796e5e6de9dd0984}{display\+\_\+l1\+\_\+cache\+\_\+size}}(size)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(2, 9, \char`\"{}\%6k\+B\char`\"{}, (uintptr\+\_\+t)(size))
+\item 
+\#define \mbox{\hyperlink{display_8h_ab055efbd002d944fa6cee004809c2ec1}{display\+\_\+l2\+\_\+cache\+\_\+size}}(size)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(3, 9, \char`\"{}\%6k\+B\char`\"{}, (uintptr\+\_\+t)(size))
+\item 
+\#define \mbox{\hyperlink{display_8h_ab6c52f205ec0b159862c8de93d67a34c}{display\+\_\+l3\+\_\+cache\+\_\+size}}(size)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(4, 9, \char`\"{}\%6k\+B\char`\"{}, (uintptr\+\_\+t)(size))
+\item 
+\#define \mbox{\hyperlink{display_8h_aae9b9a9bc746d8081ae80b9f278c5863}{display\+\_\+memory\+\_\+size}}(size)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(5, 9, \char`\"{}\%6k\+B\char`\"{}, (uintptr\+\_\+t)(size))
+\item 
+\#define \mbox{\hyperlink{display_8h_a903c666817907f55438a2e4dd61e62bd}{display\+\_\+l1\+\_\+cache\+\_\+speed}}(speed)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(2, 18, \char`\"{}\%S6kB/s\char`\"{}, (uintptr\+\_\+t)(speed))
+\item 
+\#define \mbox{\hyperlink{display_8h_a53c3ebc4041200a194b7b7cfa97cb186}{display\+\_\+l2\+\_\+cache\+\_\+speed}}(speed)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(3, 18, \char`\"{}\%S6kB/s\char`\"{}, (uintptr\+\_\+t)(speed))
+\item 
+\#define \mbox{\hyperlink{display_8h_aee32fa3992b54aeda7e7d67261272d4a}{display\+\_\+l3\+\_\+cache\+\_\+speed}}(speed)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(4, 18, \char`\"{}\%S6kB/s\char`\"{}, (uintptr\+\_\+t)(speed))
+\item 
+\#define \mbox{\hyperlink{display_8h_a1887496a7a64d14364fbf61a82c238cd}{display\+\_\+ram\+\_\+speed}}(speed)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(5, 18, \char`\"{}\%S6kB/s\char`\"{}, (uintptr\+\_\+t)(speed))
+\item 
+\#define \mbox{\hyperlink{display_8h_ab8fd58b4f9c4de83a49b09ab87f076f7}{display\+\_\+status}}(status)~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(7, 68, status)
+\item 
+\#define \mbox{\hyperlink{display_8h_af88520903af797dcebde50652aa57476}{display\+\_\+threading}}(nb,  mode)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7,31, \char`\"{}\%uT (\%s)\char`\"{}, nb, mode)
+\item 
+\#define \mbox{\hyperlink{display_8h_a28ddac4c1e53c0ea0678a4d2b5f66f76}{display\+\_\+threading\+\_\+disabled}}()~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(7,31, \char`\"{}Disabled\char`\"{})
+\item 
+\#define \mbox{\hyperlink{display_8h_a1beb691a59584189c6e64257c61a64b7}{display\+\_\+cpu\+\_\+topo\+\_\+hybrid}}(num\+\_\+pcores,  num\+\_\+ecores,  num\+\_\+threads)
+\item 
+\#define \mbox{\hyperlink{display_8h_ad007f22752cd69d5fbea5aa623e8b70d}{display\+\_\+cpu\+\_\+topo\+\_\+hybrid\+\_\+short}}(num\+\_\+threads)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 5, \char`\"{}\%u Threads (Hybrid)\char`\"{}, num\+\_\+threads)
+\item 
+\#define \mbox{\hyperlink{display_8h_a5550fcdeaa3b354679d87824081196cd}{display\+\_\+cpu\+\_\+topo\+\_\+multi\+\_\+socket}}(num\+\_\+sockets,  num\+\_\+cores,  num\+\_\+threads)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 5, \char`\"{}\%uS / \%uC / \%u\+T\char`\"{}, num\+\_\+sockets, num\+\_\+cores, num\+\_\+threads)
+\item 
+\#define \mbox{\hyperlink{display_8h_a214c5a8ce1759fbfb256caff5815a9d1}{display\+\_\+cpu\+\_\+topo}}(num\+\_\+cores,  num\+\_\+threads)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 5, \char`\"{}\%u Cores \%u Threads\char`\"{}, num\+\_\+cores, num\+\_\+threads)
+\item 
+\#define \mbox{\hyperlink{display_8h_a0fd85e8bed114c2b5e909ed4296007ef}{display\+\_\+cpu\+\_\+topo\+\_\+short}}(num\+\_\+cores,  num\+\_\+threads)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 5, \char`\"{}\%u Cores (\%uT)\char`\"{},  num\+\_\+cores, num\+\_\+threads)
+\item 
+\#define \mbox{\hyperlink{display_8h_adc6f476a415839708b3fcad4bae15ee2}{display\+\_\+spec\+\_\+mode}}(mode)~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(8,0, mode);
+\item 
+\#define \mbox{\hyperlink{display_8h_a5c9a0cf6370e1ab9bab094a555e775e8}{display\+\_\+spec\+\_\+ddr}}(freq,  type,  cl,  cl\+\_\+dec,  rcd,  rp,  ras)
+\item 
+\#define \mbox{\hyperlink{display_8h_ac338f6266ed2f5f37601567f41668527}{display\+\_\+spec\+\_\+sdr}}(freq,  type,  cl,  rcd,  rp,  ras)
+\item 
+\#define \mbox{\hyperlink{display_8h_a87259ef42680720d376a5f01459ac46e}{display\+\_\+dmi\+\_\+mb}}(sys\+\_\+ma,  sys\+\_\+sku)
+\item 
+\#define \mbox{\hyperlink{display_8h_a54320092168ab89417bb9ac96e3f86f3}{display\+\_\+active\+\_\+cpu}}(cpu\+\_\+num)
+\item 
+\#define \mbox{\hyperlink{display_8h_a150221f1546f8da08f01a4c6dc8ba93f}{display\+\_\+all\+\_\+active}}()~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(8, 7, \char`\"{}All Cores\char`\"{})
+\item 
+\#define \mbox{\hyperlink{display_8h_a4687421c511150669a940637d2f9b26c}{display\+\_\+spinner}}(spin\+\_\+state)~    \mbox{\hyperlink{print_8h_a5d7bd1e2fc4ac3ec4d8d8764ab1f646f}{printc}}(7, 77, spin\+\_\+state)
+\item 
+\#define \mbox{\hyperlink{display_8h_a14450dfebae26375ae2978d5f1f75342}{display\+\_\+pass\+\_\+percentage}}(pct)~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(1, 34, pct, 3, false, false)
+\item 
+\#define \mbox{\hyperlink{display_8h_a19c34b7621a20d69ec17d9400faaf265}{display\+\_\+pass\+\_\+bar}}(length)
+\item 
+\#define \mbox{\hyperlink{display_8h_af2339eca22e0c84f383bacec8f7c9f18}{display\+\_\+test\+\_\+percentage}}(pct)~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(2, 34, pct, 3, false, false)
+\item 
+\#define \mbox{\hyperlink{display_8h_a6718075d9f2d46a9ee281107deaabc40}{display\+\_\+test\+\_\+bar}}(length)
+\item 
+\#define \mbox{\hyperlink{display_8h_a57dbb15bff476747bef13d8019dde704}{display\+\_\+test\+\_\+number}}(number)~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(3, 36, number, 2, false, true)
+\item 
+\#define \mbox{\hyperlink{display_8h_a762a8595dd8934dd26cb879440ececd8}{display\+\_\+test\+\_\+description}}(str)~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(3, 39, str)
+\item 
+\#define \mbox{\hyperlink{display_8h_a2697fa4bace1876631aa616c24a135c6}{display\+\_\+test\+\_\+addresses}}(pb,  pe,  total)
+\item 
+\#define \mbox{\hyperlink{display_8h_a2868d75b8e45f1c5e4f37d92b1a6611b}{display\+\_\+test\+\_\+stage\+\_\+description}}(...)
+\item 
+\#define \mbox{\hyperlink{display_8h_ae319808facdb86e3f89601ca2d67e97c}{display\+\_\+test\+\_\+pattern\+\_\+name}}(str)
+\item 
+\#define \mbox{\hyperlink{display_8h_a24031493b81ae39fa6be5d752187a10b}{display\+\_\+test\+\_\+pattern\+\_\+value}}(pattern)
+\item 
+\#define \mbox{\hyperlink{display_8h_ad0ab73a9c372586d00e657a157a75075}{display\+\_\+test\+\_\+pattern\+\_\+values}}(pattern,  offset)
+\item 
+\#define \mbox{\hyperlink{display_8h_a06920642a092186f0fca49f9326f787f}{display\+\_\+run\+\_\+time}}(hours,  mins,  secs)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 51, \char`\"{}\%i\+:\%02i\+:\%02i\char`\"{}, hours, mins, secs)
+\item 
+\#define \mbox{\hyperlink{display_8h_ad916975edc2a1190150a9908ba570b42}{display\+\_\+pass\+\_\+count}}(count)~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(8, 51, count, 0, false, true)
+\item 
+\#define \mbox{\hyperlink{display_8h_aeb64e96dd466ce57a3065defebdfaff8}{display\+\_\+error\+\_\+count}}(count)~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(8, 68, count, 0, false, true)
+\item 
+\#define \mbox{\hyperlink{display_8h_aef3dd7ea5ae057b7be94838d9fb2b039}{clear\+\_\+message\+\_\+area}}()
+\item 
+\#define \mbox{\hyperlink{display_8h_a62d2eca56cf23799c776bd12029a6791}{display\+\_\+pinned\+\_\+message}}(row,  col, ...)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}} + row, col, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{display_8h_a64c8718c0808b35fe951b62e27693564}{display\+\_\+scrolled\+\_\+message}}(col, ...)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(\mbox{\hyperlink{display_8h_a1a32bf2259fe1cba83ff30837b9a1f09}{scroll\+\_\+message\+\_\+row}}, col, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{display_8h_ab10aa08ffed2d0de4eef9eed421b8c7e}{display\+\_\+notice}}(str)~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}} + 8, (\mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\+\_\+\+WIDTH}} -\/ \mbox{\hyperlink{string_8h_aa6cc9f852e7dce55e590e952677649bd}{strlen}}(str)) / 2, str)
+\item 
+\#define \mbox{\hyperlink{display_8h_aaa9548f8b60f635040d952e44d594763}{display\+\_\+notice\+\_\+with\+\_\+args}}(length, ...)~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}} + 8, (\mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\+\_\+\+WIDTH}} -\/ length) / 2, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{display_8h_a30adb6b600942657bde0cf2ee6436e60}{clear\+\_\+footer\+\_\+message}}()
+\item 
+\#define \mbox{\hyperlink{display_8h_a86650fed73d0d66cf3062893242623c0}{display\+\_\+footer\+\_\+message}}(str)
+\item 
+\#define \mbox{\hyperlink{display_8h_a89554f66889c1c581fa093891cc3dac1}{trace}}(my\+\_\+cpu, ...)~    if (\mbox{\hyperlink{config_8h_a47515d03aa3ec4dedbab9618551114db}{enable\+\_\+trace}}) \mbox{\hyperlink{display_8h_acb98b492393e119705da3baee03bb2f8}{do\+\_\+trace}}(my\+\_\+cpu, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8}{display\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8abffbab2c8a4087f871112416ce7dc073}{DISPLAY\+\_\+\+MODE\+\_\+\+NA}}
+, \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8a078dc80a20e82941e70da923f1aeaebe}{DISPLAY\+\_\+\+MODE\+\_\+\+SPD}}
+, \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8afe3db70c8874652786b46cdbd54ff936}{DISPLAY\+\_\+\+MODE\+\_\+\+IMC}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{display_8h_a407d5033a6f0198221c8a9081d7e807e}{display\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_a0bdcdfb738801a543af7467525963f77}{display\+\_\+cpu\+\_\+topology}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_aa58e58b781c566400f15e09aebfd64b5}{post\+\_\+display\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_aa8713eebe0ca9915160ba48627405399}{display\+\_\+start\+\_\+run}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_a6da888b13d9e9ba0b12279c59f98d7c0}{display\+\_\+start\+\_\+pass}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_a0915122432e9f8f6eaa9b8ecd4294a96}{display\+\_\+start\+\_\+test}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_adf5164930eb413c381b8f3709d4ea4fb}{display\+\_\+temperature}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_a5d93ac4d63d34ddc37a5ecc311918a38}{display\+\_\+big\+\_\+status}} (bool pass)
+\item 
+void \mbox{\hyperlink{display_8h_ae2d161effc694938b540c83e7073cbb1}{restore\+\_\+big\+\_\+status}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_ae922a60101beb5b32a37e58b8d9ba4d0}{check\+\_\+input}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_abeda621782abf8a225932a41b660ea03}{set\+\_\+scroll\+\_\+lock}} (bool enabled)
+\item 
+void \mbox{\hyperlink{display_8h_a85429facfe750b53c5de3199547ca7c8}{toggle\+\_\+scroll\+\_\+lock}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_a05005f1ebcdff47e3ccc18af05573349}{scroll}} (void)
+\item 
+void \mbox{\hyperlink{display_8h_ac45baf97a28e041d208c6b8153cb26bb}{do\+\_\+tick}} (int my\+\_\+cpu)
+\item 
+void \mbox{\hyperlink{display_8h_acb98b492393e119705da3baee03bb2f8}{do\+\_\+trace}} (int my\+\_\+cpu, const char $\ast$fmt,...)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{display_8h_a1a32bf2259fe1cba83ff30837b9a1f09}{scroll\+\_\+message\+\_\+row}}
+\item 
+\mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8}{display\+\_\+mode\+\_\+t}} \mbox{\hyperlink{display_8h_a54a1c7ad3c3db58fb50ed23422d0f54d}{display\+\_\+mode}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides (macro) functions that implement the UI display. 
+
+All knowledge about the display layout is encapsulated here. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}\label{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}} 
+\index{display.h@{display.h}!ROW\_MESSAGE\_T@{ROW\_MESSAGE\_T}}
+\index{ROW\_MESSAGE\_T@{ROW\_MESSAGE\_T}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{ROW\_MESSAGE\_T}{ROW\_MESSAGE\_T}}
+{\footnotesize\ttfamily \#define ROW\+\_\+\+MESSAGE\+\_\+T~10}
+
+\mbox{\Hypertarget{display_8h_a4af0a09aa9a2d8af4b2979212bdefbd0}\label{display_8h_a4af0a09aa9a2d8af4b2979212bdefbd0}} 
+\index{display.h@{display.h}!ROW\_MESSAGE\_B@{ROW\_MESSAGE\_B}}
+\index{ROW\_MESSAGE\_B@{ROW\_MESSAGE\_B}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{ROW\_MESSAGE\_B}{ROW\_MESSAGE\_B}}
+{\footnotesize\ttfamily \#define ROW\+\_\+\+MESSAGE\+\_\+B~(\mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}} -\/ 2)}
+
+\mbox{\Hypertarget{display_8h_ac9ff828ad8cbd9704cf33a43eebf8293}\label{display_8h_ac9ff828ad8cbd9704cf33a43eebf8293}} 
+\index{display.h@{display.h}!ROW\_SCROLL\_T@{ROW\_SCROLL\_T}}
+\index{ROW\_SCROLL\_T@{ROW\_SCROLL\_T}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{ROW\_SCROLL\_T}{ROW\_SCROLL\_T}}
+{\footnotesize\ttfamily \#define ROW\+\_\+\+SCROLL\+\_\+T~(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}} + 2)}
+
+\mbox{\Hypertarget{display_8h_a89293e80d3d307e4d732e2f777725201}\label{display_8h_a89293e80d3d307e4d732e2f777725201}} 
+\index{display.h@{display.h}!ROW\_SCROLL\_B@{ROW\_SCROLL\_B}}
+\index{ROW\_SCROLL\_B@{ROW\_SCROLL\_B}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{ROW\_SCROLL\_B}{ROW\_SCROLL\_B}}
+{\footnotesize\ttfamily \#define ROW\+\_\+\+SCROLL\+\_\+B~(\mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}} -\/ 2)}
+
+\mbox{\Hypertarget{display_8h_afbf1a95bd442269b863033599b1586eb}\label{display_8h_afbf1a95bd442269b863033599b1586eb}} 
+\index{display.h@{display.h}!ROW\_FOOTER@{ROW\_FOOTER}}
+\index{ROW\_FOOTER@{ROW\_FOOTER}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{ROW\_FOOTER}{ROW\_FOOTER}}
+{\footnotesize\ttfamily \#define ROW\+\_\+\+FOOTER~(\mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}} -\/ 1)}
+
+\mbox{\Hypertarget{display_8h_aa26ce36e9802bc0f204ab4004d5a4c0b}\label{display_8h_aa26ce36e9802bc0f204ab4004d5a4c0b}} 
+\index{display.h@{display.h}!BAR\_LENGTH@{BAR\_LENGTH}}
+\index{BAR\_LENGTH@{BAR\_LENGTH}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{BAR\_LENGTH}{BAR\_LENGTH}}
+{\footnotesize\ttfamily \#define BAR\+\_\+\+LENGTH~40}
+
+\mbox{\Hypertarget{display_8h_afd8fd2d17c8cb28b12f3b28ba684eae5}\label{display_8h_afd8fd2d17c8cb28b12f3b28ba684eae5}} 
+\index{display.h@{display.h}!ERROR\_LIMIT@{ERROR\_LIMIT}}
+\index{ERROR\_LIMIT@{ERROR\_LIMIT}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_LIMIT}{ERROR\_LIMIT}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+LIMIT~UINT64\+\_\+C(999999999999)}
+
+\mbox{\Hypertarget{display_8h_aa36f899d86c4d2a36f4972f2265578e2}\label{display_8h_aa36f899d86c4d2a36f4972f2265578e2}} 
+\index{display.h@{display.h}!display\_cpu\_model@{display\_cpu\_model}}
+\index{display\_cpu\_model@{display\_cpu\_model}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_model}{display\_cpu\_model}}
+{\footnotesize\ttfamily \#define display\+\_\+cpu\+\_\+model(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(0, 30, str)}
+
+\mbox{\Hypertarget{display_8h_a8d80339a21c583ec2f09e6336b429158}\label{display_8h_a8d80339a21c583ec2f09e6336b429158}} 
+\index{display.h@{display.h}!display\_cpu\_clk@{display\_cpu\_clk}}
+\index{display\_cpu\_clk@{display\_cpu\_clk}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_clk}{display\_cpu\_clk}}
+{\footnotesize\ttfamily \#define display\+\_\+cpu\+\_\+clk(\begin{DoxyParamCaption}\item[{}]{freq }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(1, 10, \char`\"{}\%i\+MHz\char`\"{}, freq)}
+
+\mbox{\Hypertarget{display_8h_a47c66bd885844808b579dd2350cd34d7}\label{display_8h_a47c66bd885844808b579dd2350cd34d7}} 
+\index{display.h@{display.h}!display\_cpu\_addr\_mode@{display\_cpu\_addr\_mode}}
+\index{display\_cpu\_addr\_mode@{display\_cpu\_addr\_mode}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_addr\_mode}{display\_cpu\_addr\_mode}}
+{\footnotesize\ttfamily \#define display\+\_\+cpu\+\_\+addr\+\_\+mode(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(4, 75, str)}
+
+\mbox{\Hypertarget{display_8h_ac8b5466fb18712cc796e5e6de9dd0984}\label{display_8h_ac8b5466fb18712cc796e5e6de9dd0984}} 
+\index{display.h@{display.h}!display\_l1\_cache\_size@{display\_l1\_cache\_size}}
+\index{display\_l1\_cache\_size@{display\_l1\_cache\_size}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_l1\_cache\_size}{display\_l1\_cache\_size}}
+{\footnotesize\ttfamily \#define display\+\_\+l1\+\_\+cache\+\_\+size(\begin{DoxyParamCaption}\item[{}]{size }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(2, 9, \char`\"{}\%6k\+B\char`\"{}, (uintptr\+\_\+t)(size))}
+
+\mbox{\Hypertarget{display_8h_ab055efbd002d944fa6cee004809c2ec1}\label{display_8h_ab055efbd002d944fa6cee004809c2ec1}} 
+\index{display.h@{display.h}!display\_l2\_cache\_size@{display\_l2\_cache\_size}}
+\index{display\_l2\_cache\_size@{display\_l2\_cache\_size}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_l2\_cache\_size}{display\_l2\_cache\_size}}
+{\footnotesize\ttfamily \#define display\+\_\+l2\+\_\+cache\+\_\+size(\begin{DoxyParamCaption}\item[{}]{size }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(3, 9, \char`\"{}\%6k\+B\char`\"{}, (uintptr\+\_\+t)(size))}
+
+\mbox{\Hypertarget{display_8h_ab6c52f205ec0b159862c8de93d67a34c}\label{display_8h_ab6c52f205ec0b159862c8de93d67a34c}} 
+\index{display.h@{display.h}!display\_l3\_cache\_size@{display\_l3\_cache\_size}}
+\index{display\_l3\_cache\_size@{display\_l3\_cache\_size}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_l3\_cache\_size}{display\_l3\_cache\_size}}
+{\footnotesize\ttfamily \#define display\+\_\+l3\+\_\+cache\+\_\+size(\begin{DoxyParamCaption}\item[{}]{size }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(4, 9, \char`\"{}\%6k\+B\char`\"{}, (uintptr\+\_\+t)(size))}
+
+\mbox{\Hypertarget{display_8h_aae9b9a9bc746d8081ae80b9f278c5863}\label{display_8h_aae9b9a9bc746d8081ae80b9f278c5863}} 
+\index{display.h@{display.h}!display\_memory\_size@{display\_memory\_size}}
+\index{display\_memory\_size@{display\_memory\_size}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_memory\_size}{display\_memory\_size}}
+{\footnotesize\ttfamily \#define display\+\_\+memory\+\_\+size(\begin{DoxyParamCaption}\item[{}]{size }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(5, 9, \char`\"{}\%6k\+B\char`\"{}, (uintptr\+\_\+t)(size))}
+
+\mbox{\Hypertarget{display_8h_a903c666817907f55438a2e4dd61e62bd}\label{display_8h_a903c666817907f55438a2e4dd61e62bd}} 
+\index{display.h@{display.h}!display\_l1\_cache\_speed@{display\_l1\_cache\_speed}}
+\index{display\_l1\_cache\_speed@{display\_l1\_cache\_speed}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_l1\_cache\_speed}{display\_l1\_cache\_speed}}
+{\footnotesize\ttfamily \#define display\+\_\+l1\+\_\+cache\+\_\+speed(\begin{DoxyParamCaption}\item[{}]{speed }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(2, 18, \char`\"{}\%S6kB/s\char`\"{}, (uintptr\+\_\+t)(speed))}
+
+\mbox{\Hypertarget{display_8h_a53c3ebc4041200a194b7b7cfa97cb186}\label{display_8h_a53c3ebc4041200a194b7b7cfa97cb186}} 
+\index{display.h@{display.h}!display\_l2\_cache\_speed@{display\_l2\_cache\_speed}}
+\index{display\_l2\_cache\_speed@{display\_l2\_cache\_speed}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_l2\_cache\_speed}{display\_l2\_cache\_speed}}
+{\footnotesize\ttfamily \#define display\+\_\+l2\+\_\+cache\+\_\+speed(\begin{DoxyParamCaption}\item[{}]{speed }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(3, 18, \char`\"{}\%S6kB/s\char`\"{}, (uintptr\+\_\+t)(speed))}
+
+\mbox{\Hypertarget{display_8h_aee32fa3992b54aeda7e7d67261272d4a}\label{display_8h_aee32fa3992b54aeda7e7d67261272d4a}} 
+\index{display.h@{display.h}!display\_l3\_cache\_speed@{display\_l3\_cache\_speed}}
+\index{display\_l3\_cache\_speed@{display\_l3\_cache\_speed}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_l3\_cache\_speed}{display\_l3\_cache\_speed}}
+{\footnotesize\ttfamily \#define display\+\_\+l3\+\_\+cache\+\_\+speed(\begin{DoxyParamCaption}\item[{}]{speed }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(4, 18, \char`\"{}\%S6kB/s\char`\"{}, (uintptr\+\_\+t)(speed))}
+
+\mbox{\Hypertarget{display_8h_a1887496a7a64d14364fbf61a82c238cd}\label{display_8h_a1887496a7a64d14364fbf61a82c238cd}} 
+\index{display.h@{display.h}!display\_ram\_speed@{display\_ram\_speed}}
+\index{display\_ram\_speed@{display\_ram\_speed}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_ram\_speed}{display\_ram\_speed}}
+{\footnotesize\ttfamily \#define display\+\_\+ram\+\_\+speed(\begin{DoxyParamCaption}\item[{}]{speed }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(5, 18, \char`\"{}\%S6kB/s\char`\"{}, (uintptr\+\_\+t)(speed))}
+
+\mbox{\Hypertarget{display_8h_ab8fd58b4f9c4de83a49b09ab87f076f7}\label{display_8h_ab8fd58b4f9c4de83a49b09ab87f076f7}} 
+\index{display.h@{display.h}!display\_status@{display\_status}}
+\index{display\_status@{display\_status}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_status}{display\_status}}
+{\footnotesize\ttfamily \#define display\+\_\+status(\begin{DoxyParamCaption}\item[{}]{status }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(7, 68, status)}
+
+\mbox{\Hypertarget{display_8h_af88520903af797dcebde50652aa57476}\label{display_8h_af88520903af797dcebde50652aa57476}} 
+\index{display.h@{display.h}!display\_threading@{display\_threading}}
+\index{display\_threading@{display\_threading}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_threading}{display\_threading}}
+{\footnotesize\ttfamily \#define display\+\_\+threading(\begin{DoxyParamCaption}\item[{}]{nb,  }\item[{}]{mode }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7,31, \char`\"{}\%uT (\%s)\char`\"{}, nb, mode)}
+
+\mbox{\Hypertarget{display_8h_a28ddac4c1e53c0ea0678a4d2b5f66f76}\label{display_8h_a28ddac4c1e53c0ea0678a4d2b5f66f76}} 
+\index{display.h@{display.h}!display\_threading\_disabled@{display\_threading\_disabled}}
+\index{display\_threading\_disabled@{display\_threading\_disabled}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_threading\_disabled}{display\_threading\_disabled}}
+{\footnotesize\ttfamily \#define display\+\_\+threading\+\_\+disabled(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(7,31, \char`\"{}Disabled\char`\"{})}
+
+\mbox{\Hypertarget{display_8h_a1beb691a59584189c6e64257c61a64b7}\label{display_8h_a1beb691a59584189c6e64257c61a64b7}} 
+\index{display.h@{display.h}!display\_cpu\_topo\_hybrid@{display\_cpu\_topo\_hybrid}}
+\index{display\_cpu\_topo\_hybrid@{display\_cpu\_topo\_hybrid}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_topo\_hybrid}{display\_cpu\_topo\_hybrid}}
+{\footnotesize\ttfamily \#define display\+\_\+cpu\+\_\+topo\+\_\+hybrid(\begin{DoxyParamCaption}\item[{}]{num\+\_\+pcores,  }\item[{}]{num\+\_\+ecores,  }\item[{}]{num\+\_\+threads }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        clear\_screen\_region(7, 5, 7, 25); \(\backslash\)}
+\DoxyCodeLine{        printf(7, 5, \textcolor{stringliteral}{"{}\%uP+\%uE-\/Cores (\%uT)"{}}, num\_pcores, num\_ecores, num\_threads); \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_ad007f22752cd69d5fbea5aa623e8b70d}\label{display_8h_ad007f22752cd69d5fbea5aa623e8b70d}} 
+\index{display.h@{display.h}!display\_cpu\_topo\_hybrid\_short@{display\_cpu\_topo\_hybrid\_short}}
+\index{display\_cpu\_topo\_hybrid\_short@{display\_cpu\_topo\_hybrid\_short}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_topo\_hybrid\_short}{display\_cpu\_topo\_hybrid\_short}}
+{\footnotesize\ttfamily \#define display\+\_\+cpu\+\_\+topo\+\_\+hybrid\+\_\+short(\begin{DoxyParamCaption}\item[{}]{num\+\_\+threads }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 5, \char`\"{}\%u Threads (Hybrid)\char`\"{}, num\+\_\+threads)}
+
+\mbox{\Hypertarget{display_8h_a5550fcdeaa3b354679d87824081196cd}\label{display_8h_a5550fcdeaa3b354679d87824081196cd}} 
+\index{display.h@{display.h}!display\_cpu\_topo\_multi\_socket@{display\_cpu\_topo\_multi\_socket}}
+\index{display\_cpu\_topo\_multi\_socket@{display\_cpu\_topo\_multi\_socket}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_topo\_multi\_socket}{display\_cpu\_topo\_multi\_socket}}
+{\footnotesize\ttfamily \#define display\+\_\+cpu\+\_\+topo\+\_\+multi\+\_\+socket(\begin{DoxyParamCaption}\item[{}]{num\+\_\+sockets,  }\item[{}]{num\+\_\+cores,  }\item[{}]{num\+\_\+threads }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 5, \char`\"{}\%uS / \%uC / \%u\+T\char`\"{}, num\+\_\+sockets, num\+\_\+cores, num\+\_\+threads)}
+
+\mbox{\Hypertarget{display_8h_a214c5a8ce1759fbfb256caff5815a9d1}\label{display_8h_a214c5a8ce1759fbfb256caff5815a9d1}} 
+\index{display.h@{display.h}!display\_cpu\_topo@{display\_cpu\_topo}}
+\index{display\_cpu\_topo@{display\_cpu\_topo}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_topo}{display\_cpu\_topo}}
+{\footnotesize\ttfamily \#define display\+\_\+cpu\+\_\+topo(\begin{DoxyParamCaption}\item[{}]{num\+\_\+cores,  }\item[{}]{num\+\_\+threads }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 5, \char`\"{}\%u Cores \%u Threads\char`\"{}, num\+\_\+cores, num\+\_\+threads)}
+
+\mbox{\Hypertarget{display_8h_a0fd85e8bed114c2b5e909ed4296007ef}\label{display_8h_a0fd85e8bed114c2b5e909ed4296007ef}} 
+\index{display.h@{display.h}!display\_cpu\_topo\_short@{display\_cpu\_topo\_short}}
+\index{display\_cpu\_topo\_short@{display\_cpu\_topo\_short}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_topo\_short}{display\_cpu\_topo\_short}}
+{\footnotesize\ttfamily \#define display\+\_\+cpu\+\_\+topo\+\_\+short(\begin{DoxyParamCaption}\item[{}]{num\+\_\+cores,  }\item[{}]{num\+\_\+threads }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 5, \char`\"{}\%u Cores (\%uT)\char`\"{},  num\+\_\+cores, num\+\_\+threads)}
+
+\mbox{\Hypertarget{display_8h_adc6f476a415839708b3fcad4bae15ee2}\label{display_8h_adc6f476a415839708b3fcad4bae15ee2}} 
+\index{display.h@{display.h}!display\_spec\_mode@{display\_spec\_mode}}
+\index{display\_spec\_mode@{display\_spec\_mode}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_spec\_mode}{display\_spec\_mode}}
+{\footnotesize\ttfamily \#define display\+\_\+spec\+\_\+mode(\begin{DoxyParamCaption}\item[{}]{mode }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(8,0, mode);}
+
+\mbox{\Hypertarget{display_8h_a5c9a0cf6370e1ab9bab094a555e775e8}\label{display_8h_a5c9a0cf6370e1ab9bab094a555e775e8}} 
+\index{display.h@{display.h}!display\_spec\_ddr@{display\_spec\_ddr}}
+\index{display\_spec\_ddr@{display\_spec\_ddr}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_spec\_ddr}{display\_spec\_ddr}}
+{\footnotesize\ttfamily \#define display\+\_\+spec\+\_\+ddr(\begin{DoxyParamCaption}\item[{}]{freq,  }\item[{}]{type,  }\item[{}]{cl,  }\item[{}]{cl\+\_\+dec,  }\item[{}]{rcd,  }\item[{}]{rp,  }\item[{}]{ras }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(8,5, \textcolor{stringliteral}{"{}\%uMHz (\%s-\/\%u) CAS \%u\%s-\/\%u-\/\%u-\/\%u"{}}, \(\backslash\)}
+\DoxyCodeLine{                freq / 2, type, freq, cl, cl\_dec?\textcolor{stringliteral}{"{}.5"{}}:\textcolor{stringliteral}{"{}"{}}, rcd, rp, ras);}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_ac338f6266ed2f5f37601567f41668527}\label{display_8h_ac338f6266ed2f5f37601567f41668527}} 
+\index{display.h@{display.h}!display\_spec\_sdr@{display\_spec\_sdr}}
+\index{display\_spec\_sdr@{display\_spec\_sdr}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_spec\_sdr}{display\_spec\_sdr}}
+{\footnotesize\ttfamily \#define display\+\_\+spec\+\_\+sdr(\begin{DoxyParamCaption}\item[{}]{freq,  }\item[{}]{type,  }\item[{}]{cl,  }\item[{}]{rcd,  }\item[{}]{rp,  }\item[{}]{ras }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(8,5, \textcolor{stringliteral}{"{}\%uMHz (\%s PC\%u) CAS \%u-\/\%u-\/\%u-\/\%u"{}}, \(\backslash\)}
+\DoxyCodeLine{                freq, type, freq, cl, rcd, rp, ras);}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a87259ef42680720d376a5f01459ac46e}\label{display_8h_a87259ef42680720d376a5f01459ac46e}} 
+\index{display.h@{display.h}!display\_dmi\_mb@{display\_dmi\_mb}}
+\index{display\_dmi\_mb@{display\_dmi\_mb}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_dmi\_mb}{display\_dmi\_mb}}
+{\footnotesize\ttfamily \#define display\+\_\+dmi\+\_\+mb(\begin{DoxyParamCaption}\item[{}]{sys\+\_\+ma,  }\item[{}]{sys\+\_\+sku }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    dmicol = \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(23, dmicol, sys\_man); \(\backslash\)}
+\DoxyCodeLine{    prints(23, dmicol + 1, sys\_sku);}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a54320092168ab89417bb9ac96e3f86f3}\label{display_8h_a54320092168ab89417bb9ac96e3f86f3}} 
+\index{display.h@{display.h}!display\_active\_cpu@{display\_active\_cpu}}
+\index{display\_active\_cpu@{display\_active\_cpu}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_active\_cpu}{display\_active\_cpu}}
+{\footnotesize\ttfamily \#define display\+\_\+active\+\_\+cpu(\begin{DoxyParamCaption}\item[{}]{cpu\+\_\+num }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(8, 7, \textcolor{stringliteral}{"{}Core \#"{}}); \(\backslash\)}
+\DoxyCodeLine{    printi(8, 13, cpu\_num, 3, \textcolor{keyword}{false}, \textcolor{keyword}{true})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a150221f1546f8da08f01a4c6dc8ba93f}\label{display_8h_a150221f1546f8da08f01a4c6dc8ba93f}} 
+\index{display.h@{display.h}!display\_all\_active@{display\_all\_active}}
+\index{display\_all\_active@{display\_all\_active}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_all\_active}{display\_all\_active}}
+{\footnotesize\ttfamily \#define display\+\_\+all\+\_\+active(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(8, 7, \char`\"{}All Cores\char`\"{})}
+
+\mbox{\Hypertarget{display_8h_a4687421c511150669a940637d2f9b26c}\label{display_8h_a4687421c511150669a940637d2f9b26c}} 
+\index{display.h@{display.h}!display\_spinner@{display\_spinner}}
+\index{display\_spinner@{display\_spinner}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_spinner}{display\_spinner}}
+{\footnotesize\ttfamily \#define display\+\_\+spinner(\begin{DoxyParamCaption}\item[{}]{spin\+\_\+state }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a5d7bd1e2fc4ac3ec4d8d8764ab1f646f}{printc}}(7, 77, spin\+\_\+state)}
+
+\mbox{\Hypertarget{display_8h_a14450dfebae26375ae2978d5f1f75342}\label{display_8h_a14450dfebae26375ae2978d5f1f75342}} 
+\index{display.h@{display.h}!display\_pass\_percentage@{display\_pass\_percentage}}
+\index{display\_pass\_percentage@{display\_pass\_percentage}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_pass\_percentage}{display\_pass\_percentage}}
+{\footnotesize\ttfamily \#define display\+\_\+pass\+\_\+percentage(\begin{DoxyParamCaption}\item[{}]{pct }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(1, 34, pct, 3, false, false)}
+
+\mbox{\Hypertarget{display_8h_a19c34b7621a20d69ec17d9400faaf265}\label{display_8h_a19c34b7621a20d69ec17d9400faaf265}} 
+\index{display.h@{display.h}!display\_pass\_bar@{display\_pass\_bar}}
+\index{display\_pass\_bar@{display\_pass\_bar}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_pass\_bar}{display\_pass\_bar}}
+{\footnotesize\ttfamily \#define display\+\_\+pass\+\_\+bar(\begin{DoxyParamCaption}\item[{}]{length }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (length > pass\_bar\_length) \{          \(\backslash\)}
+\DoxyCodeLine{        printc(1, 39 + pass\_bar\_length, \textcolor{charliteral}{'\#'});   \(\backslash\)}
+\DoxyCodeLine{        pass\_bar\_length++;                      \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_af2339eca22e0c84f383bacec8f7c9f18}\label{display_8h_af2339eca22e0c84f383bacec8f7c9f18}} 
+\index{display.h@{display.h}!display\_test\_percentage@{display\_test\_percentage}}
+\index{display\_test\_percentage@{display\_test\_percentage}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_percentage}{display\_test\_percentage}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+percentage(\begin{DoxyParamCaption}\item[{}]{pct }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(2, 34, pct, 3, false, false)}
+
+\mbox{\Hypertarget{display_8h_a6718075d9f2d46a9ee281107deaabc40}\label{display_8h_a6718075d9f2d46a9ee281107deaabc40}} 
+\index{display.h@{display.h}!display\_test\_bar@{display\_test\_bar}}
+\index{display\_test\_bar@{display\_test\_bar}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_bar}{display\_test\_bar}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+bar(\begin{DoxyParamCaption}\item[{}]{length }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (length > test\_bar\_length) \{          \(\backslash\)}
+\DoxyCodeLine{        printc(2, 39 + test\_bar\_length, \textcolor{charliteral}{'\#'});   \(\backslash\)}
+\DoxyCodeLine{        test\_bar\_length++;                      \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a57dbb15bff476747bef13d8019dde704}\label{display_8h_a57dbb15bff476747bef13d8019dde704}} 
+\index{display.h@{display.h}!display\_test\_number@{display\_test\_number}}
+\index{display\_test\_number@{display\_test\_number}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_number}{display\_test\_number}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+number(\begin{DoxyParamCaption}\item[{}]{number }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(3, 36, number, 2, false, true)}
+
+\mbox{\Hypertarget{display_8h_a762a8595dd8934dd26cb879440ececd8}\label{display_8h_a762a8595dd8934dd26cb879440ececd8}} 
+\index{display.h@{display.h}!display\_test\_description@{display\_test\_description}}
+\index{display\_test\_description@{display\_test\_description}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_description}{display\_test\_description}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+description(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(3, 39, str)}
+
+\mbox{\Hypertarget{display_8h_a2697fa4bace1876631aa616c24a135c6}\label{display_8h_a2697fa4bace1876631aa616c24a135c6}} 
+\index{display.h@{display.h}!display\_test\_addresses@{display\_test\_addresses}}
+\index{display\_test\_addresses@{display\_test\_addresses}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_addresses}{display\_test\_addresses}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+addresses(\begin{DoxyParamCaption}\item[{}]{pb,  }\item[{}]{pe,  }\item[{}]{total }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        clear\_screen\_region(4, 39, 4, \mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}} -\/ 6); \(\backslash\)}
+\DoxyCodeLine{        printf(4, 39, \textcolor{stringliteral}{"{}\%kB -\/ \%kB [\%kB of \%kB]"{}}, pb, pe, (pe) -\/ (pb), total); \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a2868d75b8e45f1c5e4f37d92b1a6611b}\label{display_8h_a2868d75b8e45f1c5e4f37d92b1a6611b}} 
+\index{display.h@{display.h}!display\_test\_stage\_description@{display\_test\_stage\_description}}
+\index{display\_test\_stage\_description@{display\_test\_stage\_description}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_stage\_description}{display\_test\_stage\_description}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+stage\+\_\+description(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        clear\_screen\_region(4, 39, 4, \mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}} -\/ 6); \(\backslash\)}
+\DoxyCodeLine{        printf(4, 39, \_\_VA\_ARGS\_\_); \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_ae319808facdb86e3f89601ca2d67e97c}\label{display_8h_ae319808facdb86e3f89601ca2d67e97c}} 
+\index{display.h@{display.h}!display\_test\_pattern\_name@{display\_test\_pattern\_name}}
+\index{display\_test\_pattern\_name@{display\_test\_pattern\_name}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_pattern\_name}{display\_test\_pattern\_name}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+pattern\+\_\+name(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        clear\_screen\_region(5, 39, 5, \mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}} -\/ 1); \(\backslash\)}
+\DoxyCodeLine{        prints(5, 39, str); \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a24031493b81ae39fa6be5d752187a10b}\label{display_8h_a24031493b81ae39fa6be5d752187a10b}} 
+\index{display.h@{display.h}!display\_test\_pattern\_value@{display\_test\_pattern\_value}}
+\index{display\_test\_pattern\_value@{display\_test\_pattern\_value}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_pattern\_value}{display\_test\_pattern\_value}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+pattern\+\_\+value(\begin{DoxyParamCaption}\item[{}]{pattern }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        clear\_screen\_region(5, 39, 5, \mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}} -\/ 1); \(\backslash\)}
+\DoxyCodeLine{        printf(5, 39, \textcolor{stringliteral}{"{}0x\%0*x"{}}, \mbox{\hyperlink{test_8h_ab8a1e30ddf5ce2f838178cc351ba3afb}{TESTWORD\_DIGITS}}, pattern); \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_ad0ab73a9c372586d00e657a157a75075}\label{display_8h_ad0ab73a9c372586d00e657a157a75075}} 
+\index{display.h@{display.h}!display\_test\_pattern\_values@{display\_test\_pattern\_values}}
+\index{display\_test\_pattern\_values@{display\_test\_pattern\_values}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_test\_pattern\_values}{display\_test\_pattern\_values}}
+{\footnotesize\ttfamily \#define display\+\_\+test\+\_\+pattern\+\_\+values(\begin{DoxyParamCaption}\item[{}]{pattern,  }\item[{}]{offset }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        clear\_screen\_region(5, 39, 5, \mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}} -\/ 1); \(\backslash\)}
+\DoxyCodeLine{        printf(5, 39, \textcolor{stringliteral}{"{}0x\%0*x -\/ \%i"{}}, \mbox{\hyperlink{test_8h_ab8a1e30ddf5ce2f838178cc351ba3afb}{TESTWORD\_DIGITS}}, pattern, offset); \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a06920642a092186f0fca49f9326f787f}\label{display_8h_a06920642a092186f0fca49f9326f787f}} 
+\index{display.h@{display.h}!display\_run\_time@{display\_run\_time}}
+\index{display\_run\_time@{display\_run\_time}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_run\_time}{display\_run\_time}}
+{\footnotesize\ttfamily \#define display\+\_\+run\+\_\+time(\begin{DoxyParamCaption}\item[{}]{hours,  }\item[{}]{mins,  }\item[{}]{secs }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(7, 51, \char`\"{}\%i\+:\%02i\+:\%02i\char`\"{}, hours, mins, secs)}
+
+\mbox{\Hypertarget{display_8h_ad916975edc2a1190150a9908ba570b42}\label{display_8h_ad916975edc2a1190150a9908ba570b42}} 
+\index{display.h@{display.h}!display\_pass\_count@{display\_pass\_count}}
+\index{display\_pass\_count@{display\_pass\_count}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_pass\_count}{display\_pass\_count}}
+{\footnotesize\ttfamily \#define display\+\_\+pass\+\_\+count(\begin{DoxyParamCaption}\item[{}]{count }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(8, 51, count, 0, false, true)}
+
+\mbox{\Hypertarget{display_8h_aeb64e96dd466ce57a3065defebdfaff8}\label{display_8h_aeb64e96dd466ce57a3065defebdfaff8}} 
+\index{display.h@{display.h}!display\_error\_count@{display\_error\_count}}
+\index{display\_error\_count@{display\_error\_count}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_error\_count}{display\_error\_count}}
+{\footnotesize\ttfamily \#define display\+\_\+error\+\_\+count(\begin{DoxyParamCaption}\item[{}]{count }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(8, 68, count, 0, false, true)}
+
+\mbox{\Hypertarget{display_8h_aef3dd7ea5ae057b7be94838d9fb2b039}\label{display_8h_aef3dd7ea5ae057b7be94838d9fb2b039}} 
+\index{display.h@{display.h}!clear\_message\_area@{clear\_message\_area}}
+\index{clear\_message\_area@{clear\_message\_area}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{clear\_message\_area}{clear\_message\_area}}
+{\footnotesize\ttfamily \#define clear\+\_\+message\+\_\+area(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        clear\_screen\_region(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\_MESSAGE\_T}}, 0, \mbox{\hyperlink{display_8h_a4af0a09aa9a2d8af4b2979212bdefbd0}{ROW\_MESSAGE\_B}}, \mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}} -\/ 1); \(\backslash\)}
+\DoxyCodeLine{        \mbox{\hyperlink{display_8h_a1a32bf2259fe1cba83ff30837b9a1f09}{scroll\_message\_row}} = \mbox{\hyperlink{display_8h_ac9ff828ad8cbd9704cf33a43eebf8293}{ROW\_SCROLL\_T}} -\/ 1; \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a62d2eca56cf23799c776bd12029a6791}\label{display_8h_a62d2eca56cf23799c776bd12029a6791}} 
+\index{display.h@{display.h}!display\_pinned\_message@{display\_pinned\_message}}
+\index{display\_pinned\_message@{display\_pinned\_message}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_pinned\_message}{display\_pinned\_message}}
+{\footnotesize\ttfamily \#define display\+\_\+pinned\+\_\+message(\begin{DoxyParamCaption}\item[{}]{row,  }\item[{}]{col,  }\item[{}]{... }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}} + row, col, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{display_8h_a64c8718c0808b35fe951b62e27693564}\label{display_8h_a64c8718c0808b35fe951b62e27693564}} 
+\index{display.h@{display.h}!display\_scrolled\_message@{display\_scrolled\_message}}
+\index{display\_scrolled\_message@{display\_scrolled\_message}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_scrolled\_message}{display\_scrolled\_message}}
+{\footnotesize\ttfamily \#define display\+\_\+scrolled\+\_\+message(\begin{DoxyParamCaption}\item[{}]{col,  }\item[{}]{... }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(\mbox{\hyperlink{display_8h_a1a32bf2259fe1cba83ff30837b9a1f09}{scroll\+\_\+message\+\_\+row}}, col, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{display_8h_ab10aa08ffed2d0de4eef9eed421b8c7e}\label{display_8h_ab10aa08ffed2d0de4eef9eed421b8c7e}} 
+\index{display.h@{display.h}!display\_notice@{display\_notice}}
+\index{display\_notice@{display\_notice}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_notice}{display\_notice}}
+{\footnotesize\ttfamily \#define display\+\_\+notice(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}} + 8, (\mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\+\_\+\+WIDTH}} -\/ \mbox{\hyperlink{string_8h_aa6cc9f852e7dce55e590e952677649bd}{strlen}}(str)) / 2, str)}
+
+\mbox{\Hypertarget{display_8h_aaa9548f8b60f635040d952e44d594763}\label{display_8h_aaa9548f8b60f635040d952e44d594763}} 
+\index{display.h@{display.h}!display\_notice\_with\_args@{display\_notice\_with\_args}}
+\index{display\_notice\_with\_args@{display\_notice\_with\_args}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_notice\_with\_args}{display\_notice\_with\_args}}
+{\footnotesize\ttfamily \#define display\+\_\+notice\+\_\+with\+\_\+args(\begin{DoxyParamCaption}\item[{}]{length,  }\item[{}]{... }\end{DoxyParamCaption})~    \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(\mbox{\hyperlink{display_8h_ad0069ac8c2db117b2db94129a2ae2c2e}{ROW\+\_\+\+MESSAGE\+\_\+T}} + 8, (\mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\+\_\+\+WIDTH}} -\/ length) / 2, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{display_8h_a30adb6b600942657bde0cf2ee6436e60}\label{display_8h_a30adb6b600942657bde0cf2ee6436e60}} 
+\index{display.h@{display.h}!clear\_footer\_message@{clear\_footer\_message}}
+\index{clear\_footer\_message@{clear\_footer\_message}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{clear\_footer\_message}{clear\_footer\_message}}
+{\footnotesize\ttfamily \#define clear\+\_\+footer\+\_\+message(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        set\_background\_colour(\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677a283fc479650da98250635b9c3c0e7e50}{WHITE}}); \(\backslash\)}
+\DoxyCodeLine{        clear\_screen\_region(\mbox{\hyperlink{display_8h_afbf1a95bd442269b863033599b1586eb}{ROW\_FOOTER}}, 56, \mbox{\hyperlink{display_8h_afbf1a95bd442269b863033599b1586eb}{ROW\_FOOTER}}, \mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\_WIDTH}} -\/ 1); \(\backslash\)}
+\DoxyCodeLine{        set\_background\_colour(\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677a35d6719cb4d7577c031b3d79057a1b79}{BLUE}});  \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a86650fed73d0d66cf3062893242623c0}\label{display_8h_a86650fed73d0d66cf3062893242623c0}} 
+\index{display.h@{display.h}!display\_footer\_message@{display\_footer\_message}}
+\index{display\_footer\_message@{display\_footer\_message}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_footer\_message}{display\_footer\_message}}
+{\footnotesize\ttfamily \#define display\+\_\+footer\+\_\+message(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        set\_foreground\_colour(\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677a35d6719cb4d7577c031b3d79057a1b79}{BLUE}});  \(\backslash\)}
+\DoxyCodeLine{        prints(\mbox{\hyperlink{display_8h_afbf1a95bd442269b863033599b1586eb}{ROW\_FOOTER}}, 56, str);  \(\backslash\)}
+\DoxyCodeLine{        set\_foreground\_colour(\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677a283fc479650da98250635b9c3c0e7e50}{WHITE}}); \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{display_8h_a89554f66889c1c581fa093891cc3dac1}\label{display_8h_a89554f66889c1c581fa093891cc3dac1}} 
+\index{display.h@{display.h}!trace@{trace}}
+\index{trace@{trace}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{trace}{trace}}
+{\footnotesize\ttfamily \#define trace(\begin{DoxyParamCaption}\item[{}]{my\+\_\+cpu,  }\item[{}]{... }\end{DoxyParamCaption})~    if (\mbox{\hyperlink{config_8h_a47515d03aa3ec4dedbab9618551114db}{enable\+\_\+trace}}) \mbox{\hyperlink{display_8h_acb98b492393e119705da3baee03bb2f8}{do\+\_\+trace}}(my\+\_\+cpu, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{display_8h_a9954ac135a2d887c4ef226806af7cea8}\label{display_8h_a9954ac135a2d887c4ef226806af7cea8}} 
+\index{display.h@{display.h}!display\_mode\_t@{display\_mode\_t}}
+\index{display\_mode\_t@{display\_mode\_t}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_mode\_t}{display\_mode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8}{display\+\_\+mode\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISPLAY\_MODE\_NA@{DISPLAY\_MODE\_NA}!display.h@{display.h}}\index{display.h@{display.h}!DISPLAY\_MODE\_NA@{DISPLAY\_MODE\_NA}}}\mbox{\Hypertarget{display_8h_a9954ac135a2d887c4ef226806af7cea8abffbab2c8a4087f871112416ce7dc073}\label{display_8h_a9954ac135a2d887c4ef226806af7cea8abffbab2c8a4087f871112416ce7dc073}} 
+DISPLAY\+\_\+\+MODE\+\_\+\+NA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISPLAY\_MODE\_SPD@{DISPLAY\_MODE\_SPD}!display.h@{display.h}}\index{display.h@{display.h}!DISPLAY\_MODE\_SPD@{DISPLAY\_MODE\_SPD}}}\mbox{\Hypertarget{display_8h_a9954ac135a2d887c4ef226806af7cea8a078dc80a20e82941e70da923f1aeaebe}\label{display_8h_a9954ac135a2d887c4ef226806af7cea8a078dc80a20e82941e70da923f1aeaebe}} 
+DISPLAY\+\_\+\+MODE\+\_\+\+SPD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISPLAY\_MODE\_IMC@{DISPLAY\_MODE\_IMC}!display.h@{display.h}}\index{display.h@{display.h}!DISPLAY\_MODE\_IMC@{DISPLAY\_MODE\_IMC}}}\mbox{\Hypertarget{display_8h_a9954ac135a2d887c4ef226806af7cea8afe3db70c8874652786b46cdbd54ff936}\label{display_8h_a9954ac135a2d887c4ef226806af7cea8afe3db70c8874652786b46cdbd54ff936}} 
+DISPLAY\+\_\+\+MODE\+\_\+\+IMC&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{display_8h_a407d5033a6f0198221c8a9081d7e807e}\label{display_8h_a407d5033a6f0198221c8a9081d7e807e}} 
+\index{display.h@{display.h}!display\_init@{display\_init}}
+\index{display\_init@{display\_init}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_init()}{display\_init()}}
+{\footnotesize\ttfamily void display\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_a0bdcdfb738801a543af7467525963f77}\label{display_8h_a0bdcdfb738801a543af7467525963f77}} 
+\index{display.h@{display.h}!display\_cpu\_topology@{display\_cpu\_topology}}
+\index{display\_cpu\_topology@{display\_cpu\_topology}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_cpu\_topology()}{display\_cpu\_topology()}}
+{\footnotesize\ttfamily void display\+\_\+cpu\+\_\+topology (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_aa58e58b781c566400f15e09aebfd64b5}\label{display_8h_aa58e58b781c566400f15e09aebfd64b5}} 
+\index{display.h@{display.h}!post\_display\_init@{post\_display\_init}}
+\index{post\_display\_init@{post\_display\_init}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{post\_display\_init()}{post\_display\_init()}}
+{\footnotesize\ttfamily void post\+\_\+display\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_aa8713eebe0ca9915160ba48627405399}\label{display_8h_aa8713eebe0ca9915160ba48627405399}} 
+\index{display.h@{display.h}!display\_start\_run@{display\_start\_run}}
+\index{display\_start\_run@{display\_start\_run}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_start\_run()}{display\_start\_run()}}
+{\footnotesize\ttfamily void display\+\_\+start\+\_\+run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_a6da888b13d9e9ba0b12279c59f98d7c0}\label{display_8h_a6da888b13d9e9ba0b12279c59f98d7c0}} 
+\index{display.h@{display.h}!display\_start\_pass@{display\_start\_pass}}
+\index{display\_start\_pass@{display\_start\_pass}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_start\_pass()}{display\_start\_pass()}}
+{\footnotesize\ttfamily void display\+\_\+start\+\_\+pass (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_a0915122432e9f8f6eaa9b8ecd4294a96}\label{display_8h_a0915122432e9f8f6eaa9b8ecd4294a96}} 
+\index{display.h@{display.h}!display\_start\_test@{display\_start\_test}}
+\index{display\_start\_test@{display\_start\_test}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_start\_test()}{display\_start\_test()}}
+{\footnotesize\ttfamily void display\+\_\+start\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_adf5164930eb413c381b8f3709d4ea4fb}\label{display_8h_adf5164930eb413c381b8f3709d4ea4fb}} 
+\index{display.h@{display.h}!display\_temperature@{display\_temperature}}
+\index{display\_temperature@{display\_temperature}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_temperature()}{display\_temperature()}}
+{\footnotesize\ttfamily void display\+\_\+temperature (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_a5d93ac4d63d34ddc37a5ecc311918a38}\label{display_8h_a5d93ac4d63d34ddc37a5ecc311918a38}} 
+\index{display.h@{display.h}!display\_big\_status@{display\_big\_status}}
+\index{display\_big\_status@{display\_big\_status}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_big\_status()}{display\_big\_status()}}
+{\footnotesize\ttfamily void display\+\_\+big\+\_\+status (\begin{DoxyParamCaption}\item[{bool}]{pass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_ae2d161effc694938b540c83e7073cbb1}\label{display_8h_ae2d161effc694938b540c83e7073cbb1}} 
+\index{display.h@{display.h}!restore\_big\_status@{restore\_big\_status}}
+\index{restore\_big\_status@{restore\_big\_status}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{restore\_big\_status()}{restore\_big\_status()}}
+{\footnotesize\ttfamily void restore\+\_\+big\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_ae922a60101beb5b32a37e58b8d9ba4d0}\label{display_8h_ae922a60101beb5b32a37e58b8d9ba4d0}} 
+\index{display.h@{display.h}!check\_input@{check\_input}}
+\index{check\_input@{check\_input}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{check\_input()}{check\_input()}}
+{\footnotesize\ttfamily void check\+\_\+input (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_abeda621782abf8a225932a41b660ea03}\label{display_8h_abeda621782abf8a225932a41b660ea03}} 
+\index{display.h@{display.h}!set\_scroll\_lock@{set\_scroll\_lock}}
+\index{set\_scroll\_lock@{set\_scroll\_lock}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{set\_scroll\_lock()}{set\_scroll\_lock()}}
+{\footnotesize\ttfamily void set\+\_\+scroll\+\_\+lock (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_a85429facfe750b53c5de3199547ca7c8}\label{display_8h_a85429facfe750b53c5de3199547ca7c8}} 
+\index{display.h@{display.h}!toggle\_scroll\_lock@{toggle\_scroll\_lock}}
+\index{toggle\_scroll\_lock@{toggle\_scroll\_lock}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{toggle\_scroll\_lock()}{toggle\_scroll\_lock()}}
+{\footnotesize\ttfamily void toggle\+\_\+scroll\+\_\+lock (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_a05005f1ebcdff47e3ccc18af05573349}\label{display_8h_a05005f1ebcdff47e3ccc18af05573349}} 
+\index{display.h@{display.h}!scroll@{scroll}}
+\index{scroll@{scroll}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{scroll()}{scroll()}}
+{\footnotesize\ttfamily void scroll (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_ac45baf97a28e041d208c6b8153cb26bb}\label{display_8h_ac45baf97a28e041d208c6b8153cb26bb}} 
+\index{display.h@{display.h}!do\_tick@{do\_tick}}
+\index{do\_tick@{do\_tick}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{do\_tick()}{do\_tick()}}
+{\footnotesize\ttfamily void do\+\_\+tick (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{display_8h_acb98b492393e119705da3baee03bb2f8}\label{display_8h_acb98b492393e119705da3baee03bb2f8}} 
+\index{display.h@{display.h}!do\_trace@{do\_trace}}
+\index{do\_trace@{do\_trace}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{do\_trace()}{do\_trace()}}
+{\footnotesize\ttfamily void do\+\_\+trace (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{display_8h_a1a32bf2259fe1cba83ff30837b9a1f09}\label{display_8h_a1a32bf2259fe1cba83ff30837b9a1f09}} 
+\index{display.h@{display.h}!scroll\_message\_row@{scroll\_message\_row}}
+\index{scroll\_message\_row@{scroll\_message\_row}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{scroll\_message\_row}{scroll\_message\_row}}
+{\footnotesize\ttfamily int scroll\+\_\+message\+\_\+row\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{display_8h_a54a1c7ad3c3db58fb50ed23422d0f54d}\label{display_8h_a54a1c7ad3c3db58fb50ed23422d0f54d}} 
+\index{display.h@{display.h}!display\_mode@{display\_mode}}
+\index{display\_mode@{display\_mode}!display.h@{display.h}}
+\doxysubsubsection{\texorpdfstring{display\_mode}{display\_mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{display_8h_a9954ac135a2d887c4ef226806af7cea8}{display\+\_\+mode\+\_\+t}} display\+\_\+mode\hspace{0.3cm}{\ttfamily [extern]}}
+

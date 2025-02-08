@@ -1,0 +1,994 @@
+\hypertarget{cpuid_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/cpuid.h File Reference}
+\label{cpuid_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpuid.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpuid.h}}
+
+
+Provides access to the CPUID information.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid__version__t}{cpuid\+\_\+version\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structures that hold the collected CPUID information.  \mbox{\hyperlink{cpuid_8h_unioncpuid__version__t}{More...}}\end{DoxyCompactList}\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid__proc__info__t}{cpuid\+\_\+proc\+\_\+info\+\_\+t}}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid__feature__flags__t}{cpuid\+\_\+feature\+\_\+flags\+\_\+t}}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid__vendor__string__t}{cpuid\+\_\+vendor\+\_\+string\+\_\+t}}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid__brand__string__t}{cpuid\+\_\+brand\+\_\+string\+\_\+t}}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid__cache__info__t}{cpuid\+\_\+cache\+\_\+info\+\_\+t}}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid__custom__features}{cpuid\+\_\+custom\+\_\+features}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__topology__t}{cpuid\+\_\+topology\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__info__t}{cpuid\+\_\+info\+\_\+t}}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid4__eax__t}{cpuid4\+\_\+eax\+\_\+t}}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid4__ebx__t}{cpuid4\+\_\+ebx\+\_\+t}}
+\item 
+union \mbox{\hyperlink{cpuid_8h_unioncpuid4__ecx__t}{cpuid4\+\_\+ecx\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__version__t_8____unnamed1____}{cpuid\+\_\+version\+\_\+t.\+\_\+\+\_\+unnamed1\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__proc__info__t_8____unnamed3____}{cpuid\+\_\+proc\+\_\+info\+\_\+t.\+\_\+\+\_\+unnamed3\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__feature__flags__t_8____unnamed5____}{cpuid\+\_\+feature\+\_\+flags\+\_\+t.\+\_\+\+\_\+unnamed5\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__cache__info__t_8____unnamed7____}{cpuid\+\_\+cache\+\_\+info\+\_\+t.\+\_\+\+\_\+unnamed7\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__custom__features_8____unnamed9____}{cpuid\+\_\+custom\+\_\+features.\+\_\+\+\_\+unnamed9\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid4__eax__t_8____unnamed11____}{cpuid4\+\_\+eax\+\_\+t.\+\_\+\+\_\+unnamed11\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid4__ebx__t_8____unnamed13____}{cpuid4\+\_\+ebx\+\_\+t.\+\_\+\+\_\+unnamed13\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid4__ecx__t_8____unnamed15____}{cpuid4\+\_\+ecx\+\_\+t.\+\_\+\+\_\+unnamed15\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{cpuid_8h_a682afd660bb03b41e2988d4640cad3e2}{CPU\+\_\+\+ECORE\+\_\+\+ID}}~0x20
+\item 
+\#define \mbox{\hyperlink{cpuid_8h_a63eabf2b03932eb7ef84ef1aa92d912b}{CPU\+\_\+\+PCORE\+\_\+\+ID}}~0x40
+\item 
+\#define \mbox{\hyperlink{cpuid_8h_aa0e73488d3d7797087925d68811fa99a}{CPUID\+\_\+\+VENDOR\+\_\+\+LENGTH}}~3
+\item 
+\#define \mbox{\hyperlink{cpuid_8h_aa65d9abba5ef5b0808d9b78c60da153f}{CPUID\+\_\+\+VENDOR\+\_\+\+STR\+\_\+\+LENGTH}}~(\mbox{\hyperlink{cpuid_8h_aa0e73488d3d7797087925d68811fa99a}{CPUID\+\_\+\+VENDOR\+\_\+\+LENGTH}} $\ast$ sizeof(uint32\+\_\+t) + 1)
+\item 
+\#define \mbox{\hyperlink{cpuid_8h_a7a3a62abbe7b4c10e9852caf75e220e6}{CPUID\+\_\+\+BRAND\+\_\+\+LENGTH}}~12
+\item 
+\#define \mbox{\hyperlink{cpuid_8h_aea32ad003e9dfd8705906c3bb61a3873}{CPUID\+\_\+\+BRAND\+\_\+\+STR\+\_\+\+LENGTH}}~(\mbox{\hyperlink{cpuid_8h_a7a3a62abbe7b4c10e9852caf75e220e6}{CPUID\+\_\+\+BRAND\+\_\+\+LENGTH}} $\ast$ sizeof(uint32\+\_\+t) + 1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\+\_\+type\+\_\+t}} \{ \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edda7ca4b522aeddae5d17e8f06bcc59732d}{CORE\+\_\+\+UNKNOWN}}
+, \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edda0cbc9f3d8f01383a697ca5333b9abd1d}{CORE\+\_\+\+PCORE}}
+, \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0eddafccf1b7a612b410d619b17f25b3703a8}{CORE\+\_\+\+ECORE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{cpuid_8h_a366ad2db74acf179f3777a75ac5d351a}{cpuid\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Reads the CPUID information and stores it in cpuid\+\_\+info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\+\_\+type\+\_\+t}} \mbox{\hyperlink{cpuid_8h_a9b239bad508d61a45347cbc73175c7d3}{get\+\_\+ap\+\_\+hybrid\+\_\+type}} (void)
+\begin{DoxyCompactList}\small\item\em Return the Core Type (for Hybrid CPUs) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{cpuid_8h_a7e36a193c1c5d485fc09f36a5efb4a53}{cpuid}} (uint32\+\_\+t op, uint32\+\_\+t count, uint32\+\_\+t $\ast$eax, uint32\+\_\+t $\ast$ebx, uint32\+\_\+t $\ast$ecx, uint32\+\_\+t $\ast$edx)
+\begin{DoxyCompactList}\small\item\em Executes the cpuid instruction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cpuid_8h_structcpuid__info__t}{cpuid\+\_\+info\+\_\+t}} \mbox{\hyperlink{cpuid_8h_a7fe370d39fee35d0945fcf660fc27c38}{cpuid\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em The CPUID information collected by \mbox{\hyperlink{cpuid_8h_a366ad2db74acf179f3777a75ac5d351a}{cpuid\+\_\+init()}};. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides access to the CPUID information. 
+
+
+
+\doxysubsection{Data Structure Documentation}
+\index{cpuid\_version\_t@{cpuid\_version\_t}}\label{unioncpuid__version__t}
+\Hypertarget{cpuid_8h_unioncpuid__version__t}
+\doxysubsubsection{union cpuid\+\_\+version\+\_\+t}
+Structures that hold the collected CPUID information. \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a4fa50fe6818f420d50be93852bccb648}\label{cpuid_8h_a4fa50fe6818f420d50be93852bccb648}} 
+uint32\_t&
+raw&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aecbf7606291d229da180c0588e3d2cf1}\label{cpuid_8h_aecbf7606291d229da180c0588e3d2cf1}} 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__version__t_8____unnamed1____}{cpuid\_version\_t.\_\_unnamed1\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_proc\_info\_t@{cpuid\_proc\_info\_t}}\label{unioncpuid__proc__info__t}
+\Hypertarget{cpuid_8h_unioncpuid__proc__info__t}
+\doxysubsubsection{union cpuid\+\_\+proc\+\_\+info\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_aa314fa6ffffaa246cf0c7832413ec580}\label{cpuid_8h_aa314fa6ffffaa246cf0c7832413ec580}} 
+uint32\_t&
+raw&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a967b351b6d9cf3cae4b2ffac38a189b9}\label{cpuid_8h_a967b351b6d9cf3cae4b2ffac38a189b9}} 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__proc__info__t_8____unnamed3____}{cpuid\_proc\_info\_t.\_\_unnamed3\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_feature\_flags\_t@{cpuid\_feature\_flags\_t}}\label{unioncpuid__feature__flags__t}
+\Hypertarget{cpuid_8h_unioncpuid__feature__flags__t}
+\doxysubsubsection{union cpuid\+\_\+feature\+\_\+flags\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a34ad81d029b63968cf489f8aa67b0bb7}\label{cpuid_8h_a34ad81d029b63968cf489f8aa67b0bb7}} 
+uint32\_t&
+raw\mbox{[}3\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a671969da0b21cf8792c88f7062f93ffd}\label{cpuid_8h_a671969da0b21cf8792c88f7062f93ffd}} 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__feature__flags__t_8____unnamed5____}{cpuid\_feature\_flags\_t.\_\_unnamed5\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_vendor\_string\_t@{cpuid\_vendor\_string\_t}}\label{unioncpuid__vendor__string__t}
+\Hypertarget{cpuid_8h_unioncpuid__vendor__string__t}
+\doxysubsubsection{union cpuid\+\_\+vendor\+\_\+string\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_acd87bd1a1657a9734c1f32dbcbe5f869}\label{cpuid_8h_acd87bd1a1657a9734c1f32dbcbe5f869}} 
+uint32\_t&
+raw\mbox{[}\mbox{\hyperlink{cpuid_8h_aa0e73488d3d7797087925d68811fa99a}{CPUID\_VENDOR\_LENGTH}}\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a9d34cbbffdc1643611929a307314b470}\label{cpuid_8h_a9d34cbbffdc1643611929a307314b470}} 
+char&
+str\mbox{[}\mbox{\hyperlink{cpuid_8h_aa65d9abba5ef5b0808d9b78c60da153f}{CPUID\_VENDOR\_STR\_LENGTH}}\mbox{]}&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_brand\_string\_t@{cpuid\_brand\_string\_t}}\label{unioncpuid__brand__string__t}
+\Hypertarget{cpuid_8h_unioncpuid__brand__string__t}
+\doxysubsubsection{union cpuid\+\_\+brand\+\_\+string\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_afac7cc101b25efc6e8e8aa4b04dc727e}\label{cpuid_8h_afac7cc101b25efc6e8e8aa4b04dc727e}} 
+uint32\_t&
+raw\mbox{[}\mbox{\hyperlink{cpuid_8h_a7a3a62abbe7b4c10e9852caf75e220e6}{CPUID\_BRAND\_LENGTH}}\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a6e0bcea5beb50f23e1e82ed7023f1f61}\label{cpuid_8h_a6e0bcea5beb50f23e1e82ed7023f1f61}} 
+char&
+str\mbox{[}\mbox{\hyperlink{cpuid_8h_aea32ad003e9dfd8705906c3bb61a3873}{CPUID\_BRAND\_STR\_LENGTH}}\mbox{]}&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_cache\_info\_t@{cpuid\_cache\_info\_t}}\label{unioncpuid__cache__info__t}
+\Hypertarget{cpuid_8h_unioncpuid__cache__info__t}
+\doxysubsubsection{union cpuid\+\_\+cache\+\_\+info\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a85748e6aca16cd448eaaef1dce587b62}\label{cpuid_8h_a85748e6aca16cd448eaaef1dce587b62}} 
+uint32\_t&
+raw\mbox{[}12\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_abbce34fcec082d7d5ec25f85da8377f0}\label{cpuid_8h_abbce34fcec082d7d5ec25f85da8377f0}} 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__cache__info__t_8____unnamed7____}{cpuid\_cache\_info\_t.\_\_unnamed7\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_custom\_features@{cpuid\_custom\_features}}\label{unioncpuid__custom__features}
+\Hypertarget{cpuid_8h_unioncpuid__custom__features}
+\doxysubsubsection{union cpuid\+\_\+custom\+\_\+features}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a044f6dc0b2ccba10b2adea8ee85a7067}\label{cpuid_8h_a044f6dc0b2ccba10b2adea8ee85a7067}} 
+uint32\_t&
+raw&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a459997a6e08dd8a243e0d663f4e76041}\label{cpuid_8h_a459997a6e08dd8a243e0d663f4e76041}} 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid__custom__features_8____unnamed9____}{cpuid\_custom\_features.\_\_unnamed9\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_topology\_t@{cpuid\_topology\_t}}\label{structcpuid__topology__t}
+\Hypertarget{cpuid_8h_structcpuid__topology__t}
+\doxysubsubsection{struct cpuid\+\_\+topology\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a6bbb1711489ef40fff5d0eb878b8e08e}\label{cpuid_8h_a6bbb1711489ef40fff5d0eb878b8e08e}} 
+int&
+core\_count&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a8d48bd97511d3dedd0e44d3213510f25}\label{cpuid_8h_a8d48bd97511d3dedd0e44d3213510f25}} 
+int&
+thread\_count&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a609e71d5e33d3535e06425dfec76e9a6}\label{cpuid_8h_a609e71d5e33d3535e06425dfec76e9a6}} 
+int&
+is\_hybrid&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a5bb52221d96605aeaf339662580f335a}\label{cpuid_8h_a5bb52221d96605aeaf339662580f335a}} 
+int&
+ecore\_count&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a97c3303baea497fd2881e83507a9ab69}\label{cpuid_8h_a97c3303baea497fd2881e83507a9ab69}} 
+int&
+pcore\_count&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_info\_t@{cpuid\_info\_t}}\label{structcpuid__info__t}
+\Hypertarget{cpuid_8h_structcpuid__info__t}
+\doxysubsubsection{struct cpuid\+\_\+info\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_abbcb4dfa38ce9aab1477fed03af9976b}\label{cpuid_8h_abbcb4dfa38ce9aab1477fed03af9976b}} 
+uint32\_t&
+max\_cpuid&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a697fe5753b18645a86a19b0aba7e9f46}\label{cpuid_8h_a697fe5753b18645a86a19b0aba7e9f46}} 
+uint32\_t&
+max\_xcpuid&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ac369136b0d60175728d3533335d91678}\label{cpuid_8h_ac369136b0d60175728d3533335d91678}} 
+uint32\_t&
+dts\_pmp&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aa94126ef0a85a82372b4f5fe9a8a8825}\label{cpuid_8h_aa94126ef0a85a82372b4f5fe9a8a8825}} 
+\mbox{\hyperlink{cpuid_8h_unioncpuid__version__t}{cpuid\_version\_t}}&
+version&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ab730f582d24afe5d7fe8c925d09a3021}\label{cpuid_8h_ab730f582d24afe5d7fe8c925d09a3021}} 
+\mbox{\hyperlink{cpuid_8h_unioncpuid__proc__info__t}{cpuid\_proc\_info\_t}}&
+proc\_info&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aec4296e2484ed81292bd54484c8cef76}\label{cpuid_8h_aec4296e2484ed81292bd54484c8cef76}} 
+\mbox{\hyperlink{cpuid_8h_unioncpuid__feature__flags__t}{cpuid\_feature\_flags\_t}}&
+flags&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ad8230f6f3fc1e4ada36bd87f46c9c1e2}\label{cpuid_8h_ad8230f6f3fc1e4ada36bd87f46c9c1e2}} 
+\mbox{\hyperlink{cpuid_8h_unioncpuid__vendor__string__t}{cpuid\_vendor\_string\_t}}&
+vendor\_id&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aa12394374cef024c538cc1070b6e0d1a}\label{cpuid_8h_aa12394374cef024c538cc1070b6e0d1a}} 
+\mbox{\hyperlink{cpuid_8h_unioncpuid__brand__string__t}{cpuid\_brand\_string\_t}}&
+brand\_id&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a465f3e53d66d625614c20976d4ddcaac}\label{cpuid_8h_a465f3e53d66d625614c20976d4ddcaac}} 
+\mbox{\hyperlink{cpuid_8h_unioncpuid__cache__info__t}{cpuid\_cache\_info\_t}}&
+cache\_info&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ae055c54f73078d9478be7116b68b63a2}\label{cpuid_8h_ae055c54f73078d9478be7116b68b63a2}} 
+\mbox{\hyperlink{cpuid_8h_unioncpuid__custom__features}{cpuid\_custom\_features}}&
+custom&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a9d57716532db57e5c66e07cf0cf9db63}\label{cpuid_8h_a9d57716532db57e5c66e07cf0cf9db63}} 
+\mbox{\hyperlink{cpuid_8h_structcpuid__topology__t}{cpuid\_topology\_t}}&
+topology&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid4\_eax\_t@{cpuid4\_eax\_t}}\label{unioncpuid4__eax__t}
+\Hypertarget{cpuid_8h_unioncpuid4__eax__t}
+\doxysubsubsection{union cpuid4\+\_\+eax\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_ae74e30eb29248fe645c63a0616c937ea}\label{cpuid_8h_ae74e30eb29248fe645c63a0616c937ea}} 
+uint32\_t&
+raw&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7b04a7df083e2e55b5e9bfbfba154ba0}\label{cpuid_8h_a7b04a7df083e2e55b5e9bfbfba154ba0}} 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid4__eax__t_8____unnamed11____}{cpuid4\_eax\_t.\_\_unnamed11\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid4\_ebx\_t@{cpuid4\_ebx\_t}}\label{unioncpuid4__ebx__t}
+\Hypertarget{cpuid_8h_unioncpuid4__ebx__t}
+\doxysubsubsection{union cpuid4\+\_\+ebx\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a2aa3739a47e3722d832ce157c2c152e0}\label{cpuid_8h_a2aa3739a47e3722d832ce157c2c152e0}} 
+uint32\_t&
+raw&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7d84e1a3123edaf6245c3f39366d9a7b}\label{cpuid_8h_a7d84e1a3123edaf6245c3f39366d9a7b}} 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid4__ebx__t_8____unnamed13____}{cpuid4\_ebx\_t.\_\_unnamed13\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid4\_ecx\_t@{cpuid4\_ecx\_t}}\label{unioncpuid4__ecx__t}
+\Hypertarget{cpuid_8h_unioncpuid4__ecx__t}
+\doxysubsubsection{union cpuid4\+\_\+ecx\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_ad83c7bcf2dc5d41b95fe6265b5970572}\label{cpuid_8h_ad83c7bcf2dc5d41b95fe6265b5970572}} 
+uint32\_t&
+raw&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a074858b0e154012e43c752e3b88fea65}\label{cpuid_8h_a074858b0e154012e43c752e3b88fea65}} 
+struct \mbox{\hyperlink{cpuid_8h_structcpuid4__ecx__t_8____unnamed15____}{cpuid4\_ecx\_t.\_\_unnamed15\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_version\_t.\_\_unnamed1\_\_@{cpuid\_version\_t.\_\_unnamed1\_\_}}\label{structcpuid__version__t_8____unnamed1____}
+\Hypertarget{cpuid_8h_structcpuid__version__t_8____unnamed1____}
+\doxysubsubsection{struct cpuid\+\_\+version\+\_\+t.\+\_\+\+\_\+unnamed1\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_ac50c7d354b9bcf097722ffbce38990a4}\label{cpuid_8h_ac50c7d354b9bcf097722ffbce38990a4}} 
+uint32\_t&
+stepping: 4&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a20f35e630daf44dbfa4c3f68f5399d8c}\label{cpuid_8h_a20f35e630daf44dbfa4c3f68f5399d8c}} 
+uint32\_t&
+model: 4&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a0d3fda0bdbb9d619e09cdf3eecba7999}\label{cpuid_8h_a0d3fda0bdbb9d619e09cdf3eecba7999}} 
+uint32\_t&
+family: 4&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a4043fd3167d153ca02ef44d0a6a2e297}\label{cpuid_8h_a4043fd3167d153ca02ef44d0a6a2e297}} 
+uint32\_t&
+processorType: 2&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a74a47a7eac047138ff811ede153943e6}\label{cpuid_8h_a74a47a7eac047138ff811ede153943e6}} 
+uint32\_t&
+\_\_pad0\_\_: 2&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a0a761e2d0d16a2c4ba95ea8b76247876}\label{cpuid_8h_a0a761e2d0d16a2c4ba95ea8b76247876}} 
+uint32\_t&
+extendedModel: 4&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_af0888619f7bb741dfa2d14c1300e3b03}\label{cpuid_8h_af0888619f7bb741dfa2d14c1300e3b03}} 
+uint32\_t&
+extendedFamily: 8&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_abb67792e94e88254ca5afecf7c26c912}\label{cpuid_8h_abb67792e94e88254ca5afecf7c26c912}} 
+uint32\_t&
+\_\_pad1\_\_: 4&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_proc\_info\_t.\_\_unnamed3\_\_@{cpuid\_proc\_info\_t.\_\_unnamed3\_\_}}\label{structcpuid__proc__info__t_8____unnamed3____}
+\Hypertarget{cpuid_8h_structcpuid__proc__info__t_8____unnamed3____}
+\doxysubsubsection{struct cpuid\+\_\+proc\+\_\+info\+\_\+t.\+\_\+\+\_\+unnamed3\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a8d20363fe66ec0b12b75af5d91349c26}\label{cpuid_8h_a8d20363fe66ec0b12b75af5d91349c26}} 
+uint32\_t&
+brandIndex: 8&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ab020bb6f48f23b9fd5f6ea2b95726a3c}\label{cpuid_8h_ab020bb6f48f23b9fd5f6ea2b95726a3c}} 
+uint32\_t&
+cflushLineSize: 8&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a5347862793835a5e037b86d972c451e7}\label{cpuid_8h_a5347862793835a5e037b86d972c451e7}} 
+uint32\_t&
+logicalProcessorCount: 8&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a2b6bb89e45efdf58aac91d616b74081f}\label{cpuid_8h_a2b6bb89e45efdf58aac91d616b74081f}} 
+uint32\_t&
+apicID: 8&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_feature\_flags\_t.\_\_unnamed5\_\_@{cpuid\_feature\_flags\_t.\_\_unnamed5\_\_}}\label{structcpuid__feature__flags__t_8____unnamed5____}
+\Hypertarget{cpuid_8h_structcpuid__feature__flags__t_8____unnamed5____}
+\doxysubsubsection{struct cpuid\+\_\+feature\+\_\+flags\+\_\+t.\+\_\+\+\_\+unnamed5\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a0075ab5617d7f0d01c017e92e8a46e22}\label{cpuid_8h_a0075ab5617d7f0d01c017e92e8a46e22}} 
+uint32\_t&
+fpu: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aa53a5e4d23a31714c273bf4371a86370}\label{cpuid_8h_aa53a5e4d23a31714c273bf4371a86370}} 
+uint32\_t&
+vme: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a5f02f0889301fd7be1ac972c11bf3e7d}\label{cpuid_8h_a5f02f0889301fd7be1ac972c11bf3e7d}} 
+uint32\_t&
+de: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a30ea0a768cc9d95255e241efe585e23a}\label{cpuid_8h_a30ea0a768cc9d95255e241efe585e23a}} 
+uint32\_t&
+pse: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a8d1c08f363430a732447e2976f2cbc39}\label{cpuid_8h_a8d1c08f363430a732447e2976f2cbc39}} 
+uint32\_t&
+rdtsc: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a38b33779833838a98c2a241ce465fb07}\label{cpuid_8h_a38b33779833838a98c2a241ce465fb07}} 
+uint32\_t&
+msr: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a6d2d25cac6ce5b576c4509e535e4d3d4}\label{cpuid_8h_a6d2d25cac6ce5b576c4509e535e4d3d4}} 
+uint32\_t&
+pae: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ac5f6e3479d45dbb807d46852a6a3b077}\label{cpuid_8h_ac5f6e3479d45dbb807d46852a6a3b077}} 
+uint32\_t&
+mce: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a5eabcd73ed254393ddcd7adb7455c548}\label{cpuid_8h_a5eabcd73ed254393ddcd7adb7455c548}} 
+uint32\_t&
+cx8: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_acf60064f9f54d08844113c5d696a1a9c}\label{cpuid_8h_acf60064f9f54d08844113c5d696a1a9c}} 
+uint32\_t&
+apic: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a74a47a7eac047138ff811ede153943e6}\label{cpuid_8h_a74a47a7eac047138ff811ede153943e6}} 
+uint32\_t&
+\_\_pad0\_\_: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a314e9e118b3026ce64b768b84a22d816}\label{cpuid_8h_a314e9e118b3026ce64b768b84a22d816}} 
+uint32\_t&
+sep: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ab95750d137948788b3832f39bbe2deac}\label{cpuid_8h_ab95750d137948788b3832f39bbe2deac}} 
+uint32\_t&
+mtrr: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a57b79e0c137349ec8176add14e947652}\label{cpuid_8h_a57b79e0c137349ec8176add14e947652}} 
+uint32\_t&
+pge: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7b8a3544637ef0e8fd2859095876e461}\label{cpuid_8h_a7b8a3544637ef0e8fd2859095876e461}} 
+uint32\_t&
+mca: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a4d83d8b75d75dfbb6a9bf86d38c12a22}\label{cpuid_8h_a4d83d8b75d75dfbb6a9bf86d38c12a22}} 
+uint32\_t&
+cmov: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7852341745c93238222a65a910d1dcc5}\label{cpuid_8h_a7852341745c93238222a65a910d1dcc5}} 
+uint32\_t&
+pat: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_acf7c96b3df44426c2626f7ca8c52f753}\label{cpuid_8h_acf7c96b3df44426c2626f7ca8c52f753}} 
+uint32\_t&
+pse36: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_acac464deb2b2bd3dc39218b649769f4b}\label{cpuid_8h_acac464deb2b2bd3dc39218b649769f4b}} 
+uint32\_t&
+psn: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7c866d0e186e19464be3e1ee51333e7e}\label{cpuid_8h_a7c866d0e186e19464be3e1ee51333e7e}} 
+uint32\_t&
+cflush: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_abb67792e94e88254ca5afecf7c26c912}\label{cpuid_8h_abb67792e94e88254ca5afecf7c26c912}} 
+uint32\_t&
+\_\_pad1\_\_: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a522748524ad010358705b6852b81be4c}\label{cpuid_8h_a522748524ad010358705b6852b81be4c}} 
+uint32\_t&
+ds: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a0512868916a7081afcfb789198de0f37}\label{cpuid_8h_a0512868916a7081afcfb789198de0f37}} 
+uint32\_t&
+acpi: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ac1cdb8620588857c5b18f05191f45bb2}\label{cpuid_8h_ac1cdb8620588857c5b18f05191f45bb2}} 
+uint32\_t&
+mmx: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7491a2b0ae270956a0f093f2604a09fd}\label{cpuid_8h_a7491a2b0ae270956a0f093f2604a09fd}} 
+uint32\_t&
+fxsr: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a64192ca465194480a4621d6905dac5b7}\label{cpuid_8h_a64192ca465194480a4621d6905dac5b7}} 
+uint32\_t&
+sse: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a0303bb014717eba9fdeae96c3629fe5f}\label{cpuid_8h_a0303bb014717eba9fdeae96c3629fe5f}} 
+uint32\_t&
+sse2: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a3691308f2a4c2f6983f2880d32e29c84}\label{cpuid_8h_a3691308f2a4c2f6983f2880d32e29c84}} 
+uint32\_t&
+ss: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ad7bb3ab3115058ecbc7b0ce22221fd1f}\label{cpuid_8h_ad7bb3ab3115058ecbc7b0ce22221fd1f}} 
+uint32\_t&
+htt: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a6a962563e235e1789e663e356ac8d9e4}\label{cpuid_8h_a6a962563e235e1789e663e356ac8d9e4}} 
+uint32\_t&
+tm: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ac82e901c7332ea6192022fbe4748a268}\label{cpuid_8h_ac82e901c7332ea6192022fbe4748a268}} 
+uint32\_t&
+bit30: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a015704ef80eacdde3751702f30f4d980}\label{cpuid_8h_a015704ef80eacdde3751702f30f4d980}} 
+uint32\_t&
+pbe: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7cdc7261ebf2b2d468ff2d8e2e33c120}\label{cpuid_8h_a7cdc7261ebf2b2d468ff2d8e2e33c120}} 
+uint32\_t&
+sse3: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a516ec37ea423497c9ee05a2efdfd2669}\label{cpuid_8h_a516ec37ea423497c9ee05a2efdfd2669}} 
+uint32\_t&
+mulq: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7475e5eb03d1e898bcdd6ad329107947}\label{cpuid_8h_a7475e5eb03d1e898bcdd6ad329107947}} 
+uint32\_t&
+bit2: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a197639b278057c519189add5413712e3}\label{cpuid_8h_a197639b278057c519189add5413712e3}} 
+uint32\_t&
+mon: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a05f15f2a4d0bf3f75edffca45c5e7624}\label{cpuid_8h_a05f15f2a4d0bf3f75edffca45c5e7624}} 
+uint32\_t&
+dscpl: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a6c096a5ac5041d94699db9c11917cc22}\label{cpuid_8h_a6c096a5ac5041d94699db9c11917cc22}} 
+uint32\_t&
+vmx: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a067978902b11982fb6ded827a5caa47a}\label{cpuid_8h_a067978902b11982fb6ded827a5caa47a}} 
+uint32\_t&
+smx: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ab992db19975ef812b22fdf5f0baf705c}\label{cpuid_8h_ab992db19975ef812b22fdf5f0baf705c}} 
+uint32\_t&
+eist: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a76a6c2f5d880a1f93ab07844e96a3e6b}\label{cpuid_8h_a76a6c2f5d880a1f93ab07844e96a3e6b}} 
+uint32\_t&
+tm2: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a2780c6c77e1f937563d98e2f517c2aeb}\label{cpuid_8h_a2780c6c77e1f937563d98e2f517c2aeb}} 
+uint32\_t&
+\_\_pad2\_\_: 12&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a070967278e54c427857a28b1c04b3cec}\label{cpuid_8h_a070967278e54c427857a28b1c04b3cec}} 
+uint32\_t&
+x2apic: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ad30f3f7ff6b12f7b97db2c89403b4238}\label{cpuid_8h_ad30f3f7ff6b12f7b97db2c89403b4238}} 
+uint32\_t&
+\_\_pad3\_\_: 10&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a72d43dbd74859e7e4034c3a0b841b13b}\label{cpuid_8h_a72d43dbd74859e7e4034c3a0b841b13b}} 
+uint32\_t&
+\_\_pad4\_\_: 29&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a192292e35fbe73f6d2b8d96bd1b6697d}\label{cpuid_8h_a192292e35fbe73f6d2b8d96bd1b6697d}} 
+uint32\_t&
+lm: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aa21d2e400f4a490884ff4a16110236f4}\label{cpuid_8h_aa21d2e400f4a490884ff4a16110236f4}} 
+uint32\_t&
+\_\_pad5\_\_: 2&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_cache\_info\_t.\_\_unnamed7\_\_@{cpuid\_cache\_info\_t.\_\_unnamed7\_\_}}\label{structcpuid__cache__info__t_8____unnamed7____}
+\Hypertarget{cpuid_8h_structcpuid__cache__info__t_8____unnamed7____}
+\doxysubsubsection{struct cpuid\+\_\+cache\+\_\+info\+\_\+t.\+\_\+\+\_\+unnamed7\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a74a47a7eac047138ff811ede153943e6}\label{cpuid_8h_a74a47a7eac047138ff811ede153943e6}} 
+uint32\_t&
+\_\_pad0\_\_: 24&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aa5f87272671ec132966d6c6647f391b8}\label{cpuid_8h_aa5f87272671ec132966d6c6647f391b8}} 
+uint32\_t&
+l1\_i\_size: 8&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_abb67792e94e88254ca5afecf7c26c912}\label{cpuid_8h_abb67792e94e88254ca5afecf7c26c912}} 
+uint32\_t&
+\_\_pad1\_\_: 24&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a2f55f77e6d51db2fcc8a0b3c99b62c20}\label{cpuid_8h_a2f55f77e6d51db2fcc8a0b3c99b62c20}} 
+uint32\_t&
+l1\_d\_size: 8&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a2780c6c77e1f937563d98e2f517c2aeb}\label{cpuid_8h_a2780c6c77e1f937563d98e2f517c2aeb}} 
+uint32\_t&
+\_\_pad2\_\_: 16&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ab27bbc4259c51e514f536557d314ce52}\label{cpuid_8h_ab27bbc4259c51e514f536557d314ce52}} 
+uint32\_t&
+l2\_size: 16&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ad30f3f7ff6b12f7b97db2c89403b4238}\label{cpuid_8h_ad30f3f7ff6b12f7b97db2c89403b4238}} 
+uint32\_t&
+\_\_pad3\_\_: 18&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aac82d431e6482f23dcf63b64416de982}\label{cpuid_8h_aac82d431e6482f23dcf63b64416de982}} 
+uint32\_t&
+l3\_size: 14&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid\_custom\_features.\_\_unnamed9\_\_@{cpuid\_custom\_features.\_\_unnamed9\_\_}}\label{structcpuid__custom__features_8____unnamed9____}
+\Hypertarget{cpuid_8h_structcpuid__custom__features_8____unnamed9____}
+\doxysubsubsection{struct cpuid\+\_\+custom\+\_\+features.\+\_\+\+\_\+unnamed9\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a74a47a7eac047138ff811ede153943e6}\label{cpuid_8h_a74a47a7eac047138ff811ede153943e6}} 
+uint32\_t&
+\_\_pad0\_\_: 1&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid4\_eax\_t.\_\_unnamed11\_\_@{cpuid4\_eax\_t.\_\_unnamed11\_\_}}\label{structcpuid4__eax__t_8____unnamed11____}
+\Hypertarget{cpuid_8h_structcpuid4__eax__t_8____unnamed11____}
+\doxysubsubsection{struct cpuid4\+\_\+eax\+\_\+t.\+\_\+\+\_\+unnamed11\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a0cc9cc73ee8fb2aca47ef76287572fdd}\label{cpuid_8h_a0cc9cc73ee8fb2aca47ef76287572fdd}} 
+uint32\_t&
+ctype: 5&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_ac9e9a848920877e76685b2e4e76de38d}\label{cpuid_8h_ac9e9a848920877e76685b2e4e76de38d}} 
+uint32\_t&
+level: 3&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_aa33b18ef10976560447c951af21cfb82}\label{cpuid_8h_aa33b18ef10976560447c951af21cfb82}} 
+uint32\_t&
+is\_self\_initializing: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a904bd94f31e2135e01afeb40876f7d62}\label{cpuid_8h_a904bd94f31e2135e01afeb40876f7d62}} 
+uint32\_t&
+is\_fully\_associative: 1&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a7f005c3fa691e77c52d3297cc2699072}\label{cpuid_8h_a7f005c3fa691e77c52d3297cc2699072}} 
+uint32\_t&
+reserved: 4&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a765387672be979ac20f47c9dbd875c71}\label{cpuid_8h_a765387672be979ac20f47c9dbd875c71}} 
+uint32\_t&
+num\_threads\_sharing: 12&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a05e36f2ed1bb33fcf39795bbd517a194}\label{cpuid_8h_a05e36f2ed1bb33fcf39795bbd517a194}} 
+uint32\_t&
+num\_cores\_on\_die: 6&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid4\_ebx\_t.\_\_unnamed13\_\_@{cpuid4\_ebx\_t.\_\_unnamed13\_\_}}\label{structcpuid4__ebx__t_8____unnamed13____}
+\Hypertarget{cpuid_8h_structcpuid4__ebx__t_8____unnamed13____}
+\doxysubsubsection{struct cpuid4\+\_\+ebx\+\_\+t.\+\_\+\+\_\+unnamed13\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a95163943f08052f86826f08f0dad99f3}\label{cpuid_8h_a95163943f08052f86826f08f0dad99f3}} 
+uint32\_t&
+coherency\_line\_size: 12&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a86abac1c223aa4b345e0fb0dcedaa7bf}\label{cpuid_8h_a86abac1c223aa4b345e0fb0dcedaa7bf}} 
+uint32\_t&
+physical\_line\_partition: 10&
+\\
+\hline
+
+\mbox{\Hypertarget{cpuid_8h_a3bbba9c9f8c92e91b22a5e7706bf2ab7}\label{cpuid_8h_a3bbba9c9f8c92e91b22a5e7706bf2ab7}} 
+uint32\_t&
+ways\_of\_associativity: 10&
+\\
+\hline
+
+\end{DoxyFields}
+\index{cpuid4\_ecx\_t.\_\_unnamed15\_\_@{cpuid4\_ecx\_t.\_\_unnamed15\_\_}}\label{structcpuid4__ecx__t_8____unnamed15____}
+\Hypertarget{cpuid_8h_structcpuid4__ecx__t_8____unnamed15____}
+\doxysubsubsection{struct cpuid4\+\_\+ecx\+\_\+t.\+\_\+\+\_\+unnamed15\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpuid_8h_a2266090bd92237070ac93119d7e6fdb4}\label{cpuid_8h_a2266090bd92237070ac93119d7e6fdb4}} 
+uint32\_t&
+number\_of\_sets: 32&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{cpuid_8h_a682afd660bb03b41e2988d4640cad3e2}\label{cpuid_8h_a682afd660bb03b41e2988d4640cad3e2}} 
+\index{cpuid.h@{cpuid.h}!CPU\_ECORE\_ID@{CPU\_ECORE\_ID}}
+\index{CPU\_ECORE\_ID@{CPU\_ECORE\_ID}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_ECORE\_ID}{CPU\_ECORE\_ID}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+ECORE\+\_\+\+ID~0x20}
+
+\mbox{\Hypertarget{cpuid_8h_a63eabf2b03932eb7ef84ef1aa92d912b}\label{cpuid_8h_a63eabf2b03932eb7ef84ef1aa92d912b}} 
+\index{cpuid.h@{cpuid.h}!CPU\_PCORE\_ID@{CPU\_PCORE\_ID}}
+\index{CPU\_PCORE\_ID@{CPU\_PCORE\_ID}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_PCORE\_ID}{CPU\_PCORE\_ID}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+PCORE\+\_\+\+ID~0x40}
+
+\mbox{\Hypertarget{cpuid_8h_aa0e73488d3d7797087925d68811fa99a}\label{cpuid_8h_aa0e73488d3d7797087925d68811fa99a}} 
+\index{cpuid.h@{cpuid.h}!CPUID\_VENDOR\_LENGTH@{CPUID\_VENDOR\_LENGTH}}
+\index{CPUID\_VENDOR\_LENGTH@{CPUID\_VENDOR\_LENGTH}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{CPUID\_VENDOR\_LENGTH}{CPUID\_VENDOR\_LENGTH}}
+{\footnotesize\ttfamily \#define CPUID\+\_\+\+VENDOR\+\_\+\+LENGTH~3}
+
+\mbox{\Hypertarget{cpuid_8h_aa65d9abba5ef5b0808d9b78c60da153f}\label{cpuid_8h_aa65d9abba5ef5b0808d9b78c60da153f}} 
+\index{cpuid.h@{cpuid.h}!CPUID\_VENDOR\_STR\_LENGTH@{CPUID\_VENDOR\_STR\_LENGTH}}
+\index{CPUID\_VENDOR\_STR\_LENGTH@{CPUID\_VENDOR\_STR\_LENGTH}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{CPUID\_VENDOR\_STR\_LENGTH}{CPUID\_VENDOR\_STR\_LENGTH}}
+{\footnotesize\ttfamily \#define CPUID\+\_\+\+VENDOR\+\_\+\+STR\+\_\+\+LENGTH~(\mbox{\hyperlink{cpuid_8h_aa0e73488d3d7797087925d68811fa99a}{CPUID\+\_\+\+VENDOR\+\_\+\+LENGTH}} $\ast$ sizeof(uint32\+\_\+t) + 1)}
+
+\mbox{\Hypertarget{cpuid_8h_a7a3a62abbe7b4c10e9852caf75e220e6}\label{cpuid_8h_a7a3a62abbe7b4c10e9852caf75e220e6}} 
+\index{cpuid.h@{cpuid.h}!CPUID\_BRAND\_LENGTH@{CPUID\_BRAND\_LENGTH}}
+\index{CPUID\_BRAND\_LENGTH@{CPUID\_BRAND\_LENGTH}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{CPUID\_BRAND\_LENGTH}{CPUID\_BRAND\_LENGTH}}
+{\footnotesize\ttfamily \#define CPUID\+\_\+\+BRAND\+\_\+\+LENGTH~12}
+
+\mbox{\Hypertarget{cpuid_8h_aea32ad003e9dfd8705906c3bb61a3873}\label{cpuid_8h_aea32ad003e9dfd8705906c3bb61a3873}} 
+\index{cpuid.h@{cpuid.h}!CPUID\_BRAND\_STR\_LENGTH@{CPUID\_BRAND\_STR\_LENGTH}}
+\index{CPUID\_BRAND\_STR\_LENGTH@{CPUID\_BRAND\_STR\_LENGTH}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{CPUID\_BRAND\_STR\_LENGTH}{CPUID\_BRAND\_STR\_LENGTH}}
+{\footnotesize\ttfamily \#define CPUID\+\_\+\+BRAND\+\_\+\+STR\+\_\+\+LENGTH~(\mbox{\hyperlink{cpuid_8h_a7a3a62abbe7b4c10e9852caf75e220e6}{CPUID\+\_\+\+BRAND\+\_\+\+LENGTH}} $\ast$ sizeof(uint32\+\_\+t) + 1)}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}\label{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}} 
+\index{cpuid.h@{cpuid.h}!core\_type\_t@{core\_type\_t}}
+\index{core\_type\_t@{core\_type\_t}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{core\_type\_t}{core\_type\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\+\_\+type\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CORE\_UNKNOWN@{CORE\_UNKNOWN}!cpuid.h@{cpuid.h}}\index{cpuid.h@{cpuid.h}!CORE\_UNKNOWN@{CORE\_UNKNOWN}}}\mbox{\Hypertarget{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edda7ca4b522aeddae5d17e8f06bcc59732d}\label{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edda7ca4b522aeddae5d17e8f06bcc59732d}} 
+CORE\+\_\+\+UNKNOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CORE\_PCORE@{CORE\_PCORE}!cpuid.h@{cpuid.h}}\index{cpuid.h@{cpuid.h}!CORE\_PCORE@{CORE\_PCORE}}}\mbox{\Hypertarget{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edda0cbc9f3d8f01383a697ca5333b9abd1d}\label{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edda0cbc9f3d8f01383a697ca5333b9abd1d}} 
+CORE\+\_\+\+PCORE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CORE\_ECORE@{CORE\_ECORE}!cpuid.h@{cpuid.h}}\index{cpuid.h@{cpuid.h}!CORE\_ECORE@{CORE\_ECORE}}}\mbox{\Hypertarget{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0eddafccf1b7a612b410d619b17f25b3703a8}\label{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0eddafccf1b7a612b410d619b17f25b3703a8}} 
+CORE\+\_\+\+ECORE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cpuid_8h_a366ad2db74acf179f3777a75ac5d351a}\label{cpuid_8h_a366ad2db74acf179f3777a75ac5d351a}} 
+\index{cpuid.h@{cpuid.h}!cpuid\_init@{cpuid\_init}}
+\index{cpuid\_init@{cpuid\_init}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{cpuid\_init()}{cpuid\_init()}}
+{\footnotesize\ttfamily void cpuid\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads the CPUID information and stores it in cpuid\+\_\+info. 
+
+\mbox{\Hypertarget{cpuid_8h_a9b239bad508d61a45347cbc73175c7d3}\label{cpuid_8h_a9b239bad508d61a45347cbc73175c7d3}} 
+\index{cpuid.h@{cpuid.h}!get\_ap\_hybrid\_type@{get\_ap\_hybrid\_type}}
+\index{get\_ap\_hybrid\_type@{get\_ap\_hybrid\_type}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{get\_ap\_hybrid\_type()}{get\_ap\_hybrid\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\+\_\+type\+\_\+t}} get\+\_\+ap\+\_\+hybrid\+\_\+type (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return the Core Type (for Hybrid CPUs) 
+
+\mbox{\Hypertarget{cpuid_8h_a7e36a193c1c5d485fc09f36a5efb4a53}\label{cpuid_8h_a7e36a193c1c5d485fc09f36a5efb4a53}} 
+\index{cpuid.h@{cpuid.h}!cpuid@{cpuid}}
+\index{cpuid@{cpuid}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{cpuid()}{cpuid()}}
+{\footnotesize\ttfamily static void cpuid (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{op,  }\item[{uint32\+\_\+t}]{count,  }\item[{uint32\+\_\+t $\ast$}]{eax,  }\item[{uint32\+\_\+t $\ast$}]{ebx,  }\item[{uint32\+\_\+t $\ast$}]{ecx,  }\item[{uint32\+\_\+t $\ast$}]{edx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Executes the cpuid instruction. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{cpuid_8h_a7fe370d39fee35d0945fcf660fc27c38}\label{cpuid_8h_a7fe370d39fee35d0945fcf660fc27c38}} 
+\index{cpuid.h@{cpuid.h}!cpuid\_info@{cpuid\_info}}
+\index{cpuid\_info@{cpuid\_info}!cpuid.h@{cpuid.h}}
+\doxysubsubsection{\texorpdfstring{cpuid\_info}{cpuid\_info}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cpuid_8h_structcpuid__info__t}{cpuid\+\_\+info\+\_\+t}} cpuid\+\_\+info\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The CPUID information collected by \mbox{\hyperlink{cpuid_8h_a366ad2db74acf179f3777a75ac5d351a}{cpuid\+\_\+init()}};. 
+

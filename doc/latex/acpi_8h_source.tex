@@ -1,0 +1,40 @@
+\hypertarget{acpi_8h_source}{}\doxysection{acpi.\+h}
+\label{acpi_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/acpi.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/acpi.h}}
+\mbox{\hyperlink{acpi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_ACPI\_H\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_ACPI\_H\_}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2004-\/2022 Sam Demeulemeester.}}
+\DoxyCodeLine{12 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define FADT\_PM\_TMR\_BLK\_OFFSET      76}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define FADT\_MINOR\_REV\_OFFSET       131}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define FADT\_X\_PM\_TMR\_BLK\_OFFSET    208}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{25 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_ ((packed)) \{}
+\DoxyCodeLine{26     uint8\_t     \mbox{\hyperlink{acpi_8h_abe145a80ed51d56171f5252d4d94473c}{ver\_maj}};}
+\DoxyCodeLine{27     uint8\_t     \mbox{\hyperlink{acpi_8h_a1f9edc2d3cd7a6689b536e400676aa38}{ver\_min}};}
+\DoxyCodeLine{28     uintptr\_t   \mbox{\hyperlink{acpi_8h_a557317290c8879770162fad2b9022109}{rsdp\_addr}};}
+\DoxyCodeLine{29     uintptr\_t   \mbox{\hyperlink{acpi_8h_ae5eb9824e309cc46ed00e469d2f754f8}{madt\_addr}};}
+\DoxyCodeLine{30     uintptr\_t   \mbox{\hyperlink{acpi_8h_a7fbb5c16925b3a14d6d39f2301a9c578}{fadt\_addr}};}
+\DoxyCodeLine{31     uintptr\_t   \mbox{\hyperlink{acpi_8h_a50939d5d65ff87d36104425f5251525d}{hpet\_addr}};}
+\DoxyCodeLine{32     uintptr\_t   \mbox{\hyperlink{acpi_8h_a47d08ae7e55ed0f45d7005dbc7d83cd4}{pm\_addr}};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool}        \mbox{\hyperlink{acpi_8h_a84bb5981d9f3cdc7c18146173131d860}{pm\_is\_io}};}
+\DoxyCodeLine{34 \} \mbox{\hyperlink{acpi_8h_structacpi__t}{acpi\_t}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{acpi_8h_aade9f0e0261ebb347fd4606fc7adeba8}{rsdp\_source}};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \mbox{\hyperlink{acpi_8h_structacpi__t}{acpi\_t}} \mbox{\hyperlink{acpi_8h_afdd0714a054ee4840feba56c81434f6b}{acpi\_config}};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49 \textcolor{keywordtype}{int} \mbox{\hyperlink{acpi_8h_a5e8ce62162fa09e885723e08e697430c}{acpi\_checksum}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *data, \textcolor{keywordtype}{int} length);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{55 \textcolor{keywordtype}{void} \mbox{\hyperlink{acpi_8h_a27b40b0ca6283205fa1fdf79c2b4188d}{acpi\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_ACPI\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

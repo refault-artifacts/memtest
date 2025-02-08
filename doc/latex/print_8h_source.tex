@@ -1,0 +1,34 @@
+\hypertarget{print_8h_source}{}\doxysection{print.\+h}
+\label{print_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/print.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/print.h}}
+\mbox{\hyperlink{print_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PRINT\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PRINT\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdarg.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{20 \textcolor{keywordtype}{int} \mbox{\hyperlink{print_8h_a5d7bd1e2fc4ac3ec4d8d8764ab1f646f}{printc}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{26 \textcolor{keywordtype}{int} \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{34 \textcolor{keywordtype}{int} \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{int} value, \textcolor{keywordtype}{int} length, \textcolor{keywordtype}{bool} pad, \textcolor{keywordtype}{bool} left);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{42 \textcolor{keywordtype}{int} \mbox{\hyperlink{print_8h_a19e403091b30a77fef6f7f58b90a8532}{printu}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, uintptr\_t value, \textcolor{keywordtype}{int} length, \textcolor{keywordtype}{bool} pad, \textcolor{keywordtype}{bool} left);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{50 \textcolor{keywordtype}{int} \mbox{\hyperlink{print_8h_a0ba264286dc3e13a5c53aa7e670c1422}{printx}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, uintptr\_t value, \textcolor{keywordtype}{int} length, \textcolor{keywordtype}{bool} pad, \textcolor{keywordtype}{bool} left);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{60 \textcolor{keywordtype}{int} \mbox{\hyperlink{print_8h_a7ac6f27467224ab824202c9cc23d34c6}{printk}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, uintptr\_t value, \textcolor{keywordtype}{int} length,}
+\DoxyCodeLine{61            \textcolor{keywordtype}{bool} pad, \textcolor{keywordtype}{bool} left, \textcolor{keywordtype}{bool} add\_space);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{84 \textcolor{keywordtype}{int} \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{89 \textcolor{keywordtype}{int} \mbox{\hyperlink{print_8h_a9ddb189ef43bfb2e4abd4d9cd0464048}{vprintf}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, va\_list args);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PRINT\_H}}
+
+\end{DoxyCode}

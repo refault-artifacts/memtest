@@ -1,0 +1,145 @@
+\hypertarget{test__helper_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/tests/test\+\_\+helper.h File Reference}
+\label{test__helper_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/test\_helper.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/test\_helper.h}}
+
+
+Provides some common definitions and helper functions for the memory tests.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}test.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memrw32.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{test__helper_8h_a79a62c5c96b5a52dde9917fa999b1d0e}{read\+\_\+word}}~\mbox{\hyperlink{memrw32_8h_affbc849e72ea08030dfe6398ff138e06}{read32}}
+\begin{DoxyCompactList}\small\item\em Test word atomic read and write functions. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{test__helper_8h_a92988821ae232d4d50aea5aeecc8e28c}{write\+\_\+word}}~\mbox{\hyperlink{memrw32_8h_af57d57e1b87748796026d8a0d4833f0e}{write32}}
+\item 
+\#define \mbox{\hyperlink{test__helper_8h_ac6c45889010c1bd68631771b64f18101}{unlikely}}(x)~\+\_\+\+\_\+builtin\+\_\+expect(!!(x), 0)
+\begin{DoxyCompactList}\small\item\em A wrapper for guiding branch prediction. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{test__helper_8h_a261b38bdac38c68c65740f119aee7d9c}{SPIN\+\_\+\+SIZE}}~(1 $<$$<$ 27)
+\begin{DoxyCompactList}\small\item\em The block size processed between each update of the progress bars and spinners. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{test__helper_8h_aef276c75bb364acf2a3e9efcfd447ae6}{BAILOUT}}~if (\mbox{\hyperlink{test_8h_a5099e4f94379265b018dde3a56faea2d}{bail}}) return ticks
+\begin{DoxyCompactList}\small\item\em A macro to perform test bailout when requested. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uintptr\+\_\+t \mbox{\hyperlink{test__helper_8h_ac1eae55cdc5c8a5b5cf758cbf880aa39}{round\+\_\+down}} (uintptr\+\_\+t value, size\+\_\+t align\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Returns value rounded down to the nearest multiple of align\+\_\+size. \end{DoxyCompactList}\item 
+static uintptr\+\_\+t \mbox{\hyperlink{test__helper_8h_a32a92254be8464bd31e2236df187ded9}{round\+\_\+up}} (uintptr\+\_\+t value, size\+\_\+t align\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Returns value rounded up to the nearest multiple of align\+\_\+size. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} \mbox{\hyperlink{test__helper_8h_a59a7a11623a5ec493766cf775df4b3ba}{prsg}} (\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} state)
+\begin{DoxyCompactList}\small\item\em Returns the next word in a pseudo-\/random sequence where state was the previous word in that sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__helper_8h_aa12bca540f1f51aa17968f9eedd325e5}{calculate\+\_\+chunk}} (\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$$\ast$start, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$$\ast$end, int my\+\_\+cpu, int segment, size\+\_\+t chunk\+\_\+align)
+\begin{DoxyCompactList}\small\item\em Calculates the start and end word address for the chunk of segment that is to be tested by my\+\_\+cpu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__helper_8h_a579037ab8247c1e2129832093619a872}{flush\+\_\+caches}} (int my\+\_\+cpu)
+\begin{DoxyCompactList}\small\item\em Flushes the CPU caches. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides some common definitions and helper functions for the memory tests. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{test__helper_8h_a79a62c5c96b5a52dde9917fa999b1d0e}\label{test__helper_8h_a79a62c5c96b5a52dde9917fa999b1d0e}} 
+\index{test\_helper.h@{test\_helper.h}!read\_word@{read\_word}}
+\index{read\_word@{read\_word}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{read\_word}{read\_word}}
+{\footnotesize\ttfamily \#define read\+\_\+word~\mbox{\hyperlink{memrw32_8h_affbc849e72ea08030dfe6398ff138e06}{read32}}}
+
+
+
+Test word atomic read and write functions. 
+
+\mbox{\Hypertarget{test__helper_8h_a92988821ae232d4d50aea5aeecc8e28c}\label{test__helper_8h_a92988821ae232d4d50aea5aeecc8e28c}} 
+\index{test\_helper.h@{test\_helper.h}!write\_word@{write\_word}}
+\index{write\_word@{write\_word}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{write\_word}{write\_word}}
+{\footnotesize\ttfamily \#define write\+\_\+word~\mbox{\hyperlink{memrw32_8h_af57d57e1b87748796026d8a0d4833f0e}{write32}}}
+
+\mbox{\Hypertarget{test__helper_8h_ac6c45889010c1bd68631771b64f18101}\label{test__helper_8h_ac6c45889010c1bd68631771b64f18101}} 
+\index{test\_helper.h@{test\_helper.h}!unlikely@{unlikely}}
+\index{unlikely@{unlikely}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{unlikely}{unlikely}}
+{\footnotesize\ttfamily \#define unlikely(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\+\_\+\+\_\+builtin\+\_\+expect(!!(x), 0)}
+
+
+
+A wrapper for guiding branch prediction. 
+
+\mbox{\Hypertarget{test__helper_8h_a261b38bdac38c68c65740f119aee7d9c}\label{test__helper_8h_a261b38bdac38c68c65740f119aee7d9c}} 
+\index{test\_helper.h@{test\_helper.h}!SPIN\_SIZE@{SPIN\_SIZE}}
+\index{SPIN\_SIZE@{SPIN\_SIZE}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{SPIN\_SIZE}{SPIN\_SIZE}}
+{\footnotesize\ttfamily \#define SPIN\+\_\+\+SIZE~(1 $<$$<$ 27)}
+
+
+
+The block size processed between each update of the progress bars and spinners. 
+
+This also affects how quickly the program will respond to the keyboard. \mbox{\Hypertarget{test__helper_8h_aef276c75bb364acf2a3e9efcfd447ae6}\label{test__helper_8h_aef276c75bb364acf2a3e9efcfd447ae6}} 
+\index{test\_helper.h@{test\_helper.h}!BAILOUT@{BAILOUT}}
+\index{BAILOUT@{BAILOUT}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{BAILOUT}{BAILOUT}}
+{\footnotesize\ttfamily \#define BAILOUT~if (\mbox{\hyperlink{test_8h_a5099e4f94379265b018dde3a56faea2d}{bail}}) return ticks}
+
+
+
+A macro to perform test bailout when requested. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{test__helper_8h_ac1eae55cdc5c8a5b5cf758cbf880aa39}\label{test__helper_8h_ac1eae55cdc5c8a5b5cf758cbf880aa39}} 
+\index{test\_helper.h@{test\_helper.h}!round\_down@{round\_down}}
+\index{round\_down@{round\_down}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{round\_down()}{round\_down()}}
+{\footnotesize\ttfamily static uintptr\+\_\+t round\+\_\+down (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{value,  }\item[{size\+\_\+t}]{align\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns value rounded down to the nearest multiple of align\+\_\+size. 
+
+\mbox{\Hypertarget{test__helper_8h_a32a92254be8464bd31e2236df187ded9}\label{test__helper_8h_a32a92254be8464bd31e2236df187ded9}} 
+\index{test\_helper.h@{test\_helper.h}!round\_up@{round\_up}}
+\index{round\_up@{round\_up}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{round\_up()}{round\_up()}}
+{\footnotesize\ttfamily static uintptr\+\_\+t round\+\_\+up (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{value,  }\item[{size\+\_\+t}]{align\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns value rounded up to the nearest multiple of align\+\_\+size. 
+
+\mbox{\Hypertarget{test__helper_8h_a59a7a11623a5ec493766cf775df4b3ba}\label{test__helper_8h_a59a7a11623a5ec493766cf775df4b3ba}} 
+\index{test\_helper.h@{test\_helper.h}!prsg@{prsg}}
+\index{prsg@{prsg}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{prsg()}{prsg()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} prsg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns the next word in a pseudo-\/random sequence where state was the previous word in that sequence. 
+
+\mbox{\Hypertarget{test__helper_8h_aa12bca540f1f51aa17968f9eedd325e5}\label{test__helper_8h_aa12bca540f1f51aa17968f9eedd325e5}} 
+\index{test\_helper.h@{test\_helper.h}!calculate\_chunk@{calculate\_chunk}}
+\index{calculate\_chunk@{calculate\_chunk}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_chunk()}{calculate\_chunk()}}
+{\footnotesize\ttfamily void calculate\+\_\+chunk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$$\ast$}]{start,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$$\ast$}]{end,  }\item[{int}]{my\+\_\+cpu,  }\item[{int}]{segment,  }\item[{size\+\_\+t}]{chunk\+\_\+align }\end{DoxyParamCaption})}
+
+
+
+Calculates the start and end word address for the chunk of segment that is to be tested by my\+\_\+cpu. 
+
+The chunk start will be aligned to a multiple of chunk\+\_\+align. \mbox{\Hypertarget{test__helper_8h_a579037ab8247c1e2129832093619a872}\label{test__helper_8h_a579037ab8247c1e2129832093619a872}} 
+\index{test\_helper.h@{test\_helper.h}!flush\_caches@{flush\_caches}}
+\index{flush\_caches@{flush\_caches}!test\_helper.h@{test\_helper.h}}
+\doxysubsubsection{\texorpdfstring{flush\_caches()}{flush\_caches()}}
+{\footnotesize\ttfamily void flush\+\_\+caches (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu }\end{DoxyParamCaption})}
+
+
+
+Flushes the CPU caches. 
+
+If SMP is enabled, synchronises the threads before and after issuing the cache flush instruction. 

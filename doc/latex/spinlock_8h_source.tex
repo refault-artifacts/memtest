@@ -1,0 +1,45 @@
+\hypertarget{spinlock_8h_source}{}\doxysection{spinlock.\+h}
+\label{spinlock_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/spinlock.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/spinlock.h}}
+\mbox{\hyperlink{spinlock_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef SPINLOCK\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define SPINLOCK\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{18 \textcolor{keyword}{typedef} \textcolor{keyword}{volatile} \textcolor{keywordtype}{bool} \mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\_t}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{23 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{spinlock_8h_a88a716ca6bade5faa37c1054fb1fe82a}{spin\_wait}}(\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\_t}} *lock)}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{if} (lock) \{}
+\DoxyCodeLine{26         \textcolor{keywordflow}{while} (*lock) \{}
+\DoxyCodeLine{27             \_\_builtin\_ia32\_pause();}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{35 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{spinlock_8h_aa9b96098c749bde2eac4348569cf2cc9}{spin\_lock}}(\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\_t}} *lock)}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} (lock) \{}
+\DoxyCodeLine{38         \textcolor{keywordflow}{while} (!\_\_sync\_bool\_compare\_and\_swap(lock, \textcolor{keyword}{false}, \textcolor{keyword}{true})) \{}
+\DoxyCodeLine{39             \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{40                 \_\_builtin\_ia32\_pause();}
+\DoxyCodeLine{41             \} \textcolor{keywordflow}{while} (*lock);}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{spinlock_8h_af0bffee791867b9ae4b9f66d4e111d95}{spin\_unlock}}(\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\_t}} *lock)}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (lock) \{}
+\DoxyCodeLine{52         \_\_sync\_synchronize();}
+\DoxyCodeLine{53         *lock = \textcolor{keyword}{false};}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SPINLOCK\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,513 @@
+\hypertarget{cpuinfo_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/cpuinfo.h File Reference}
+\label{cpuinfo_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpuinfo.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpuinfo.h}}
+
+
+Provides information about the CPU type, clock speed and cache sizes.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_ab21d721f66602711cfdc3959010e39d7}{IMC\+\_\+\+NHM}}~0x1000
+\begin{DoxyCompactList}\small\item\em IMC Definition. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_af16ab4d8d7b6a600d50d6b2cf053bdd5}{IMC\+\_\+\+WMR}}~0x1010
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a7a5b1a6119bd6a8ba8a8d7be2ed3eec8}{IMC\+\_\+\+SNB}}~0x1020
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_ae4a4d5937a32c5bf1002129a0abd322f}{IMC\+\_\+\+IVB}}~0x1030
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_ad421059e14b6ffbce260b30fd6f9e6ec}{IMC\+\_\+\+HSW}}~0x1040
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a2f15e7412cdb1056d698d2a6c313208a}{IMC\+\_\+\+BDW}}~0x1050
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a74257ec3652677fd086154c18ec70acd}{IMC\+\_\+\+SKL}}~0x1060
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a8d742c213abe6a462f5e91fe32cad721}{IMC\+\_\+\+KBL}}~0x1070
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_aee76f4683c45b6050bf58c7b69103015}{IMC\+\_\+\+CNL}}~0x1080
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_ae33b3fb5b799746f399c8c9ceded7710}{IMC\+\_\+\+RKL}}~0x1090
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_aa6c3ea03a3e46baace96ed7bd4f0e064}{IMC\+\_\+\+ADL}}~0x1100
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a34f70e493d491e4fc644371fcbae40d3}{IMC\+\_\+\+RPL}}~0x1110
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a805178d5da6c370c6f6397666c3ee69e}{IMC\+\_\+\+MTL}}~0x1120
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a22df1475689681a1e605cbd9fe7a5246}{IMC\+\_\+\+NHM\+\_\+E}}~0x2010
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a28ba6b090f2825bd9aa2e466cdb0a694}{IMC\+\_\+\+SNB\+\_\+E}}~0x2020
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a735e13c67a835c0b460123a249618f2d}{IMC\+\_\+\+IVB\+\_\+E}}~0x2030
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a3c30095578677803ecd4a7fb132f2bd8}{IMC\+\_\+\+HSW\+\_\+E}}~0x2040
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_af72b7a3b1202bc64b908ca88b476293c}{IMC\+\_\+\+SKL\+\_\+\+SP}}~0x2050
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a05effa587175a9f3a0e2ad7abccd89dd}{IMC\+\_\+\+BDW\+\_\+E}}~0x2060
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a81d6e19d0a9c36526ef75085c265a47b}{IMC\+\_\+\+BDW\+\_\+\+DE}}~0x2070
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_ad24286375ee97a4207d8ef154617657c}{IMC\+\_\+\+ICL\+\_\+\+SP}}~0x2080
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_acc10f3dcd7253cd42b5f906bd2e44612}{IMC\+\_\+\+SPR}}~0x2090
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a94c2d9dcf9768554f3f6e5cfb5e46db3}{IMC\+\_\+\+HSW\+\_\+\+ULT}}~0x3010
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a3cfb13783a66d639fdb245d422cc3f20}{IMC\+\_\+\+SKL\+\_\+\+UY}}~0x3020
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a602b7d0498e303867d575b4b844cce02}{IMC\+\_\+\+KBL\+\_\+\+UY}}~0x3030
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_af9cc22e4bd56f1d7b9b6478f0abffd20}{IMC\+\_\+\+ICL}}~0x3040
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a782034372d72cc4b09279dc27fcbe596}{IMC\+\_\+\+TGL}}~0x3050
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a2520c394256c874ee1b13fc858bdd70a}{IMC\+\_\+\+BYT}}~0x4010
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a2486503906e56a8b95cfc1d1e49a7fd3}{IMC\+\_\+\+CDT}}~0x4020
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a339c800483da73aabef7cb4f0e795797}{IMC\+\_\+\+K8}}~0x8000
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_ad54eb5abaf956c6f044de2786421372f}{IMC\+\_\+\+K10}}~0x8010
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_aee957c68d345c032d9e59bd93bf7ea19}{IMC\+\_\+\+K12}}~0x8020
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_aae65b43cd17787e3ce7811df9d55d795}{IMC\+\_\+\+K14}}~0x8030
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_aa28f631c019743352c51d74aae428b3f}{IMC\+\_\+\+K15}}~0x8040
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a3c09f666a68866ed47f0049550a2bb1e}{IMC\+\_\+\+K16}}~0x8050
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a15b660b52cc40839739fad0d96109d83}{IMC\+\_\+\+K17}}~0x8060
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a39fb7560c6e72a22dfa1971c8cc109dc}{IMC\+\_\+\+K18}}~0x8070
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a85725b4a9bd812beb619d653e57275ab}{IMC\+\_\+\+K19}}~0x8080
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_a1e8ca850f6d4cff510799c3d7e24b6ef}{IMC\+\_\+\+K19\+\_\+\+CZN}}~0x8081
+\item 
+\#define \mbox{\hyperlink{cpuinfo_8h_aea36ffff3083ac981662c01aff7e033e}{IMC\+\_\+\+K19\+\_\+\+RPL}}~0x8091
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{cpuinfo_8h_a26e3ff79b275a06b5f815e39ce426773}{cpuinfo\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Determines the CPU info and stores it in the exported variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cpuinfo_8h_a0a8eca585d344528153861d98d0b80c1}{membw\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Determines the RAM \& caches bandwidth and stores it in the exported variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{cpuinfo_8h_a1572cb036275aab1b02a24f136341f43}{cpu\+\_\+model}}
+\begin{DoxyCompactList}\small\item\em A string identifying the CPU make and model. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{cpuinfo_8h_ad5c3530e47de7a65f608cc531728ab2b}{imc\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em A number identifying the integrated memory controller type. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cpuinfo_8h_a3c3d0ba7d96f49b694f9be2402e6bb19}{l1\+\_\+cache}}
+\begin{DoxyCompactList}\small\item\em The size of the L1 cache in KB. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cpuinfo_8h_a3a73516318609c25b1eb500d3229c4bc}{l2\+\_\+cache}}
+\begin{DoxyCompactList}\small\item\em The size of the L2 cache in KB. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cpuinfo_8h_accabbc5b19e99faa633ebc0746baf709}{l3\+\_\+cache}}
+\begin{DoxyCompactList}\small\item\em The size of the L3 cache in KB. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cpuinfo_8h_ae56599556f53b747b26d57923f3627bd}{l1\+\_\+cache\+\_\+speed}}
+\begin{DoxyCompactList}\small\item\em The bandwidth of the L1 cache. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cpuinfo_8h_abf72c261a863bebf64f5fcd77e028542}{l2\+\_\+cache\+\_\+speed}}
+\begin{DoxyCompactList}\small\item\em The bandwidth of the L2 cache. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cpuinfo_8h_a5a8fc43ee8dd580fe4e6ab7fad089169}{l3\+\_\+cache\+\_\+speed}}
+\begin{DoxyCompactList}\small\item\em The bandwidth of the L3 cache. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cpuinfo_8h_a029e02ed6bd52926e70c5ab3b2345f6c}{ram\+\_\+speed}}
+\begin{DoxyCompactList}\small\item\em The bandwidth of the RAM. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{cpuinfo_8h_adb321ff124d5ba57534544983d6df380}{no\+\_\+temperature}}
+\begin{DoxyCompactList}\small\item\em A flag indicating that we can\textquotesingle{}t read the core temperature on this CPU. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cpuinfo_8h_a6fd03f4fdc36e5f1b98107f1ee38e25e}{clks\+\_\+per\+\_\+msec}}
+\begin{DoxyCompactList}\small\item\em The TSC clock speed in k\+Hz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides information about the CPU type, clock speed and cache sizes. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{cpuinfo_8h_ab21d721f66602711cfdc3959010e39d7}\label{cpuinfo_8h_ab21d721f66602711cfdc3959010e39d7}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_NHM@{IMC\_NHM}}
+\index{IMC\_NHM@{IMC\_NHM}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_NHM}{IMC\_NHM}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+NHM~0x1000}
+
+
+
+IMC Definition. 
+
+\mbox{\Hypertarget{cpuinfo_8h_af16ab4d8d7b6a600d50d6b2cf053bdd5}\label{cpuinfo_8h_af16ab4d8d7b6a600d50d6b2cf053bdd5}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_WMR@{IMC\_WMR}}
+\index{IMC\_WMR@{IMC\_WMR}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_WMR}{IMC\_WMR}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+WMR~0x1010}
+
+\mbox{\Hypertarget{cpuinfo_8h_a7a5b1a6119bd6a8ba8a8d7be2ed3eec8}\label{cpuinfo_8h_a7a5b1a6119bd6a8ba8a8d7be2ed3eec8}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_SNB@{IMC\_SNB}}
+\index{IMC\_SNB@{IMC\_SNB}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_SNB}{IMC\_SNB}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+SNB~0x1020}
+
+\mbox{\Hypertarget{cpuinfo_8h_ae4a4d5937a32c5bf1002129a0abd322f}\label{cpuinfo_8h_ae4a4d5937a32c5bf1002129a0abd322f}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_IVB@{IMC\_IVB}}
+\index{IMC\_IVB@{IMC\_IVB}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_IVB}{IMC\_IVB}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+IVB~0x1030}
+
+\mbox{\Hypertarget{cpuinfo_8h_ad421059e14b6ffbce260b30fd6f9e6ec}\label{cpuinfo_8h_ad421059e14b6ffbce260b30fd6f9e6ec}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_HSW@{IMC\_HSW}}
+\index{IMC\_HSW@{IMC\_HSW}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_HSW}{IMC\_HSW}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+HSW~0x1040}
+
+\mbox{\Hypertarget{cpuinfo_8h_a2f15e7412cdb1056d698d2a6c313208a}\label{cpuinfo_8h_a2f15e7412cdb1056d698d2a6c313208a}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_BDW@{IMC\_BDW}}
+\index{IMC\_BDW@{IMC\_BDW}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_BDW}{IMC\_BDW}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+BDW~0x1050}
+
+\mbox{\Hypertarget{cpuinfo_8h_a74257ec3652677fd086154c18ec70acd}\label{cpuinfo_8h_a74257ec3652677fd086154c18ec70acd}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_SKL@{IMC\_SKL}}
+\index{IMC\_SKL@{IMC\_SKL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_SKL}{IMC\_SKL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+SKL~0x1060}
+
+\mbox{\Hypertarget{cpuinfo_8h_a8d742c213abe6a462f5e91fe32cad721}\label{cpuinfo_8h_a8d742c213abe6a462f5e91fe32cad721}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_KBL@{IMC\_KBL}}
+\index{IMC\_KBL@{IMC\_KBL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_KBL}{IMC\_KBL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+KBL~0x1070}
+
+\mbox{\Hypertarget{cpuinfo_8h_aee76f4683c45b6050bf58c7b69103015}\label{cpuinfo_8h_aee76f4683c45b6050bf58c7b69103015}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_CNL@{IMC\_CNL}}
+\index{IMC\_CNL@{IMC\_CNL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_CNL}{IMC\_CNL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+CNL~0x1080}
+
+\mbox{\Hypertarget{cpuinfo_8h_ae33b3fb5b799746f399c8c9ceded7710}\label{cpuinfo_8h_ae33b3fb5b799746f399c8c9ceded7710}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_RKL@{IMC\_RKL}}
+\index{IMC\_RKL@{IMC\_RKL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_RKL}{IMC\_RKL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+RKL~0x1090}
+
+\mbox{\Hypertarget{cpuinfo_8h_aa6c3ea03a3e46baace96ed7bd4f0e064}\label{cpuinfo_8h_aa6c3ea03a3e46baace96ed7bd4f0e064}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_ADL@{IMC\_ADL}}
+\index{IMC\_ADL@{IMC\_ADL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_ADL}{IMC\_ADL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+ADL~0x1100}
+
+\mbox{\Hypertarget{cpuinfo_8h_a34f70e493d491e4fc644371fcbae40d3}\label{cpuinfo_8h_a34f70e493d491e4fc644371fcbae40d3}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_RPL@{IMC\_RPL}}
+\index{IMC\_RPL@{IMC\_RPL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_RPL}{IMC\_RPL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+RPL~0x1110}
+
+\mbox{\Hypertarget{cpuinfo_8h_a805178d5da6c370c6f6397666c3ee69e}\label{cpuinfo_8h_a805178d5da6c370c6f6397666c3ee69e}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_MTL@{IMC\_MTL}}
+\index{IMC\_MTL@{IMC\_MTL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_MTL}{IMC\_MTL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+MTL~0x1120}
+
+\mbox{\Hypertarget{cpuinfo_8h_a22df1475689681a1e605cbd9fe7a5246}\label{cpuinfo_8h_a22df1475689681a1e605cbd9fe7a5246}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_NHM\_E@{IMC\_NHM\_E}}
+\index{IMC\_NHM\_E@{IMC\_NHM\_E}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_NHM\_E}{IMC\_NHM\_E}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+NHM\+\_\+E~0x2010}
+
+\mbox{\Hypertarget{cpuinfo_8h_a28ba6b090f2825bd9aa2e466cdb0a694}\label{cpuinfo_8h_a28ba6b090f2825bd9aa2e466cdb0a694}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_SNB\_E@{IMC\_SNB\_E}}
+\index{IMC\_SNB\_E@{IMC\_SNB\_E}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_SNB\_E}{IMC\_SNB\_E}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+SNB\+\_\+E~0x2020}
+
+\mbox{\Hypertarget{cpuinfo_8h_a735e13c67a835c0b460123a249618f2d}\label{cpuinfo_8h_a735e13c67a835c0b460123a249618f2d}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_IVB\_E@{IMC\_IVB\_E}}
+\index{IMC\_IVB\_E@{IMC\_IVB\_E}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_IVB\_E}{IMC\_IVB\_E}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+IVB\+\_\+E~0x2030}
+
+\mbox{\Hypertarget{cpuinfo_8h_a3c30095578677803ecd4a7fb132f2bd8}\label{cpuinfo_8h_a3c30095578677803ecd4a7fb132f2bd8}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_HSW\_E@{IMC\_HSW\_E}}
+\index{IMC\_HSW\_E@{IMC\_HSW\_E}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_HSW\_E}{IMC\_HSW\_E}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+HSW\+\_\+E~0x2040}
+
+\mbox{\Hypertarget{cpuinfo_8h_af72b7a3b1202bc64b908ca88b476293c}\label{cpuinfo_8h_af72b7a3b1202bc64b908ca88b476293c}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_SKL\_SP@{IMC\_SKL\_SP}}
+\index{IMC\_SKL\_SP@{IMC\_SKL\_SP}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_SKL\_SP}{IMC\_SKL\_SP}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+SKL\+\_\+\+SP~0x2050}
+
+\mbox{\Hypertarget{cpuinfo_8h_a05effa587175a9f3a0e2ad7abccd89dd}\label{cpuinfo_8h_a05effa587175a9f3a0e2ad7abccd89dd}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_BDW\_E@{IMC\_BDW\_E}}
+\index{IMC\_BDW\_E@{IMC\_BDW\_E}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_BDW\_E}{IMC\_BDW\_E}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+BDW\+\_\+E~0x2060}
+
+\mbox{\Hypertarget{cpuinfo_8h_a81d6e19d0a9c36526ef75085c265a47b}\label{cpuinfo_8h_a81d6e19d0a9c36526ef75085c265a47b}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_BDW\_DE@{IMC\_BDW\_DE}}
+\index{IMC\_BDW\_DE@{IMC\_BDW\_DE}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_BDW\_DE}{IMC\_BDW\_DE}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+BDW\+\_\+\+DE~0x2070}
+
+\mbox{\Hypertarget{cpuinfo_8h_ad24286375ee97a4207d8ef154617657c}\label{cpuinfo_8h_ad24286375ee97a4207d8ef154617657c}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_ICL\_SP@{IMC\_ICL\_SP}}
+\index{IMC\_ICL\_SP@{IMC\_ICL\_SP}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_ICL\_SP}{IMC\_ICL\_SP}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+ICL\+\_\+\+SP~0x2080}
+
+\mbox{\Hypertarget{cpuinfo_8h_acc10f3dcd7253cd42b5f906bd2e44612}\label{cpuinfo_8h_acc10f3dcd7253cd42b5f906bd2e44612}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_SPR@{IMC\_SPR}}
+\index{IMC\_SPR@{IMC\_SPR}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_SPR}{IMC\_SPR}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+SPR~0x2090}
+
+\mbox{\Hypertarget{cpuinfo_8h_a94c2d9dcf9768554f3f6e5cfb5e46db3}\label{cpuinfo_8h_a94c2d9dcf9768554f3f6e5cfb5e46db3}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_HSW\_ULT@{IMC\_HSW\_ULT}}
+\index{IMC\_HSW\_ULT@{IMC\_HSW\_ULT}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_HSW\_ULT}{IMC\_HSW\_ULT}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+HSW\+\_\+\+ULT~0x3010}
+
+\mbox{\Hypertarget{cpuinfo_8h_a3cfb13783a66d639fdb245d422cc3f20}\label{cpuinfo_8h_a3cfb13783a66d639fdb245d422cc3f20}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_SKL\_UY@{IMC\_SKL\_UY}}
+\index{IMC\_SKL\_UY@{IMC\_SKL\_UY}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_SKL\_UY}{IMC\_SKL\_UY}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+SKL\+\_\+\+UY~0x3020}
+
+\mbox{\Hypertarget{cpuinfo_8h_a602b7d0498e303867d575b4b844cce02}\label{cpuinfo_8h_a602b7d0498e303867d575b4b844cce02}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_KBL\_UY@{IMC\_KBL\_UY}}
+\index{IMC\_KBL\_UY@{IMC\_KBL\_UY}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_KBL\_UY}{IMC\_KBL\_UY}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+KBL\+\_\+\+UY~0x3030}
+
+\mbox{\Hypertarget{cpuinfo_8h_af9cc22e4bd56f1d7b9b6478f0abffd20}\label{cpuinfo_8h_af9cc22e4bd56f1d7b9b6478f0abffd20}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_ICL@{IMC\_ICL}}
+\index{IMC\_ICL@{IMC\_ICL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_ICL}{IMC\_ICL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+ICL~0x3040}
+
+\mbox{\Hypertarget{cpuinfo_8h_a782034372d72cc4b09279dc27fcbe596}\label{cpuinfo_8h_a782034372d72cc4b09279dc27fcbe596}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_TGL@{IMC\_TGL}}
+\index{IMC\_TGL@{IMC\_TGL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_TGL}{IMC\_TGL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+TGL~0x3050}
+
+\mbox{\Hypertarget{cpuinfo_8h_a2520c394256c874ee1b13fc858bdd70a}\label{cpuinfo_8h_a2520c394256c874ee1b13fc858bdd70a}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_BYT@{IMC\_BYT}}
+\index{IMC\_BYT@{IMC\_BYT}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_BYT}{IMC\_BYT}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+BYT~0x4010}
+
+\mbox{\Hypertarget{cpuinfo_8h_a2486503906e56a8b95cfc1d1e49a7fd3}\label{cpuinfo_8h_a2486503906e56a8b95cfc1d1e49a7fd3}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_CDT@{IMC\_CDT}}
+\index{IMC\_CDT@{IMC\_CDT}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_CDT}{IMC\_CDT}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+CDT~0x4020}
+
+\mbox{\Hypertarget{cpuinfo_8h_a339c800483da73aabef7cb4f0e795797}\label{cpuinfo_8h_a339c800483da73aabef7cb4f0e795797}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K8@{IMC\_K8}}
+\index{IMC\_K8@{IMC\_K8}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K8}{IMC\_K8}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K8~0x8000}
+
+\mbox{\Hypertarget{cpuinfo_8h_ad54eb5abaf956c6f044de2786421372f}\label{cpuinfo_8h_ad54eb5abaf956c6f044de2786421372f}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K10@{IMC\_K10}}
+\index{IMC\_K10@{IMC\_K10}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K10}{IMC\_K10}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K10~0x8010}
+
+\mbox{\Hypertarget{cpuinfo_8h_aee957c68d345c032d9e59bd93bf7ea19}\label{cpuinfo_8h_aee957c68d345c032d9e59bd93bf7ea19}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K12@{IMC\_K12}}
+\index{IMC\_K12@{IMC\_K12}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K12}{IMC\_K12}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K12~0x8020}
+
+\mbox{\Hypertarget{cpuinfo_8h_aae65b43cd17787e3ce7811df9d55d795}\label{cpuinfo_8h_aae65b43cd17787e3ce7811df9d55d795}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K14@{IMC\_K14}}
+\index{IMC\_K14@{IMC\_K14}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K14}{IMC\_K14}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K14~0x8030}
+
+\mbox{\Hypertarget{cpuinfo_8h_aa28f631c019743352c51d74aae428b3f}\label{cpuinfo_8h_aa28f631c019743352c51d74aae428b3f}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K15@{IMC\_K15}}
+\index{IMC\_K15@{IMC\_K15}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K15}{IMC\_K15}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K15~0x8040}
+
+\mbox{\Hypertarget{cpuinfo_8h_a3c09f666a68866ed47f0049550a2bb1e}\label{cpuinfo_8h_a3c09f666a68866ed47f0049550a2bb1e}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K16@{IMC\_K16}}
+\index{IMC\_K16@{IMC\_K16}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K16}{IMC\_K16}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K16~0x8050}
+
+\mbox{\Hypertarget{cpuinfo_8h_a15b660b52cc40839739fad0d96109d83}\label{cpuinfo_8h_a15b660b52cc40839739fad0d96109d83}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K17@{IMC\_K17}}
+\index{IMC\_K17@{IMC\_K17}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K17}{IMC\_K17}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K17~0x8060}
+
+\mbox{\Hypertarget{cpuinfo_8h_a39fb7560c6e72a22dfa1971c8cc109dc}\label{cpuinfo_8h_a39fb7560c6e72a22dfa1971c8cc109dc}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K18@{IMC\_K18}}
+\index{IMC\_K18@{IMC\_K18}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K18}{IMC\_K18}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K18~0x8070}
+
+\mbox{\Hypertarget{cpuinfo_8h_a85725b4a9bd812beb619d653e57275ab}\label{cpuinfo_8h_a85725b4a9bd812beb619d653e57275ab}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K19@{IMC\_K19}}
+\index{IMC\_K19@{IMC\_K19}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K19}{IMC\_K19}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K19~0x8080}
+
+\mbox{\Hypertarget{cpuinfo_8h_a1e8ca850f6d4cff510799c3d7e24b6ef}\label{cpuinfo_8h_a1e8ca850f6d4cff510799c3d7e24b6ef}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K19\_CZN@{IMC\_K19\_CZN}}
+\index{IMC\_K19\_CZN@{IMC\_K19\_CZN}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K19\_CZN}{IMC\_K19\_CZN}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K19\+\_\+\+CZN~0x8081}
+
+\mbox{\Hypertarget{cpuinfo_8h_aea36ffff3083ac981662c01aff7e033e}\label{cpuinfo_8h_aea36ffff3083ac981662c01aff7e033e}} 
+\index{cpuinfo.h@{cpuinfo.h}!IMC\_K19\_RPL@{IMC\_K19\_RPL}}
+\index{IMC\_K19\_RPL@{IMC\_K19\_RPL}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{IMC\_K19\_RPL}{IMC\_K19\_RPL}}
+{\footnotesize\ttfamily \#define IMC\+\_\+\+K19\+\_\+\+RPL~0x8091}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cpuinfo_8h_a26e3ff79b275a06b5f815e39ce426773}\label{cpuinfo_8h_a26e3ff79b275a06b5f815e39ce426773}} 
+\index{cpuinfo.h@{cpuinfo.h}!cpuinfo\_init@{cpuinfo\_init}}
+\index{cpuinfo\_init@{cpuinfo\_init}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{cpuinfo\_init()}{cpuinfo\_init()}}
+{\footnotesize\ttfamily void cpuinfo\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Determines the CPU info and stores it in the exported variables. 
+
+\mbox{\Hypertarget{cpuinfo_8h_a0a8eca585d344528153861d98d0b80c1}\label{cpuinfo_8h_a0a8eca585d344528153861d98d0b80c1}} 
+\index{cpuinfo.h@{cpuinfo.h}!membw\_init@{membw\_init}}
+\index{membw\_init@{membw\_init}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{membw\_init()}{membw\_init()}}
+{\footnotesize\ttfamily void membw\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Determines the RAM \& caches bandwidth and stores it in the exported variables. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{cpuinfo_8h_a1572cb036275aab1b02a24f136341f43}\label{cpuinfo_8h_a1572cb036275aab1b02a24f136341f43}} 
+\index{cpuinfo.h@{cpuinfo.h}!cpu\_model@{cpu\_model}}
+\index{cpu\_model@{cpu\_model}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{cpu\_model}{cpu\_model}}
+{\footnotesize\ttfamily const char$\ast$ cpu\+\_\+model\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+A string identifying the CPU make and model. 
+
+\mbox{\Hypertarget{cpuinfo_8h_ad5c3530e47de7a65f608cc531728ab2b}\label{cpuinfo_8h_ad5c3530e47de7a65f608cc531728ab2b}} 
+\index{cpuinfo.h@{cpuinfo.h}!imc\_type@{imc\_type}}
+\index{imc\_type@{imc\_type}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{imc\_type}{imc\_type}}
+{\footnotesize\ttfamily uint16\+\_\+t imc\+\_\+type\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+A number identifying the integrated memory controller type. 
+
+\mbox{\Hypertarget{cpuinfo_8h_a3c3d0ba7d96f49b694f9be2402e6bb19}\label{cpuinfo_8h_a3c3d0ba7d96f49b694f9be2402e6bb19}} 
+\index{cpuinfo.h@{cpuinfo.h}!l1\_cache@{l1\_cache}}
+\index{l1\_cache@{l1\_cache}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{l1\_cache}{l1\_cache}}
+{\footnotesize\ttfamily int l1\+\_\+cache\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The size of the L1 cache in KB. 
+
+\mbox{\Hypertarget{cpuinfo_8h_a3a73516318609c25b1eb500d3229c4bc}\label{cpuinfo_8h_a3a73516318609c25b1eb500d3229c4bc}} 
+\index{cpuinfo.h@{cpuinfo.h}!l2\_cache@{l2\_cache}}
+\index{l2\_cache@{l2\_cache}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{l2\_cache}{l2\_cache}}
+{\footnotesize\ttfamily int l2\+\_\+cache\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The size of the L2 cache in KB. 
+
+\mbox{\Hypertarget{cpuinfo_8h_accabbc5b19e99faa633ebc0746baf709}\label{cpuinfo_8h_accabbc5b19e99faa633ebc0746baf709}} 
+\index{cpuinfo.h@{cpuinfo.h}!l3\_cache@{l3\_cache}}
+\index{l3\_cache@{l3\_cache}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{l3\_cache}{l3\_cache}}
+{\footnotesize\ttfamily int l3\+\_\+cache\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The size of the L3 cache in KB. 
+
+\mbox{\Hypertarget{cpuinfo_8h_ae56599556f53b747b26d57923f3627bd}\label{cpuinfo_8h_ae56599556f53b747b26d57923f3627bd}} 
+\index{cpuinfo.h@{cpuinfo.h}!l1\_cache\_speed@{l1\_cache\_speed}}
+\index{l1\_cache\_speed@{l1\_cache\_speed}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{l1\_cache\_speed}{l1\_cache\_speed}}
+{\footnotesize\ttfamily uint32\+\_\+t l1\+\_\+cache\+\_\+speed\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The bandwidth of the L1 cache. 
+
+\mbox{\Hypertarget{cpuinfo_8h_abf72c261a863bebf64f5fcd77e028542}\label{cpuinfo_8h_abf72c261a863bebf64f5fcd77e028542}} 
+\index{cpuinfo.h@{cpuinfo.h}!l2\_cache\_speed@{l2\_cache\_speed}}
+\index{l2\_cache\_speed@{l2\_cache\_speed}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{l2\_cache\_speed}{l2\_cache\_speed}}
+{\footnotesize\ttfamily uint32\+\_\+t l2\+\_\+cache\+\_\+speed\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The bandwidth of the L2 cache. 
+
+\mbox{\Hypertarget{cpuinfo_8h_a5a8fc43ee8dd580fe4e6ab7fad089169}\label{cpuinfo_8h_a5a8fc43ee8dd580fe4e6ab7fad089169}} 
+\index{cpuinfo.h@{cpuinfo.h}!l3\_cache\_speed@{l3\_cache\_speed}}
+\index{l3\_cache\_speed@{l3\_cache\_speed}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{l3\_cache\_speed}{l3\_cache\_speed}}
+{\footnotesize\ttfamily uint32\+\_\+t l3\+\_\+cache\+\_\+speed\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The bandwidth of the L3 cache. 
+
+\mbox{\Hypertarget{cpuinfo_8h_a029e02ed6bd52926e70c5ab3b2345f6c}\label{cpuinfo_8h_a029e02ed6bd52926e70c5ab3b2345f6c}} 
+\index{cpuinfo.h@{cpuinfo.h}!ram\_speed@{ram\_speed}}
+\index{ram\_speed@{ram\_speed}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{ram\_speed}{ram\_speed}}
+{\footnotesize\ttfamily uint32\+\_\+t ram\+\_\+speed\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The bandwidth of the RAM. 
+
+\mbox{\Hypertarget{cpuinfo_8h_adb321ff124d5ba57534544983d6df380}\label{cpuinfo_8h_adb321ff124d5ba57534544983d6df380}} 
+\index{cpuinfo.h@{cpuinfo.h}!no\_temperature@{no\_temperature}}
+\index{no\_temperature@{no\_temperature}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{no\_temperature}{no\_temperature}}
+{\footnotesize\ttfamily bool no\+\_\+temperature\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+A flag indicating that we can\textquotesingle{}t read the core temperature on this CPU. 
+
+\mbox{\Hypertarget{cpuinfo_8h_a6fd03f4fdc36e5f1b98107f1ee38e25e}\label{cpuinfo_8h_a6fd03f4fdc36e5f1b98107f1ee38e25e}} 
+\index{cpuinfo.h@{cpuinfo.h}!clks\_per\_msec@{clks\_per\_msec}}
+\index{clks\_per\_msec@{clks\_per\_msec}!cpuinfo.h@{cpuinfo.h}}
+\doxysubsubsection{\texorpdfstring{clks\_per\_msec}{clks\_per\_msec}}
+{\footnotesize\ttfamily uint32\+\_\+t clks\+\_\+per\+\_\+msec\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The TSC clock speed in k\+Hz. 
+
+Assumed to be the nominal CPU clock speed. 

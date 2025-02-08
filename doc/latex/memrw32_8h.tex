@@ -1,0 +1,56 @@
+\hypertarget{memrw32_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/memrw32.h File Reference}
+\label{memrw32_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memrw32.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memrw32.h}}
+
+
+Provides some 32-\/bit memory access functions.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint32\+\_\+t \mbox{\hyperlink{memrw32_8h_affbc849e72ea08030dfe6398ff138e06}{read32}} (const volatile uint32\+\_\+t $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Reads and returns the value stored in the 32-\/bit memory location pointed to by ptr. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{memrw32_8h_af57d57e1b87748796026d8a0d4833f0e}{write32}} (const volatile uint32\+\_\+t $\ast$ptr, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Writes val to the 32-\/bit memory location pointed to by ptr. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{memrw32_8h_a30584ba0fe33f86b745331be89c519a3}{flush32}} (const volatile uint32\+\_\+t $\ast$ptr, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Writes val to the 32-\/bit memory location pointed to by ptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides some 32-\/bit memory access functions. 
+
+These stop the compiler optimizing accesses which need to be ordered and atomic. Mostly used for accessing memory-\/mapped hardware registers. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{memrw32_8h_affbc849e72ea08030dfe6398ff138e06}\label{memrw32_8h_affbc849e72ea08030dfe6398ff138e06}} 
+\index{memrw32.h@{memrw32.h}!read32@{read32}}
+\index{read32@{read32}!memrw32.h@{memrw32.h}}
+\doxysubsubsection{\texorpdfstring{read32()}{read32()}}
+{\footnotesize\ttfamily static uint32\+\_\+t read32 (\begin{DoxyParamCaption}\item[{const volatile uint32\+\_\+t $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Reads and returns the value stored in the 32-\/bit memory location pointed to by ptr. 
+
+\mbox{\Hypertarget{memrw32_8h_af57d57e1b87748796026d8a0d4833f0e}\label{memrw32_8h_af57d57e1b87748796026d8a0d4833f0e}} 
+\index{memrw32.h@{memrw32.h}!write32@{write32}}
+\index{write32@{write32}!memrw32.h@{memrw32.h}}
+\doxysubsubsection{\texorpdfstring{write32()}{write32()}}
+{\footnotesize\ttfamily static void write32 (\begin{DoxyParamCaption}\item[{const volatile uint32\+\_\+t $\ast$}]{ptr,  }\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Writes val to the 32-\/bit memory location pointed to by ptr. 
+
+\mbox{\Hypertarget{memrw32_8h_a30584ba0fe33f86b745331be89c519a3}\label{memrw32_8h_a30584ba0fe33f86b745331be89c519a3}} 
+\index{memrw32.h@{memrw32.h}!flush32@{flush32}}
+\index{flush32@{flush32}!memrw32.h@{memrw32.h}}
+\doxysubsubsection{\texorpdfstring{flush32()}{flush32()}}
+{\footnotesize\ttfamily static void flush32 (\begin{DoxyParamCaption}\item[{const volatile uint32\+\_\+t $\ast$}]{ptr,  }\item[{uint32\+\_\+t}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Writes val to the 32-\/bit memory location pointed to by ptr. 
+
+Reads it back (and discards it) to ensure the write is complete. 

@@ -1,0 +1,93 @@
+\hypertarget{boot_8h_source}{}\doxysection{boot.\+h}
+\label{boot_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/boot.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/boot.h}}
+\mbox{\hyperlink{boot_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef BOOT\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define BOOT\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{12 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{comment}{/*}}
+\DoxyCodeLine{15 \textcolor{comment}{ * NOTE: Increasing the value of MAX\_APS would require:}}
+\DoxyCodeLine{16 \textcolor{comment}{ *  -\/ relocating the stacks when the program is loaded in low memory}}
+\DoxyCodeLine{17 \textcolor{comment}{ *  -\/ modifying smp.c to support the x2APIC architecture}}
+\DoxyCodeLine{18 \textcolor{comment}{ *  -\/ adjusting the display if more than 3 digits are needed for CPU IDs}}
+\DoxyCodeLine{19 \textcolor{comment}{ */}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define MAX\_APS     255     }\textcolor{comment}{/* Maximum number of active APs */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define BSP\_STACK\_SIZE  16384       }\textcolor{comment}{/* Stack size for the BSP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define AP\_STACK\_SIZE   1024        }\textcolor{comment}{/* Stack size for each AP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define STACKS\_SIZE (BSP\_STACK\_SIZE + MAX\_APS * AP\_STACK\_SIZE)}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define LOCALS\_SIZE 16      }\textcolor{comment}{/* Stack region reserved for thread-\/local storage */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define LOW\_LOAD\_ADDR   0x00010000  }\textcolor{comment}{/* The low  load address for the main program */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define HIGH\_LOAD\_ADDR  0x00100000  }\textcolor{comment}{/* The high load address for the main program */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define SETUP\_SECS  2       }\textcolor{comment}{/* Size of the 16-\/bit setup code in sectors */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define BOOT\_SEG    0x07c0      }\textcolor{comment}{/* Segment address for the 16-\/bit boot code */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define SETUP\_SEG   0x07e0      }\textcolor{comment}{/* Segment address for the 16-\/bit setup code */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define MAIN\_SEG    0x1000      }\textcolor{comment}{/* Segment address for the main program code}}
+\DoxyCodeLine{37 \textcolor{comment}{                       when loaded by the 16-\/bit bootloader */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define KERNEL\_CS   0x10        }\textcolor{comment}{/* 32-\/bit segment address for code */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define KERNEL\_DS   0x18        }\textcolor{comment}{/* 32-\/bit segment address for data */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{comment}{/* The following addresses are offsets from BOOT\_SEG. */}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define BOOT\_STACK  ((1 + SETUP\_SECS) * 512)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define BOOT\_STACK\_TOP  ((MAIN\_SEG -\/ BOOT\_SEG) << 4)}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/* The following definitions must match the Linux boot\_params struct. */}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define E820\_ENTRIES    0x1e8       }\textcolor{comment}{/* offsetof(boot\_params.e820\_entries) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define E820\_MAP    0x2d0       }\textcolor{comment}{/* offsetof(boot\_params.e820\_table) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define E820\_MAP\_SIZE   128     }\textcolor{comment}{/* max. number of entries in E820\_MAP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{comment}{/* The following definitions must match the Linux e820\_entry struct. */}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define E820\_ADDR   0       }\textcolor{comment}{/* offsetof(e820\_entry.addr) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define E820\_SIZE   8       }\textcolor{comment}{/* offsetof(e820\_entry.size) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define E820\_TYPE   16      }\textcolor{comment}{/* offsetof(e820\_entry.type) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define E820\_ENTRY\_SIZE 20      }\textcolor{comment}{/* sizeof(e820\_entry) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#ifndef \_\_ASSEMBLY\_\_}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{extern} uint8\_t  \mbox{\hyperlink{boot_8h_abc5d8cce57627e70764b6b9299cd88e1}{\_start}}[];}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{extern} uint8\_t  \mbox{\hyperlink{boot_8h_a480b18cf6ea05f1d6d45686347ce011d}{startup32}}[];}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{keyword}{extern} uint8\_t  \mbox{\hyperlink{boot_8h_acae358fa68697070cccfd9b9b6a9f4a1}{startup}}[];}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{extern} uint64\_t \mbox{\hyperlink{boot_8h_a3a6d7602eadf628dadeff9df8da7a061}{pml4}}[];}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{extern} uint64\_t \mbox{\hyperlink{boot_8h_aa7f08190316aaf40401ca5b9e34fc504}{pdp}}[];}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{extern} uint64\_t \mbox{\hyperlink{boot_8h_a218bee5cf2e4d3938c5563eb0b13ef8b}{pd0}}[];}
+\DoxyCodeLine{76 \textcolor{keyword}{extern} uint64\_t \mbox{\hyperlink{boot_8h_ac4bd5f4d59a2750f3855711819cfcb9b}{pd1}}[];}
+\DoxyCodeLine{77 \textcolor{keyword}{extern} uint64\_t \mbox{\hyperlink{boot_8h_a121c48bfc77fe2acfe9bfd714defec92}{pd2}}[];}
+\DoxyCodeLine{78 \textcolor{keyword}{extern} uint64\_t \mbox{\hyperlink{boot_8h_a2e1f0110dd506c1f7b05a4eb0e1df7f4}{pd3}}[];}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{keyword}{extern} uintptr\_t \mbox{\hyperlink{boot_8h_a78381fcc4d8a9f25b4fd343ce5b6b23a}{boot\_params\_addr}};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{extern} uint8\_t  \mbox{\hyperlink{boot_8h_a438ad0007e67e01b383b001c5d5b40d3}{ap\_trampoline}}[];}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{extern} uint32\_t \mbox{\hyperlink{boot_8h_a13007afcbf46865e7821ea683fe4cf93}{ap\_startup\_addr}};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{extern} uint8\_t  \mbox{\hyperlink{boot_8h_a96a0fbc6674d3e8f3c97d3cfd2c7ea93}{ap\_trampoline\_end}}[];}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{keyword}{extern} uint8\_t  \mbox{\hyperlink{boot_8h_adec5814e94d23d406012226113940fe0}{\_stacks}}[];}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{keyword}{extern} uint8\_t  \mbox{\hyperlink{boot_8h_aa1b10ac1837d70adf95e7bd722f31b22}{\_end}}[];}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ! \_\_ASSEMBLY\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BOOT\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,116 @@
+\hypertarget{memsize_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/memsize.h File Reference}
+\label{memsize_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memsize.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memsize.h}}
+
+
+Provides some convenient constants and constant constructors.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{memsize_8h_a1841fd1a462d245d8c73dce55e2f45da}{KB}}~10
+\item 
+\#define \mbox{\hyperlink{memsize_8h_aa6b38d492364d98453284934ed7caee9}{MB}}~20
+\item 
+\#define \mbox{\hyperlink{memsize_8h_a44172ac633c517cb4c9e278cef36b000}{GB}}~30
+\item 
+\#define \mbox{\hyperlink{memsize_8h_a40ae1c7543178d54fd8e397072faa25c}{TB}}~40
+\item 
+\#define \mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}}~21
+\item 
+\#define \mbox{\hyperlink{memsize_8h_a71630f0c46309456f4de111ceefe2537}{VM\+\_\+\+PAGE\+\_\+\+SIZE}}~(1 $<$$<$ \mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}})
+\item 
+\#define \mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}}~12
+\item 
+\#define \mbox{\hyperlink{memsize_8h_a7d467c1d283fdfa1f2081ba1e0d01b6e}{PAGE\+\_\+\+SIZE}}~(1 $<$$<$ \mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}})
+\item 
+\#define \mbox{\hyperlink{memsize_8h_aba92168399b809bf16c4651704c23147}{VM\+\_\+\+PAGE\+\_\+C}}(size,  units)~    (units $<$ \mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}} ? (uintptr\+\_\+t)(size) $<$$<$ (\mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}} -\/ units) \+: (uintptr\+\_\+t)(size) $<$$<$ (units -\/ \mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}}))
+\item 
+\#define \mbox{\hyperlink{memsize_8h_a7cd25262ad2d0f1edf7883e32212f6c6}{PAGE\+\_\+C}}(size,  units)~    (units $<$ \mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}} ? (uintptr\+\_\+t)(size) $<$$<$ (\mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}} -\/ units) \+: (uintptr\+\_\+t)(size) $<$$<$ (units -\/ \mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}}))
+\item 
+\#define \mbox{\hyperlink{memsize_8h_a508411501a124ba82516f6e7932e51ea}{ADDR\+\_\+C}}(size,  units)~    ((uintptr\+\_\+t)(size) $<$$<$ units)
+\item 
+\#define \mbox{\hyperlink{memsize_8h_ab702e5c6b54dc7cad9751f89aeb9347e}{SIZE\+\_\+C}}(size,  units)~    ((size\+\_\+t)(size) $<$$<$ units)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides some convenient constants and constant constructors. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{memsize_8h_a1841fd1a462d245d8c73dce55e2f45da}\label{memsize_8h_a1841fd1a462d245d8c73dce55e2f45da}} 
+\index{memsize.h@{memsize.h}!KB@{KB}}
+\index{KB@{KB}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{KB}{KB}}
+{\footnotesize\ttfamily \#define KB~10}
+
+\mbox{\Hypertarget{memsize_8h_aa6b38d492364d98453284934ed7caee9}\label{memsize_8h_aa6b38d492364d98453284934ed7caee9}} 
+\index{memsize.h@{memsize.h}!MB@{MB}}
+\index{MB@{MB}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{MB}{MB}}
+{\footnotesize\ttfamily \#define MB~20}
+
+\mbox{\Hypertarget{memsize_8h_a44172ac633c517cb4c9e278cef36b000}\label{memsize_8h_a44172ac633c517cb4c9e278cef36b000}} 
+\index{memsize.h@{memsize.h}!GB@{GB}}
+\index{GB@{GB}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{GB}{GB}}
+{\footnotesize\ttfamily \#define GB~30}
+
+\mbox{\Hypertarget{memsize_8h_a40ae1c7543178d54fd8e397072faa25c}\label{memsize_8h_a40ae1c7543178d54fd8e397072faa25c}} 
+\index{memsize.h@{memsize.h}!TB@{TB}}
+\index{TB@{TB}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{TB}{TB}}
+{\footnotesize\ttfamily \#define TB~40}
+
+\mbox{\Hypertarget{memsize_8h_ae66351c337fad2761a71f497b67f85df}\label{memsize_8h_ae66351c337fad2761a71f497b67f85df}} 
+\index{memsize.h@{memsize.h}!VM\_PAGE\_SHIFT@{VM\_PAGE\_SHIFT}}
+\index{VM\_PAGE\_SHIFT@{VM\_PAGE\_SHIFT}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{VM\_PAGE\_SHIFT}{VM\_PAGE\_SHIFT}}
+{\footnotesize\ttfamily \#define VM\+\_\+\+PAGE\+\_\+\+SHIFT~21}
+
+\mbox{\Hypertarget{memsize_8h_a71630f0c46309456f4de111ceefe2537}\label{memsize_8h_a71630f0c46309456f4de111ceefe2537}} 
+\index{memsize.h@{memsize.h}!VM\_PAGE\_SIZE@{VM\_PAGE\_SIZE}}
+\index{VM\_PAGE\_SIZE@{VM\_PAGE\_SIZE}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{VM\_PAGE\_SIZE}{VM\_PAGE\_SIZE}}
+{\footnotesize\ttfamily \#define VM\+\_\+\+PAGE\+\_\+\+SIZE~(1 $<$$<$ \mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}})}
+
+\mbox{\Hypertarget{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}\label{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}} 
+\index{memsize.h@{memsize.h}!PAGE\_SHIFT@{PAGE\_SHIFT}}
+\index{PAGE\_SHIFT@{PAGE\_SHIFT}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{PAGE\_SHIFT}{PAGE\_SHIFT}}
+{\footnotesize\ttfamily \#define PAGE\+\_\+\+SHIFT~12}
+
+\mbox{\Hypertarget{memsize_8h_a7d467c1d283fdfa1f2081ba1e0d01b6e}\label{memsize_8h_a7d467c1d283fdfa1f2081ba1e0d01b6e}} 
+\index{memsize.h@{memsize.h}!PAGE\_SIZE@{PAGE\_SIZE}}
+\index{PAGE\_SIZE@{PAGE\_SIZE}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{PAGE\_SIZE}{PAGE\_SIZE}}
+{\footnotesize\ttfamily \#define PAGE\+\_\+\+SIZE~(1 $<$$<$ \mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}})}
+
+\mbox{\Hypertarget{memsize_8h_aba92168399b809bf16c4651704c23147}\label{memsize_8h_aba92168399b809bf16c4651704c23147}} 
+\index{memsize.h@{memsize.h}!VM\_PAGE\_C@{VM\_PAGE\_C}}
+\index{VM\_PAGE\_C@{VM\_PAGE\_C}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{VM\_PAGE\_C}{VM\_PAGE\_C}}
+{\footnotesize\ttfamily \#define VM\+\_\+\+PAGE\+\_\+C(\begin{DoxyParamCaption}\item[{}]{size,  }\item[{}]{units }\end{DoxyParamCaption})~    (units $<$ \mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}} ? (uintptr\+\_\+t)(size) $<$$<$ (\mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}} -\/ units) \+: (uintptr\+\_\+t)(size) $<$$<$ (units -\/ \mbox{\hyperlink{memsize_8h_ae66351c337fad2761a71f497b67f85df}{VM\+\_\+\+PAGE\+\_\+\+SHIFT}}))}
+
+\mbox{\Hypertarget{memsize_8h_a7cd25262ad2d0f1edf7883e32212f6c6}\label{memsize_8h_a7cd25262ad2d0f1edf7883e32212f6c6}} 
+\index{memsize.h@{memsize.h}!PAGE\_C@{PAGE\_C}}
+\index{PAGE\_C@{PAGE\_C}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{PAGE\_C}{PAGE\_C}}
+{\footnotesize\ttfamily \#define PAGE\+\_\+C(\begin{DoxyParamCaption}\item[{}]{size,  }\item[{}]{units }\end{DoxyParamCaption})~    (units $<$ \mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}} ? (uintptr\+\_\+t)(size) $<$$<$ (\mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}} -\/ units) \+: (uintptr\+\_\+t)(size) $<$$<$ (units -\/ \mbox{\hyperlink{memsize_8h_a850d80ca2291d26b40dc6b25c419f81a}{PAGE\+\_\+\+SHIFT}}))}
+
+\mbox{\Hypertarget{memsize_8h_a508411501a124ba82516f6e7932e51ea}\label{memsize_8h_a508411501a124ba82516f6e7932e51ea}} 
+\index{memsize.h@{memsize.h}!ADDR\_C@{ADDR\_C}}
+\index{ADDR\_C@{ADDR\_C}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{ADDR\_C}{ADDR\_C}}
+{\footnotesize\ttfamily \#define ADDR\+\_\+C(\begin{DoxyParamCaption}\item[{}]{size,  }\item[{}]{units }\end{DoxyParamCaption})~    ((uintptr\+\_\+t)(size) $<$$<$ units)}
+
+\mbox{\Hypertarget{memsize_8h_ab702e5c6b54dc7cad9751f89aeb9347e}\label{memsize_8h_ab702e5c6b54dc7cad9751f89aeb9347e}} 
+\index{memsize.h@{memsize.h}!SIZE\_C@{SIZE\_C}}
+\index{SIZE\_C@{SIZE\_C}!memsize.h@{memsize.h}}
+\doxysubsubsection{\texorpdfstring{SIZE\_C}{SIZE\_C}}
+{\footnotesize\ttfamily \#define SIZE\+\_\+C(\begin{DoxyParamCaption}\item[{}]{size,  }\item[{}]{units }\end{DoxyParamCaption})~    ((size\+\_\+t)(size) $<$$<$ units)}
+

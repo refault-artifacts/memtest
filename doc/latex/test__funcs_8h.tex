@@ -1,0 +1,92 @@
+\hypertarget{test__funcs_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/tests/test\+\_\+funcs.h File Reference}
+\label{test__funcs_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/test\_funcs.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/test\_funcs.h}}
+
+
+Provides the prototypes for the basic test functions used to implement the tests.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}test.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{test__funcs_8h_ac5aff290c79c4505cd8a1dcafadb3366}{test\+\_\+addr\+\_\+walk1}} (int my\+\_\+cpu)
+\item 
+int \mbox{\hyperlink{test__funcs_8h_a7cc3a82799c82b5e728b06d410cf57a1}{test\+\_\+own\+\_\+addr1}} (int my\+\_\+cpu)
+\item 
+int \mbox{\hyperlink{test__funcs_8h_a625703eb0ea2064a82a02c5cb9f01d8f}{test\+\_\+own\+\_\+addr2}} (int my\+\_\+cpu, int stage)
+\item 
+int \mbox{\hyperlink{test__funcs_8h_a3563d98c66636f8c06da69b8b45e3d50}{test\+\_\+mov\+\_\+inv\+\_\+fixed}} (int my\+\_\+cpu, int iterations, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} pattern1, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} pattern2)
+\item 
+int \mbox{\hyperlink{test__funcs_8h_af5fcb17bf82bd2751bdb55df731eac4b}{test\+\_\+mov\+\_\+inv\+\_\+walk1}} (int my\+\_\+cpu, int iterations, int offset, bool inverse)
+\item 
+int \mbox{\hyperlink{test__funcs_8h_afbe5f2fa94b81b85cc2266e446d9c823}{test\+\_\+mov\+\_\+inv\+\_\+random}} (int my\+\_\+cpu)
+\item 
+int \mbox{\hyperlink{test__funcs_8h_abe4cb301c9cb7d1dbaa00b252f6df86f}{test\+\_\+modulo\+\_\+n}} (int my\+\_\+cpu, int iterations, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} pattern1, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} pattern2, int n, int offset)
+\item 
+int \mbox{\hyperlink{test__funcs_8h_ad3aaf7aff14084b2d1f49033fb016502}{test\+\_\+block\+\_\+move}} (int my\+\_\+cpu, int iterations)
+\item 
+int \mbox{\hyperlink{test__funcs_8h_a6b394fc93665be2efb3f41a73daf820c}{test\+\_\+bit\+\_\+fade}} (int my\+\_\+cpu, int stage, int sleep\+\_\+secs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides the prototypes for the basic test functions used to implement the tests. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{test__funcs_8h_ac5aff290c79c4505cd8a1dcafadb3366}\label{test__funcs_8h_ac5aff290c79c4505cd8a1dcafadb3366}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_addr\_walk1@{test\_addr\_walk1}}
+\index{test\_addr\_walk1@{test\_addr\_walk1}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_addr\_walk1()}{test\_addr\_walk1()}}
+{\footnotesize\ttfamily int test\+\_\+addr\+\_\+walk1 (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__funcs_8h_a7cc3a82799c82b5e728b06d410cf57a1}\label{test__funcs_8h_a7cc3a82799c82b5e728b06d410cf57a1}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_own\_addr1@{test\_own\_addr1}}
+\index{test\_own\_addr1@{test\_own\_addr1}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_own\_addr1()}{test\_own\_addr1()}}
+{\footnotesize\ttfamily int test\+\_\+own\+\_\+addr1 (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__funcs_8h_a625703eb0ea2064a82a02c5cb9f01d8f}\label{test__funcs_8h_a625703eb0ea2064a82a02c5cb9f01d8f}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_own\_addr2@{test\_own\_addr2}}
+\index{test\_own\_addr2@{test\_own\_addr2}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_own\_addr2()}{test\_own\_addr2()}}
+{\footnotesize\ttfamily int test\+\_\+own\+\_\+addr2 (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu,  }\item[{int}]{stage }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__funcs_8h_a3563d98c66636f8c06da69b8b45e3d50}\label{test__funcs_8h_a3563d98c66636f8c06da69b8b45e3d50}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_mov\_inv\_fixed@{test\_mov\_inv\_fixed}}
+\index{test\_mov\_inv\_fixed@{test\_mov\_inv\_fixed}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_mov\_inv\_fixed()}{test\_mov\_inv\_fixed()}}
+{\footnotesize\ttfamily int test\+\_\+mov\+\_\+inv\+\_\+fixed (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu,  }\item[{int}]{iterations,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{pattern1,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{pattern2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__funcs_8h_af5fcb17bf82bd2751bdb55df731eac4b}\label{test__funcs_8h_af5fcb17bf82bd2751bdb55df731eac4b}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_mov\_inv\_walk1@{test\_mov\_inv\_walk1}}
+\index{test\_mov\_inv\_walk1@{test\_mov\_inv\_walk1}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_mov\_inv\_walk1()}{test\_mov\_inv\_walk1()}}
+{\footnotesize\ttfamily int test\+\_\+mov\+\_\+inv\+\_\+walk1 (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu,  }\item[{int}]{iterations,  }\item[{int}]{offset,  }\item[{bool}]{inverse }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__funcs_8h_afbe5f2fa94b81b85cc2266e446d9c823}\label{test__funcs_8h_afbe5f2fa94b81b85cc2266e446d9c823}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_mov\_inv\_random@{test\_mov\_inv\_random}}
+\index{test\_mov\_inv\_random@{test\_mov\_inv\_random}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_mov\_inv\_random()}{test\_mov\_inv\_random()}}
+{\footnotesize\ttfamily int test\+\_\+mov\+\_\+inv\+\_\+random (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__funcs_8h_abe4cb301c9cb7d1dbaa00b252f6df86f}\label{test__funcs_8h_abe4cb301c9cb7d1dbaa00b252f6df86f}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_modulo\_n@{test\_modulo\_n}}
+\index{test\_modulo\_n@{test\_modulo\_n}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_modulo\_n()}{test\_modulo\_n()}}
+{\footnotesize\ttfamily int test\+\_\+modulo\+\_\+n (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu,  }\item[{int}]{iterations,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{pattern1,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{pattern2,  }\item[{int}]{n,  }\item[{int}]{offset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__funcs_8h_ad3aaf7aff14084b2d1f49033fb016502}\label{test__funcs_8h_ad3aaf7aff14084b2d1f49033fb016502}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_block\_move@{test\_block\_move}}
+\index{test\_block\_move@{test\_block\_move}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_block\_move()}{test\_block\_move()}}
+{\footnotesize\ttfamily int test\+\_\+block\+\_\+move (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu,  }\item[{int}]{iterations }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{test__funcs_8h_a6b394fc93665be2efb3f41a73daf820c}\label{test__funcs_8h_a6b394fc93665be2efb3f41a73daf820c}} 
+\index{test\_funcs.h@{test\_funcs.h}!test\_bit\_fade@{test\_bit\_fade}}
+\index{test\_bit\_fade@{test\_bit\_fade}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{test\_bit\_fade()}{test\_bit\_fade()}}
+{\footnotesize\ttfamily int test\+\_\+bit\+\_\+fade (\begin{DoxyParamCaption}\item[{int}]{my\+\_\+cpu,  }\item[{int}]{stage,  }\item[{int}]{sleep\+\_\+secs }\end{DoxyParamCaption})}
+

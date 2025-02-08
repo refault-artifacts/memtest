@@ -1,0 +1,30 @@
+\hypertarget{pmem_8h_source}{}\doxysection{pmem.\+h}
+\label{pmem_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/pmem.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/pmem.h}}
+\mbox{\hyperlink{pmem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PMEM\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PMEM\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define MAX\_MEM\_SEGMENTS    127}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{19     uintptr\_t       \mbox{\hyperlink{pmem_8h_a82f74a58a7ae0ce079516e0ca1f6d96e}{start}};}
+\DoxyCodeLine{20     uintptr\_t       \mbox{\hyperlink{pmem_8h_a1c4222b7002eaa2e6cb1bf45705c8dc1}{end}};}
+\DoxyCodeLine{21 \} \mbox{\hyperlink{pmem_8h_structpm__map__t}{pm\_map\_t}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{extern} \mbox{\hyperlink{pmem_8h_structpm__map__t}{pm\_map\_t}}     \mbox{\hyperlink{pmem_8h_a67178a81ffed9fdc0cb95487f595d641}{pm\_map}}[\mbox{\hyperlink{pmem_8h_a9716979d0c7a4a73a3d0a65a31e7ecee}{MAX\_MEM\_SEGMENTS}}];}
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}          \mbox{\hyperlink{pmem_8h_a1a329600870fa6216703cf53478bbbd6}{pm\_map\_size}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{extern} \textcolor{keywordtype}{size\_t}       \mbox{\hyperlink{pmem_8h_a8b2888775850230a229a1634c825acd9}{num\_pm\_pages}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keywordtype}{void} \mbox{\hyperlink{pmem_8h_a2d8842346564961ead92fa935158c2fc}{pmem\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PMEM\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

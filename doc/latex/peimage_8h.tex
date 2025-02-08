@@ -1,0 +1,1431 @@
+\hypertarget{peimage_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/boot/peimage.h File Reference}
+\label{peimage_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/peimage.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/peimage.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{peimage_8h_structexternal__PEI__filehdr}{external\+\_\+\+PEI\+\_\+filehdr}}
+\item 
+struct \mbox{\hyperlink{peimage_8h_structPEAOUTHDR}{PEAOUTHDR}}
+\item 
+struct \mbox{\hyperlink{peimage_8h_structPEP64AOUTHDR}{PEP64\+AOUTHDR}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ad2ced55d214e1630888192cdb53e33be}{IMAGE\+\_\+\+FILE\+\_\+\+RELOCS\+\_\+\+STRIPPED}}~0x0001
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a121e58695f306ceb8dbdd467303f4c0f}{IMAGE\+\_\+\+FILE\+\_\+\+EXECUTABLE\+\_\+\+IMAGE}}~0x0002
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a9f4faa85b181ad5ee2e09395a018253c}{IMAGE\+\_\+\+FILE\+\_\+\+LINE\+\_\+\+NUMS\+\_\+\+STRIPPED}}~0x0004
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a2488a077014629be69a666c4635ea132}{IMAGE\+\_\+\+FILE\+\_\+\+LOCAL\+\_\+\+SYMS\+\_\+\+STRIPPED}}~0x0008
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a007a82ea94c805389bb9b214d7fc50b7}{IMAGE\+\_\+\+FILE\+\_\+\+AGGRESSIVE\+\_\+\+WS\+\_\+\+TRIM}}~0x0010
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ad0c31a785a7ba0441b4642466af6b791}{IMAGE\+\_\+\+FILE\+\_\+\+LARGE\+\_\+\+ADDRESS\+\_\+\+AWARE}}~0x0020
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a061afb6da83be6d1b8e840116ee233d4}{IMAGE\+\_\+\+FILE\+\_\+16\+BIT\+\_\+\+MACHINE}}~0x0040
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a99ef2a79ad64c1da60b71f9e1236c84c}{IMAGE\+\_\+\+FILE\+\_\+\+BYTES\+\_\+\+REVERSED\+\_\+\+LO}}~0x0080
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ad5dd50d82c0f16eea0ee5c5dcd2c9f1c}{IMAGE\+\_\+\+FILE\+\_\+32\+BIT\+\_\+\+MACHINE}}~0x0100
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a82789bbb2c4722280fc973a6b26bb213}{IMAGE\+\_\+\+FILE\+\_\+\+DEBUG\+\_\+\+STRIPPED}}~0x0200
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a02cf092fb5f9466473d24bdf675d1db4}{IMAGE\+\_\+\+FILE\+\_\+\+REMOVABLE\+\_\+\+RUN\+\_\+\+FROM\+\_\+\+SWAP}}~0x0400
+\item 
+\#define \mbox{\hyperlink{peimage_8h_abb0259f25d7b9f779ac26f6919843c74}{IMAGE\+\_\+\+FILE\+\_\+\+SYSTEM}}~0x1000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a8791d7802081a915685bda17d76e9080}{IMAGE\+\_\+\+FILE\+\_\+\+DLL}}~0x2000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_af2e12f44c0b72023b1a7f4eef2c8481f}{IMAGE\+\_\+\+FILE\+\_\+\+UP\+\_\+\+SYSTEM\+\_\+\+ONLY}}~0x4000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_abcad5ff77ae4a96d8f690491f4992f55}{IMAGE\+\_\+\+FILE\+\_\+\+BYTES\+\_\+\+REVERSED\+\_\+\+HI}}~0x8000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a7cce2f59a7ebb19df6e2e17a0ddc8e02}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+DISCARDABLE}}~0x02000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a73f2d31800976c048f4b84c904936174}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+EXECUTE}}~0x20000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aaa56eb4ef08717bfb86ae415d1a5d5be}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+READ}}~0x40000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a11a80d5863fc4315b7bb597745429d41}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+WRITE}}~0x80000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a36ea3bbb6535692d564cd1065a773248}{IMAGE\+\_\+\+SCN\+\_\+\+TYPE\+\_\+\+NO\+\_\+\+PAD}}~0x00000008  /$\ast$ Reserved. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a705da0cf40a97198bcf9e2e2dcaa586b}{IMAGE\+\_\+\+SCN\+\_\+\+CNT\+\_\+\+CODE}}~0x00000020  /$\ast$ Section contains code. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a459812511eb7707011354e4a76ed71f6}{IMAGE\+\_\+\+SCN\+\_\+\+CNT\+\_\+\+INITIALIZED\+\_\+\+DATA}}~0x00000040  /$\ast$ Section contains initialized data. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ab65bf521b42f95dd11c52bfaf7a306b1}{IMAGE\+\_\+\+SCN\+\_\+\+CNT\+\_\+\+UNINITIALIZED\+\_\+\+DATA}}~0x00000080  /$\ast$ Section contains uninitialized data. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a8d7375c6ae0344cb26cf996e765512fc}{IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+OTHER}}~0x00000100  /$\ast$ Reserved. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a29bce42b10be109bbd8cfb37d4642dbc}{IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+INFO}}~0x00000200  /$\ast$ Section contains comments or some other type of information. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a9e37ac6d5a8aefedb4cc36ec209c6f57}{IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+REMOVE}}~0x00000800  /$\ast$ Section contents will not become part of image. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a3aa51aae68247ad176a0fba450b76cc2}{IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+COMDAT}}~0x00001000  /$\ast$ Section contents comdat. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a502f10f48078a4f0f6707ad247fb8318}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+FARDATA}}~0x00008000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a21fb3a27f91dd892fb7e77e47404a061}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+PURGEABLE}}~0x00020000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_af02fb6cb4a36e254b2012ee86785dc54}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+16\+BIT}}~0x00020000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a14bb4abe969b04d559861e8a3d21c208}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+LOCKED}}~0x00040000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a3fde01efa3c1f05f1d27d4d041e312e4}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+PRELOAD}}~0x00080000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ab3ffd3e96e390562986f1c3f0f10c978}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+1\+BYTES}}~0x00100000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ab8b77590cabacc0afb6602da2bc3226d}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+2\+BYTES}}~0x00200000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aa5f6f34a3f4da16a78e6dd69ef7cf027}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+4\+BYTES}}~0x00300000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ad8a0484fb5cc092724de763f50efe882}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+8\+BYTES}}~0x00400000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a8d98008f0607ec4bc94134ca45ecab3e}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+16\+BYTES}}~0x00500000  /$\ast$ Default alignment if no others are specified. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a20b2c12b9ea33537efafed20415940e4}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+32\+BYTES}}~0x00600000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aee916237573f3e25104f714722a01ae9}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+64\+BYTES}}~0x00700000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a69cf6b56e214f728876a9113fff397cd}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+128\+BYTES}}~0x00800000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a0a4d76cccca150cb292140914db82a2a}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+256\+BYTES}}~0x00900000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a4fac86e80f70a07b60aae4cd91b025ce}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+512\+BYTES}}~0x00a00000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a999fd0721004e7e7a1546ca3b56dfff3}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+1024\+BYTES}}~0x00b00000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a11bd8f3bd9efb680de2d816511892360}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+2048\+BYTES}}~0x00c00000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aad1b0021824160ef2b1098e9f567ec38}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+4096\+BYTES}}~0x00d00000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a0458e700feb9f8fd0e35c4739c6a836a}{IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+8129\+BYTES}}~0x00e00000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a7cce2f59a7ebb19df6e2e17a0ddc8e02}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+DISCARDABLE}}~0x02000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a0dedbe293fd45c823c896563fbdbaa33}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+NOT\+\_\+\+CACHED}}~0x04000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a2624849cd5ad52cddc87abe84f8f0d0d}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+NOT\+\_\+\+PAGED}}~0x08000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_afaa17e31e33dbc2b603bfa021037e315}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+SHARED}}~0x10000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a73f2d31800976c048f4b84c904936174}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+EXECUTE}}~0x20000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aaa56eb4ef08717bfb86ae415d1a5d5be}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+READ}}~0x40000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a11a80d5863fc4315b7bb597745429d41}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+WRITE}}~0x80000000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ad14c1217ec367c17c99a1dac1f97e61c}{IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+NRELOC\+\_\+\+OVFL}}~0x01000000  /$\ast$ Section contains extended relocations. $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a0dedbe293fd45c823c896563fbdbaa33}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+NOT\+\_\+\+CACHED}}~0x04000000  /$\ast$ Section is not cachable.               $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a2624849cd5ad52cddc87abe84f8f0d0d}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+NOT\+\_\+\+PAGED}}~0x08000000  /$\ast$ Section is not pageable.               $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_afaa17e31e33dbc2b603bfa021037e315}{IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+SHARED}}~0x10000000  /$\ast$ Section is shareable.                  $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ab23caa74062a13a4b37cb2b851d59f98}{IMAGE\+\_\+\+REL\+\_\+\+BASED\+\_\+\+ABSOLUTE}}~0x0000
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a007a62416354eb7b67e966e331c7a0f6}{IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+NODUPLICATES}}~(1) /$\ast$ Warn if duplicates.  $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a527bdbe86c4f80ec253a9f3d46db5931}{IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+ANY}}~(2) /$\ast$ No warning.  $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ab5d15e547918765f060a65300bcb4a69}{IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+SAME\+\_\+\+SIZE}}~(3) /$\ast$ Warn if different size.  $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a1c17e2d33092c0c07fd2b2d9343abbcf}{IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+EXACT\+\_\+\+MATCH}}~(4) /$\ast$ Warn if different.  $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_af8bc1ab369fb14083dc472ad1f1a206b}{IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+ASSOCIATIVE}}~(5) /$\ast$ Base on other section.  $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a37174c6daace0e28b10695d23d2725d6}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+UNKNOWN}}~0x0
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a9b412ed8e718b0e551014a684ad26b74}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ALPHA}}~0x184
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a780d5dfcaaed87c8f73689519507a03a}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ARM}}~0x1c0
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a1504808ef1e16deb0012aa50c336fb80}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ALPHA64}}~0x284
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a20dfd221df247cc9eb08e29f5c534aba}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+I386}}~0x14c
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aa1a776b231fd52bb0f78002be01646fc}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+IA64}}~0x200
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ab433305df2177ed7bec0699d5a503c92}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+M68K}}~0x268
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a84904184b1aad55f4839ada4f31f264b}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+MIPS16}}~0x266
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a32e4a11234a01639b337cf4772569562}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+MIPSFPU}}~0x366
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a768693d4443243c8d308faed023d4f92}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+MIPSFPU16}}~0x466
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a51e4754bb6a03c1ffe579e3cc3d1044a}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+POWERPC}}~0x1f0
+\item 
+\#define \mbox{\hyperlink{peimage_8h_afd5b7be2d7ed2e54f523dc853a3af888}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+R3000}}~0x162
+\item 
+\#define \mbox{\hyperlink{peimage_8h_af7c969301042e0fcb04748a262170092}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+R4000}}~0x166
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a6c549545feff6739817a5a0e9ddc8753}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+R10000}}~0x168
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a84810383f1d0d0b94b26015e32f79c8b}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+SH3}}~0x1a2
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a5155e8ae1298915e6d94f7aa6ede7a5d}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+SH4}}~0x1a6
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ab8980bbb611eb66299ef79126089ff3e}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ARMTHUMB\+\_\+\+MIXED}}~0x1c2
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a39efb9509d242e66f0c877bf5b1c3651}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+X64}}~0x8664
+\item 
+\#define \mbox{\hyperlink{peimage_8h_acb19f8a7cddc74dd329b5941fe6775ad}{IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ARM64}}~0xaa64
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aebf0601cf94bb599a2520428d9454eb0}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+UNKNOWN}}~0
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ab482af5872918b74879e670bdab84fef}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+NATIVE}}~1
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a5f4c0e8634b20979f7025acb7d5a0596}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+WINDOWS\+\_\+\+GUI}}~2
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a3557df821c197a07ae5431632a5fbe5f}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+WINDOWS\+\_\+\+CUI}}~3
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a0347aae223a38b00c495176bf15e9cae}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+POSIX\+\_\+\+CUI}}~7
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ae8653cfd58b731f7277528ee13301c43}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+WINDOWS\+\_\+\+CE\+\_\+\+GUI}}~9
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a9bced1bf9f7934e24a8d6876caa15970}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+EFI\+\_\+\+APPLICATION}}~10
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a08f2e11ba4b75ae999f5353d2c7543b1}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+EFI\+\_\+\+BOOT\+\_\+\+SERVICE\+\_\+\+DRIVER}}~11
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ae6aa0695f4a6113245d30346f7832da5}{IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+EFI\+\_\+\+RUNTIME\+\_\+\+DRIVER}}~12
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a1f7022fa7eb27bf9e0f480b47e82bab5}{DOSMAGIC}}~0x5a4d
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aa3a8890c847f755c6af661e6f55b04d5}{NT\+\_\+\+SIGNATURE}}~0x00004550
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a3499045111a3d860aa8137fc56fe4a9f}{IMAGE\+\_\+\+NT\+\_\+\+OPTIONAL\+\_\+\+HDR32\+\_\+\+MAGIC}}~0x010b
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a47b43b60cdfbc674cb8d9ac9d43f7615}{IMAGE\+\_\+\+NT\+\_\+\+OPTIONAL\+\_\+\+HDR64\+\_\+\+MAGIC}}~0x020b
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a36951ba6bf3b785a5cee59034e783e3e}{IMAGE\+\_\+\+DLLCHARACTERISTICS\+\_\+\+NX\+\_\+\+COMPAT}}~0x0100
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a0b17a5e6156e8ac96c3d3d5c0ed09bcf}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+EXPORT}}~0
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a1f7696d87d4aa43f3464998709d203db}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+IMPORT}}~1
+\item 
+\#define \mbox{\hyperlink{peimage_8h_afd06967b9a647a5ea49715e1c6eabd17}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+RESOURCE}}~2
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a3c83d126611127f6ec4101d401da1665}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+EXCEPTION}}~3
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a9363039fffe47d0f14826b88733cc4ae}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+SECURITY}}~4
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a7fc0447c3429661758a677409821f2ee}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+BASERELOC}}~5
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a4ca225b72e58095c6cedd141e7c6f792}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+DEBUG}}~6
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a81c2b3d3445c69f37fa651a6edb9803d}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+COPYRIGHT}}~7
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aee60afa5dd261371bc0a0aa5d0cd4458}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+GLOBALPTR}}~8
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aa87af686d8dc7a32af5c2634e450b7e6}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+TLS}}~9
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aa6d2ef21f2f1fdc1929c0063153cc460}{IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+LOAD\+\_\+\+CONFIG}}~10
+\item 
+\#define \mbox{\hyperlink{peimage_8h_af8b17c9aa6f1caa88971104807bdf57c}{IMAGE\+\_\+\+NUMBER\+\_\+\+OF\+\_\+\+DIRECTORY\+\_\+\+ENTRIES}}~16
+\item 
+\#define \mbox{\hyperlink{peimage_8h_aabc1280d2f84a935adce2c1bda06a6da}{FILNMLEN}}~18 /$\ast$ \# characters in a file name  $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a09e95033c64cc612df63af9686179ae2}{AOUTSZ}}~(AOUTHDRSZ + 196)
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a4485d6c1074ddae77c1d88f834649e48}{PEP64\+AOUTSZ}}~240
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a5be0e3de8a527445729a1d584d093fd0}{E\+\_\+\+FILNMLEN}}~18 /$\ast$ \# characters in a file name  $\ast$/
+\item 
+\#define \mbox{\hyperlink{peimage_8h_ae294fcfd0f832cda2b66b6de4e3bc081}{IMPORT\+\_\+\+CODE}}~0
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a001b0fdfbc1f7cfba0578c276751c115}{IMPORT\+\_\+\+DATA}}~1
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a0f32eda905f272ac89ddd1868ea1973f}{IMPORT\+\_\+\+CONST}}~2
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a98126b2744aea46e5460d81dd78edc0f}{IMPORT\+\_\+\+ORDINAL}}~0
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a187746a30a347e4791ef0bb61deca6f3}{IMPORT\+\_\+\+NAME}}~1
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a881fe2b8441f25e8f40619f57ce298cb}{IMPORT\+\_\+\+NAME\+\_\+\+NOPREFIX}}~2
+\item 
+\#define \mbox{\hyperlink{peimage_8h_a2735d4c2cf7f04797d3e99bbc182a8ac}{IMPORT\+\_\+\+NAME\+\_\+\+UNDECORATE}}~3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Data Structure Documentation}
+\index{external\_PEI\_filehdr@{external\_PEI\_filehdr}}\label{structexternal__PEI__filehdr}
+\Hypertarget{peimage_8h_structexternal__PEI__filehdr}
+\doxysubsubsection{struct external\+\_\+\+PEI\+\_\+filehdr}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{peimage_8h_aafc87a65cf005a49a96754d0efe073bd}\label{peimage_8h_aafc87a65cf005a49a96754d0efe073bd}} 
+char&
+e\_magic\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a5e96acd67a3a84a886e0c02db0251446}\label{peimage_8h_a5e96acd67a3a84a886e0c02db0251446}} 
+char&
+e\_cblp\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a9542c36b46edfa859dd139ddd563fcbc}\label{peimage_8h_a9542c36b46edfa859dd139ddd563fcbc}} 
+char&
+e\_cp\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a21b3d2acd72b89adfd329136b361c86a}\label{peimage_8h_a21b3d2acd72b89adfd329136b361c86a}} 
+char&
+e\_crlc\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a9e116a8cc63f5de002b72a71471f41a7}\label{peimage_8h_a9e116a8cc63f5de002b72a71471f41a7}} 
+char&
+e\_cparhdr\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a4e4b327b320546069fc9a9eb85420746}\label{peimage_8h_a4e4b327b320546069fc9a9eb85420746}} 
+char&
+e\_minalloc\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a4af4b588a52846b321af4591b7619494}\label{peimage_8h_a4af4b588a52846b321af4591b7619494}} 
+char&
+e\_maxalloc\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a1874913e92c2e8b07f907891212fa26a}\label{peimage_8h_a1874913e92c2e8b07f907891212fa26a}} 
+char&
+e\_ss\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a92ec297f9350364e1ed1e4354d8eee6c}\label{peimage_8h_a92ec297f9350364e1ed1e4354d8eee6c}} 
+char&
+e\_sp\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_afa81aab2738882aec801335caee51669}\label{peimage_8h_afa81aab2738882aec801335caee51669}} 
+char&
+e\_csum\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a946be12c1730dca7f019fe4f9be1c6bb}\label{peimage_8h_a946be12c1730dca7f019fe4f9be1c6bb}} 
+char&
+e\_ip\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a975f8a8ff521a5c50f5ed85608854e82}\label{peimage_8h_a975f8a8ff521a5c50f5ed85608854e82}} 
+char&
+e\_cs\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a0c9e211099cbdf56fe8759dddd976c6c}\label{peimage_8h_a0c9e211099cbdf56fe8759dddd976c6c}} 
+char&
+e\_lfarlc\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ab0c122447531fd21d5a3f16892b88608}\label{peimage_8h_ab0c122447531fd21d5a3f16892b88608}} 
+char&
+e\_ovno\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a357f940f31b43c4d7371439a1be69126}\label{peimage_8h_a357f940f31b43c4d7371439a1be69126}} 
+char&
+e\_res\mbox{[}4\mbox{]}\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_aa865acf6713da156b22a8de938533cfa}\label{peimage_8h_aa865acf6713da156b22a8de938533cfa}} 
+char&
+e\_oemid\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a13b0356c46a2745056bad321bd69b3b8}\label{peimage_8h_a13b0356c46a2745056bad321bd69b3b8}} 
+char&
+e\_oeminfo\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a4d07d89fd42715e35a62a6238197745b}\label{peimage_8h_a4d07d89fd42715e35a62a6238197745b}} 
+char&
+e\_res2\mbox{[}10\mbox{]}\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ada3a92adb88b9df90ea0a119527dd1a3}\label{peimage_8h_ada3a92adb88b9df90ea0a119527dd1a3}} 
+char&
+e\_lfanew\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a8b4120199698e28d5ff8472a239e1d6a}\label{peimage_8h_a8b4120199698e28d5ff8472a239e1d6a}} 
+char&
+dos\_message\mbox{[}16\mbox{]}\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_af79806cb4bdeaa26b441dbdc7827fc65}\label{peimage_8h_af79806cb4bdeaa26b441dbdc7827fc65}} 
+char&
+nt\_signature\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ac1a4be344fa62f4a274625fe5b21dd6f}\label{peimage_8h_ac1a4be344fa62f4a274625fe5b21dd6f}} 
+char&
+f\_magic\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a2d776d7429d0be5547593ea8771947e0}\label{peimage_8h_a2d776d7429d0be5547593ea8771947e0}} 
+char&
+f\_nscns\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a6c54ce8a87af66ef3273621cba2d39aa}\label{peimage_8h_a6c54ce8a87af66ef3273621cba2d39aa}} 
+char&
+f\_timdat\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a847746c4d1d9ec27cae475d568da442e}\label{peimage_8h_a847746c4d1d9ec27cae475d568da442e}} 
+char&
+f\_symptr\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_acf047ebfed6cad783a5d68dbdf6a8502}\label{peimage_8h_acf047ebfed6cad783a5d68dbdf6a8502}} 
+char&
+f\_nsyms\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a5b569beb6ddf8ff8cc12164b1309aaac}\label{peimage_8h_a5b569beb6ddf8ff8cc12164b1309aaac}} 
+char&
+f\_opthdr\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a019fb8c191fbfb2a9fc508d4104be8a2}\label{peimage_8h_a019fb8c191fbfb2a9fc508d4104be8a2}} 
+char&
+f\_flags\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\end{DoxyFields}
+\index{PEAOUTHDR@{PEAOUTHDR}}\label{structPEAOUTHDR}
+\Hypertarget{peimage_8h_structPEAOUTHDR}
+\doxysubsubsection{struct PEAOUTHDR}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{peimage_8h_aecc4ca78364fc6283df1363a027ec608}\label{peimage_8h_aecc4ca78364fc6283df1363a027ec608}} 
+AOUTHDR&
+standard&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a47de8b04d5091b0e300c7c42d2a331fa}\label{peimage_8h_a47de8b04d5091b0e300c7c42d2a331fa}} 
+char&
+ImageBase\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a321f6e25dd4b6fda53b9119006d4df26}\label{peimage_8h_a321f6e25dd4b6fda53b9119006d4df26}} 
+char&
+SectionAlignment\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_abc190d768874d834edcf78a34d43a6c2}\label{peimage_8h_abc190d768874d834edcf78a34d43a6c2}} 
+char&
+FileAlignment\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_aff48ddb7da3b8788244aa0ddb4c26261}\label{peimage_8h_aff48ddb7da3b8788244aa0ddb4c26261}} 
+char&
+MajorOperatingSystemVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_aff0c6779a94eb14e9ba2887e83e46035}\label{peimage_8h_aff0c6779a94eb14e9ba2887e83e46035}} 
+char&
+MinorOperatingSystemVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a41baf9ee40edba8e5c0b22b41d7d45b2}\label{peimage_8h_a41baf9ee40edba8e5c0b22b41d7d45b2}} 
+char&
+MajorImageVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a61d036dc7be3ffaa878610cc9bf9e02e}\label{peimage_8h_a61d036dc7be3ffaa878610cc9bf9e02e}} 
+char&
+MinorImageVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a0ddc46613d8a66921bea20f22aaccc3b}\label{peimage_8h_a0ddc46613d8a66921bea20f22aaccc3b}} 
+char&
+MajorSubsystemVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a5d4754f642d65e8a4d7142045a3ba458}\label{peimage_8h_a5d4754f642d65e8a4d7142045a3ba458}} 
+char&
+MinorSubsystemVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_acc0ac7d54baf6c01b8c29ff957fc071e}\label{peimage_8h_acc0ac7d54baf6c01b8c29ff957fc071e}} 
+char&
+Reserved1\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a466c0c917b51eaa0dbfd2393b89f99bf}\label{peimage_8h_a466c0c917b51eaa0dbfd2393b89f99bf}} 
+char&
+SizeOfImage\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a51b2731c26d17a440d06672a50707596}\label{peimage_8h_a51b2731c26d17a440d06672a50707596}} 
+char&
+SizeOfHeaders\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a354af33630ea4f026a71c7625495d1dc}\label{peimage_8h_a354af33630ea4f026a71c7625495d1dc}} 
+char&
+CheckSum\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a09b605ff232b75b77a015bf7e1c07cd9}\label{peimage_8h_a09b605ff232b75b77a015bf7e1c07cd9}} 
+char&
+Subsystem\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a33de98d2bee34f42dd15d343e009b549}\label{peimage_8h_a33de98d2bee34f42dd15d343e009b549}} 
+char&
+DllCharacteristics\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a1179af43d4ed73947b3d7e8b1e681d9e}\label{peimage_8h_a1179af43d4ed73947b3d7e8b1e681d9e}} 
+char&
+SizeOfStackReserve\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ab5733a91b9a8d8536bfcf7808a935d6e}\label{peimage_8h_ab5733a91b9a8d8536bfcf7808a935d6e}} 
+char&
+SizeOfStackCommit\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a3b610e329a4bcf807bf983930c9377cb}\label{peimage_8h_a3b610e329a4bcf807bf983930c9377cb}} 
+char&
+SizeOfHeapReserve\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a1c293d1092281b230d42fb9d73cc31a0}\label{peimage_8h_a1c293d1092281b230d42fb9d73cc31a0}} 
+char&
+SizeOfHeapCommit\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a66e17f40ed766973d856168955dd145c}\label{peimage_8h_a66e17f40ed766973d856168955dd145c}} 
+char&
+LoaderFlags\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ae84d1eb10591f4d6faa81fd34db43118}\label{peimage_8h_ae84d1eb10591f4d6faa81fd34db43118}} 
+char&
+NumberOfRvaAndSizes\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a1b2e68257a29b85306553ec69258d9bf}\label{peimage_8h_a1b2e68257a29b85306553ec69258d9bf}} 
+char&
+DataDirectory\mbox{[}16\mbox{]}\mbox{[}2\mbox{]}\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\end{DoxyFields}
+\index{PEP64AOUTHDR@{PEP64AOUTHDR}}\label{structPEP64AOUTHDR}
+\Hypertarget{peimage_8h_structPEP64AOUTHDR}
+\doxysubsubsection{struct PEP64\+AOUTHDR}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{peimage_8h_ae432e1188141df6065e08d320827cfd0}\label{peimage_8h_ae432e1188141df6065e08d320827cfd0}} 
+AOUTHDR&
+standard&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a49c352603022f66870a082c3a013261e}\label{peimage_8h_a49c352603022f66870a082c3a013261e}} 
+char&
+ImageBase\mbox{[}8\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a2d2efa110659d78e8c3ac656f4d62599}\label{peimage_8h_a2d2efa110659d78e8c3ac656f4d62599}} 
+char&
+SectionAlignment\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a4d40dbaf8ddcec2fc15e8a88f8efbc54}\label{peimage_8h_a4d40dbaf8ddcec2fc15e8a88f8efbc54}} 
+char&
+FileAlignment\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ad4af11da0adb5de266b6a7247b1eca29}\label{peimage_8h_ad4af11da0adb5de266b6a7247b1eca29}} 
+char&
+MajorOperatingSystemVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ade2fb14da7ad6956263f682e01cecd50}\label{peimage_8h_ade2fb14da7ad6956263f682e01cecd50}} 
+char&
+MinorOperatingSystemVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a79ed6015af3b964016bdf8c7cb9507a4}\label{peimage_8h_a79ed6015af3b964016bdf8c7cb9507a4}} 
+char&
+MajorImageVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_abb49424c07a239863497b8e9f8f397f2}\label{peimage_8h_abb49424c07a239863497b8e9f8f397f2}} 
+char&
+MinorImageVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ae03748cb256a7f293e0d73e00c359d09}\label{peimage_8h_ae03748cb256a7f293e0d73e00c359d09}} 
+char&
+MajorSubsystemVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a692b2167c903cb37898d2f3956ce9f8a}\label{peimage_8h_a692b2167c903cb37898d2f3956ce9f8a}} 
+char&
+MinorSubsystemVersion\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a5d82b5e5a1bec4d6455a4992bb9d4d6c}\label{peimage_8h_a5d82b5e5a1bec4d6455a4992bb9d4d6c}} 
+char&
+Reserved1\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ab26bfb7088d70a3bd8ff1ef25105ac7d}\label{peimage_8h_ab26bfb7088d70a3bd8ff1ef25105ac7d}} 
+char&
+SizeOfImage\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_abff811dd785093e236a43121a0987e9e}\label{peimage_8h_abff811dd785093e236a43121a0987e9e}} 
+char&
+SizeOfHeaders\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a4ef94b09beb6f47b4b1168abb5fef45f}\label{peimage_8h_a4ef94b09beb6f47b4b1168abb5fef45f}} 
+char&
+CheckSum\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a630e9606b4763d2ebc95def787c6cb05}\label{peimage_8h_a630e9606b4763d2ebc95def787c6cb05}} 
+char&
+Subsystem\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a45167827d44ac7dcded724d877c0e247}\label{peimage_8h_a45167827d44ac7dcded724d877c0e247}} 
+char&
+DllCharacteristics\mbox{[}2\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ae67e62a497c836efe78441328c3d82a8}\label{peimage_8h_ae67e62a497c836efe78441328c3d82a8}} 
+char&
+SizeOfStackReserve\mbox{[}8\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ad345271e8d076271cf93ad6534851437}\label{peimage_8h_ad345271e8d076271cf93ad6534851437}} 
+char&
+SizeOfStackCommit\mbox{[}8\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_ae772264ae2ef4e9672d19153f4845745}\label{peimage_8h_ae772264ae2ef4e9672d19153f4845745}} 
+char&
+SizeOfHeapReserve\mbox{[}8\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a63de61d02ad85d0e94e473631d29e4a3}\label{peimage_8h_a63de61d02ad85d0e94e473631d29e4a3}} 
+char&
+SizeOfHeapCommit\mbox{[}8\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_aafc49ea602050a785ef6c0d9b7dde5f0}\label{peimage_8h_aafc49ea602050a785ef6c0d9b7dde5f0}} 
+char&
+LoaderFlags\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a0da6326974ae29f421f64fc56d59139b}\label{peimage_8h_a0da6326974ae29f421f64fc56d59139b}} 
+char&
+NumberOfRvaAndSizes\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{peimage_8h_a76dbb3a47cd1f1a2ea3e15aeeb56062f}\label{peimage_8h_a76dbb3a47cd1f1a2ea3e15aeeb56062f}} 
+char&
+DataDirectory\mbox{[}16\mbox{]}\mbox{[}2\mbox{]}\mbox{[}4\mbox{]}&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{peimage_8h_ad2ced55d214e1630888192cdb53e33be}\label{peimage_8h_ad2ced55d214e1630888192cdb53e33be}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_RELOCS\_STRIPPED@{IMAGE\_FILE\_RELOCS\_STRIPPED}}
+\index{IMAGE\_FILE\_RELOCS\_STRIPPED@{IMAGE\_FILE\_RELOCS\_STRIPPED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_RELOCS\_STRIPPED}{IMAGE\_FILE\_RELOCS\_STRIPPED}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+RELOCS\+\_\+\+STRIPPED~0x0001}
+
+\mbox{\Hypertarget{peimage_8h_a121e58695f306ceb8dbdd467303f4c0f}\label{peimage_8h_a121e58695f306ceb8dbdd467303f4c0f}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_EXECUTABLE\_IMAGE@{IMAGE\_FILE\_EXECUTABLE\_IMAGE}}
+\index{IMAGE\_FILE\_EXECUTABLE\_IMAGE@{IMAGE\_FILE\_EXECUTABLE\_IMAGE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_EXECUTABLE\_IMAGE}{IMAGE\_FILE\_EXECUTABLE\_IMAGE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+EXECUTABLE\+\_\+\+IMAGE~0x0002}
+
+\mbox{\Hypertarget{peimage_8h_a9f4faa85b181ad5ee2e09395a018253c}\label{peimage_8h_a9f4faa85b181ad5ee2e09395a018253c}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_LINE\_NUMS\_STRIPPED@{IMAGE\_FILE\_LINE\_NUMS\_STRIPPED}}
+\index{IMAGE\_FILE\_LINE\_NUMS\_STRIPPED@{IMAGE\_FILE\_LINE\_NUMS\_STRIPPED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_LINE\_NUMS\_STRIPPED}{IMAGE\_FILE\_LINE\_NUMS\_STRIPPED}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+LINE\+\_\+\+NUMS\+\_\+\+STRIPPED~0x0004}
+
+\mbox{\Hypertarget{peimage_8h_a2488a077014629be69a666c4635ea132}\label{peimage_8h_a2488a077014629be69a666c4635ea132}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_LOCAL\_SYMS\_STRIPPED@{IMAGE\_FILE\_LOCAL\_SYMS\_STRIPPED}}
+\index{IMAGE\_FILE\_LOCAL\_SYMS\_STRIPPED@{IMAGE\_FILE\_LOCAL\_SYMS\_STRIPPED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_LOCAL\_SYMS\_STRIPPED}{IMAGE\_FILE\_LOCAL\_SYMS\_STRIPPED}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+LOCAL\+\_\+\+SYMS\+\_\+\+STRIPPED~0x0008}
+
+\mbox{\Hypertarget{peimage_8h_a007a82ea94c805389bb9b214d7fc50b7}\label{peimage_8h_a007a82ea94c805389bb9b214d7fc50b7}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_AGGRESSIVE\_WS\_TRIM@{IMAGE\_FILE\_AGGRESSIVE\_WS\_TRIM}}
+\index{IMAGE\_FILE\_AGGRESSIVE\_WS\_TRIM@{IMAGE\_FILE\_AGGRESSIVE\_WS\_TRIM}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_AGGRESSIVE\_WS\_TRIM}{IMAGE\_FILE\_AGGRESSIVE\_WS\_TRIM}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+AGGRESSIVE\+\_\+\+WS\+\_\+\+TRIM~0x0010}
+
+\mbox{\Hypertarget{peimage_8h_ad0c31a785a7ba0441b4642466af6b791}\label{peimage_8h_ad0c31a785a7ba0441b4642466af6b791}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_LARGE\_ADDRESS\_AWARE@{IMAGE\_FILE\_LARGE\_ADDRESS\_AWARE}}
+\index{IMAGE\_FILE\_LARGE\_ADDRESS\_AWARE@{IMAGE\_FILE\_LARGE\_ADDRESS\_AWARE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_LARGE\_ADDRESS\_AWARE}{IMAGE\_FILE\_LARGE\_ADDRESS\_AWARE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+LARGE\+\_\+\+ADDRESS\+\_\+\+AWARE~0x0020}
+
+\mbox{\Hypertarget{peimage_8h_a061afb6da83be6d1b8e840116ee233d4}\label{peimage_8h_a061afb6da83be6d1b8e840116ee233d4}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_16BIT\_MACHINE@{IMAGE\_FILE\_16BIT\_MACHINE}}
+\index{IMAGE\_FILE\_16BIT\_MACHINE@{IMAGE\_FILE\_16BIT\_MACHINE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_16BIT\_MACHINE}{IMAGE\_FILE\_16BIT\_MACHINE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+16\+BIT\+\_\+\+MACHINE~0x0040}
+
+\mbox{\Hypertarget{peimage_8h_a99ef2a79ad64c1da60b71f9e1236c84c}\label{peimage_8h_a99ef2a79ad64c1da60b71f9e1236c84c}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_BYTES\_REVERSED\_LO@{IMAGE\_FILE\_BYTES\_REVERSED\_LO}}
+\index{IMAGE\_FILE\_BYTES\_REVERSED\_LO@{IMAGE\_FILE\_BYTES\_REVERSED\_LO}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_BYTES\_REVERSED\_LO}{IMAGE\_FILE\_BYTES\_REVERSED\_LO}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+BYTES\+\_\+\+REVERSED\+\_\+\+LO~0x0080}
+
+\mbox{\Hypertarget{peimage_8h_ad5dd50d82c0f16eea0ee5c5dcd2c9f1c}\label{peimage_8h_ad5dd50d82c0f16eea0ee5c5dcd2c9f1c}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_32BIT\_MACHINE@{IMAGE\_FILE\_32BIT\_MACHINE}}
+\index{IMAGE\_FILE\_32BIT\_MACHINE@{IMAGE\_FILE\_32BIT\_MACHINE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_32BIT\_MACHINE}{IMAGE\_FILE\_32BIT\_MACHINE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+32\+BIT\+\_\+\+MACHINE~0x0100}
+
+\mbox{\Hypertarget{peimage_8h_a82789bbb2c4722280fc973a6b26bb213}\label{peimage_8h_a82789bbb2c4722280fc973a6b26bb213}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_DEBUG\_STRIPPED@{IMAGE\_FILE\_DEBUG\_STRIPPED}}
+\index{IMAGE\_FILE\_DEBUG\_STRIPPED@{IMAGE\_FILE\_DEBUG\_STRIPPED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_DEBUG\_STRIPPED}{IMAGE\_FILE\_DEBUG\_STRIPPED}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+DEBUG\+\_\+\+STRIPPED~0x0200}
+
+\mbox{\Hypertarget{peimage_8h_a02cf092fb5f9466473d24bdf675d1db4}\label{peimage_8h_a02cf092fb5f9466473d24bdf675d1db4}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_REMOVABLE\_RUN\_FROM\_SWAP@{IMAGE\_FILE\_REMOVABLE\_RUN\_FROM\_SWAP}}
+\index{IMAGE\_FILE\_REMOVABLE\_RUN\_FROM\_SWAP@{IMAGE\_FILE\_REMOVABLE\_RUN\_FROM\_SWAP}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_REMOVABLE\_RUN\_FROM\_SWAP}{IMAGE\_FILE\_REMOVABLE\_RUN\_FROM\_SWAP}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+REMOVABLE\+\_\+\+RUN\+\_\+\+FROM\+\_\+\+SWAP~0x0400}
+
+\mbox{\Hypertarget{peimage_8h_abb0259f25d7b9f779ac26f6919843c74}\label{peimage_8h_abb0259f25d7b9f779ac26f6919843c74}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_SYSTEM@{IMAGE\_FILE\_SYSTEM}}
+\index{IMAGE\_FILE\_SYSTEM@{IMAGE\_FILE\_SYSTEM}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_SYSTEM}{IMAGE\_FILE\_SYSTEM}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+SYSTEM~0x1000}
+
+\mbox{\Hypertarget{peimage_8h_a8791d7802081a915685bda17d76e9080}\label{peimage_8h_a8791d7802081a915685bda17d76e9080}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_DLL@{IMAGE\_FILE\_DLL}}
+\index{IMAGE\_FILE\_DLL@{IMAGE\_FILE\_DLL}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_DLL}{IMAGE\_FILE\_DLL}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+DLL~0x2000}
+
+\mbox{\Hypertarget{peimage_8h_af2e12f44c0b72023b1a7f4eef2c8481f}\label{peimage_8h_af2e12f44c0b72023b1a7f4eef2c8481f}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_UP\_SYSTEM\_ONLY@{IMAGE\_FILE\_UP\_SYSTEM\_ONLY}}
+\index{IMAGE\_FILE\_UP\_SYSTEM\_ONLY@{IMAGE\_FILE\_UP\_SYSTEM\_ONLY}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_UP\_SYSTEM\_ONLY}{IMAGE\_FILE\_UP\_SYSTEM\_ONLY}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+UP\+\_\+\+SYSTEM\+\_\+\+ONLY~0x4000}
+
+\mbox{\Hypertarget{peimage_8h_abcad5ff77ae4a96d8f690491f4992f55}\label{peimage_8h_abcad5ff77ae4a96d8f690491f4992f55}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_BYTES\_REVERSED\_HI@{IMAGE\_FILE\_BYTES\_REVERSED\_HI}}
+\index{IMAGE\_FILE\_BYTES\_REVERSED\_HI@{IMAGE\_FILE\_BYTES\_REVERSED\_HI}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_BYTES\_REVERSED\_HI}{IMAGE\_FILE\_BYTES\_REVERSED\_HI}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+BYTES\+\_\+\+REVERSED\+\_\+\+HI~0x8000}
+
+\mbox{\Hypertarget{peimage_8h_a7cce2f59a7ebb19df6e2e17a0ddc8e02}\label{peimage_8h_a7cce2f59a7ebb19df6e2e17a0ddc8e02}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_DISCARDABLE@{IMAGE\_SCN\_MEM\_DISCARDABLE}}
+\index{IMAGE\_SCN\_MEM\_DISCARDABLE@{IMAGE\_SCN\_MEM\_DISCARDABLE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_DISCARDABLE}{IMAGE\_SCN\_MEM\_DISCARDABLE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+DISCARDABLE~0x02000000}
+
+\mbox{\Hypertarget{peimage_8h_a73f2d31800976c048f4b84c904936174}\label{peimage_8h_a73f2d31800976c048f4b84c904936174}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_EXECUTE@{IMAGE\_SCN\_MEM\_EXECUTE}}
+\index{IMAGE\_SCN\_MEM\_EXECUTE@{IMAGE\_SCN\_MEM\_EXECUTE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_EXECUTE}{IMAGE\_SCN\_MEM\_EXECUTE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+EXECUTE~0x20000000}
+
+\mbox{\Hypertarget{peimage_8h_aaa56eb4ef08717bfb86ae415d1a5d5be}\label{peimage_8h_aaa56eb4ef08717bfb86ae415d1a5d5be}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_READ@{IMAGE\_SCN\_MEM\_READ}}
+\index{IMAGE\_SCN\_MEM\_READ@{IMAGE\_SCN\_MEM\_READ}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_READ}{IMAGE\_SCN\_MEM\_READ}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+READ~0x40000000}
+
+\mbox{\Hypertarget{peimage_8h_a11a80d5863fc4315b7bb597745429d41}\label{peimage_8h_a11a80d5863fc4315b7bb597745429d41}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_WRITE@{IMAGE\_SCN\_MEM\_WRITE}}
+\index{IMAGE\_SCN\_MEM\_WRITE@{IMAGE\_SCN\_MEM\_WRITE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_WRITE}{IMAGE\_SCN\_MEM\_WRITE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+WRITE~0x80000000}
+
+\mbox{\Hypertarget{peimage_8h_a36ea3bbb6535692d564cd1065a773248}\label{peimage_8h_a36ea3bbb6535692d564cd1065a773248}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_TYPE\_NO\_PAD@{IMAGE\_SCN\_TYPE\_NO\_PAD}}
+\index{IMAGE\_SCN\_TYPE\_NO\_PAD@{IMAGE\_SCN\_TYPE\_NO\_PAD}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_TYPE\_NO\_PAD}{IMAGE\_SCN\_TYPE\_NO\_PAD}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+TYPE\+\_\+\+NO\+\_\+\+PAD~0x00000008  /$\ast$ Reserved. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a705da0cf40a97198bcf9e2e2dcaa586b}\label{peimage_8h_a705da0cf40a97198bcf9e2e2dcaa586b}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_CNT\_CODE@{IMAGE\_SCN\_CNT\_CODE}}
+\index{IMAGE\_SCN\_CNT\_CODE@{IMAGE\_SCN\_CNT\_CODE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_CNT\_CODE}{IMAGE\_SCN\_CNT\_CODE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+CNT\+\_\+\+CODE~0x00000020  /$\ast$ Section contains code. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a459812511eb7707011354e4a76ed71f6}\label{peimage_8h_a459812511eb7707011354e4a76ed71f6}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_CNT\_INITIALIZED\_DATA@{IMAGE\_SCN\_CNT\_INITIALIZED\_DATA}}
+\index{IMAGE\_SCN\_CNT\_INITIALIZED\_DATA@{IMAGE\_SCN\_CNT\_INITIALIZED\_DATA}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_CNT\_INITIALIZED\_DATA}{IMAGE\_SCN\_CNT\_INITIALIZED\_DATA}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+CNT\+\_\+\+INITIALIZED\+\_\+\+DATA~0x00000040  /$\ast$ Section contains initialized data. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_ab65bf521b42f95dd11c52bfaf7a306b1}\label{peimage_8h_ab65bf521b42f95dd11c52bfaf7a306b1}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_CNT\_UNINITIALIZED\_DATA@{IMAGE\_SCN\_CNT\_UNINITIALIZED\_DATA}}
+\index{IMAGE\_SCN\_CNT\_UNINITIALIZED\_DATA@{IMAGE\_SCN\_CNT\_UNINITIALIZED\_DATA}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_CNT\_UNINITIALIZED\_DATA}{IMAGE\_SCN\_CNT\_UNINITIALIZED\_DATA}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+CNT\+\_\+\+UNINITIALIZED\+\_\+\+DATA~0x00000080  /$\ast$ Section contains uninitialized data. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a8d7375c6ae0344cb26cf996e765512fc}\label{peimage_8h_a8d7375c6ae0344cb26cf996e765512fc}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_LNK\_OTHER@{IMAGE\_SCN\_LNK\_OTHER}}
+\index{IMAGE\_SCN\_LNK\_OTHER@{IMAGE\_SCN\_LNK\_OTHER}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_LNK\_OTHER}{IMAGE\_SCN\_LNK\_OTHER}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+OTHER~0x00000100  /$\ast$ Reserved. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a29bce42b10be109bbd8cfb37d4642dbc}\label{peimage_8h_a29bce42b10be109bbd8cfb37d4642dbc}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_LNK\_INFO@{IMAGE\_SCN\_LNK\_INFO}}
+\index{IMAGE\_SCN\_LNK\_INFO@{IMAGE\_SCN\_LNK\_INFO}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_LNK\_INFO}{IMAGE\_SCN\_LNK\_INFO}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+INFO~0x00000200  /$\ast$ Section contains comments or some other type of information. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a9e37ac6d5a8aefedb4cc36ec209c6f57}\label{peimage_8h_a9e37ac6d5a8aefedb4cc36ec209c6f57}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_LNK\_REMOVE@{IMAGE\_SCN\_LNK\_REMOVE}}
+\index{IMAGE\_SCN\_LNK\_REMOVE@{IMAGE\_SCN\_LNK\_REMOVE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_LNK\_REMOVE}{IMAGE\_SCN\_LNK\_REMOVE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+REMOVE~0x00000800  /$\ast$ Section contents will not become part of image. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a3aa51aae68247ad176a0fba450b76cc2}\label{peimage_8h_a3aa51aae68247ad176a0fba450b76cc2}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_LNK\_COMDAT@{IMAGE\_SCN\_LNK\_COMDAT}}
+\index{IMAGE\_SCN\_LNK\_COMDAT@{IMAGE\_SCN\_LNK\_COMDAT}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_LNK\_COMDAT}{IMAGE\_SCN\_LNK\_COMDAT}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+COMDAT~0x00001000  /$\ast$ Section contents comdat. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a502f10f48078a4f0f6707ad247fb8318}\label{peimage_8h_a502f10f48078a4f0f6707ad247fb8318}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_FARDATA@{IMAGE\_SCN\_MEM\_FARDATA}}
+\index{IMAGE\_SCN\_MEM\_FARDATA@{IMAGE\_SCN\_MEM\_FARDATA}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_FARDATA}{IMAGE\_SCN\_MEM\_FARDATA}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+FARDATA~0x00008000}
+
+\mbox{\Hypertarget{peimage_8h_a21fb3a27f91dd892fb7e77e47404a061}\label{peimage_8h_a21fb3a27f91dd892fb7e77e47404a061}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_PURGEABLE@{IMAGE\_SCN\_MEM\_PURGEABLE}}
+\index{IMAGE\_SCN\_MEM\_PURGEABLE@{IMAGE\_SCN\_MEM\_PURGEABLE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_PURGEABLE}{IMAGE\_SCN\_MEM\_PURGEABLE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+PURGEABLE~0x00020000}
+
+\mbox{\Hypertarget{peimage_8h_af02fb6cb4a36e254b2012ee86785dc54}\label{peimage_8h_af02fb6cb4a36e254b2012ee86785dc54}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_16BIT@{IMAGE\_SCN\_MEM\_16BIT}}
+\index{IMAGE\_SCN\_MEM\_16BIT@{IMAGE\_SCN\_MEM\_16BIT}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_16BIT}{IMAGE\_SCN\_MEM\_16BIT}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+16\+BIT~0x00020000}
+
+\mbox{\Hypertarget{peimage_8h_a14bb4abe969b04d559861e8a3d21c208}\label{peimage_8h_a14bb4abe969b04d559861e8a3d21c208}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_LOCKED@{IMAGE\_SCN\_MEM\_LOCKED}}
+\index{IMAGE\_SCN\_MEM\_LOCKED@{IMAGE\_SCN\_MEM\_LOCKED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_LOCKED}{IMAGE\_SCN\_MEM\_LOCKED}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+LOCKED~0x00040000}
+
+\mbox{\Hypertarget{peimage_8h_a3fde01efa3c1f05f1d27d4d041e312e4}\label{peimage_8h_a3fde01efa3c1f05f1d27d4d041e312e4}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_PRELOAD@{IMAGE\_SCN\_MEM\_PRELOAD}}
+\index{IMAGE\_SCN\_MEM\_PRELOAD@{IMAGE\_SCN\_MEM\_PRELOAD}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_PRELOAD}{IMAGE\_SCN\_MEM\_PRELOAD}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+PRELOAD~0x00080000}
+
+\mbox{\Hypertarget{peimage_8h_ab3ffd3e96e390562986f1c3f0f10c978}\label{peimage_8h_ab3ffd3e96e390562986f1c3f0f10c978}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_1BYTES@{IMAGE\_SCN\_ALIGN\_1BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_1BYTES@{IMAGE\_SCN\_ALIGN\_1BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_1BYTES}{IMAGE\_SCN\_ALIGN\_1BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+1\+BYTES~0x00100000}
+
+\mbox{\Hypertarget{peimage_8h_ab8b77590cabacc0afb6602da2bc3226d}\label{peimage_8h_ab8b77590cabacc0afb6602da2bc3226d}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_2BYTES@{IMAGE\_SCN\_ALIGN\_2BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_2BYTES@{IMAGE\_SCN\_ALIGN\_2BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_2BYTES}{IMAGE\_SCN\_ALIGN\_2BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+2\+BYTES~0x00200000}
+
+\mbox{\Hypertarget{peimage_8h_aa5f6f34a3f4da16a78e6dd69ef7cf027}\label{peimage_8h_aa5f6f34a3f4da16a78e6dd69ef7cf027}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_4BYTES@{IMAGE\_SCN\_ALIGN\_4BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_4BYTES@{IMAGE\_SCN\_ALIGN\_4BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_4BYTES}{IMAGE\_SCN\_ALIGN\_4BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+4\+BYTES~0x00300000}
+
+\mbox{\Hypertarget{peimage_8h_ad8a0484fb5cc092724de763f50efe882}\label{peimage_8h_ad8a0484fb5cc092724de763f50efe882}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_8BYTES@{IMAGE\_SCN\_ALIGN\_8BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_8BYTES@{IMAGE\_SCN\_ALIGN\_8BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_8BYTES}{IMAGE\_SCN\_ALIGN\_8BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+8\+BYTES~0x00400000}
+
+\mbox{\Hypertarget{peimage_8h_a8d98008f0607ec4bc94134ca45ecab3e}\label{peimage_8h_a8d98008f0607ec4bc94134ca45ecab3e}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_16BYTES@{IMAGE\_SCN\_ALIGN\_16BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_16BYTES@{IMAGE\_SCN\_ALIGN\_16BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_16BYTES}{IMAGE\_SCN\_ALIGN\_16BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+16\+BYTES~0x00500000  /$\ast$ Default alignment if no others are specified. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a20b2c12b9ea33537efafed20415940e4}\label{peimage_8h_a20b2c12b9ea33537efafed20415940e4}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_32BYTES@{IMAGE\_SCN\_ALIGN\_32BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_32BYTES@{IMAGE\_SCN\_ALIGN\_32BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_32BYTES}{IMAGE\_SCN\_ALIGN\_32BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+32\+BYTES~0x00600000}
+
+\mbox{\Hypertarget{peimage_8h_aee916237573f3e25104f714722a01ae9}\label{peimage_8h_aee916237573f3e25104f714722a01ae9}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_64BYTES@{IMAGE\_SCN\_ALIGN\_64BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_64BYTES@{IMAGE\_SCN\_ALIGN\_64BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_64BYTES}{IMAGE\_SCN\_ALIGN\_64BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+64\+BYTES~0x00700000}
+
+\mbox{\Hypertarget{peimage_8h_a69cf6b56e214f728876a9113fff397cd}\label{peimage_8h_a69cf6b56e214f728876a9113fff397cd}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_128BYTES@{IMAGE\_SCN\_ALIGN\_128BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_128BYTES@{IMAGE\_SCN\_ALIGN\_128BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_128BYTES}{IMAGE\_SCN\_ALIGN\_128BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+128\+BYTES~0x00800000}
+
+\mbox{\Hypertarget{peimage_8h_a0a4d76cccca150cb292140914db82a2a}\label{peimage_8h_a0a4d76cccca150cb292140914db82a2a}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_256BYTES@{IMAGE\_SCN\_ALIGN\_256BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_256BYTES@{IMAGE\_SCN\_ALIGN\_256BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_256BYTES}{IMAGE\_SCN\_ALIGN\_256BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+256\+BYTES~0x00900000}
+
+\mbox{\Hypertarget{peimage_8h_a4fac86e80f70a07b60aae4cd91b025ce}\label{peimage_8h_a4fac86e80f70a07b60aae4cd91b025ce}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_512BYTES@{IMAGE\_SCN\_ALIGN\_512BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_512BYTES@{IMAGE\_SCN\_ALIGN\_512BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_512BYTES}{IMAGE\_SCN\_ALIGN\_512BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+512\+BYTES~0x00a00000}
+
+\mbox{\Hypertarget{peimage_8h_a999fd0721004e7e7a1546ca3b56dfff3}\label{peimage_8h_a999fd0721004e7e7a1546ca3b56dfff3}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_1024BYTES@{IMAGE\_SCN\_ALIGN\_1024BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_1024BYTES@{IMAGE\_SCN\_ALIGN\_1024BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_1024BYTES}{IMAGE\_SCN\_ALIGN\_1024BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+1024\+BYTES~0x00b00000}
+
+\mbox{\Hypertarget{peimage_8h_a11bd8f3bd9efb680de2d816511892360}\label{peimage_8h_a11bd8f3bd9efb680de2d816511892360}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_2048BYTES@{IMAGE\_SCN\_ALIGN\_2048BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_2048BYTES@{IMAGE\_SCN\_ALIGN\_2048BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_2048BYTES}{IMAGE\_SCN\_ALIGN\_2048BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+2048\+BYTES~0x00c00000}
+
+\mbox{\Hypertarget{peimage_8h_aad1b0021824160ef2b1098e9f567ec38}\label{peimage_8h_aad1b0021824160ef2b1098e9f567ec38}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_4096BYTES@{IMAGE\_SCN\_ALIGN\_4096BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_4096BYTES@{IMAGE\_SCN\_ALIGN\_4096BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_4096BYTES}{IMAGE\_SCN\_ALIGN\_4096BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+4096\+BYTES~0x00d00000}
+
+\mbox{\Hypertarget{peimage_8h_a0458e700feb9f8fd0e35c4739c6a836a}\label{peimage_8h_a0458e700feb9f8fd0e35c4739c6a836a}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_ALIGN\_8129BYTES@{IMAGE\_SCN\_ALIGN\_8129BYTES}}
+\index{IMAGE\_SCN\_ALIGN\_8129BYTES@{IMAGE\_SCN\_ALIGN\_8129BYTES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_ALIGN\_8129BYTES}{IMAGE\_SCN\_ALIGN\_8129BYTES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+ALIGN\+\_\+8129\+BYTES~0x00e00000}
+
+\mbox{\Hypertarget{peimage_8h_a7cce2f59a7ebb19df6e2e17a0ddc8e02}\label{peimage_8h_a7cce2f59a7ebb19df6e2e17a0ddc8e02}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_DISCARDABLE@{IMAGE\_SCN\_MEM\_DISCARDABLE}}
+\index{IMAGE\_SCN\_MEM\_DISCARDABLE@{IMAGE\_SCN\_MEM\_DISCARDABLE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_DISCARDABLE}{IMAGE\_SCN\_MEM\_DISCARDABLE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+DISCARDABLE~0x02000000}
+
+\mbox{\Hypertarget{peimage_8h_a0dedbe293fd45c823c896563fbdbaa33}\label{peimage_8h_a0dedbe293fd45c823c896563fbdbaa33}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_NOT\_CACHED@{IMAGE\_SCN\_MEM\_NOT\_CACHED}}
+\index{IMAGE\_SCN\_MEM\_NOT\_CACHED@{IMAGE\_SCN\_MEM\_NOT\_CACHED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_NOT\_CACHED}{IMAGE\_SCN\_MEM\_NOT\_CACHED}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+NOT\+\_\+\+CACHED~0x04000000}
+
+\mbox{\Hypertarget{peimage_8h_a2624849cd5ad52cddc87abe84f8f0d0d}\label{peimage_8h_a2624849cd5ad52cddc87abe84f8f0d0d}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_NOT\_PAGED@{IMAGE\_SCN\_MEM\_NOT\_PAGED}}
+\index{IMAGE\_SCN\_MEM\_NOT\_PAGED@{IMAGE\_SCN\_MEM\_NOT\_PAGED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_NOT\_PAGED}{IMAGE\_SCN\_MEM\_NOT\_PAGED}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+NOT\+\_\+\+PAGED~0x08000000}
+
+\mbox{\Hypertarget{peimage_8h_afaa17e31e33dbc2b603bfa021037e315}\label{peimage_8h_afaa17e31e33dbc2b603bfa021037e315}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_SHARED@{IMAGE\_SCN\_MEM\_SHARED}}
+\index{IMAGE\_SCN\_MEM\_SHARED@{IMAGE\_SCN\_MEM\_SHARED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_SHARED}{IMAGE\_SCN\_MEM\_SHARED}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+SHARED~0x10000000}
+
+\mbox{\Hypertarget{peimage_8h_a73f2d31800976c048f4b84c904936174}\label{peimage_8h_a73f2d31800976c048f4b84c904936174}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_EXECUTE@{IMAGE\_SCN\_MEM\_EXECUTE}}
+\index{IMAGE\_SCN\_MEM\_EXECUTE@{IMAGE\_SCN\_MEM\_EXECUTE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_EXECUTE}{IMAGE\_SCN\_MEM\_EXECUTE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+EXECUTE~0x20000000}
+
+\mbox{\Hypertarget{peimage_8h_aaa56eb4ef08717bfb86ae415d1a5d5be}\label{peimage_8h_aaa56eb4ef08717bfb86ae415d1a5d5be}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_READ@{IMAGE\_SCN\_MEM\_READ}}
+\index{IMAGE\_SCN\_MEM\_READ@{IMAGE\_SCN\_MEM\_READ}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_READ}{IMAGE\_SCN\_MEM\_READ}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+READ~0x40000000}
+
+\mbox{\Hypertarget{peimage_8h_a11a80d5863fc4315b7bb597745429d41}\label{peimage_8h_a11a80d5863fc4315b7bb597745429d41}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_WRITE@{IMAGE\_SCN\_MEM\_WRITE}}
+\index{IMAGE\_SCN\_MEM\_WRITE@{IMAGE\_SCN\_MEM\_WRITE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_WRITE}{IMAGE\_SCN\_MEM\_WRITE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+WRITE~0x80000000}
+
+\mbox{\Hypertarget{peimage_8h_ad14c1217ec367c17c99a1dac1f97e61c}\label{peimage_8h_ad14c1217ec367c17c99a1dac1f97e61c}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_LNK\_NRELOC\_OVFL@{IMAGE\_SCN\_LNK\_NRELOC\_OVFL}}
+\index{IMAGE\_SCN\_LNK\_NRELOC\_OVFL@{IMAGE\_SCN\_LNK\_NRELOC\_OVFL}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_LNK\_NRELOC\_OVFL}{IMAGE\_SCN\_LNK\_NRELOC\_OVFL}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+LNK\+\_\+\+NRELOC\+\_\+\+OVFL~0x01000000  /$\ast$ Section contains extended relocations. $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a0dedbe293fd45c823c896563fbdbaa33}\label{peimage_8h_a0dedbe293fd45c823c896563fbdbaa33}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_NOT\_CACHED@{IMAGE\_SCN\_MEM\_NOT\_CACHED}}
+\index{IMAGE\_SCN\_MEM\_NOT\_CACHED@{IMAGE\_SCN\_MEM\_NOT\_CACHED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_NOT\_CACHED}{IMAGE\_SCN\_MEM\_NOT\_CACHED}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+NOT\+\_\+\+CACHED~0x04000000  /$\ast$ Section is not cachable.               $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a2624849cd5ad52cddc87abe84f8f0d0d}\label{peimage_8h_a2624849cd5ad52cddc87abe84f8f0d0d}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_NOT\_PAGED@{IMAGE\_SCN\_MEM\_NOT\_PAGED}}
+\index{IMAGE\_SCN\_MEM\_NOT\_PAGED@{IMAGE\_SCN\_MEM\_NOT\_PAGED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_NOT\_PAGED}{IMAGE\_SCN\_MEM\_NOT\_PAGED}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+NOT\+\_\+\+PAGED~0x08000000  /$\ast$ Section is not pageable.               $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_afaa17e31e33dbc2b603bfa021037e315}\label{peimage_8h_afaa17e31e33dbc2b603bfa021037e315}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SCN\_MEM\_SHARED@{IMAGE\_SCN\_MEM\_SHARED}}
+\index{IMAGE\_SCN\_MEM\_SHARED@{IMAGE\_SCN\_MEM\_SHARED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SCN\_MEM\_SHARED}{IMAGE\_SCN\_MEM\_SHARED}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SCN\+\_\+\+MEM\+\_\+\+SHARED~0x10000000  /$\ast$ Section is shareable.                  $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_ab23caa74062a13a4b37cb2b851d59f98}\label{peimage_8h_ab23caa74062a13a4b37cb2b851d59f98}} 
+\index{peimage.h@{peimage.h}!IMAGE\_REL\_BASED\_ABSOLUTE@{IMAGE\_REL\_BASED\_ABSOLUTE}}
+\index{IMAGE\_REL\_BASED\_ABSOLUTE@{IMAGE\_REL\_BASED\_ABSOLUTE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_REL\_BASED\_ABSOLUTE}{IMAGE\_REL\_BASED\_ABSOLUTE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+REL\+\_\+\+BASED\+\_\+\+ABSOLUTE~0x0000}
+
+\mbox{\Hypertarget{peimage_8h_a007a62416354eb7b67e966e331c7a0f6}\label{peimage_8h_a007a62416354eb7b67e966e331c7a0f6}} 
+\index{peimage.h@{peimage.h}!IMAGE\_COMDAT\_SELECT\_NODUPLICATES@{IMAGE\_COMDAT\_SELECT\_NODUPLICATES}}
+\index{IMAGE\_COMDAT\_SELECT\_NODUPLICATES@{IMAGE\_COMDAT\_SELECT\_NODUPLICATES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_COMDAT\_SELECT\_NODUPLICATES}{IMAGE\_COMDAT\_SELECT\_NODUPLICATES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+NODUPLICATES~(1) /$\ast$ Warn if duplicates.  $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a527bdbe86c4f80ec253a9f3d46db5931}\label{peimage_8h_a527bdbe86c4f80ec253a9f3d46db5931}} 
+\index{peimage.h@{peimage.h}!IMAGE\_COMDAT\_SELECT\_ANY@{IMAGE\_COMDAT\_SELECT\_ANY}}
+\index{IMAGE\_COMDAT\_SELECT\_ANY@{IMAGE\_COMDAT\_SELECT\_ANY}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_COMDAT\_SELECT\_ANY}{IMAGE\_COMDAT\_SELECT\_ANY}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+ANY~(2) /$\ast$ No warning.  $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_ab5d15e547918765f060a65300bcb4a69}\label{peimage_8h_ab5d15e547918765f060a65300bcb4a69}} 
+\index{peimage.h@{peimage.h}!IMAGE\_COMDAT\_SELECT\_SAME\_SIZE@{IMAGE\_COMDAT\_SELECT\_SAME\_SIZE}}
+\index{IMAGE\_COMDAT\_SELECT\_SAME\_SIZE@{IMAGE\_COMDAT\_SELECT\_SAME\_SIZE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_COMDAT\_SELECT\_SAME\_SIZE}{IMAGE\_COMDAT\_SELECT\_SAME\_SIZE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+SAME\+\_\+\+SIZE~(3) /$\ast$ Warn if different size.  $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a1c17e2d33092c0c07fd2b2d9343abbcf}\label{peimage_8h_a1c17e2d33092c0c07fd2b2d9343abbcf}} 
+\index{peimage.h@{peimage.h}!IMAGE\_COMDAT\_SELECT\_EXACT\_MATCH@{IMAGE\_COMDAT\_SELECT\_EXACT\_MATCH}}
+\index{IMAGE\_COMDAT\_SELECT\_EXACT\_MATCH@{IMAGE\_COMDAT\_SELECT\_EXACT\_MATCH}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_COMDAT\_SELECT\_EXACT\_MATCH}{IMAGE\_COMDAT\_SELECT\_EXACT\_MATCH}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+EXACT\+\_\+\+MATCH~(4) /$\ast$ Warn if different.  $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_af8bc1ab369fb14083dc472ad1f1a206b}\label{peimage_8h_af8bc1ab369fb14083dc472ad1f1a206b}} 
+\index{peimage.h@{peimage.h}!IMAGE\_COMDAT\_SELECT\_ASSOCIATIVE@{IMAGE\_COMDAT\_SELECT\_ASSOCIATIVE}}
+\index{IMAGE\_COMDAT\_SELECT\_ASSOCIATIVE@{IMAGE\_COMDAT\_SELECT\_ASSOCIATIVE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_COMDAT\_SELECT\_ASSOCIATIVE}{IMAGE\_COMDAT\_SELECT\_ASSOCIATIVE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+COMDAT\+\_\+\+SELECT\+\_\+\+ASSOCIATIVE~(5) /$\ast$ Base on other section.  $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a37174c6daace0e28b10695d23d2725d6}\label{peimage_8h_a37174c6daace0e28b10695d23d2725d6}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_UNKNOWN@{IMAGE\_FILE\_MACHINE\_UNKNOWN}}
+\index{IMAGE\_FILE\_MACHINE\_UNKNOWN@{IMAGE\_FILE\_MACHINE\_UNKNOWN}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_UNKNOWN}{IMAGE\_FILE\_MACHINE\_UNKNOWN}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+UNKNOWN~0x0}
+
+\mbox{\Hypertarget{peimage_8h_a9b412ed8e718b0e551014a684ad26b74}\label{peimage_8h_a9b412ed8e718b0e551014a684ad26b74}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_ALPHA@{IMAGE\_FILE\_MACHINE\_ALPHA}}
+\index{IMAGE\_FILE\_MACHINE\_ALPHA@{IMAGE\_FILE\_MACHINE\_ALPHA}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_ALPHA}{IMAGE\_FILE\_MACHINE\_ALPHA}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ALPHA~0x184}
+
+\mbox{\Hypertarget{peimage_8h_a780d5dfcaaed87c8f73689519507a03a}\label{peimage_8h_a780d5dfcaaed87c8f73689519507a03a}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_ARM@{IMAGE\_FILE\_MACHINE\_ARM}}
+\index{IMAGE\_FILE\_MACHINE\_ARM@{IMAGE\_FILE\_MACHINE\_ARM}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_ARM}{IMAGE\_FILE\_MACHINE\_ARM}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ARM~0x1c0}
+
+\mbox{\Hypertarget{peimage_8h_a1504808ef1e16deb0012aa50c336fb80}\label{peimage_8h_a1504808ef1e16deb0012aa50c336fb80}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_ALPHA64@{IMAGE\_FILE\_MACHINE\_ALPHA64}}
+\index{IMAGE\_FILE\_MACHINE\_ALPHA64@{IMAGE\_FILE\_MACHINE\_ALPHA64}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_ALPHA64}{IMAGE\_FILE\_MACHINE\_ALPHA64}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ALPHA64~0x284}
+
+\mbox{\Hypertarget{peimage_8h_a20dfd221df247cc9eb08e29f5c534aba}\label{peimage_8h_a20dfd221df247cc9eb08e29f5c534aba}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_I386@{IMAGE\_FILE\_MACHINE\_I386}}
+\index{IMAGE\_FILE\_MACHINE\_I386@{IMAGE\_FILE\_MACHINE\_I386}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_I386}{IMAGE\_FILE\_MACHINE\_I386}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+I386~0x14c}
+
+\mbox{\Hypertarget{peimage_8h_aa1a776b231fd52bb0f78002be01646fc}\label{peimage_8h_aa1a776b231fd52bb0f78002be01646fc}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_IA64@{IMAGE\_FILE\_MACHINE\_IA64}}
+\index{IMAGE\_FILE\_MACHINE\_IA64@{IMAGE\_FILE\_MACHINE\_IA64}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_IA64}{IMAGE\_FILE\_MACHINE\_IA64}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+IA64~0x200}
+
+\mbox{\Hypertarget{peimage_8h_ab433305df2177ed7bec0699d5a503c92}\label{peimage_8h_ab433305df2177ed7bec0699d5a503c92}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_M68K@{IMAGE\_FILE\_MACHINE\_M68K}}
+\index{IMAGE\_FILE\_MACHINE\_M68K@{IMAGE\_FILE\_MACHINE\_M68K}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_M68K}{IMAGE\_FILE\_MACHINE\_M68K}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+M68K~0x268}
+
+\mbox{\Hypertarget{peimage_8h_a84904184b1aad55f4839ada4f31f264b}\label{peimage_8h_a84904184b1aad55f4839ada4f31f264b}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_MIPS16@{IMAGE\_FILE\_MACHINE\_MIPS16}}
+\index{IMAGE\_FILE\_MACHINE\_MIPS16@{IMAGE\_FILE\_MACHINE\_MIPS16}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_MIPS16}{IMAGE\_FILE\_MACHINE\_MIPS16}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+MIPS16~0x266}
+
+\mbox{\Hypertarget{peimage_8h_a32e4a11234a01639b337cf4772569562}\label{peimage_8h_a32e4a11234a01639b337cf4772569562}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_MIPSFPU@{IMAGE\_FILE\_MACHINE\_MIPSFPU}}
+\index{IMAGE\_FILE\_MACHINE\_MIPSFPU@{IMAGE\_FILE\_MACHINE\_MIPSFPU}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_MIPSFPU}{IMAGE\_FILE\_MACHINE\_MIPSFPU}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+MIPSFPU~0x366}
+
+\mbox{\Hypertarget{peimage_8h_a768693d4443243c8d308faed023d4f92}\label{peimage_8h_a768693d4443243c8d308faed023d4f92}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_MIPSFPU16@{IMAGE\_FILE\_MACHINE\_MIPSFPU16}}
+\index{IMAGE\_FILE\_MACHINE\_MIPSFPU16@{IMAGE\_FILE\_MACHINE\_MIPSFPU16}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_MIPSFPU16}{IMAGE\_FILE\_MACHINE\_MIPSFPU16}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+MIPSFPU16~0x466}
+
+\mbox{\Hypertarget{peimage_8h_a51e4754bb6a03c1ffe579e3cc3d1044a}\label{peimage_8h_a51e4754bb6a03c1ffe579e3cc3d1044a}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_POWERPC@{IMAGE\_FILE\_MACHINE\_POWERPC}}
+\index{IMAGE\_FILE\_MACHINE\_POWERPC@{IMAGE\_FILE\_MACHINE\_POWERPC}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_POWERPC}{IMAGE\_FILE\_MACHINE\_POWERPC}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+POWERPC~0x1f0}
+
+\mbox{\Hypertarget{peimage_8h_afd5b7be2d7ed2e54f523dc853a3af888}\label{peimage_8h_afd5b7be2d7ed2e54f523dc853a3af888}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_R3000@{IMAGE\_FILE\_MACHINE\_R3000}}
+\index{IMAGE\_FILE\_MACHINE\_R3000@{IMAGE\_FILE\_MACHINE\_R3000}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_R3000}{IMAGE\_FILE\_MACHINE\_R3000}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+R3000~0x162}
+
+\mbox{\Hypertarget{peimage_8h_af7c969301042e0fcb04748a262170092}\label{peimage_8h_af7c969301042e0fcb04748a262170092}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_R4000@{IMAGE\_FILE\_MACHINE\_R4000}}
+\index{IMAGE\_FILE\_MACHINE\_R4000@{IMAGE\_FILE\_MACHINE\_R4000}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_R4000}{IMAGE\_FILE\_MACHINE\_R4000}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+R4000~0x166}
+
+\mbox{\Hypertarget{peimage_8h_a6c549545feff6739817a5a0e9ddc8753}\label{peimage_8h_a6c549545feff6739817a5a0e9ddc8753}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_R10000@{IMAGE\_FILE\_MACHINE\_R10000}}
+\index{IMAGE\_FILE\_MACHINE\_R10000@{IMAGE\_FILE\_MACHINE\_R10000}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_R10000}{IMAGE\_FILE\_MACHINE\_R10000}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+R10000~0x168}
+
+\mbox{\Hypertarget{peimage_8h_a84810383f1d0d0b94b26015e32f79c8b}\label{peimage_8h_a84810383f1d0d0b94b26015e32f79c8b}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_SH3@{IMAGE\_FILE\_MACHINE\_SH3}}
+\index{IMAGE\_FILE\_MACHINE\_SH3@{IMAGE\_FILE\_MACHINE\_SH3}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_SH3}{IMAGE\_FILE\_MACHINE\_SH3}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+SH3~0x1a2}
+
+\mbox{\Hypertarget{peimage_8h_a5155e8ae1298915e6d94f7aa6ede7a5d}\label{peimage_8h_a5155e8ae1298915e6d94f7aa6ede7a5d}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_SH4@{IMAGE\_FILE\_MACHINE\_SH4}}
+\index{IMAGE\_FILE\_MACHINE\_SH4@{IMAGE\_FILE\_MACHINE\_SH4}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_SH4}{IMAGE\_FILE\_MACHINE\_SH4}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+SH4~0x1a6}
+
+\mbox{\Hypertarget{peimage_8h_ab8980bbb611eb66299ef79126089ff3e}\label{peimage_8h_ab8980bbb611eb66299ef79126089ff3e}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_ARMTHUMB\_MIXED@{IMAGE\_FILE\_MACHINE\_ARMTHUMB\_MIXED}}
+\index{IMAGE\_FILE\_MACHINE\_ARMTHUMB\_MIXED@{IMAGE\_FILE\_MACHINE\_ARMTHUMB\_MIXED}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_ARMTHUMB\_MIXED}{IMAGE\_FILE\_MACHINE\_ARMTHUMB\_MIXED}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ARMTHUMB\+\_\+\+MIXED~0x1c2}
+
+\mbox{\Hypertarget{peimage_8h_a39efb9509d242e66f0c877bf5b1c3651}\label{peimage_8h_a39efb9509d242e66f0c877bf5b1c3651}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_X64@{IMAGE\_FILE\_MACHINE\_X64}}
+\index{IMAGE\_FILE\_MACHINE\_X64@{IMAGE\_FILE\_MACHINE\_X64}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_X64}{IMAGE\_FILE\_MACHINE\_X64}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+X64~0x8664}
+
+\mbox{\Hypertarget{peimage_8h_acb19f8a7cddc74dd329b5941fe6775ad}\label{peimage_8h_acb19f8a7cddc74dd329b5941fe6775ad}} 
+\index{peimage.h@{peimage.h}!IMAGE\_FILE\_MACHINE\_ARM64@{IMAGE\_FILE\_MACHINE\_ARM64}}
+\index{IMAGE\_FILE\_MACHINE\_ARM64@{IMAGE\_FILE\_MACHINE\_ARM64}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_FILE\_MACHINE\_ARM64}{IMAGE\_FILE\_MACHINE\_ARM64}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+FILE\+\_\+\+MACHINE\+\_\+\+ARM64~0xaa64}
+
+\mbox{\Hypertarget{peimage_8h_aebf0601cf94bb599a2520428d9454eb0}\label{peimage_8h_aebf0601cf94bb599a2520428d9454eb0}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_UNKNOWN@{IMAGE\_SUBSYSTEM\_UNKNOWN}}
+\index{IMAGE\_SUBSYSTEM\_UNKNOWN@{IMAGE\_SUBSYSTEM\_UNKNOWN}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_UNKNOWN}{IMAGE\_SUBSYSTEM\_UNKNOWN}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+UNKNOWN~0}
+
+\mbox{\Hypertarget{peimage_8h_ab482af5872918b74879e670bdab84fef}\label{peimage_8h_ab482af5872918b74879e670bdab84fef}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_NATIVE@{IMAGE\_SUBSYSTEM\_NATIVE}}
+\index{IMAGE\_SUBSYSTEM\_NATIVE@{IMAGE\_SUBSYSTEM\_NATIVE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_NATIVE}{IMAGE\_SUBSYSTEM\_NATIVE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+NATIVE~1}
+
+\mbox{\Hypertarget{peimage_8h_a5f4c0e8634b20979f7025acb7d5a0596}\label{peimage_8h_a5f4c0e8634b20979f7025acb7d5a0596}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_WINDOWS\_GUI@{IMAGE\_SUBSYSTEM\_WINDOWS\_GUI}}
+\index{IMAGE\_SUBSYSTEM\_WINDOWS\_GUI@{IMAGE\_SUBSYSTEM\_WINDOWS\_GUI}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_WINDOWS\_GUI}{IMAGE\_SUBSYSTEM\_WINDOWS\_GUI}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+WINDOWS\+\_\+\+GUI~2}
+
+\mbox{\Hypertarget{peimage_8h_a3557df821c197a07ae5431632a5fbe5f}\label{peimage_8h_a3557df821c197a07ae5431632a5fbe5f}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_WINDOWS\_CUI@{IMAGE\_SUBSYSTEM\_WINDOWS\_CUI}}
+\index{IMAGE\_SUBSYSTEM\_WINDOWS\_CUI@{IMAGE\_SUBSYSTEM\_WINDOWS\_CUI}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_WINDOWS\_CUI}{IMAGE\_SUBSYSTEM\_WINDOWS\_CUI}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+WINDOWS\+\_\+\+CUI~3}
+
+\mbox{\Hypertarget{peimage_8h_a0347aae223a38b00c495176bf15e9cae}\label{peimage_8h_a0347aae223a38b00c495176bf15e9cae}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_POSIX\_CUI@{IMAGE\_SUBSYSTEM\_POSIX\_CUI}}
+\index{IMAGE\_SUBSYSTEM\_POSIX\_CUI@{IMAGE\_SUBSYSTEM\_POSIX\_CUI}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_POSIX\_CUI}{IMAGE\_SUBSYSTEM\_POSIX\_CUI}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+POSIX\+\_\+\+CUI~7}
+
+\mbox{\Hypertarget{peimage_8h_ae8653cfd58b731f7277528ee13301c43}\label{peimage_8h_ae8653cfd58b731f7277528ee13301c43}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_WINDOWS\_CE\_GUI@{IMAGE\_SUBSYSTEM\_WINDOWS\_CE\_GUI}}
+\index{IMAGE\_SUBSYSTEM\_WINDOWS\_CE\_GUI@{IMAGE\_SUBSYSTEM\_WINDOWS\_CE\_GUI}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_WINDOWS\_CE\_GUI}{IMAGE\_SUBSYSTEM\_WINDOWS\_CE\_GUI}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+WINDOWS\+\_\+\+CE\+\_\+\+GUI~9}
+
+\mbox{\Hypertarget{peimage_8h_a9bced1bf9f7934e24a8d6876caa15970}\label{peimage_8h_a9bced1bf9f7934e24a8d6876caa15970}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_EFI\_APPLICATION@{IMAGE\_SUBSYSTEM\_EFI\_APPLICATION}}
+\index{IMAGE\_SUBSYSTEM\_EFI\_APPLICATION@{IMAGE\_SUBSYSTEM\_EFI\_APPLICATION}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_EFI\_APPLICATION}{IMAGE\_SUBSYSTEM\_EFI\_APPLICATION}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+EFI\+\_\+\+APPLICATION~10}
+
+\mbox{\Hypertarget{peimage_8h_a08f2e11ba4b75ae999f5353d2c7543b1}\label{peimage_8h_a08f2e11ba4b75ae999f5353d2c7543b1}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_EFI\_BOOT\_SERVICE\_DRIVER@{IMAGE\_SUBSYSTEM\_EFI\_BOOT\_SERVICE\_DRIVER}}
+\index{IMAGE\_SUBSYSTEM\_EFI\_BOOT\_SERVICE\_DRIVER@{IMAGE\_SUBSYSTEM\_EFI\_BOOT\_SERVICE\_DRIVER}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_EFI\_BOOT\_SERVICE\_DRIVER}{IMAGE\_SUBSYSTEM\_EFI\_BOOT\_SERVICE\_DRIVER}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+EFI\+\_\+\+BOOT\+\_\+\+SERVICE\+\_\+\+DRIVER~11}
+
+\mbox{\Hypertarget{peimage_8h_ae6aa0695f4a6113245d30346f7832da5}\label{peimage_8h_ae6aa0695f4a6113245d30346f7832da5}} 
+\index{peimage.h@{peimage.h}!IMAGE\_SUBSYSTEM\_EFI\_RUNTIME\_DRIVER@{IMAGE\_SUBSYSTEM\_EFI\_RUNTIME\_DRIVER}}
+\index{IMAGE\_SUBSYSTEM\_EFI\_RUNTIME\_DRIVER@{IMAGE\_SUBSYSTEM\_EFI\_RUNTIME\_DRIVER}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_SUBSYSTEM\_EFI\_RUNTIME\_DRIVER}{IMAGE\_SUBSYSTEM\_EFI\_RUNTIME\_DRIVER}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+SUBSYSTEM\+\_\+\+EFI\+\_\+\+RUNTIME\+\_\+\+DRIVER~12}
+
+\mbox{\Hypertarget{peimage_8h_a1f7022fa7eb27bf9e0f480b47e82bab5}\label{peimage_8h_a1f7022fa7eb27bf9e0f480b47e82bab5}} 
+\index{peimage.h@{peimage.h}!DOSMAGIC@{DOSMAGIC}}
+\index{DOSMAGIC@{DOSMAGIC}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{DOSMAGIC}{DOSMAGIC}}
+{\footnotesize\ttfamily \#define DOSMAGIC~0x5a4d}
+
+\mbox{\Hypertarget{peimage_8h_aa3a8890c847f755c6af661e6f55b04d5}\label{peimage_8h_aa3a8890c847f755c6af661e6f55b04d5}} 
+\index{peimage.h@{peimage.h}!NT\_SIGNATURE@{NT\_SIGNATURE}}
+\index{NT\_SIGNATURE@{NT\_SIGNATURE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{NT\_SIGNATURE}{NT\_SIGNATURE}}
+{\footnotesize\ttfamily \#define NT\+\_\+\+SIGNATURE~0x00004550}
+
+\mbox{\Hypertarget{peimage_8h_a3499045111a3d860aa8137fc56fe4a9f}\label{peimage_8h_a3499045111a3d860aa8137fc56fe4a9f}} 
+\index{peimage.h@{peimage.h}!IMAGE\_NT\_OPTIONAL\_HDR32\_MAGIC@{IMAGE\_NT\_OPTIONAL\_HDR32\_MAGIC}}
+\index{IMAGE\_NT\_OPTIONAL\_HDR32\_MAGIC@{IMAGE\_NT\_OPTIONAL\_HDR32\_MAGIC}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_NT\_OPTIONAL\_HDR32\_MAGIC}{IMAGE\_NT\_OPTIONAL\_HDR32\_MAGIC}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+NT\+\_\+\+OPTIONAL\+\_\+\+HDR32\+\_\+\+MAGIC~0x010b}
+
+\mbox{\Hypertarget{peimage_8h_a47b43b60cdfbc674cb8d9ac9d43f7615}\label{peimage_8h_a47b43b60cdfbc674cb8d9ac9d43f7615}} 
+\index{peimage.h@{peimage.h}!IMAGE\_NT\_OPTIONAL\_HDR64\_MAGIC@{IMAGE\_NT\_OPTIONAL\_HDR64\_MAGIC}}
+\index{IMAGE\_NT\_OPTIONAL\_HDR64\_MAGIC@{IMAGE\_NT\_OPTIONAL\_HDR64\_MAGIC}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_NT\_OPTIONAL\_HDR64\_MAGIC}{IMAGE\_NT\_OPTIONAL\_HDR64\_MAGIC}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+NT\+\_\+\+OPTIONAL\+\_\+\+HDR64\+\_\+\+MAGIC~0x020b}
+
+\mbox{\Hypertarget{peimage_8h_a36951ba6bf3b785a5cee59034e783e3e}\label{peimage_8h_a36951ba6bf3b785a5cee59034e783e3e}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DLLCHARACTERISTICS\_NX\_COMPAT@{IMAGE\_DLLCHARACTERISTICS\_NX\_COMPAT}}
+\index{IMAGE\_DLLCHARACTERISTICS\_NX\_COMPAT@{IMAGE\_DLLCHARACTERISTICS\_NX\_COMPAT}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DLLCHARACTERISTICS\_NX\_COMPAT}{IMAGE\_DLLCHARACTERISTICS\_NX\_COMPAT}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DLLCHARACTERISTICS\+\_\+\+NX\+\_\+\+COMPAT~0x0100}
+
+\mbox{\Hypertarget{peimage_8h_a0b17a5e6156e8ac96c3d3d5c0ed09bcf}\label{peimage_8h_a0b17a5e6156e8ac96c3d3d5c0ed09bcf}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_EXPORT@{IMAGE\_DIRECTORY\_ENTRY\_EXPORT}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_EXPORT@{IMAGE\_DIRECTORY\_ENTRY\_EXPORT}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_EXPORT}{IMAGE\_DIRECTORY\_ENTRY\_EXPORT}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+EXPORT~0}
+
+\mbox{\Hypertarget{peimage_8h_a1f7696d87d4aa43f3464998709d203db}\label{peimage_8h_a1f7696d87d4aa43f3464998709d203db}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_IMPORT@{IMAGE\_DIRECTORY\_ENTRY\_IMPORT}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_IMPORT@{IMAGE\_DIRECTORY\_ENTRY\_IMPORT}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_IMPORT}{IMAGE\_DIRECTORY\_ENTRY\_IMPORT}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+IMPORT~1}
+
+\mbox{\Hypertarget{peimage_8h_afd06967b9a647a5ea49715e1c6eabd17}\label{peimage_8h_afd06967b9a647a5ea49715e1c6eabd17}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_RESOURCE@{IMAGE\_DIRECTORY\_ENTRY\_RESOURCE}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_RESOURCE@{IMAGE\_DIRECTORY\_ENTRY\_RESOURCE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_RESOURCE}{IMAGE\_DIRECTORY\_ENTRY\_RESOURCE}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+RESOURCE~2}
+
+\mbox{\Hypertarget{peimage_8h_a3c83d126611127f6ec4101d401da1665}\label{peimage_8h_a3c83d126611127f6ec4101d401da1665}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_EXCEPTION@{IMAGE\_DIRECTORY\_ENTRY\_EXCEPTION}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_EXCEPTION@{IMAGE\_DIRECTORY\_ENTRY\_EXCEPTION}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_EXCEPTION}{IMAGE\_DIRECTORY\_ENTRY\_EXCEPTION}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+EXCEPTION~3}
+
+\mbox{\Hypertarget{peimage_8h_a9363039fffe47d0f14826b88733cc4ae}\label{peimage_8h_a9363039fffe47d0f14826b88733cc4ae}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_SECURITY@{IMAGE\_DIRECTORY\_ENTRY\_SECURITY}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_SECURITY@{IMAGE\_DIRECTORY\_ENTRY\_SECURITY}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_SECURITY}{IMAGE\_DIRECTORY\_ENTRY\_SECURITY}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+SECURITY~4}
+
+\mbox{\Hypertarget{peimage_8h_a7fc0447c3429661758a677409821f2ee}\label{peimage_8h_a7fc0447c3429661758a677409821f2ee}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_BASERELOC@{IMAGE\_DIRECTORY\_ENTRY\_BASERELOC}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_BASERELOC@{IMAGE\_DIRECTORY\_ENTRY\_BASERELOC}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_BASERELOC}{IMAGE\_DIRECTORY\_ENTRY\_BASERELOC}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+BASERELOC~5}
+
+\mbox{\Hypertarget{peimage_8h_a4ca225b72e58095c6cedd141e7c6f792}\label{peimage_8h_a4ca225b72e58095c6cedd141e7c6f792}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_DEBUG@{IMAGE\_DIRECTORY\_ENTRY\_DEBUG}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_DEBUG@{IMAGE\_DIRECTORY\_ENTRY\_DEBUG}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_DEBUG}{IMAGE\_DIRECTORY\_ENTRY\_DEBUG}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+DEBUG~6}
+
+\mbox{\Hypertarget{peimage_8h_a81c2b3d3445c69f37fa651a6edb9803d}\label{peimage_8h_a81c2b3d3445c69f37fa651a6edb9803d}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_COPYRIGHT@{IMAGE\_DIRECTORY\_ENTRY\_COPYRIGHT}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_COPYRIGHT@{IMAGE\_DIRECTORY\_ENTRY\_COPYRIGHT}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_COPYRIGHT}{IMAGE\_DIRECTORY\_ENTRY\_COPYRIGHT}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+COPYRIGHT~7}
+
+\mbox{\Hypertarget{peimage_8h_aee60afa5dd261371bc0a0aa5d0cd4458}\label{peimage_8h_aee60afa5dd261371bc0a0aa5d0cd4458}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_GLOBALPTR@{IMAGE\_DIRECTORY\_ENTRY\_GLOBALPTR}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_GLOBALPTR@{IMAGE\_DIRECTORY\_ENTRY\_GLOBALPTR}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_GLOBALPTR}{IMAGE\_DIRECTORY\_ENTRY\_GLOBALPTR}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+GLOBALPTR~8}
+
+\mbox{\Hypertarget{peimage_8h_aa87af686d8dc7a32af5c2634e450b7e6}\label{peimage_8h_aa87af686d8dc7a32af5c2634e450b7e6}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_TLS@{IMAGE\_DIRECTORY\_ENTRY\_TLS}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_TLS@{IMAGE\_DIRECTORY\_ENTRY\_TLS}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_TLS}{IMAGE\_DIRECTORY\_ENTRY\_TLS}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+TLS~9}
+
+\mbox{\Hypertarget{peimage_8h_aa6d2ef21f2f1fdc1929c0063153cc460}\label{peimage_8h_aa6d2ef21f2f1fdc1929c0063153cc460}} 
+\index{peimage.h@{peimage.h}!IMAGE\_DIRECTORY\_ENTRY\_LOAD\_CONFIG@{IMAGE\_DIRECTORY\_ENTRY\_LOAD\_CONFIG}}
+\index{IMAGE\_DIRECTORY\_ENTRY\_LOAD\_CONFIG@{IMAGE\_DIRECTORY\_ENTRY\_LOAD\_CONFIG}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_DIRECTORY\_ENTRY\_LOAD\_CONFIG}{IMAGE\_DIRECTORY\_ENTRY\_LOAD\_CONFIG}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+LOAD\+\_\+\+CONFIG~10}
+
+\mbox{\Hypertarget{peimage_8h_af8b17c9aa6f1caa88971104807bdf57c}\label{peimage_8h_af8b17c9aa6f1caa88971104807bdf57c}} 
+\index{peimage.h@{peimage.h}!IMAGE\_NUMBER\_OF\_DIRECTORY\_ENTRIES@{IMAGE\_NUMBER\_OF\_DIRECTORY\_ENTRIES}}
+\index{IMAGE\_NUMBER\_OF\_DIRECTORY\_ENTRIES@{IMAGE\_NUMBER\_OF\_DIRECTORY\_ENTRIES}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_NUMBER\_OF\_DIRECTORY\_ENTRIES}{IMAGE\_NUMBER\_OF\_DIRECTORY\_ENTRIES}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+NUMBER\+\_\+\+OF\+\_\+\+DIRECTORY\+\_\+\+ENTRIES~16}
+
+\mbox{\Hypertarget{peimage_8h_aabc1280d2f84a935adce2c1bda06a6da}\label{peimage_8h_aabc1280d2f84a935adce2c1bda06a6da}} 
+\index{peimage.h@{peimage.h}!FILNMLEN@{FILNMLEN}}
+\index{FILNMLEN@{FILNMLEN}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{FILNMLEN}{FILNMLEN}}
+{\footnotesize\ttfamily \#define FILNMLEN~18 /$\ast$ \# characters in a file name  $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_a09e95033c64cc612df63af9686179ae2}\label{peimage_8h_a09e95033c64cc612df63af9686179ae2}} 
+\index{peimage.h@{peimage.h}!AOUTSZ@{AOUTSZ}}
+\index{AOUTSZ@{AOUTSZ}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{AOUTSZ}{AOUTSZ}}
+{\footnotesize\ttfamily \#define AOUTSZ~(AOUTHDRSZ + 196)}
+
+\mbox{\Hypertarget{peimage_8h_a4485d6c1074ddae77c1d88f834649e48}\label{peimage_8h_a4485d6c1074ddae77c1d88f834649e48}} 
+\index{peimage.h@{peimage.h}!PEP64AOUTSZ@{PEP64AOUTSZ}}
+\index{PEP64AOUTSZ@{PEP64AOUTSZ}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{PEP64AOUTSZ}{PEP64AOUTSZ}}
+{\footnotesize\ttfamily \#define PEP64\+AOUTSZ~240}
+
+\mbox{\Hypertarget{peimage_8h_a5be0e3de8a527445729a1d584d093fd0}\label{peimage_8h_a5be0e3de8a527445729a1d584d093fd0}} 
+\index{peimage.h@{peimage.h}!E\_FILNMLEN@{E\_FILNMLEN}}
+\index{E\_FILNMLEN@{E\_FILNMLEN}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{E\_FILNMLEN}{E\_FILNMLEN}}
+{\footnotesize\ttfamily \#define E\+\_\+\+FILNMLEN~18 /$\ast$ \# characters in a file name  $\ast$/}
+
+\mbox{\Hypertarget{peimage_8h_ae294fcfd0f832cda2b66b6de4e3bc081}\label{peimage_8h_ae294fcfd0f832cda2b66b6de4e3bc081}} 
+\index{peimage.h@{peimage.h}!IMPORT\_CODE@{IMPORT\_CODE}}
+\index{IMPORT\_CODE@{IMPORT\_CODE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMPORT\_CODE}{IMPORT\_CODE}}
+{\footnotesize\ttfamily \#define IMPORT\+\_\+\+CODE~0}
+
+\mbox{\Hypertarget{peimage_8h_a001b0fdfbc1f7cfba0578c276751c115}\label{peimage_8h_a001b0fdfbc1f7cfba0578c276751c115}} 
+\index{peimage.h@{peimage.h}!IMPORT\_DATA@{IMPORT\_DATA}}
+\index{IMPORT\_DATA@{IMPORT\_DATA}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMPORT\_DATA}{IMPORT\_DATA}}
+{\footnotesize\ttfamily \#define IMPORT\+\_\+\+DATA~1}
+
+\mbox{\Hypertarget{peimage_8h_a0f32eda905f272ac89ddd1868ea1973f}\label{peimage_8h_a0f32eda905f272ac89ddd1868ea1973f}} 
+\index{peimage.h@{peimage.h}!IMPORT\_CONST@{IMPORT\_CONST}}
+\index{IMPORT\_CONST@{IMPORT\_CONST}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMPORT\_CONST}{IMPORT\_CONST}}
+{\footnotesize\ttfamily \#define IMPORT\+\_\+\+CONST~2}
+
+\mbox{\Hypertarget{peimage_8h_a98126b2744aea46e5460d81dd78edc0f}\label{peimage_8h_a98126b2744aea46e5460d81dd78edc0f}} 
+\index{peimage.h@{peimage.h}!IMPORT\_ORDINAL@{IMPORT\_ORDINAL}}
+\index{IMPORT\_ORDINAL@{IMPORT\_ORDINAL}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMPORT\_ORDINAL}{IMPORT\_ORDINAL}}
+{\footnotesize\ttfamily \#define IMPORT\+\_\+\+ORDINAL~0}
+
+\mbox{\Hypertarget{peimage_8h_a187746a30a347e4791ef0bb61deca6f3}\label{peimage_8h_a187746a30a347e4791ef0bb61deca6f3}} 
+\index{peimage.h@{peimage.h}!IMPORT\_NAME@{IMPORT\_NAME}}
+\index{IMPORT\_NAME@{IMPORT\_NAME}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMPORT\_NAME}{IMPORT\_NAME}}
+{\footnotesize\ttfamily \#define IMPORT\+\_\+\+NAME~1}
+
+\mbox{\Hypertarget{peimage_8h_a881fe2b8441f25e8f40619f57ce298cb}\label{peimage_8h_a881fe2b8441f25e8f40619f57ce298cb}} 
+\index{peimage.h@{peimage.h}!IMPORT\_NAME\_NOPREFIX@{IMPORT\_NAME\_NOPREFIX}}
+\index{IMPORT\_NAME\_NOPREFIX@{IMPORT\_NAME\_NOPREFIX}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMPORT\_NAME\_NOPREFIX}{IMPORT\_NAME\_NOPREFIX}}
+{\footnotesize\ttfamily \#define IMPORT\+\_\+\+NAME\+\_\+\+NOPREFIX~2}
+
+\mbox{\Hypertarget{peimage_8h_a2735d4c2cf7f04797d3e99bbc182a8ac}\label{peimage_8h_a2735d4c2cf7f04797d3e99bbc182a8ac}} 
+\index{peimage.h@{peimage.h}!IMPORT\_NAME\_UNDECORATE@{IMPORT\_NAME\_UNDECORATE}}
+\index{IMPORT\_NAME\_UNDECORATE@{IMPORT\_NAME\_UNDECORATE}!peimage.h@{peimage.h}}
+\doxysubsubsection{\texorpdfstring{IMPORT\_NAME\_UNDECORATE}{IMPORT\_NAME\_UNDECORATE}}
+{\footnotesize\ttfamily \#define IMPORT\+\_\+\+NAME\+\_\+\+UNDECORATE~3}
+

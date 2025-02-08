@@ -1,0 +1,78 @@
+\hypertarget{config_8h_source}{}\doxysection{config.\+h}
+\label{config_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/config.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/config.h}}
+\mbox{\hyperlink{config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef CONFIG\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define CONFIG\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{smp_8h}{smp.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{cpuid_8h}{cpuid.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529a757f5788c17d7ed4b90b65476ac0fc4b}{PAR}},}
+\DoxyCodeLine{21     \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529a9985ac4cb7cda855d785a610e6a866a7}{SEQ}},}
+\DoxyCodeLine{22     \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529a7a725f13af144bdef532d0389ba75e0d}{ONE}}}
+\DoxyCodeLine{23 \} \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529}{cpu\_mode\_t}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0a0025b3f70a464e047c490bbc2bbd7a7d}{ERROR\_MODE\_NONE}},}
+\DoxyCodeLine{27     \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0a5db5c1a8d83c7e0fdfcdcafa0773648d}{ERROR\_MODE\_SUMMARY}},}
+\DoxyCodeLine{28     \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0a06a117cafa067677b4b325c10ff691a2}{ERROR\_MODE\_ADDRESS}},}
+\DoxyCodeLine{29     \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0a6f4b07a98897ca7bebc4d94822d6a176}{ERROR\_MODE\_BADRAM}}}
+\DoxyCodeLine{30 \} \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0}{error\_mode\_t}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ada72be9eecd7398f66ff3a6fc8c39caede}{POWER\_SAVE\_OFF}},}
+\DoxyCodeLine{34     \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ada943def70d3d6b33892b33732d5aede5f}{POWER\_SAVE\_LOW}},}
+\DoxyCodeLine{35     \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ada0d590c699c05a68961b3062bab8cf6f8}{POWER\_SAVE\_HIGH}}}
+\DoxyCodeLine{36 \} \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ad}{power\_save\_t}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{extern} uintptr\_t    \mbox{\hyperlink{config_8h_af0fb7ed8fdef3dd43b5daf1795971c49}{pm\_limit\_lower}};}
+\DoxyCodeLine{39 \textcolor{keyword}{extern} uintptr\_t    \mbox{\hyperlink{config_8h_a2bd50286372866f1ad7ad0e481806c18}{pm\_limit\_upper}};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{extern} uintptr\_t    \mbox{\hyperlink{config_8h_ae3cc3194c43fde39b101aa9c54cf470d}{num\_pages\_to\_test}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{extern} \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529}{cpu\_mode\_t}}   \mbox{\hyperlink{config_8h_a0bca97c8f7018a9c7d6e17c87e77d35c}{cpu\_mode}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{extern} \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0}{error\_mode\_t}} \mbox{\hyperlink{config_8h_a74426ff7ca7f29d0d8694967cbc62d13}{error\_mode}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{extern} \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\_state\_t}}  \mbox{\hyperlink{config_8h_aff5d6e34b344119a5edad68147478650}{cpu\_state}}[\mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\_CPUS}}];}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{extern} \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\_type\_t}}  \mbox{\hyperlink{config_8h_a6d50480facda5c17915340976e489dbd}{hybrid\_core\_type}}[\mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\_CPUS}}];}
+\DoxyCodeLine{50 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_a1b4d8445a43ed63898fc653dea84eff9}{exclude\_ecores}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_a18b428e18065a3c157fae5d1deff2329}{smp\_enabled}};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_aace39e0334644d8761526d7eafbe6fbb}{enable\_big\_status}};}
+\DoxyCodeLine{55 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_acf6ee3250f57c012bf7306021cb39c0b}{enable\_temperature}};}
+\DoxyCodeLine{56 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_a47515d03aa3ec4dedbab9618551114db}{enable\_trace}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_a48de2a4e4eaa6254876e1e58a7a59dd6}{enable\_sm}};}
+\DoxyCodeLine{59 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_aa5c8828730c86eb8308c8332eb38c826}{enable\_tty}};}
+\DoxyCodeLine{60 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_a46ce955d549193371ad66c6949d2d9db}{enable\_bench}};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool}         \mbox{\hyperlink{config_8h_a140010851487510b70e7d52653546742}{pause\_at\_start}};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{extern} \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ad}{power\_save\_t}} \mbox{\hyperlink{config_8h_a7bf1aa08750a27c39b779d79daccf3a8}{power\_save}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{config_8h_ae903c30516f416ac3563e9031a59c9ee}{tty\_params\_port}};}
+\DoxyCodeLine{67 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{config_8h_a5339e00e79dbb04c19ffe41f0b3f2779}{tty\_params\_baud}};}
+\DoxyCodeLine{68 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{config_8h_a22914f8ec578dea46477666508c84413}{tty\_update\_period}};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{config_8h_a3a0a976867e0a6d25c1fdafea7df7bd6}{err\_banner\_redraw}};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keywordtype}{void} \mbox{\hyperlink{config_8h_a068a358868c409bbd99d7eef3c988866}{config\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keywordtype}{void} \mbox{\hyperlink{config_8h_ac2ab63b047b256abffc768fcb5da3da3}{config\_menu}}(\textcolor{keywordtype}{bool} initial);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keywordtype}{void} \mbox{\hyperlink{config_8h_ad07bc98685c2c2e7d506040d5b905625}{initial\_config}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CONFIG\_H}}
+
+\end{DoxyCode}

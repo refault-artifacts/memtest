@@ -1,0 +1,33 @@
+\hypertarget{vmem_8h_source}{}\doxysection{vmem.\+h}
+\label{vmem_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/vmem.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/vmem.h}}
+\mbox{\hyperlink{vmem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef VMEM\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define VMEM\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{16 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{17 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memsize_8h}{memsize.h}}"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define VM\_PINNED\_SIZE  PAGE\_C(2,GB)}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define VM\_WINDOW\_SIZE  PAGE\_C(1,GB)}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{51 uintptr\_t \mbox{\hyperlink{vmem_8h_ab0bfb38f833847cd6d5e0245926095c5}{map\_region}}(uintptr\_t base\_addr, \textcolor{keywordtype}{size\_t} size, \textcolor{keywordtype}{bool} only\_for\_startup);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{64 \textcolor{keywordtype}{bool} \mbox{\hyperlink{vmem_8h_ac828affd54a7bc3fd62d90511d814aaf}{map\_window}}(uintptr\_t start\_page);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{76 \textcolor{keywordtype}{void} *\mbox{\hyperlink{vmem_8h_a0019d8ce328c4735f5a2888a78b85283}{first\_word\_mapping}}(uintptr\_t page);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{89 \textcolor{keywordtype}{void} *\mbox{\hyperlink{vmem_8h_aaebc858fb0ac0bfeb3fc463c97cdcb57}{last\_word\_mapping}}(uintptr\_t page, \textcolor{keywordtype}{size\_t} word\_size);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{101 uintptr\_t \mbox{\hyperlink{vmem_8h_a8157e15edc9ec97be592e772ae41f4ce}{page\_of}}(\textcolor{keywordtype}{void} *addr);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// VMEM\_H}}
+
+\end{DoxyCode}

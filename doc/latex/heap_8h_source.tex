@@ -1,0 +1,30 @@
+\hypertarget{heap_8h_source}{}\doxysection{heap.\+h}
+\label{heap_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/heap.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/heap.h}}
+\mbox{\hyperlink{heap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef HEAP\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define HEAP\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Copyright (C) 2022 Martin Whitaker.}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6aba42fe5a4454dc43a70c9a5c55eeac727d}{HEAP\_TYPE\_LM\_1}},}
+\DoxyCodeLine{21     \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6aba51c14b6d6066e13d9b9db5c70a2d128f}{HEAP\_TYPE\_HM\_1}},}
+\DoxyCodeLine{22     \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6abaeeade667f0f79937fd351f90167cda19}{HEAP\_TYPE\_LAST}}}
+\DoxyCodeLine{23 \} \mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\_type\_t}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{28 \textcolor{keywordtype}{void} \mbox{\hyperlink{heap_8h_a7e7a6625a49b6a560a47ae7575575264}{heap\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{42 uintptr\_t \mbox{\hyperlink{heap_8h_a6b6e0890c430333a7cf4b4f56fa45da6}{heap\_alloc}}(\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\_type\_t}} heap\_id, \textcolor{keywordtype}{size\_t} size, uintptr\_t alignment);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{54 uintptr\_t \mbox{\hyperlink{heap_8h_ae993fdc78df2ef9e8b19e9d28177b6b8}{heap\_mark}}(\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\_type\_t}} heap\_id);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{63 \textcolor{keywordtype}{void} \mbox{\hyperlink{heap_8h_a50c2d86410860f2d558f9bec7f59dc48}{heap\_rewind}}(\mbox{\hyperlink{heap_8h_a0c366c21b1ea4a8e837f60b04b50a6ab}{heap\_type\_t}} heap\_id, uintptr\_t mark);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// HEAP\_H}}
+
+\end{DoxyCode}

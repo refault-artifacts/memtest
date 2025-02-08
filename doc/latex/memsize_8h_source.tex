@@ -1,0 +1,39 @@
+\hypertarget{memsize_8h_source}{}\doxysection{memsize.\+h}
+\label{memsize_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memsize.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memsize.h}}
+\mbox{\hyperlink{memsize_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef MEMSIZE\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define MEMSIZE\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define KB      10}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define MB      20}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define GB      30}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define TB      40}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define VM\_PAGE\_SHIFT   21}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define VM\_PAGE\_SIZE    (1 << VM\_PAGE\_SHIFT)}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define PAGE\_SHIFT      12}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define PAGE\_SIZE       (1 << PAGE\_SHIFT)}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define VM\_PAGE\_C(size, units) \(\backslash\)}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{    (units < VM\_PAGE\_SHIFT ? (uintptr\_t)(size) << (VM\_PAGE\_SHIFT -\/ units) : (uintptr\_t)(size) << (units -\/ VM\_PAGE\_SHIFT))}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define PAGE\_C(size, units) \(\backslash\)}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{    (units < PAGE\_SHIFT ? (uintptr\_t)(size) << (PAGE\_SHIFT -\/ units) : (uintptr\_t)(size) << (units -\/ PAGE\_SHIFT))}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define ADDR\_C(size, units) \(\backslash\)}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{    ((uintptr\_t)(size) << units)}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define SIZE\_C(size, units) \(\backslash\)}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{    ((size\_t)(size) << units)}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MEMSIZE\_H}}
+
+\end{DoxyCode}

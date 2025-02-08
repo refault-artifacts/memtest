@@ -1,0 +1,778 @@
+\hypertarget{serial_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/serial.h File Reference}
+\label{serial_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/serial.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/serial.h}}
+
+
+Provides the TTY interface.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{serial_8h_structserial__port}{serial\+\_\+port}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{serial_8h_a782a27cb6ea138ddf1dbc0c4271d0d4c}{SERIAL\+\_\+\+DEFAULT\+\_\+\+BAUDRATE}}~115200
+\item 
+\#define \mbox{\hyperlink{serial_8h_a89eeb7549a361f06f3f7fe56e7758dd8}{SERIAL\+\_\+\+DEFAULT\+\_\+\+BITS}}~8
+\item 
+\#define \mbox{\hyperlink{serial_8h_a64698afe61a9c0ca9b1d389f91bb1940}{SERIAL\+\_\+\+DEFAULT\+\_\+\+PARITY}}~0
+\item 
+\#define \mbox{\hyperlink{serial_8h_abc9d697bb906b4dd9900cd8d04e6f755}{SERIAL\+\_\+\+PORT\+\_\+0x3\+F8}}~0
+\item 
+\#define \mbox{\hyperlink{serial_8h_aa6dc79d2f59d198199bd6583956ee821}{SERIAL\+\_\+\+PORT\+\_\+0x2\+F8}}~1
+\item 
+\#define \mbox{\hyperlink{serial_8h_ac003b7b2a2579164d1445552ee64ce79}{SERIAL\+\_\+\+PORT\+\_\+0x3\+E8}}~2
+\item 
+\#define \mbox{\hyperlink{serial_8h_a77d110c8ad9ea308d155170a7a1784ab}{SERIAL\+\_\+\+PORT\+\_\+0x2\+E8}}~3
+\item 
+\#define \mbox{\hyperlink{serial_8h_a48d23eabf92a08c383759bfadb5d0ec7}{TTY\+\_\+\+CLEAR\+\_\+\+SCREEN}}~\char`\"{}\textbackslash{}x1b\mbox{[}2J\char`\"{}
+\item 
+\#define \mbox{\hyperlink{serial_8h_a01ba3ee9d802fd52f92edbd3b965d679}{TTY\+\_\+\+DISABLE\+\_\+\+CURSOR}}~\char`\"{}\textbackslash{}x1b\mbox{[}?25l\char`\"{}
+\item 
+\#define \mbox{\hyperlink{serial_8h_a81c5af7c52b8500474b874fce2d8e619}{TTY\+\_\+\+NORMAL}}~\char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{serial_8h_aed9431cfb434119a5734256af4010fb8}{TTY\+\_\+\+BOLD}}~\char`\"{}\textbackslash{}x1b\mbox{[}1m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{serial_8h_ad48233a3d41c2e8579e0609972ece796}{TTY\+\_\+\+UNDERLINE}}~\char`\"{}\textbackslash{}x1b\mbox{[}4m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{serial_8h_abe268c90eb0053d281a53bc1a9246460}{TTY\+\_\+\+INVERSE}}~\char`\"{}\textbackslash{}x1b\mbox{[}7m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{serial_8h_afefd3b46c9d43c5c8fb606195af4dcbb}{UART\+\_\+\+REF\+\_\+\+CLK}}~1843200
+\item 
+\#define \mbox{\hyperlink{serial_8h_afd4d579b12950a4770aeaa6088400c3b}{UART\+\_\+\+RX}}~0   /$\ast$ In\+:  Receive buffer (DLAB=0) $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ac554053f778819e84a6234cbc100cd5d}{UART\+\_\+\+TX}}~0   /$\ast$ Out\+: Transmit buffer (DLAB=0) $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a7ff21e0cfc73a2db80c3907c5cac5a61}{UART\+\_\+\+DLL}}~0   /$\ast$ Out\+: Divisor Latch Low (DLAB=1) $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a63f95172026aa533407e357e73b04551}{UART\+\_\+\+DLM}}~1   /$\ast$ Out\+: Divisor Latch High (DLAB=1) $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_aaf7aaa372e86b3aa99e6c78242be2722}{UART\+\_\+\+IER}}~1   /$\ast$ Out\+: Interrupt Enable Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a16add7e6b9f91a6698c5910704111b68}{UART\+\_\+\+IIR}}~2   /$\ast$ In\+:  Interrupt ID Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a220a678f91ca8244b30fe813200c26c1}{UART\+\_\+\+FCR}}~2   /$\ast$ Out\+: FIFO Control Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a4f48047b8082082cef2f540f8814490a}{UART\+\_\+\+EFR}}~2   /$\ast$ I/O\+: Extended Features Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a36c30861e332468c7f1998648e706740}{UART\+\_\+\+LCR}}~3   /$\ast$ Out\+: Line Control Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a8ef39bc0942ddd0411d87001d12224f4}{UART\+\_\+\+MCR}}~4   /$\ast$ Out\+: Modem Control Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a0f8ac527073d763bac90daba987361c6}{UART\+\_\+\+LSR}}~5   /$\ast$ In\+:  Line Status Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a71067c48bdde7dc6c5d0a1c56746e776}{UART\+\_\+\+MSR}}~6   /$\ast$ In\+:  Modem Status Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a0aca402a154875f36d38e4ebc5c8f043}{UART\+\_\+\+SCR}}~7   /$\ast$ I/O\+: Scratch Register $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ac2e0b56a5909d564e6fea1aee2aa6dc4}{UART\+\_\+\+LCR\+\_\+\+DLAB}}~0x80    /$\ast$ Divisor latch access bit $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ad152a0586eaa6d0d22b14d43215d2d2e}{UART\+\_\+\+LCR\+\_\+\+SBC}}~0x40    /$\ast$ Set break control $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ac62dd88cf6e2ef667fd3c528804ce03b}{UART\+\_\+\+LCR\+\_\+\+SPAR}}~0x20    /$\ast$ Stick parity (?) $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ad21c624846d60aa1ff266762e2bd1aee}{UART\+\_\+\+LCR\+\_\+\+EPAR}}~0x10    /$\ast$ Even parity select $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ad4d4c45e0f5b12ac13039dbb64f9bfd5}{UART\+\_\+\+LCR\+\_\+\+PARITY}}~0x08    /$\ast$ Parity Enable $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a61ae9db05de5e742a993e7ce37d2d8d0}{UART\+\_\+\+LCR\+\_\+\+STOP}}~0x04    /$\ast$ Stop bits\+: 0=1 stop bit, 1= 2 stop bits $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a2c64fd92092b8ac1e64b6b1204927682}{UART\+\_\+\+LCR\+\_\+\+WLEN5}}~0x00    /$\ast$ Wordlength\+: 5 bits $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a916fcefe6db8651be1cb1c066726381d}{UART\+\_\+\+LCR\+\_\+\+WLEN6}}~0x01    /$\ast$ Wordlength\+: 6 bits $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a7746eb5a2aac4b9f86e97ee82e5e2a10}{UART\+\_\+\+LCR\+\_\+\+WLEN7}}~0x02    /$\ast$ Wordlength\+: 7 bits $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a71ecde192fb0c9facb9ef9c6b77cc687}{UART\+\_\+\+LCR\+\_\+\+WLEN8}}~0x03    /$\ast$ Wordlength\+: 8 bits $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_adb3f8bb82f0a253700fdb88d8c609710}{UART\+\_\+\+LSR\+\_\+\+TEMT}}~0x40    /$\ast$ Transmitter empty $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ae05118527ef8873b9d7b1b0be0153019}{UART\+\_\+\+LSR\+\_\+\+THRE}}~0x20    /$\ast$ Transmit-\/hold-\/register empty $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_aaca4bb43e62c7085534b67576e1ddbeb}{UART\+\_\+\+LSR\+\_\+\+BI}}~0x10    /$\ast$ Break \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} indicator $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a18b1661d7c37ab40c9310311dd4f647d}{UART\+\_\+\+LSR\+\_\+\+FE}}~0x08    /$\ast$ Frame error indicator $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a3ae0ee26be22b855aa08d68a2801d3d2}{UART\+\_\+\+LSR\+\_\+\+PE}}~0x04    /$\ast$ Parity error indicator $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a85c4312a700f6033bf0a075ae41de57c}{UART\+\_\+\+LSR\+\_\+\+OE}}~0x02    /$\ast$ Overrun error indicator $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a8cc7d49fde8f2b393a398e6ebf1fbc00}{UART\+\_\+\+LSR\+\_\+\+DR}}~0x01    /$\ast$ Receiver data ready $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a667479fe75bda26bd25e1fcc8fe6acd0}{UART\+\_\+\+IIR\+\_\+\+NO\+\_\+\+INT}}~0x01    /$\ast$ No interrupts pending $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a1e372fb7e16f7f8c7c3b5e555a90165f}{UART\+\_\+\+IIR\+\_\+\+ID}}~0x06    /$\ast$ Mask for the \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} ID $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_af1bcf9ed93f775de2b3e323e297cbf9e}{UART\+\_\+\+IIR\+\_\+\+MSI}}~0x00    /$\ast$ Modem status \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ab2c22717ff935e254b45199849eb279e}{UART\+\_\+\+IIR\+\_\+\+THRI}}~0x02    /$\ast$ Transmitter holding register empty $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ab4fb24824a0757759a54193b5a1b385d}{UART\+\_\+\+IIR\+\_\+\+RDI}}~0x04    /$\ast$ Receiver data \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a3523ac3fe8438c6b92108953f97ce94a}{UART\+\_\+\+IIR\+\_\+\+RLSI}}~0x06    /$\ast$ Receiver line status \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a0c8390703c27da84e44c26a9d82721f5}{UART\+\_\+\+IER\+\_\+\+MS}}~0x08    /$\ast$ Enable Modem status \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a57a8e8e791af758a03e613dab9c1a3f7}{UART\+\_\+\+IER\+\_\+\+RLSI}}~0x04    /$\ast$ Enable receiver line status \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ad7212a6bb91635d2750736a3e79befdb}{UART\+\_\+\+IER\+\_\+\+THRI}}~0x02    /$\ast$ Enable Transmitter holding register int. $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_aa3ede8711d48b2b1fa23941dda0be995}{UART\+\_\+\+IER\+\_\+\+RDI}}~0x01    /$\ast$ Enable receiver data \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a3e3455fd892c4573cc327ae6656ae99c}{UART\+\_\+\+MCR\+\_\+\+LOOP}}~0x10    /$\ast$ Enable loopback test mode $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a792e69385c822a6189b106e8d848c5c7}{UART\+\_\+\+MCR\+\_\+\+OUT2}}~0x08    /$\ast$ Out2 complement $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a78262aaf4c9e2b89279605d9b90d7f68}{UART\+\_\+\+MCR\+\_\+\+OUT1}}~0x04    /$\ast$ Out1 complement $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_af3d8e37fba0e8d8c33318645f2c7a1c5}{UART\+\_\+\+MCR\+\_\+\+RTS}}~0x02    /$\ast$ RTS complement $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ad764ad7ea455e53f28d2e0dcd93f7243}{UART\+\_\+\+MCR\+\_\+\+DTR}}~0x01    /$\ast$ DTR complement $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a9a85f5379c5d15ebc486c4b174196afb}{UART\+\_\+\+MSR\+\_\+\+DCD}}~0x80    /$\ast$ Data Carrier Detect $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a1f4efd8727007b41de36b8b6ab9d4f6b}{UART\+\_\+\+MSR\+\_\+\+RI}}~0x40    /$\ast$ Ring Indicator $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_ae4270c77bd681dee743930df8841765e}{UART\+\_\+\+MSR\+\_\+\+DSR}}~0x20    /$\ast$ Data Set Ready $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a2cd867126cafb765b3d690e10f79b4c0}{UART\+\_\+\+MSR\+\_\+\+CTS}}~0x10    /$\ast$ Clear to Send $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a076aa39c3753bb5944e0564a14fb35ce}{UART\+\_\+\+MSR\+\_\+\+DDCD}}~0x08    /$\ast$ Delta DCD $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a248ce295359ee342cdaad2136cce8504}{UART\+\_\+\+MSR\+\_\+\+TERI}}~0x04    /$\ast$ Trailing edge ring indicator $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a3b01a95a6a8b85ff77a9b42a68c0bca9}{UART\+\_\+\+MSR\+\_\+\+DDSR}}~0x02    /$\ast$ Delta DSR $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a4731ddf07e67b03eeb268834757f0195}{UART\+\_\+\+MSR\+\_\+\+DCTS}}~0x01    /$\ast$ Delta CTS $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a7fa541ac797b6b7d2a89eb1da60d778a}{UART\+\_\+\+MSR\+\_\+\+ANY\+\_\+\+DELTA}}~0x0F /$\ast$ Any of the delta bits! $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a088c5ba09fea31b9c926e7ff9a2fffa4}{UART\+\_\+\+EFR\+\_\+\+CTS}}~0x80    /$\ast$ CTS flow control $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a70a610acff0e974075302d38514f1904}{UART\+\_\+\+EFR\+\_\+\+RTS}}~0x40    /$\ast$ RTS flow control $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a14883d2d311b22a76df072309cd1cdd6}{UART\+\_\+\+EFR\+\_\+\+SCD}}~0x20    /$\ast$ Special character detect $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_af7330cebef699691cce9f6bde8752f38}{UART\+\_\+\+EFR\+\_\+\+ENI}}~0x10    /$\ast$ Enhanced Interrupt $\ast$/
+\item 
+\#define \mbox{\hyperlink{serial_8h_a838c0743817d4f68913d9c0ab9bc128e}{BOTH\+\_\+\+EMPTY}}~(\mbox{\hyperlink{serial_8h_adb3f8bb82f0a253700fdb88d8c609710}{UART\+\_\+\+LSR\+\_\+\+TEMT}} $\vert$ \mbox{\hyperlink{serial_8h_ae05118527ef8873b9d7b1b0be0153019}{UART\+\_\+\+LSR\+\_\+\+THRE}})
+\item 
+\#define \mbox{\hyperlink{serial_8h_a00dc87c544f255538589b08a9e2dd0b7}{tty\+\_\+full\+\_\+redraw}}()~    \mbox{\hyperlink{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}{tty\+\_\+send\+\_\+region}}(0, 0, 24, 79);
+\item 
+\#define \mbox{\hyperlink{serial_8h_a5b0657cc9818c7e9b83effb88db264ca}{tty\+\_\+partial\+\_\+redraw}}()
+\item 
+\#define \mbox{\hyperlink{serial_8h_a4c5b154b56568c56f3d19c75d806708b}{tty\+\_\+error\+\_\+redraw}}()~    \mbox{\hyperlink{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}{tty\+\_\+send\+\_\+region}}(10, 0, 23, 79);
+\item 
+\#define \mbox{\hyperlink{serial_8h_af5b0aad1cff1eb5b7b57d4e5250c0764}{tty\+\_\+normal}}()~    serial\+\_\+echo\+\_\+print(\mbox{\hyperlink{serial_8h_a81c5af7c52b8500474b874fce2d8e619}{TTY\+\_\+\+NORMAL}});
+\item 
+\#define \mbox{\hyperlink{serial_8h_a0ed0e20119a225aaeea22ee399d5d856}{tty\+\_\+inverse}}()~    serial\+\_\+echo\+\_\+print(\mbox{\hyperlink{serial_8h_abe268c90eb0053d281a53bc1a9246460}{TTY\+\_\+\+INVERSE}});
+\item 
+\#define \mbox{\hyperlink{serial_8h_ae72d5c2942eef91f447637290cc9fd10}{tty\+\_\+disable\+\_\+cursor}}()~    serial\+\_\+echo\+\_\+print(\mbox{\hyperlink{serial_8h_a01ba3ee9d802fd52f92edbd3b965d679}{TTY\+\_\+\+DISABLE\+\_\+\+CURSOR}});
+\item 
+\#define \mbox{\hyperlink{serial_8h_a23851a624d1e9eb33ed3548eb4781d44}{tty\+\_\+clear\+\_\+screen}}()~    serial\+\_\+echo\+\_\+print(\mbox{\hyperlink{serial_8h_a48d23eabf92a08c383759bfadb5d0ec7}{TTY\+\_\+\+CLEAR\+\_\+\+SCREEN}});
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{serial_8h_a0d6679c5a4b8b74b22afc33d06d64eec}{tty\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{serial_8h_ae08680a2a18bdaa33c6fe13aecb545e2}{tty\+\_\+print}} (int y, int x, const char $\ast$p)
+\item 
+void \mbox{\hyperlink{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}{tty\+\_\+send\+\_\+region}} (int start\+\_\+row, int start\+\_\+col, int end\+\_\+row, int end\+\_\+col)
+\item 
+char \mbox{\hyperlink{serial_8h_a480bb3995f0777da883f919bd76e1b5e}{tty\+\_\+get\+\_\+key}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const uint16\+\_\+t \mbox{\hyperlink{serial_8h_ad30d241b57bc0e4319316d6479d033e1}{serial\+\_\+base\+\_\+ports}} \mbox{[}$\,$\mbox{]} = \{ 0x3f8, 0x2f8, 0x3e8, 0x2e8 \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides the TTY interface. 
+
+It provides an 80x25 VT100 compatible display via Serial/\+UART. 
+
+\doxysubsection{Data Structure Documentation}
+\index{serial\_port@{serial\_port}}\label{structserial__port}
+\Hypertarget{serial_8h_structserial__port}
+\doxysubsubsection{struct serial\+\_\+port}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{serial_8h_a0e833503fe45e6387ba396995c492fb5}\label{serial_8h_a0e833503fe45e6387ba396995c492fb5}} 
+bool&
+enable&
+\\
+\hline
+
+\mbox{\Hypertarget{serial_8h_acb1b193dbbf6df12e2306e50504fb875}\label{serial_8h_acb1b193dbbf6df12e2306e50504fb875}} 
+bool&
+is\_mmio&
+\\
+\hline
+
+\mbox{\Hypertarget{serial_8h_af01e01d42afce4a7d419d9610c1178a2}\label{serial_8h_af01e01d42afce4a7d419d9610c1178a2}} 
+int&
+parity&
+\\
+\hline
+
+\mbox{\Hypertarget{serial_8h_aad682c8079c4c50969ad9ac2b99759bd}\label{serial_8h_aad682c8079c4c50969ad9ac2b99759bd}} 
+int&
+bits&
+\\
+\hline
+
+\mbox{\Hypertarget{serial_8h_a7488125f84faef2f3358fe1d7878453c}\label{serial_8h_a7488125f84faef2f3358fe1d7878453c}} 
+int&
+baudrate&
+\\
+\hline
+
+\mbox{\Hypertarget{serial_8h_a767da7f256347233626735dcded5b2e4}\label{serial_8h_a767da7f256347233626735dcded5b2e4}} 
+int&
+reg\_width&
+\\
+\hline
+
+\mbox{\Hypertarget{serial_8h_a229dc4bea008aa0af3f864cbf78ea216}\label{serial_8h_a229dc4bea008aa0af3f864cbf78ea216}} 
+int&
+refclk&
+\\
+\hline
+
+\mbox{\Hypertarget{serial_8h_ab9b6a645c9ec9c8bd9e82b012d7595e9}\label{serial_8h_ab9b6a645c9ec9c8bd9e82b012d7595e9}} 
+uintptr\_t&
+base\_addr&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{serial_8h_a782a27cb6ea138ddf1dbc0c4271d0d4c}\label{serial_8h_a782a27cb6ea138ddf1dbc0c4271d0d4c}} 
+\index{serial.h@{serial.h}!SERIAL\_DEFAULT\_BAUDRATE@{SERIAL\_DEFAULT\_BAUDRATE}}
+\index{SERIAL\_DEFAULT\_BAUDRATE@{SERIAL\_DEFAULT\_BAUDRATE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_DEFAULT\_BAUDRATE}{SERIAL\_DEFAULT\_BAUDRATE}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+DEFAULT\+\_\+\+BAUDRATE~115200}
+
+\mbox{\Hypertarget{serial_8h_a89eeb7549a361f06f3f7fe56e7758dd8}\label{serial_8h_a89eeb7549a361f06f3f7fe56e7758dd8}} 
+\index{serial.h@{serial.h}!SERIAL\_DEFAULT\_BITS@{SERIAL\_DEFAULT\_BITS}}
+\index{SERIAL\_DEFAULT\_BITS@{SERIAL\_DEFAULT\_BITS}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_DEFAULT\_BITS}{SERIAL\_DEFAULT\_BITS}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+DEFAULT\+\_\+\+BITS~8}
+
+\mbox{\Hypertarget{serial_8h_a64698afe61a9c0ca9b1d389f91bb1940}\label{serial_8h_a64698afe61a9c0ca9b1d389f91bb1940}} 
+\index{serial.h@{serial.h}!SERIAL\_DEFAULT\_PARITY@{SERIAL\_DEFAULT\_PARITY}}
+\index{SERIAL\_DEFAULT\_PARITY@{SERIAL\_DEFAULT\_PARITY}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_DEFAULT\_PARITY}{SERIAL\_DEFAULT\_PARITY}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+DEFAULT\+\_\+\+PARITY~0}
+
+\mbox{\Hypertarget{serial_8h_abc9d697bb906b4dd9900cd8d04e6f755}\label{serial_8h_abc9d697bb906b4dd9900cd8d04e6f755}} 
+\index{serial.h@{serial.h}!SERIAL\_PORT\_0x3F8@{SERIAL\_PORT\_0x3F8}}
+\index{SERIAL\_PORT\_0x3F8@{SERIAL\_PORT\_0x3F8}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_PORT\_0x3F8}{SERIAL\_PORT\_0x3F8}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+PORT\+\_\+0x3\+F8~0}
+
+\mbox{\Hypertarget{serial_8h_aa6dc79d2f59d198199bd6583956ee821}\label{serial_8h_aa6dc79d2f59d198199bd6583956ee821}} 
+\index{serial.h@{serial.h}!SERIAL\_PORT\_0x2F8@{SERIAL\_PORT\_0x2F8}}
+\index{SERIAL\_PORT\_0x2F8@{SERIAL\_PORT\_0x2F8}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_PORT\_0x2F8}{SERIAL\_PORT\_0x2F8}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+PORT\+\_\+0x2\+F8~1}
+
+\mbox{\Hypertarget{serial_8h_ac003b7b2a2579164d1445552ee64ce79}\label{serial_8h_ac003b7b2a2579164d1445552ee64ce79}} 
+\index{serial.h@{serial.h}!SERIAL\_PORT\_0x3E8@{SERIAL\_PORT\_0x3E8}}
+\index{SERIAL\_PORT\_0x3E8@{SERIAL\_PORT\_0x3E8}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_PORT\_0x3E8}{SERIAL\_PORT\_0x3E8}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+PORT\+\_\+0x3\+E8~2}
+
+\mbox{\Hypertarget{serial_8h_a77d110c8ad9ea308d155170a7a1784ab}\label{serial_8h_a77d110c8ad9ea308d155170a7a1784ab}} 
+\index{serial.h@{serial.h}!SERIAL\_PORT\_0x2E8@{SERIAL\_PORT\_0x2E8}}
+\index{SERIAL\_PORT\_0x2E8@{SERIAL\_PORT\_0x2E8}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_PORT\_0x2E8}{SERIAL\_PORT\_0x2E8}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+PORT\+\_\+0x2\+E8~3}
+
+\mbox{\Hypertarget{serial_8h_a48d23eabf92a08c383759bfadb5d0ec7}\label{serial_8h_a48d23eabf92a08c383759bfadb5d0ec7}} 
+\index{serial.h@{serial.h}!TTY\_CLEAR\_SCREEN@{TTY\_CLEAR\_SCREEN}}
+\index{TTY\_CLEAR\_SCREEN@{TTY\_CLEAR\_SCREEN}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{TTY\_CLEAR\_SCREEN}{TTY\_CLEAR\_SCREEN}}
+{\footnotesize\ttfamily \#define TTY\+\_\+\+CLEAR\+\_\+\+SCREEN~\char`\"{}\textbackslash{}x1b\mbox{[}2J\char`\"{}}
+
+\mbox{\Hypertarget{serial_8h_a01ba3ee9d802fd52f92edbd3b965d679}\label{serial_8h_a01ba3ee9d802fd52f92edbd3b965d679}} 
+\index{serial.h@{serial.h}!TTY\_DISABLE\_CURSOR@{TTY\_DISABLE\_CURSOR}}
+\index{TTY\_DISABLE\_CURSOR@{TTY\_DISABLE\_CURSOR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{TTY\_DISABLE\_CURSOR}{TTY\_DISABLE\_CURSOR}}
+{\footnotesize\ttfamily \#define TTY\+\_\+\+DISABLE\+\_\+\+CURSOR~\char`\"{}\textbackslash{}x1b\mbox{[}?25l\char`\"{}}
+
+\mbox{\Hypertarget{serial_8h_a81c5af7c52b8500474b874fce2d8e619}\label{serial_8h_a81c5af7c52b8500474b874fce2d8e619}} 
+\index{serial.h@{serial.h}!TTY\_NORMAL@{TTY\_NORMAL}}
+\index{TTY\_NORMAL@{TTY\_NORMAL}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{TTY\_NORMAL}{TTY\_NORMAL}}
+{\footnotesize\ttfamily \#define TTY\+\_\+\+NORMAL~\char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{}}
+
+\mbox{\Hypertarget{serial_8h_aed9431cfb434119a5734256af4010fb8}\label{serial_8h_aed9431cfb434119a5734256af4010fb8}} 
+\index{serial.h@{serial.h}!TTY\_BOLD@{TTY\_BOLD}}
+\index{TTY\_BOLD@{TTY\_BOLD}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{TTY\_BOLD}{TTY\_BOLD}}
+{\footnotesize\ttfamily \#define TTY\+\_\+\+BOLD~\char`\"{}\textbackslash{}x1b\mbox{[}1m\char`\"{}}
+
+\mbox{\Hypertarget{serial_8h_ad48233a3d41c2e8579e0609972ece796}\label{serial_8h_ad48233a3d41c2e8579e0609972ece796}} 
+\index{serial.h@{serial.h}!TTY\_UNDERLINE@{TTY\_UNDERLINE}}
+\index{TTY\_UNDERLINE@{TTY\_UNDERLINE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{TTY\_UNDERLINE}{TTY\_UNDERLINE}}
+{\footnotesize\ttfamily \#define TTY\+\_\+\+UNDERLINE~\char`\"{}\textbackslash{}x1b\mbox{[}4m\char`\"{}}
+
+\mbox{\Hypertarget{serial_8h_abe268c90eb0053d281a53bc1a9246460}\label{serial_8h_abe268c90eb0053d281a53bc1a9246460}} 
+\index{serial.h@{serial.h}!TTY\_INVERSE@{TTY\_INVERSE}}
+\index{TTY\_INVERSE@{TTY\_INVERSE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{TTY\_INVERSE}{TTY\_INVERSE}}
+{\footnotesize\ttfamily \#define TTY\+\_\+\+INVERSE~\char`\"{}\textbackslash{}x1b\mbox{[}7m\char`\"{}}
+
+\mbox{\Hypertarget{serial_8h_afefd3b46c9d43c5c8fb606195af4dcbb}\label{serial_8h_afefd3b46c9d43c5c8fb606195af4dcbb}} 
+\index{serial.h@{serial.h}!UART\_REF\_CLK@{UART\_REF\_CLK}}
+\index{UART\_REF\_CLK@{UART\_REF\_CLK}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_REF\_CLK}{UART\_REF\_CLK}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+REF\+\_\+\+CLK~1843200}
+
+\mbox{\Hypertarget{serial_8h_afd4d579b12950a4770aeaa6088400c3b}\label{serial_8h_afd4d579b12950a4770aeaa6088400c3b}} 
+\index{serial.h@{serial.h}!UART\_RX@{UART\_RX}}
+\index{UART\_RX@{UART\_RX}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_RX}{UART\_RX}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+RX~0   /$\ast$ In\+:  Receive buffer (DLAB=0) $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ac554053f778819e84a6234cbc100cd5d}\label{serial_8h_ac554053f778819e84a6234cbc100cd5d}} 
+\index{serial.h@{serial.h}!UART\_TX@{UART\_TX}}
+\index{UART\_TX@{UART\_TX}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_TX}{UART\_TX}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+TX~0   /$\ast$ Out\+: Transmit buffer (DLAB=0) $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a7ff21e0cfc73a2db80c3907c5cac5a61}\label{serial_8h_a7ff21e0cfc73a2db80c3907c5cac5a61}} 
+\index{serial.h@{serial.h}!UART\_DLL@{UART\_DLL}}
+\index{UART\_DLL@{UART\_DLL}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_DLL}{UART\_DLL}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+DLL~0   /$\ast$ Out\+: Divisor Latch Low (DLAB=1) $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a63f95172026aa533407e357e73b04551}\label{serial_8h_a63f95172026aa533407e357e73b04551}} 
+\index{serial.h@{serial.h}!UART\_DLM@{UART\_DLM}}
+\index{UART\_DLM@{UART\_DLM}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_DLM}{UART\_DLM}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+DLM~1   /$\ast$ Out\+: Divisor Latch High (DLAB=1) $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_aaf7aaa372e86b3aa99e6c78242be2722}\label{serial_8h_aaf7aaa372e86b3aa99e6c78242be2722}} 
+\index{serial.h@{serial.h}!UART\_IER@{UART\_IER}}
+\index{UART\_IER@{UART\_IER}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IER}{UART\_IER}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IER~1   /$\ast$ Out\+: Interrupt Enable Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a16add7e6b9f91a6698c5910704111b68}\label{serial_8h_a16add7e6b9f91a6698c5910704111b68}} 
+\index{serial.h@{serial.h}!UART\_IIR@{UART\_IIR}}
+\index{UART\_IIR@{UART\_IIR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IIR}{UART\_IIR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IIR~2   /$\ast$ In\+:  Interrupt ID Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a220a678f91ca8244b30fe813200c26c1}\label{serial_8h_a220a678f91ca8244b30fe813200c26c1}} 
+\index{serial.h@{serial.h}!UART\_FCR@{UART\_FCR}}
+\index{UART\_FCR@{UART\_FCR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_FCR}{UART\_FCR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+FCR~2   /$\ast$ Out\+: FIFO Control Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a4f48047b8082082cef2f540f8814490a}\label{serial_8h_a4f48047b8082082cef2f540f8814490a}} 
+\index{serial.h@{serial.h}!UART\_EFR@{UART\_EFR}}
+\index{UART\_EFR@{UART\_EFR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_EFR}{UART\_EFR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+EFR~2   /$\ast$ I/O\+: Extended Features Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a36c30861e332468c7f1998648e706740}\label{serial_8h_a36c30861e332468c7f1998648e706740}} 
+\index{serial.h@{serial.h}!UART\_LCR@{UART\_LCR}}
+\index{UART\_LCR@{UART\_LCR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR}{UART\_LCR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR~3   /$\ast$ Out\+: Line Control Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a8ef39bc0942ddd0411d87001d12224f4}\label{serial_8h_a8ef39bc0942ddd0411d87001d12224f4}} 
+\index{serial.h@{serial.h}!UART\_MCR@{UART\_MCR}}
+\index{UART\_MCR@{UART\_MCR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MCR}{UART\_MCR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MCR~4   /$\ast$ Out\+: Modem Control Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a0f8ac527073d763bac90daba987361c6}\label{serial_8h_a0f8ac527073d763bac90daba987361c6}} 
+\index{serial.h@{serial.h}!UART\_LSR@{UART\_LSR}}
+\index{UART\_LSR@{UART\_LSR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LSR}{UART\_LSR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LSR~5   /$\ast$ In\+:  Line Status Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a71067c48bdde7dc6c5d0a1c56746e776}\label{serial_8h_a71067c48bdde7dc6c5d0a1c56746e776}} 
+\index{serial.h@{serial.h}!UART\_MSR@{UART\_MSR}}
+\index{UART\_MSR@{UART\_MSR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR}{UART\_MSR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR~6   /$\ast$ In\+:  Modem Status Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a0aca402a154875f36d38e4ebc5c8f043}\label{serial_8h_a0aca402a154875f36d38e4ebc5c8f043}} 
+\index{serial.h@{serial.h}!UART\_SCR@{UART\_SCR}}
+\index{UART\_SCR@{UART\_SCR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_SCR}{UART\_SCR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+SCR~7   /$\ast$ I/O\+: Scratch Register $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ac2e0b56a5909d564e6fea1aee2aa6dc4}\label{serial_8h_ac2e0b56a5909d564e6fea1aee2aa6dc4}} 
+\index{serial.h@{serial.h}!UART\_LCR\_DLAB@{UART\_LCR\_DLAB}}
+\index{UART\_LCR\_DLAB@{UART\_LCR\_DLAB}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_DLAB}{UART\_LCR\_DLAB}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+DLAB~0x80    /$\ast$ Divisor latch access bit $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ad152a0586eaa6d0d22b14d43215d2d2e}\label{serial_8h_ad152a0586eaa6d0d22b14d43215d2d2e}} 
+\index{serial.h@{serial.h}!UART\_LCR\_SBC@{UART\_LCR\_SBC}}
+\index{UART\_LCR\_SBC@{UART\_LCR\_SBC}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_SBC}{UART\_LCR\_SBC}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+SBC~0x40    /$\ast$ Set break control $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ac62dd88cf6e2ef667fd3c528804ce03b}\label{serial_8h_ac62dd88cf6e2ef667fd3c528804ce03b}} 
+\index{serial.h@{serial.h}!UART\_LCR\_SPAR@{UART\_LCR\_SPAR}}
+\index{UART\_LCR\_SPAR@{UART\_LCR\_SPAR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_SPAR}{UART\_LCR\_SPAR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+SPAR~0x20    /$\ast$ Stick parity (?) $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ad21c624846d60aa1ff266762e2bd1aee}\label{serial_8h_ad21c624846d60aa1ff266762e2bd1aee}} 
+\index{serial.h@{serial.h}!UART\_LCR\_EPAR@{UART\_LCR\_EPAR}}
+\index{UART\_LCR\_EPAR@{UART\_LCR\_EPAR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_EPAR}{UART\_LCR\_EPAR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+EPAR~0x10    /$\ast$ Even parity select $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ad4d4c45e0f5b12ac13039dbb64f9bfd5}\label{serial_8h_ad4d4c45e0f5b12ac13039dbb64f9bfd5}} 
+\index{serial.h@{serial.h}!UART\_LCR\_PARITY@{UART\_LCR\_PARITY}}
+\index{UART\_LCR\_PARITY@{UART\_LCR\_PARITY}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_PARITY}{UART\_LCR\_PARITY}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+PARITY~0x08    /$\ast$ Parity Enable $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a61ae9db05de5e742a993e7ce37d2d8d0}\label{serial_8h_a61ae9db05de5e742a993e7ce37d2d8d0}} 
+\index{serial.h@{serial.h}!UART\_LCR\_STOP@{UART\_LCR\_STOP}}
+\index{UART\_LCR\_STOP@{UART\_LCR\_STOP}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_STOP}{UART\_LCR\_STOP}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+STOP~0x04    /$\ast$ Stop bits\+: 0=1 stop bit, 1= 2 stop bits $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a2c64fd92092b8ac1e64b6b1204927682}\label{serial_8h_a2c64fd92092b8ac1e64b6b1204927682}} 
+\index{serial.h@{serial.h}!UART\_LCR\_WLEN5@{UART\_LCR\_WLEN5}}
+\index{UART\_LCR\_WLEN5@{UART\_LCR\_WLEN5}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_WLEN5}{UART\_LCR\_WLEN5}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+WLEN5~0x00    /$\ast$ Wordlength\+: 5 bits $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a916fcefe6db8651be1cb1c066726381d}\label{serial_8h_a916fcefe6db8651be1cb1c066726381d}} 
+\index{serial.h@{serial.h}!UART\_LCR\_WLEN6@{UART\_LCR\_WLEN6}}
+\index{UART\_LCR\_WLEN6@{UART\_LCR\_WLEN6}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_WLEN6}{UART\_LCR\_WLEN6}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+WLEN6~0x01    /$\ast$ Wordlength\+: 6 bits $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a7746eb5a2aac4b9f86e97ee82e5e2a10}\label{serial_8h_a7746eb5a2aac4b9f86e97ee82e5e2a10}} 
+\index{serial.h@{serial.h}!UART\_LCR\_WLEN7@{UART\_LCR\_WLEN7}}
+\index{UART\_LCR\_WLEN7@{UART\_LCR\_WLEN7}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_WLEN7}{UART\_LCR\_WLEN7}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+WLEN7~0x02    /$\ast$ Wordlength\+: 7 bits $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a71ecde192fb0c9facb9ef9c6b77cc687}\label{serial_8h_a71ecde192fb0c9facb9ef9c6b77cc687}} 
+\index{serial.h@{serial.h}!UART\_LCR\_WLEN8@{UART\_LCR\_WLEN8}}
+\index{UART\_LCR\_WLEN8@{UART\_LCR\_WLEN8}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LCR\_WLEN8}{UART\_LCR\_WLEN8}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LCR\+\_\+\+WLEN8~0x03    /$\ast$ Wordlength\+: 8 bits $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_adb3f8bb82f0a253700fdb88d8c609710}\label{serial_8h_adb3f8bb82f0a253700fdb88d8c609710}} 
+\index{serial.h@{serial.h}!UART\_LSR\_TEMT@{UART\_LSR\_TEMT}}
+\index{UART\_LSR\_TEMT@{UART\_LSR\_TEMT}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LSR\_TEMT}{UART\_LSR\_TEMT}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LSR\+\_\+\+TEMT~0x40    /$\ast$ Transmitter empty $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ae05118527ef8873b9d7b1b0be0153019}\label{serial_8h_ae05118527ef8873b9d7b1b0be0153019}} 
+\index{serial.h@{serial.h}!UART\_LSR\_THRE@{UART\_LSR\_THRE}}
+\index{UART\_LSR\_THRE@{UART\_LSR\_THRE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LSR\_THRE}{UART\_LSR\_THRE}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LSR\+\_\+\+THRE~0x20    /$\ast$ Transmit-\/hold-\/register empty $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_aaca4bb43e62c7085534b67576e1ddbeb}\label{serial_8h_aaca4bb43e62c7085534b67576e1ddbeb}} 
+\index{serial.h@{serial.h}!UART\_LSR\_BI@{UART\_LSR\_BI}}
+\index{UART\_LSR\_BI@{UART\_LSR\_BI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LSR\_BI}{UART\_LSR\_BI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LSR\+\_\+\+BI~0x10    /$\ast$ Break \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} indicator $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a18b1661d7c37ab40c9310311dd4f647d}\label{serial_8h_a18b1661d7c37ab40c9310311dd4f647d}} 
+\index{serial.h@{serial.h}!UART\_LSR\_FE@{UART\_LSR\_FE}}
+\index{UART\_LSR\_FE@{UART\_LSR\_FE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LSR\_FE}{UART\_LSR\_FE}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LSR\+\_\+\+FE~0x08    /$\ast$ Frame error indicator $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a3ae0ee26be22b855aa08d68a2801d3d2}\label{serial_8h_a3ae0ee26be22b855aa08d68a2801d3d2}} 
+\index{serial.h@{serial.h}!UART\_LSR\_PE@{UART\_LSR\_PE}}
+\index{UART\_LSR\_PE@{UART\_LSR\_PE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LSR\_PE}{UART\_LSR\_PE}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LSR\+\_\+\+PE~0x04    /$\ast$ Parity error indicator $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a85c4312a700f6033bf0a075ae41de57c}\label{serial_8h_a85c4312a700f6033bf0a075ae41de57c}} 
+\index{serial.h@{serial.h}!UART\_LSR\_OE@{UART\_LSR\_OE}}
+\index{UART\_LSR\_OE@{UART\_LSR\_OE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LSR\_OE}{UART\_LSR\_OE}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LSR\+\_\+\+OE~0x02    /$\ast$ Overrun error indicator $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a8cc7d49fde8f2b393a398e6ebf1fbc00}\label{serial_8h_a8cc7d49fde8f2b393a398e6ebf1fbc00}} 
+\index{serial.h@{serial.h}!UART\_LSR\_DR@{UART\_LSR\_DR}}
+\index{UART\_LSR\_DR@{UART\_LSR\_DR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_LSR\_DR}{UART\_LSR\_DR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+LSR\+\_\+\+DR~0x01    /$\ast$ Receiver data ready $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a667479fe75bda26bd25e1fcc8fe6acd0}\label{serial_8h_a667479fe75bda26bd25e1fcc8fe6acd0}} 
+\index{serial.h@{serial.h}!UART\_IIR\_NO\_INT@{UART\_IIR\_NO\_INT}}
+\index{UART\_IIR\_NO\_INT@{UART\_IIR\_NO\_INT}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IIR\_NO\_INT}{UART\_IIR\_NO\_INT}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IIR\+\_\+\+NO\+\_\+\+INT~0x01    /$\ast$ No interrupts pending $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a1e372fb7e16f7f8c7c3b5e555a90165f}\label{serial_8h_a1e372fb7e16f7f8c7c3b5e555a90165f}} 
+\index{serial.h@{serial.h}!UART\_IIR\_ID@{UART\_IIR\_ID}}
+\index{UART\_IIR\_ID@{UART\_IIR\_ID}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IIR\_ID}{UART\_IIR\_ID}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IIR\+\_\+\+ID~0x06    /$\ast$ Mask for the \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} ID $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_af1bcf9ed93f775de2b3e323e297cbf9e}\label{serial_8h_af1bcf9ed93f775de2b3e323e297cbf9e}} 
+\index{serial.h@{serial.h}!UART\_IIR\_MSI@{UART\_IIR\_MSI}}
+\index{UART\_IIR\_MSI@{UART\_IIR\_MSI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IIR\_MSI}{UART\_IIR\_MSI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IIR\+\_\+\+MSI~0x00    /$\ast$ Modem status \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ab2c22717ff935e254b45199849eb279e}\label{serial_8h_ab2c22717ff935e254b45199849eb279e}} 
+\index{serial.h@{serial.h}!UART\_IIR\_THRI@{UART\_IIR\_THRI}}
+\index{UART\_IIR\_THRI@{UART\_IIR\_THRI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IIR\_THRI}{UART\_IIR\_THRI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IIR\+\_\+\+THRI~0x02    /$\ast$ Transmitter holding register empty $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ab4fb24824a0757759a54193b5a1b385d}\label{serial_8h_ab4fb24824a0757759a54193b5a1b385d}} 
+\index{serial.h@{serial.h}!UART\_IIR\_RDI@{UART\_IIR\_RDI}}
+\index{UART\_IIR\_RDI@{UART\_IIR\_RDI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IIR\_RDI}{UART\_IIR\_RDI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IIR\+\_\+\+RDI~0x04    /$\ast$ Receiver data \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a3523ac3fe8438c6b92108953f97ce94a}\label{serial_8h_a3523ac3fe8438c6b92108953f97ce94a}} 
+\index{serial.h@{serial.h}!UART\_IIR\_RLSI@{UART\_IIR\_RLSI}}
+\index{UART\_IIR\_RLSI@{UART\_IIR\_RLSI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IIR\_RLSI}{UART\_IIR\_RLSI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IIR\+\_\+\+RLSI~0x06    /$\ast$ Receiver line status \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a0c8390703c27da84e44c26a9d82721f5}\label{serial_8h_a0c8390703c27da84e44c26a9d82721f5}} 
+\index{serial.h@{serial.h}!UART\_IER\_MS@{UART\_IER\_MS}}
+\index{UART\_IER\_MS@{UART\_IER\_MS}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IER\_MS}{UART\_IER\_MS}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IER\+\_\+\+MS~0x08    /$\ast$ Enable Modem status \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a57a8e8e791af758a03e613dab9c1a3f7}\label{serial_8h_a57a8e8e791af758a03e613dab9c1a3f7}} 
+\index{serial.h@{serial.h}!UART\_IER\_RLSI@{UART\_IER\_RLSI}}
+\index{UART\_IER\_RLSI@{UART\_IER\_RLSI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IER\_RLSI}{UART\_IER\_RLSI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IER\+\_\+\+RLSI~0x04    /$\ast$ Enable receiver line status \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ad7212a6bb91635d2750736a3e79befdb}\label{serial_8h_ad7212a6bb91635d2750736a3e79befdb}} 
+\index{serial.h@{serial.h}!UART\_IER\_THRI@{UART\_IER\_THRI}}
+\index{UART\_IER\_THRI@{UART\_IER\_THRI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IER\_THRI}{UART\_IER\_THRI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IER\+\_\+\+THRI~0x02    /$\ast$ Enable Transmitter holding register int. $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_aa3ede8711d48b2b1fa23941dda0be995}\label{serial_8h_aa3ede8711d48b2b1fa23941dda0be995}} 
+\index{serial.h@{serial.h}!UART\_IER\_RDI@{UART\_IER\_RDI}}
+\index{UART\_IER\_RDI@{UART\_IER\_RDI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_IER\_RDI}{UART\_IER\_RDI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+IER\+\_\+\+RDI~0x01    /$\ast$ Enable receiver data \mbox{\hyperlink{interrupt_8h_ad3afdb7b5115ab61625ba80db5f83ea9}{interrupt}} $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a3e3455fd892c4573cc327ae6656ae99c}\label{serial_8h_a3e3455fd892c4573cc327ae6656ae99c}} 
+\index{serial.h@{serial.h}!UART\_MCR\_LOOP@{UART\_MCR\_LOOP}}
+\index{UART\_MCR\_LOOP@{UART\_MCR\_LOOP}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MCR\_LOOP}{UART\_MCR\_LOOP}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MCR\+\_\+\+LOOP~0x10    /$\ast$ Enable loopback test mode $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a792e69385c822a6189b106e8d848c5c7}\label{serial_8h_a792e69385c822a6189b106e8d848c5c7}} 
+\index{serial.h@{serial.h}!UART\_MCR\_OUT2@{UART\_MCR\_OUT2}}
+\index{UART\_MCR\_OUT2@{UART\_MCR\_OUT2}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MCR\_OUT2}{UART\_MCR\_OUT2}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MCR\+\_\+\+OUT2~0x08    /$\ast$ Out2 complement $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a78262aaf4c9e2b89279605d9b90d7f68}\label{serial_8h_a78262aaf4c9e2b89279605d9b90d7f68}} 
+\index{serial.h@{serial.h}!UART\_MCR\_OUT1@{UART\_MCR\_OUT1}}
+\index{UART\_MCR\_OUT1@{UART\_MCR\_OUT1}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MCR\_OUT1}{UART\_MCR\_OUT1}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MCR\+\_\+\+OUT1~0x04    /$\ast$ Out1 complement $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_af3d8e37fba0e8d8c33318645f2c7a1c5}\label{serial_8h_af3d8e37fba0e8d8c33318645f2c7a1c5}} 
+\index{serial.h@{serial.h}!UART\_MCR\_RTS@{UART\_MCR\_RTS}}
+\index{UART\_MCR\_RTS@{UART\_MCR\_RTS}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MCR\_RTS}{UART\_MCR\_RTS}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MCR\+\_\+\+RTS~0x02    /$\ast$ RTS complement $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ad764ad7ea455e53f28d2e0dcd93f7243}\label{serial_8h_ad764ad7ea455e53f28d2e0dcd93f7243}} 
+\index{serial.h@{serial.h}!UART\_MCR\_DTR@{UART\_MCR\_DTR}}
+\index{UART\_MCR\_DTR@{UART\_MCR\_DTR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MCR\_DTR}{UART\_MCR\_DTR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MCR\+\_\+\+DTR~0x01    /$\ast$ DTR complement $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a9a85f5379c5d15ebc486c4b174196afb}\label{serial_8h_a9a85f5379c5d15ebc486c4b174196afb}} 
+\index{serial.h@{serial.h}!UART\_MSR\_DCD@{UART\_MSR\_DCD}}
+\index{UART\_MSR\_DCD@{UART\_MSR\_DCD}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_DCD}{UART\_MSR\_DCD}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+DCD~0x80    /$\ast$ Data Carrier Detect $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a1f4efd8727007b41de36b8b6ab9d4f6b}\label{serial_8h_a1f4efd8727007b41de36b8b6ab9d4f6b}} 
+\index{serial.h@{serial.h}!UART\_MSR\_RI@{UART\_MSR\_RI}}
+\index{UART\_MSR\_RI@{UART\_MSR\_RI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_RI}{UART\_MSR\_RI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+RI~0x40    /$\ast$ Ring Indicator $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_ae4270c77bd681dee743930df8841765e}\label{serial_8h_ae4270c77bd681dee743930df8841765e}} 
+\index{serial.h@{serial.h}!UART\_MSR\_DSR@{UART\_MSR\_DSR}}
+\index{UART\_MSR\_DSR@{UART\_MSR\_DSR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_DSR}{UART\_MSR\_DSR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+DSR~0x20    /$\ast$ Data Set Ready $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a2cd867126cafb765b3d690e10f79b4c0}\label{serial_8h_a2cd867126cafb765b3d690e10f79b4c0}} 
+\index{serial.h@{serial.h}!UART\_MSR\_CTS@{UART\_MSR\_CTS}}
+\index{UART\_MSR\_CTS@{UART\_MSR\_CTS}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_CTS}{UART\_MSR\_CTS}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+CTS~0x10    /$\ast$ Clear to Send $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a076aa39c3753bb5944e0564a14fb35ce}\label{serial_8h_a076aa39c3753bb5944e0564a14fb35ce}} 
+\index{serial.h@{serial.h}!UART\_MSR\_DDCD@{UART\_MSR\_DDCD}}
+\index{UART\_MSR\_DDCD@{UART\_MSR\_DDCD}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_DDCD}{UART\_MSR\_DDCD}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+DDCD~0x08    /$\ast$ Delta DCD $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a248ce295359ee342cdaad2136cce8504}\label{serial_8h_a248ce295359ee342cdaad2136cce8504}} 
+\index{serial.h@{serial.h}!UART\_MSR\_TERI@{UART\_MSR\_TERI}}
+\index{UART\_MSR\_TERI@{UART\_MSR\_TERI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_TERI}{UART\_MSR\_TERI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+TERI~0x04    /$\ast$ Trailing edge ring indicator $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a3b01a95a6a8b85ff77a9b42a68c0bca9}\label{serial_8h_a3b01a95a6a8b85ff77a9b42a68c0bca9}} 
+\index{serial.h@{serial.h}!UART\_MSR\_DDSR@{UART\_MSR\_DDSR}}
+\index{UART\_MSR\_DDSR@{UART\_MSR\_DDSR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_DDSR}{UART\_MSR\_DDSR}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+DDSR~0x02    /$\ast$ Delta DSR $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a4731ddf07e67b03eeb268834757f0195}\label{serial_8h_a4731ddf07e67b03eeb268834757f0195}} 
+\index{serial.h@{serial.h}!UART\_MSR\_DCTS@{UART\_MSR\_DCTS}}
+\index{UART\_MSR\_DCTS@{UART\_MSR\_DCTS}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_DCTS}{UART\_MSR\_DCTS}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+DCTS~0x01    /$\ast$ Delta CTS $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a7fa541ac797b6b7d2a89eb1da60d778a}\label{serial_8h_a7fa541ac797b6b7d2a89eb1da60d778a}} 
+\index{serial.h@{serial.h}!UART\_MSR\_ANY\_DELTA@{UART\_MSR\_ANY\_DELTA}}
+\index{UART\_MSR\_ANY\_DELTA@{UART\_MSR\_ANY\_DELTA}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_MSR\_ANY\_DELTA}{UART\_MSR\_ANY\_DELTA}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+MSR\+\_\+\+ANY\+\_\+\+DELTA~0x0F /$\ast$ Any of the delta bits! $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a088c5ba09fea31b9c926e7ff9a2fffa4}\label{serial_8h_a088c5ba09fea31b9c926e7ff9a2fffa4}} 
+\index{serial.h@{serial.h}!UART\_EFR\_CTS@{UART\_EFR\_CTS}}
+\index{UART\_EFR\_CTS@{UART\_EFR\_CTS}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_EFR\_CTS}{UART\_EFR\_CTS}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+EFR\+\_\+\+CTS~0x80    /$\ast$ CTS flow control $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a70a610acff0e974075302d38514f1904}\label{serial_8h_a70a610acff0e974075302d38514f1904}} 
+\index{serial.h@{serial.h}!UART\_EFR\_RTS@{UART\_EFR\_RTS}}
+\index{UART\_EFR\_RTS@{UART\_EFR\_RTS}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_EFR\_RTS}{UART\_EFR\_RTS}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+EFR\+\_\+\+RTS~0x40    /$\ast$ RTS flow control $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a14883d2d311b22a76df072309cd1cdd6}\label{serial_8h_a14883d2d311b22a76df072309cd1cdd6}} 
+\index{serial.h@{serial.h}!UART\_EFR\_SCD@{UART\_EFR\_SCD}}
+\index{UART\_EFR\_SCD@{UART\_EFR\_SCD}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_EFR\_SCD}{UART\_EFR\_SCD}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+EFR\+\_\+\+SCD~0x20    /$\ast$ Special character detect $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_af7330cebef699691cce9f6bde8752f38}\label{serial_8h_af7330cebef699691cce9f6bde8752f38}} 
+\index{serial.h@{serial.h}!UART\_EFR\_ENI@{UART\_EFR\_ENI}}
+\index{UART\_EFR\_ENI@{UART\_EFR\_ENI}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_EFR\_ENI}{UART\_EFR\_ENI}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+EFR\+\_\+\+ENI~0x10    /$\ast$ Enhanced Interrupt $\ast$/}
+
+\mbox{\Hypertarget{serial_8h_a838c0743817d4f68913d9c0ab9bc128e}\label{serial_8h_a838c0743817d4f68913d9c0ab9bc128e}} 
+\index{serial.h@{serial.h}!BOTH\_EMPTY@{BOTH\_EMPTY}}
+\index{BOTH\_EMPTY@{BOTH\_EMPTY}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{BOTH\_EMPTY}{BOTH\_EMPTY}}
+{\footnotesize\ttfamily \#define BOTH\+\_\+\+EMPTY~(\mbox{\hyperlink{serial_8h_adb3f8bb82f0a253700fdb88d8c609710}{UART\+\_\+\+LSR\+\_\+\+TEMT}} $\vert$ \mbox{\hyperlink{serial_8h_ae05118527ef8873b9d7b1b0be0153019}{UART\+\_\+\+LSR\+\_\+\+THRE}})}
+
+\mbox{\Hypertarget{serial_8h_a00dc87c544f255538589b08a9e2dd0b7}\label{serial_8h_a00dc87c544f255538589b08a9e2dd0b7}} 
+\index{serial.h@{serial.h}!tty\_full\_redraw@{tty\_full\_redraw}}
+\index{tty\_full\_redraw@{tty\_full\_redraw}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_full\_redraw}{tty\_full\_redraw}}
+{\footnotesize\ttfamily \#define tty\+\_\+full\+\_\+redraw(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~    \mbox{\hyperlink{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}{tty\+\_\+send\+\_\+region}}(0, 0, 24, 79);}
+
+\mbox{\Hypertarget{serial_8h_a5b0657cc9818c7e9b83effb88db264ca}\label{serial_8h_a5b0657cc9818c7e9b83effb88db264ca}} 
+\index{serial.h@{serial.h}!tty\_partial\_redraw@{tty\_partial\_redraw}}
+\index{tty\_partial\_redraw@{tty\_partial\_redraw}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_partial\_redraw}{tty\_partial\_redraw}}
+{\footnotesize\ttfamily \#define tty\+\_\+partial\+\_\+redraw(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}{tty\_send\_region}}(1, 34, 5, 79); \(\backslash\)}
+\DoxyCodeLine{    tty\_send\_region(7, 0, 8, 79); \(\backslash\)}
+\DoxyCodeLine{    if(\mbox{\hyperlink{config_8h_acf6ee3250f57c012bf7306021cb39c0b}{enable\_temperature}}) \mbox{\hyperlink{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}{tty\_send\_region}}(1, 16, 1, 26);}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{serial_8h_a4c5b154b56568c56f3d19c75d806708b}\label{serial_8h_a4c5b154b56568c56f3d19c75d806708b}} 
+\index{serial.h@{serial.h}!tty\_error\_redraw@{tty\_error\_redraw}}
+\index{tty\_error\_redraw@{tty\_error\_redraw}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_error\_redraw}{tty\_error\_redraw}}
+{\footnotesize\ttfamily \#define tty\+\_\+error\+\_\+redraw(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~    \mbox{\hyperlink{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}{tty\+\_\+send\+\_\+region}}(10, 0, 23, 79);}
+
+\mbox{\Hypertarget{serial_8h_af5b0aad1cff1eb5b7b57d4e5250c0764}\label{serial_8h_af5b0aad1cff1eb5b7b57d4e5250c0764}} 
+\index{serial.h@{serial.h}!tty\_normal@{tty\_normal}}
+\index{tty\_normal@{tty\_normal}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_normal}{tty\_normal}}
+{\footnotesize\ttfamily \#define tty\+\_\+normal(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~    serial\+\_\+echo\+\_\+print(\mbox{\hyperlink{serial_8h_a81c5af7c52b8500474b874fce2d8e619}{TTY\+\_\+\+NORMAL}});}
+
+\mbox{\Hypertarget{serial_8h_a0ed0e20119a225aaeea22ee399d5d856}\label{serial_8h_a0ed0e20119a225aaeea22ee399d5d856}} 
+\index{serial.h@{serial.h}!tty\_inverse@{tty\_inverse}}
+\index{tty\_inverse@{tty\_inverse}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_inverse}{tty\_inverse}}
+{\footnotesize\ttfamily \#define tty\+\_\+inverse(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~    serial\+\_\+echo\+\_\+print(\mbox{\hyperlink{serial_8h_abe268c90eb0053d281a53bc1a9246460}{TTY\+\_\+\+INVERSE}});}
+
+\mbox{\Hypertarget{serial_8h_ae72d5c2942eef91f447637290cc9fd10}\label{serial_8h_ae72d5c2942eef91f447637290cc9fd10}} 
+\index{serial.h@{serial.h}!tty\_disable\_cursor@{tty\_disable\_cursor}}
+\index{tty\_disable\_cursor@{tty\_disable\_cursor}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_disable\_cursor}{tty\_disable\_cursor}}
+{\footnotesize\ttfamily \#define tty\+\_\+disable\+\_\+cursor(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~    serial\+\_\+echo\+\_\+print(\mbox{\hyperlink{serial_8h_a01ba3ee9d802fd52f92edbd3b965d679}{TTY\+\_\+\+DISABLE\+\_\+\+CURSOR}});}
+
+\mbox{\Hypertarget{serial_8h_a23851a624d1e9eb33ed3548eb4781d44}\label{serial_8h_a23851a624d1e9eb33ed3548eb4781d44}} 
+\index{serial.h@{serial.h}!tty\_clear\_screen@{tty\_clear\_screen}}
+\index{tty\_clear\_screen@{tty\_clear\_screen}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_clear\_screen}{tty\_clear\_screen}}
+{\footnotesize\ttfamily \#define tty\+\_\+clear\+\_\+screen(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~    serial\+\_\+echo\+\_\+print(\mbox{\hyperlink{serial_8h_a48d23eabf92a08c383759bfadb5d0ec7}{TTY\+\_\+\+CLEAR\+\_\+\+SCREEN}});}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{serial_8h_a0d6679c5a4b8b74b22afc33d06d64eec}\label{serial_8h_a0d6679c5a4b8b74b22afc33d06d64eec}} 
+\index{serial.h@{serial.h}!tty\_init@{tty\_init}}
+\index{tty\_init@{tty\_init}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_init()}{tty\_init()}}
+{\footnotesize\ttfamily void tty\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{serial_8h_ae08680a2a18bdaa33c6fe13aecb545e2}\label{serial_8h_ae08680a2a18bdaa33c6fe13aecb545e2}} 
+\index{serial.h@{serial.h}!tty\_print@{tty\_print}}
+\index{tty\_print@{tty\_print}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_print()}{tty\_print()}}
+{\footnotesize\ttfamily void tty\+\_\+print (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x,  }\item[{const char $\ast$}]{p }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}\label{serial_8h_a2e31a4a2cf99b5c4072b147417e47f1d}} 
+\index{serial.h@{serial.h}!tty\_send\_region@{tty\_send\_region}}
+\index{tty\_send\_region@{tty\_send\_region}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_send\_region()}{tty\_send\_region()}}
+{\footnotesize\ttfamily void tty\+\_\+send\+\_\+region (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+row,  }\item[{int}]{start\+\_\+col,  }\item[{int}]{end\+\_\+row,  }\item[{int}]{end\+\_\+col }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{serial_8h_a480bb3995f0777da883f919bd76e1b5e}\label{serial_8h_a480bb3995f0777da883f919bd76e1b5e}} 
+\index{serial.h@{serial.h}!tty\_get\_key@{tty\_get\_key}}
+\index{tty\_get\_key@{tty\_get\_key}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{tty\_get\_key()}{tty\_get\_key()}}
+{\footnotesize\ttfamily char tty\+\_\+get\+\_\+key (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{serial_8h_ad30d241b57bc0e4319316d6479d033e1}\label{serial_8h_ad30d241b57bc0e4319316d6479d033e1}} 
+\index{serial.h@{serial.h}!serial\_base\_ports@{serial\_base\_ports}}
+\index{serial\_base\_ports@{serial\_base\_ports}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_base\_ports}{serial\_base\_ports}}
+{\footnotesize\ttfamily const uint16\+\_\+t serial\+\_\+base\+\_\+ports\mbox{[}$\,$\mbox{]} = \{ 0x3f8, 0x2f8, 0x3e8, 0x2e8 \}\hspace{0.3cm}{\ttfamily [static]}}
+

@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['ohci_2eh_0',['ohci.h',['../ohci_8h.html',1,'']]],
+  ['ohci_5fprobe_1',['ohci_probe',['../ohci_8h.html#a2d8ad34d35b13ed5d98b9674ca9e5209',1,'ohci.h']]],
+  ['ohci_5freset_2',['ohci_reset',['../ohci_8h.html#aaba498fb20090ef0cb2d5382ba905596',1,'ohci.h']]],
+  ['one_3',['ONE',['../config_8h.html#a6accba797c1e13c0f579a276edfa1529a7a725f13af144bdef532d0389ba75e0d',1,'config.h']]],
+  ['open_5fprotocol_4',['open_protocol',['../structefi__boot__services__t.html#a6fc3c4aaf39474233ee19badb190dc1a',1,'efi_boot_services_t']]],
+  ['open_5fprotocol_5finformation_5',['open_protocol_information',['../structefi__boot__services__t.html#a5ef89b34b77d2244881d3d276594e00f',1,'efi_boot_services_t']]],
+  ['orig_5fvideo_5fcols_6',['orig_video_cols',['../bootparams_8h.html#a323c89a3d3f87323bfd51e7d50e03cbb',1,'screen_info_t']]],
+  ['orig_5fvideo_5fega_5fbx_7',['orig_video_ega_bx',['../bootparams_8h.html#af26fe47b4e0e98f05c400b787dd650c4',1,'screen_info_t']]],
+  ['orig_5fvideo_5fisvga_8',['orig_video_isVGA',['../bootparams_8h.html#a0379add00feb69bb315bba790e8ad284',1,'screen_info_t']]],
+  ['orig_5fvideo_5flines_9',['orig_video_lines',['../bootparams_8h.html#abbaf4c5c92cbfe0b5db61b83ed5eb0a6',1,'screen_info_t']]],
+  ['orig_5fvideo_5fmode_10',['orig_video_mode',['../bootparams_8h.html#afd32472ca3358cc42c5f169046e4035c',1,'screen_info_t']]],
+  ['orig_5fvideo_5fpage_11',['orig_video_page',['../bootparams_8h.html#a3b4493a8692c24909c50b4960e4b7208',1,'screen_info_t']]],
+  ['orig_5fvideo_5fpoints_12',['orig_video_points',['../bootparams_8h.html#a4acb886b27fdf4334eab52fdc117b15c',1,'screen_info_t']]],
+  ['orig_5fx_13',['orig_x',['../bootparams_8h.html#a47f314f2ae5076d0422cfc5a331291d2',1,'screen_info_t']]],
+  ['orig_5fy_14',['orig_y',['../bootparams_8h.html#ae31fb760595e280f79428362ecdab12f',1,'screen_info_t']]],
+  ['outb_15',['outb',['../io_8h.html#a13a08fb35b29adb9118a97a132f09005',1,'io.h']]],
+  ['outb_5fp_16',['outb_p',['../io_8h.html#a5e4ea7400de04fdc37ee83e8d73f08ee',1,'io.h']]],
+  ['outl_17',['outl',['../io_8h.html#abed73f39a32cbd9e5520785e96ce8198',1,'io.h']]],
+  ['outw_18',['outw',['../io_8h.html#a7aa7a647758c2b7606c5e5f12dfc6bc5',1,'io.h']]]
+];

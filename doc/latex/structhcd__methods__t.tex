@@ -1,0 +1,97 @@
+\hypertarget{structhcd__methods__t}{}\doxysection{hcd\+\_\+methods\+\_\+t Struct Reference}
+\label{structhcd__methods__t}\index{hcd\_methods\_t@{hcd\_methods\_t}}
+
+
+A USB host controller driver method table.  
+
+
+
+
+{\ttfamily \#include $<$usbhcd.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+bool($\ast$ \mbox{\hyperlink{structhcd__methods__t_adaa6ad602ce5531ab0d4e1bdb0ec5e23}{reset\+\_\+root\+\_\+hub\+\_\+port}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, int)
+\item 
+int($\ast$ \mbox{\hyperlink{structhcd__methods__t_aaf0291ec675c8d91e4569a7cab6c1868}{allocate\+\_\+slot}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}})
+\item 
+bool($\ast$ \mbox{\hyperlink{structhcd__methods__t_ab4ed7fda253a92929acfb8ca503b186a}{release\+\_\+slot}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, int)
+\item 
+bool($\ast$ \mbox{\hyperlink{structhcd__methods__t_a896606065354f09a054bd74a559cb922}{assign\+\_\+address}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$, int, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}}, int, \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$)
+\item 
+bool($\ast$ \mbox{\hyperlink{structhcd__methods__t_ae57651b55bf3b29349dcb4ed6b7b57a7}{configure\+\_\+hub\+\_\+ep}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$, const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$)
+\item 
+bool($\ast$ \mbox{\hyperlink{structhcd__methods__t_aa232ef383edbc8dd063c342c7097bd13}{configure\+\_\+kbd\+\_\+ep}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$, int)
+\item 
+bool($\ast$ \mbox{\hyperlink{structhcd__methods__t_a9e6cdd70a9936b8cb6419300d39c2b11}{setup\+\_\+request}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$, const \mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\+\_\+setup\+\_\+pkt\+\_\+t}} $\ast$)
+\item 
+bool($\ast$ \mbox{\hyperlink{structhcd__methods__t_abb827f4ac88e83fa73fe450d286854ef}{get\+\_\+data\+\_\+request}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$, const \mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\+\_\+setup\+\_\+pkt\+\_\+t}} $\ast$, const void $\ast$, size\+\_\+t)
+\item 
+void($\ast$ \mbox{\hyperlink{structhcd__methods__t_ac5c814e3e92d1c448063fc170d536a60}{poll\+\_\+keyboards}} )(\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A USB host controller driver method table. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structhcd__methods__t_adaa6ad602ce5531ab0d4e1bdb0ec5e23}\label{structhcd__methods__t_adaa6ad602ce5531ab0d4e1bdb0ec5e23}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!reset\_root\_hub\_port@{reset\_root\_hub\_port}}
+\index{reset\_root\_hub\_port@{reset\_root\_hub\_port}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{reset\_root\_hub\_port}{reset\_root\_hub\_port}}
+{\footnotesize\ttfamily bool($\ast$ hcd\+\_\+methods\+\_\+t\+::reset\+\_\+root\+\_\+hub\+\_\+port) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, int)}
+
+\mbox{\Hypertarget{structhcd__methods__t_aaf0291ec675c8d91e4569a7cab6c1868}\label{structhcd__methods__t_aaf0291ec675c8d91e4569a7cab6c1868}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!allocate\_slot@{allocate\_slot}}
+\index{allocate\_slot@{allocate\_slot}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{allocate\_slot}{allocate\_slot}}
+{\footnotesize\ttfamily int($\ast$ hcd\+\_\+methods\+\_\+t\+::allocate\+\_\+slot) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}})}
+
+\mbox{\Hypertarget{structhcd__methods__t_ab4ed7fda253a92929acfb8ca503b186a}\label{structhcd__methods__t_ab4ed7fda253a92929acfb8ca503b186a}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!release\_slot@{release\_slot}}
+\index{release\_slot@{release\_slot}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{release\_slot}{release\_slot}}
+{\footnotesize\ttfamily bool($\ast$ hcd\+\_\+methods\+\_\+t\+::release\+\_\+slot) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, int)}
+
+\mbox{\Hypertarget{structhcd__methods__t_a896606065354f09a054bd74a559cb922}\label{structhcd__methods__t_a896606065354f09a054bd74a559cb922}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!assign\_address@{assign\_address}}
+\index{assign\_address@{assign\_address}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{assign\_address}{assign\_address}}
+{\footnotesize\ttfamily bool($\ast$ hcd\+\_\+methods\+\_\+t\+::assign\+\_\+address) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$, int, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}}, int, \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$)}
+
+\mbox{\Hypertarget{structhcd__methods__t_ae57651b55bf3b29349dcb4ed6b7b57a7}\label{structhcd__methods__t_ae57651b55bf3b29349dcb4ed6b7b57a7}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!configure\_hub\_ep@{configure\_hub\_ep}}
+\index{configure\_hub\_ep@{configure\_hub\_ep}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{configure\_hub\_ep}{configure\_hub\_ep}}
+{\footnotesize\ttfamily bool($\ast$ hcd\+\_\+methods\+\_\+t\+::configure\+\_\+hub\+\_\+ep) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$, const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$)}
+
+\mbox{\Hypertarget{structhcd__methods__t_aa232ef383edbc8dd063c342c7097bd13}\label{structhcd__methods__t_aa232ef383edbc8dd063c342c7097bd13}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!configure\_kbd\_ep@{configure\_kbd\_ep}}
+\index{configure\_kbd\_ep@{configure\_kbd\_ep}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{configure\_kbd\_ep}{configure\_kbd\_ep}}
+{\footnotesize\ttfamily bool($\ast$ hcd\+\_\+methods\+\_\+t\+::configure\+\_\+kbd\+\_\+ep) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$, int)}
+
+\mbox{\Hypertarget{structhcd__methods__t_a9e6cdd70a9936b8cb6419300d39c2b11}\label{structhcd__methods__t_a9e6cdd70a9936b8cb6419300d39c2b11}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!setup\_request@{setup\_request}}
+\index{setup\_request@{setup\_request}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{setup\_request}{setup\_request}}
+{\footnotesize\ttfamily bool($\ast$ hcd\+\_\+methods\+\_\+t\+::setup\+\_\+request) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$, const \mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\+\_\+setup\+\_\+pkt\+\_\+t}} $\ast$)}
+
+\mbox{\Hypertarget{structhcd__methods__t_abb827f4ac88e83fa73fe450d286854ef}\label{structhcd__methods__t_abb827f4ac88e83fa73fe450d286854ef}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!get\_data\_request@{get\_data\_request}}
+\index{get\_data\_request@{get\_data\_request}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{get\_data\_request}{get\_data\_request}}
+{\footnotesize\ttfamily bool($\ast$ hcd\+\_\+methods\+\_\+t\+::get\+\_\+data\+\_\+request) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}, const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$, const \mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\+\_\+setup\+\_\+pkt\+\_\+t}} $\ast$, const void $\ast$, size\+\_\+t)}
+
+\mbox{\Hypertarget{structhcd__methods__t_ac5c814e3e92d1c448063fc170d536a60}\label{structhcd__methods__t_ac5c814e3e92d1c448063fc170d536a60}} 
+\index{hcd\_methods\_t@{hcd\_methods\_t}!poll\_keyboards@{poll\_keyboards}}
+\index{poll\_keyboards@{poll\_keyboards}!hcd\_methods\_t@{hcd\_methods\_t}}
+\doxysubsubsection{\texorpdfstring{poll\_keyboards}{poll\_keyboards}}
+{\footnotesize\ttfamily void($\ast$ hcd\+\_\+methods\+\_\+t\+::poll\+\_\+keyboards) (\mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}})}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/\mbox{\hyperlink{usbhcd_8h}{usbhcd.\+h}}\end{DoxyCompactItemize}

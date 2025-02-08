@@ -1,0 +1,316 @@
+\hypertarget{screen_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/screen.h File Reference}
+\label{screen_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/screen.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/screen.h}}
+
+
+Provides the display interface.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{screen_8h_unionvga__char__t}{vga\+\_\+char\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{screen_8h_structvga__char__t_8____unnamed17____}{vga\+\_\+char\+\_\+t.\+\_\+\+\_\+unnamed17\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{screen_8h_structvga__char__t_8____unnamed19____}{vga\+\_\+char\+\_\+t.\+\_\+\+\_\+unnamed19\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\+\_\+\+WIDTH}}~80
+\begin{DoxyCompactList}\small\item\em Screen size definitions. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}}~25
+\item 
+\#define \mbox{\hyperlink{screen_8h_a26cdbb1a00213c810caccf21cd33a631}{BOLD}}~8
+\begin{DoxyCompactList}\small\item\em Modifier that can be added to any foreground colour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{screen_8h_unionvga__char__t}{vga\+\_\+char\+\_\+t}} \mbox{\hyperlink{screen_8h_a776679680176167df392a5ca2745ccab}{vga\+\_\+buffer\+\_\+t}}\mbox{[}\mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}}\mbox{]}\mbox{[}\mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\+\_\+\+WIDTH}}\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677}{screen\+\_\+colour\+\_\+t}} \{ \newline
+\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677af77fb67151d0c18d397069ad8c271ba3}{BLACK}} = 0
+, \mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677a35d6719cb4d7577c031b3d79057a1b79}{BLUE}} = 1
+, \mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677aa60bd322f93178d68184e30e162571ca}{GREEN}} = 2
+, \mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677aafe71cad474c15ce63b300c470eef8cc}{CYAN}} = 3
+, \newline
+\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677af80f9a890089d211842d59625e561f88}{RED}} = 4
+, \mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677a75c57e168c898879ae7e74fcaa887717}{MAUVE}} = 5
+, \mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677ae735a848bf82163a19236ead1c3ef2d2}{YELLOW}} = 6
+, \mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677a283fc479650da98250635b9c3c0e7e50}{WHITE}} = 7
+ \}
+\begin{DoxyCompactList}\small\item\em Colours that can be used for the foreground or background. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{screen_8h_acd73472b943d5065029c45768ce4ef90}{screen\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialise the display interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{screen_8h_acb0cdfc23095bb018d3f72ecd5c57b49}{set\+\_\+foreground\+\_\+colour}} (\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677}{screen\+\_\+colour\+\_\+t}} colour)
+\begin{DoxyCompactList}\small\item\em Set the foreground colour used for subsequent drawing operations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{screen_8h_a394fb3d9d1085803390dbb60c33ff65d}{set\+\_\+background\+\_\+colour}} (\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677}{screen\+\_\+colour\+\_\+t}} colour)
+\begin{DoxyCompactList}\small\item\em Set the background colour used for subsequent drawing operations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{screen_8h_abc40cd622f423abf44084c8f8595f57f}{clear\+\_\+screen}} (void)
+\begin{DoxyCompactList}\small\item\em Clear the whole screen, using the current background colour. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{screen_8h_ab78e26adb390062495be0c82dcdaf5d9}{clear\+\_\+screen\+\_\+region}} (int start\+\_\+row, int start\+\_\+col, int end\+\_\+row, int end\+\_\+col)
+\begin{DoxyCompactList}\small\item\em Clear the specified region of the screen, using the current background colour. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{screen_8h_aaa5f18a9703383fe0f319cb01a23c891}{scroll\+\_\+screen\+\_\+region}} (int start\+\_\+row, int start\+\_\+col, int end\+\_\+row, int end\+\_\+col)
+\begin{DoxyCompactList}\small\item\em Move the contents of the specified region of the screen up one row, discarding the top row, and clearing the bottom row, using the current background colour. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{screen_8h_adcae93f6333cbe8133a59ee0923b4e6a}{save\+\_\+screen\+\_\+region}} (int start\+\_\+row, int start\+\_\+col, int end\+\_\+row, int end\+\_\+col, uint16\+\_\+t buffer\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Copy the contents of the specified region of the screen into the supplied buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{screen_8h_a944c7388a928038d640f32f6cce8c97f}{restore\+\_\+screen\+\_\+region}} (int start\+\_\+row, int start\+\_\+col, int end\+\_\+row, int end\+\_\+col, const uint16\+\_\+t buffer\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Restore the specified region of the screen from the supplied buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{screen_8h_a0aad9d09350ca0f087c39287db566bc6}{print\+\_\+char}} (int row, int col, char ch)
+\begin{DoxyCompactList}\small\item\em Write the supplied character to the specified screen location, using the current foreground colour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{screen_8h_a776679680176167df392a5ca2745ccab}{vga\+\_\+buffer\+\_\+t}} \mbox{\hyperlink{screen_8h_a9d6b67ed35a865a239db6ea13943c3be}{shadow\+\_\+buffer}}
+\begin{DoxyCompactList}\small\item\em BIOS/\+UEFI(GOP) agnostic framebuffer copy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides the display interface. 
+
+It provides an 80x25 VGA-\/compatible text display. 
+
+\doxysubsection{Data Structure Documentation}
+\index{vga\_char\_t@{vga\_char\_t}}\label{unionvga__char__t}
+\Hypertarget{screen_8h_unionvga__char__t}
+\doxysubsubsection{union vga\+\_\+char\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{screen_8h_a85289e4356a7ad860d253d8d124054d9}\label{screen_8h_a85289e4356a7ad860d253d8d124054d9}} 
+struct \mbox{\hyperlink{screen_8h_structvga__char__t_8____unnamed17____}{vga\_char\_t.\_\_unnamed17\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\mbox{\Hypertarget{screen_8h_a48e00c4a5a82c7d012171989539a8736}\label{screen_8h_a48e00c4a5a82c7d012171989539a8736}} 
+struct \mbox{\hyperlink{screen_8h_structvga__char__t_8____unnamed19____}{vga\_char\_t.\_\_unnamed19\_\_}}&
+\_\_unnamed\_\_&
+\\
+\hline
+
+\end{DoxyFields}
+\index{vga\_char\_t.\_\_unnamed17\_\_@{vga\_char\_t.\_\_unnamed17\_\_}}\label{structvga__char__t_8____unnamed17____}
+\Hypertarget{screen_8h_structvga__char__t_8____unnamed17____}
+\doxysubsubsection{struct vga\+\_\+char\+\_\+t.\+\_\+\+\_\+unnamed17\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{screen_8h_ad88fc6edf21ea464d35ff76288b84103}\label{screen_8h_ad88fc6edf21ea464d35ff76288b84103}} 
+uint8\_t&
+ch&
+\\
+\hline
+
+\mbox{\Hypertarget{screen_8h_a815be97df65d6c4b510cd07189c5347a}\label{screen_8h_a815be97df65d6c4b510cd07189c5347a}} 
+uint8\_t&
+attr&
+\\
+\hline
+
+\end{DoxyFields}
+\index{vga\_char\_t.\_\_unnamed19\_\_@{vga\_char\_t.\_\_unnamed19\_\_}}\label{structvga__char__t_8____unnamed19____}
+\Hypertarget{screen_8h_structvga__char__t_8____unnamed19____}
+\doxysubsubsection{struct vga\+\_\+char\+\_\+t.\+\_\+\+\_\+unnamed19\+\_\+\+\_\+}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{screen_8h_a2063c1608d6e0baf80249c42e2be5804}\label{screen_8h_a2063c1608d6e0baf80249c42e2be5804}} 
+uint16\_t&
+value&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}\label{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}} 
+\index{screen.h@{screen.h}!SCREEN\_WIDTH@{SCREEN\_WIDTH}}
+\index{SCREEN\_WIDTH@{SCREEN\_WIDTH}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{SCREEN\_WIDTH}{SCREEN\_WIDTH}}
+{\footnotesize\ttfamily \#define SCREEN\+\_\+\+WIDTH~80}
+
+
+
+Screen size definitions. 
+
+The screen size cannot be changed. \mbox{\Hypertarget{screen_8h_a6974d08a74da681b3957b2fead2608b8}\label{screen_8h_a6974d08a74da681b3957b2fead2608b8}} 
+\index{screen.h@{screen.h}!SCREEN\_HEIGHT@{SCREEN\_HEIGHT}}
+\index{SCREEN\_HEIGHT@{SCREEN\_HEIGHT}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{SCREEN\_HEIGHT}{SCREEN\_HEIGHT}}
+{\footnotesize\ttfamily \#define SCREEN\+\_\+\+HEIGHT~25}
+
+\mbox{\Hypertarget{screen_8h_a26cdbb1a00213c810caccf21cd33a631}\label{screen_8h_a26cdbb1a00213c810caccf21cd33a631}} 
+\index{screen.h@{screen.h}!BOLD@{BOLD}}
+\index{BOLD@{BOLD}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{BOLD}{BOLD}}
+{\footnotesize\ttfamily \#define BOLD~8}
+
+
+
+Modifier that can be added to any foreground colour. 
+
+Has no effect on background colours. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{screen_8h_a776679680176167df392a5ca2745ccab}\label{screen_8h_a776679680176167df392a5ca2745ccab}} 
+\index{screen.h@{screen.h}!vga\_buffer\_t@{vga\_buffer\_t}}
+\index{vga\_buffer\_t@{vga\_buffer\_t}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{vga\_buffer\_t}{vga\_buffer\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{screen_8h_unionvga__char__t}{vga\+\_\+char\+\_\+t}} vga\+\_\+buffer\+\_\+t\mbox{[}\mbox{\hyperlink{screen_8h_a6974d08a74da681b3957b2fead2608b8}{SCREEN\+\_\+\+HEIGHT}}\mbox{]}\mbox{[}\mbox{\hyperlink{screen_8h_a2cd109632a6dcccaa80b43561b1ab700}{SCREEN\+\_\+\+WIDTH}}\mbox{]}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677}} 
+\index{screen.h@{screen.h}!screen\_colour\_t@{screen\_colour\_t}}
+\index{screen\_colour\_t@{screen\_colour\_t}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{screen\_colour\_t}{screen\_colour\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677}{screen\+\_\+colour\+\_\+t}}}
+
+
+
+Colours that can be used for the foreground or background. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLACK@{BLACK}!screen.h@{screen.h}}\index{screen.h@{screen.h}!BLACK@{BLACK}}}\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677af77fb67151d0c18d397069ad8c271ba3}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677af77fb67151d0c18d397069ad8c271ba3}} 
+BLACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLUE@{BLUE}!screen.h@{screen.h}}\index{screen.h@{screen.h}!BLUE@{BLUE}}}\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677a35d6719cb4d7577c031b3d79057a1b79}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677a35d6719cb4d7577c031b3d79057a1b79}} 
+BLUE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREEN@{GREEN}!screen.h@{screen.h}}\index{screen.h@{screen.h}!GREEN@{GREEN}}}\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677aa60bd322f93178d68184e30e162571ca}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677aa60bd322f93178d68184e30e162571ca}} 
+GREEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CYAN@{CYAN}!screen.h@{screen.h}}\index{screen.h@{screen.h}!CYAN@{CYAN}}}\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677aafe71cad474c15ce63b300c470eef8cc}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677aafe71cad474c15ce63b300c470eef8cc}} 
+CYAN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RED@{RED}!screen.h@{screen.h}}\index{screen.h@{screen.h}!RED@{RED}}}\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677af80f9a890089d211842d59625e561f88}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677af80f9a890089d211842d59625e561f88}} 
+RED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAUVE@{MAUVE}!screen.h@{screen.h}}\index{screen.h@{screen.h}!MAUVE@{MAUVE}}}\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677a75c57e168c898879ae7e74fcaa887717}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677a75c57e168c898879ae7e74fcaa887717}} 
+MAUVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YELLOW@{YELLOW}!screen.h@{screen.h}}\index{screen.h@{screen.h}!YELLOW@{YELLOW}}}\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677ae735a848bf82163a19236ead1c3ef2d2}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677ae735a848bf82163a19236ead1c3ef2d2}} 
+YELLOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WHITE@{WHITE}!screen.h@{screen.h}}\index{screen.h@{screen.h}!WHITE@{WHITE}}}\mbox{\Hypertarget{screen_8h_a2495cb40741295ddf41ae55bdfefb677a283fc479650da98250635b9c3c0e7e50}\label{screen_8h_a2495cb40741295ddf41ae55bdfefb677a283fc479650da98250635b9c3c0e7e50}} 
+WHITE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{screen_8h_acd73472b943d5065029c45768ce4ef90}\label{screen_8h_acd73472b943d5065029c45768ce4ef90}} 
+\index{screen.h@{screen.h}!screen\_init@{screen\_init}}
+\index{screen\_init@{screen\_init}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{screen\_init()}{screen\_init()}}
+{\footnotesize\ttfamily void screen\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialise the display interface. 
+
+\mbox{\Hypertarget{screen_8h_acb0cdfc23095bb018d3f72ecd5c57b49}\label{screen_8h_acb0cdfc23095bb018d3f72ecd5c57b49}} 
+\index{screen.h@{screen.h}!set\_foreground\_colour@{set\_foreground\_colour}}
+\index{set\_foreground\_colour@{set\_foreground\_colour}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{set\_foreground\_colour()}{set\_foreground\_colour()}}
+{\footnotesize\ttfamily void set\+\_\+foreground\+\_\+colour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677}{screen\+\_\+colour\+\_\+t}}}]{colour }\end{DoxyParamCaption})}
+
+
+
+Set the foreground colour used for subsequent drawing operations. 
+
+\mbox{\Hypertarget{screen_8h_a394fb3d9d1085803390dbb60c33ff65d}\label{screen_8h_a394fb3d9d1085803390dbb60c33ff65d}} 
+\index{screen.h@{screen.h}!set\_background\_colour@{set\_background\_colour}}
+\index{set\_background\_colour@{set\_background\_colour}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{set\_background\_colour()}{set\_background\_colour()}}
+{\footnotesize\ttfamily void set\+\_\+background\+\_\+colour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{screen_8h_a2495cb40741295ddf41ae55bdfefb677}{screen\+\_\+colour\+\_\+t}}}]{colour }\end{DoxyParamCaption})}
+
+
+
+Set the background colour used for subsequent drawing operations. 
+
+\mbox{\Hypertarget{screen_8h_abc40cd622f423abf44084c8f8595f57f}\label{screen_8h_abc40cd622f423abf44084c8f8595f57f}} 
+\index{screen.h@{screen.h}!clear\_screen@{clear\_screen}}
+\index{clear\_screen@{clear\_screen}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{clear\_screen()}{clear\_screen()}}
+{\footnotesize\ttfamily void clear\+\_\+screen (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clear the whole screen, using the current background colour. 
+
+\mbox{\Hypertarget{screen_8h_ab78e26adb390062495be0c82dcdaf5d9}\label{screen_8h_ab78e26adb390062495be0c82dcdaf5d9}} 
+\index{screen.h@{screen.h}!clear\_screen\_region@{clear\_screen\_region}}
+\index{clear\_screen\_region@{clear\_screen\_region}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{clear\_screen\_region()}{clear\_screen\_region()}}
+{\footnotesize\ttfamily void clear\+\_\+screen\+\_\+region (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+row,  }\item[{int}]{start\+\_\+col,  }\item[{int}]{end\+\_\+row,  }\item[{int}]{end\+\_\+col }\end{DoxyParamCaption})}
+
+
+
+Clear the specified region of the screen, using the current background colour. 
+
+\mbox{\Hypertarget{screen_8h_aaa5f18a9703383fe0f319cb01a23c891}\label{screen_8h_aaa5f18a9703383fe0f319cb01a23c891}} 
+\index{screen.h@{screen.h}!scroll\_screen\_region@{scroll\_screen\_region}}
+\index{scroll\_screen\_region@{scroll\_screen\_region}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{scroll\_screen\_region()}{scroll\_screen\_region()}}
+{\footnotesize\ttfamily void scroll\+\_\+screen\+\_\+region (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+row,  }\item[{int}]{start\+\_\+col,  }\item[{int}]{end\+\_\+row,  }\item[{int}]{end\+\_\+col }\end{DoxyParamCaption})}
+
+
+
+Move the contents of the specified region of the screen up one row, discarding the top row, and clearing the bottom row, using the current background colour. 
+
+\mbox{\Hypertarget{screen_8h_adcae93f6333cbe8133a59ee0923b4e6a}\label{screen_8h_adcae93f6333cbe8133a59ee0923b4e6a}} 
+\index{screen.h@{screen.h}!save\_screen\_region@{save\_screen\_region}}
+\index{save\_screen\_region@{save\_screen\_region}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{save\_screen\_region()}{save\_screen\_region()}}
+{\footnotesize\ttfamily void save\+\_\+screen\+\_\+region (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+row,  }\item[{int}]{start\+\_\+col,  }\item[{int}]{end\+\_\+row,  }\item[{int}]{end\+\_\+col,  }\item[{uint16\+\_\+t}]{buffer\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Copy the contents of the specified region of the screen into the supplied buffer. 
+
+\mbox{\Hypertarget{screen_8h_a944c7388a928038d640f32f6cce8c97f}\label{screen_8h_a944c7388a928038d640f32f6cce8c97f}} 
+\index{screen.h@{screen.h}!restore\_screen\_region@{restore\_screen\_region}}
+\index{restore\_screen\_region@{restore\_screen\_region}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{restore\_screen\_region()}{restore\_screen\_region()}}
+{\footnotesize\ttfamily void restore\+\_\+screen\+\_\+region (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+row,  }\item[{int}]{start\+\_\+col,  }\item[{int}]{end\+\_\+row,  }\item[{int}]{end\+\_\+col,  }\item[{const uint16\+\_\+t}]{buffer\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Restore the specified region of the screen from the supplied buffer. 
+
+This restores both text and colours. \mbox{\Hypertarget{screen_8h_a0aad9d09350ca0f087c39287db566bc6}\label{screen_8h_a0aad9d09350ca0f087c39287db566bc6}} 
+\index{screen.h@{screen.h}!print\_char@{print\_char}}
+\index{print\_char@{print\_char}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{print\_char()}{print\_char()}}
+{\footnotesize\ttfamily void print\+\_\+char (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{char}]{ch }\end{DoxyParamCaption})}
+
+
+
+Write the supplied character to the specified screen location, using the current foreground colour. 
+
+Has no effect if the location is outside the screen. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{screen_8h_a9d6b67ed35a865a239db6ea13943c3be}\label{screen_8h_a9d6b67ed35a865a239db6ea13943c3be}} 
+\index{screen.h@{screen.h}!shadow\_buffer@{shadow\_buffer}}
+\index{shadow\_buffer@{shadow\_buffer}!screen.h@{screen.h}}
+\doxysubsubsection{\texorpdfstring{shadow\_buffer}{shadow\_buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{screen_8h_a776679680176167df392a5ca2745ccab}{vga\+\_\+buffer\+\_\+t}} shadow\+\_\+buffer\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+BIOS/\+UEFI(GOP) agnostic framebuffer copy. 
+

@@ -1,0 +1,662 @@
+\hypertarget{smbus_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/smbus.h File Reference}
+\label{smbus_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smbus.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smbus.h}}
+
+
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/2.\+0.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpci__smbus__controller}{pci\+\_\+smbus\+\_\+controller}}
+\item 
+struct \mbox{\hyperlink{smbus_8h_structspd__info}{spd\+\_\+info}}
+\item 
+struct \mbox{\hyperlink{smbus_8h_structram__info}{ram\+\_\+info}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a9536bf85bced4f4e549a82fb18eb6140}{I2\+C\+\_\+\+WRITE}}~0
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ab5c0fbe837494c5f9130a5914854250d}{I2\+C\+\_\+\+READ}}~1
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a404de66ebe6c511685773a49147ae5fa}{SPD5\+\_\+\+MR11}}~11
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a9b4d6c2ddd769eb00caac0fa7bfc8412}{SMBHSTSTS}}~smbusbase
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a7d2128c043fa66ae79522020c0590c98}{SMBHSTCNT}}~smbusbase + 2
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ad5d340ebc10161c9a15adc82da8eb039}{SMBHSTCMD}}~smbusbase + 3
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a0fc8ec385a8b54547e64eb6ce051ca5f}{SMBHSTADD}}~smbusbase + 4
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a2afd13020bf770767d9fea95be2f4691}{SMBHSTDAT0}}~smbusbase + 5
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a4aeb3acf545b57363730ebe94d142bf3}{SMBHSTDAT1}}~smbusbase + 6
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a7feed35a46840867227e5bdff793f066}{SMBBLKDAT}}~smbusbase + 7
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a99fd6e9981affae413c8b74518516d10}{SMBPEC}}~smbusbase + 8
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a10e5432a5ab86d17de7f421d6a46df1c}{SMBAUXSTS}}~smbusbase + 12
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a53599a3f4e89f03c47d36b7c9982f5ae}{SMBAUXCTL}}~smbusbase + 13
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a912cb83972d6b91753827d8be240c5a3}{SMBHSTSTS\+\_\+\+BYTE\+\_\+\+DONE}}~0x80
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a0422ca9c1a708d3021b843ae56122e8b}{SMBHSTSTS\+\_\+\+INUSE\+\_\+\+STS}}~0x40
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a3b0acf0745b576249d32a8d4f05c9c6f}{SMBHSTSTS\+\_\+\+SMBALERT\+\_\+\+STS}}~0x20
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a0469454cf6fa797a71dddbf1309a0d07}{SMBHSTSTS\+\_\+\+FAILED}}~0x10
+\item 
+\#define \mbox{\hyperlink{smbus_8h_af818d1c814b639d2e7bede2de522968c}{SMBHSTSTS\+\_\+\+BUS\+\_\+\+ERR}}~0x08
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ae1f2e03b688a4639f426016a736d8f88}{SMBHSTSTS\+\_\+\+DEV\+\_\+\+ERR}}~0x04
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ae784fc4ca326643b093e5638735a3552}{SMBHSTSTS\+\_\+\+INTR}}~0x02
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a0b0f3a139036a6a605547aa1790aa382}{SMBHSTSTS\+\_\+\+HOST\+\_\+\+BUSY}}~0x01
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a287d61bebc6aad1d1bb448fb131c9856}{SMBHSTCNT\+\_\+\+QUICK}}~0x00
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a7cb8713a3c16fe56707c69fecf694ccb}{SMBHSTCNT\+\_\+\+BYTE}}~0x04
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a4d1aaf2d4ae868236f9f89cc83b277b3}{SMBHSTCNT\+\_\+\+BYTE\+\_\+\+DATA}}~0x08
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a70fa366013b2c8a3693c2ca626aa3e0f}{SMBHSTCNT\+\_\+\+WORD\+\_\+\+DATA}}~0x0C
+\item 
+\#define \mbox{\hyperlink{smbus_8h_aaf00a022c995ce1ed12148accc9c4f2e}{SMBHSTCNT\+\_\+\+BLOCK\+\_\+\+DATA}}~0x14
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ae872c01f66433a08af1f0cedde2bbfb9}{SMBHSTCNT\+\_\+\+I2\+C\+\_\+\+BLOCK\+\_\+\+DATA}}~0x18
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a46accee5333545112433527e67d4759c}{SMBHSTCNT\+\_\+\+LAST\+\_\+\+BYTE}}~0x20
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a3f2d16c53e702b98d25ace3e27a4de54}{SMBHSTCNT\+\_\+\+START}}~0x40
+\item 
+\#define \mbox{\hyperlink{smbus_8h_acfb94760a880516d70a610cdee9a96d3}{AMD\+\_\+\+INDEX\+\_\+\+IO\+\_\+\+PORT}}~0x\+CD6
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a16c9efb38f8250ba237c147f95288024}{AMD\+\_\+\+DATA\+\_\+\+IO\+\_\+\+PORT}}~0x\+CD7
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a82f93bb7e0ce42256d539fb124d07b6f}{AMD\+\_\+\+SMBUS\+\_\+\+BASE\+\_\+\+REG}}~0x2C
+\item 
+\#define \mbox{\hyperlink{smbus_8h_abe3e24b832059aaffee31e278282ba8f}{AMD\+\_\+\+PM\+\_\+\+INDEX}}~0x00
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ad689b3443b9051ff2fccb08a4807d39b}{NV\+\_\+\+SMBUS\+\_\+\+ADR\+\_\+\+REG}}~0x20
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a938a20fe73ceac1be4ffeeb2968a3d3f}{NV\+\_\+\+OLD\+\_\+\+SMBUS\+\_\+\+ADR\+\_\+\+REG}}~0x50
+\item 
+\#define \mbox{\hyperlink{smbus_8h_aa78e3bcc45cb7948501897cf52983352}{NVSMBCNT}}~smbusbase + 0
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a7327cde053eaec674026f3329e7808e0}{NVSMBSTS}}~smbusbase + 1
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a9df0fe0a377340d7bb28e10c908b7d27}{NVSMBADD}}~smbusbase + 2
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a438d0d07d09d511deb067d2a3d3c1cb1}{NVSMBCMD}}~smbusbase + 3
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ae2959e7c5c50681357e1e767cca85484}{NVSMBDAT}}(x)~(smbusbase + 4 + (x))
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a4f94cd6ff82c48a9c696cd36cc2af9b6}{NVSMBCNT\+\_\+\+WRITE}}~0x00
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a3a879a4a7a45a0301a1d2da4eb2a281c}{NVSMBCNT\+\_\+\+READ}}~0x01
+\item 
+\#define \mbox{\hyperlink{smbus_8h_abd0c5d16fbc0f872e80de27bcce628fa}{NVSMBCNT\+\_\+\+QUICK}}~0x02
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ac28f6b72f931d241b11124e110e1f654}{NVSMBCNT\+\_\+\+BYTE}}~0x04
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a5a786f1d7b3364c195e174820525dbcb}{NVSMBCNT\+\_\+\+BYTE\+\_\+\+DATA}}~0x06
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ad3afad19afce5bd5426601c69c51d12e}{NVSMBCNT\+\_\+\+WORD\+\_\+\+DATA}}~0x08
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a9294b2ba12fd2c3518a11bb7daa17fab}{NVSMBSTS\+\_\+\+DONE}}~0x80
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ae3c471d73bfb6c4162916d381c302866}{NVSMBSTS\+\_\+\+ALRM}}~0x40
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a4fdc1bd47bd26a8e65d657a16023c6cf}{NVSMBSTS\+\_\+\+RES}}~0x20
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a43641083a897368d81f01a0deed90278}{NVSMBSTS\+\_\+\+STATUS}}~0x1f
+\item 
+\#define \mbox{\hyperlink{smbus_8h_ac9ee77027d0b677b94d907a487078005}{DDR5\+\_\+\+ROUNDING\+\_\+\+FACTOR}}~30
+\begin{DoxyCompactList}\small\item\em Rounding factors for timing computation. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{smbus_8h_a275dad0c7735d7ce478918ae3a1ab0da}{ROUNDING\+\_\+\+FACTOR}}~0.\+9f
+\item 
+\#define \mbox{\hyperlink{smbus_8h_a7af89fd4788ddae557d3c3a5cee2771a}{SPD\+\_\+\+SKU\+\_\+\+LEN}}~32
+\item 
+\#define \mbox{\hyperlink{smbus_8h_af1c0c1752e224a05d42e5a7fb223693b}{PIIX4\+\_\+\+SMB\+\_\+\+BASE\+\_\+\+ADR\+\_\+\+DEFAULT}}~0x90
+\item 
+\#define \mbox{\hyperlink{smbus_8h_af9378b5ecbc4291658c1ef03fd79953b}{PIIX4\+\_\+\+SMB\+\_\+\+BASE\+\_\+\+ADR\+\_\+\+VIAPRO}}~0x\+D0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{smbus_8h_afe1ebbaf5fcd52c3065baea3974eeae2}{print\+\_\+smbus\+\_\+startup\+\_\+info}} (void)
+\begin{DoxyCompactList}\small\item\em Print SMBUS Info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{smbus_8h_structram__info}{ram\+\_\+info}} \mbox{\hyperlink{smbus_8h_ac9a217ca53247eebc2fe3dfa19ed11cd}{ram}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SPDX-\/\+License-\/\+Identifier\+: GPL-\/2.\+0. 
+
+Provides functions for reading SPD via SMBUS
+
+Copyright (C) 2004-\/2022 Samuel Demeulemeester. 
+
+\doxysubsection{Data Structure Documentation}
+\index{spd\_info@{spd\_info}}\label{structspd__info}
+\Hypertarget{smbus_8h_structspd__info}
+\doxysubsubsection{struct spd\+\_\+info}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{smbus_8h_aaefa99598478f4beba35791f2bab5688}\label{smbus_8h_aaefa99598478f4beba35791f2bab5688}} 
+bool&
+isValid&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a2bec3a61372d7e42c6b4b79964f6a986}\label{smbus_8h_a2bec3a61372d7e42c6b4b79964f6a986}} 
+uint8\_t&
+slot\_num&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a14a3a1cdae25267ef9704fb1b13977cc}\label{smbus_8h_a14a3a1cdae25267ef9704fb1b13977cc}} 
+uint16\_t&
+jedec\_code&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a439527154a4b1a0d31798dedba64c9d7}\label{smbus_8h_a439527154a4b1a0d31798dedba64c9d7}} 
+uint32\_t&
+module\_size&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a145f816854e7105f4b8c4e77f8aa5274}\label{smbus_8h_a145f816854e7105f4b8c4e77f8aa5274}} 
+char $\ast$&
+type&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a3d0d5ba55d781ded35e31db9a5a404dc}\label{smbus_8h_a3d0d5ba55d781ded35e31db9a5a404dc}} 
+char&
+sku\mbox{[}\mbox{\hyperlink{smbus_8h_a7af89fd4788ddae557d3c3a5cee2771a}{SPD\_SKU\_LEN}}+1\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a1b1afb082339968282a194cd178315f0}\label{smbus_8h_a1b1afb082339968282a194cd178315f0}} 
+uint8\_t&
+XMP&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_af8bf20cdca902df4111241323a8a1371}\label{smbus_8h_af8bf20cdca902df4111241323a8a1371}} 
+uint16\_t&
+freq&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_af42c75e785059dc8ac33dd6e79213ba2}\label{smbus_8h_af42c75e785059dc8ac33dd6e79213ba2}} 
+bool&
+hasECC&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_af710db1fcdf9c80843aa838c919290c0}\label{smbus_8h_af710db1fcdf9c80843aa838c919290c0}} 
+uint8\_t&
+fab\_year&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a9169041c6ecdde29e92935a44601a5d3}\label{smbus_8h_a9169041c6ecdde29e92935a44601a5d3}} 
+uint8\_t&
+fab\_week&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a5d0f82cac308501bba6478b187415ea2}\label{smbus_8h_a5d0f82cac308501bba6478b187415ea2}} 
+uint16\_t&
+tCL&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a64d177410635c626a02b6f1f1e89bc01}\label{smbus_8h_a64d177410635c626a02b6f1f1e89bc01}} 
+uint8\_t&
+tCL\_dec&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_ac2bb0463442741ca89da566493f283cb}\label{smbus_8h_ac2bb0463442741ca89da566493f283cb}} 
+uint16\_t&
+tRCD&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a2f79bf789c69f93eba0f6786b00dc753}\label{smbus_8h_a2f79bf789c69f93eba0f6786b00dc753}} 
+uint16\_t&
+tRP&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a678e982a13eaa2be508169e5f38bc458}\label{smbus_8h_a678e982a13eaa2be508169e5f38bc458}} 
+uint16\_t&
+tRAS&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a28af5d4ddd1c27bb0840f897b4c31803}\label{smbus_8h_a28af5d4ddd1c27bb0840f897b4c31803}} 
+uint16\_t&
+tRC&
+\\
+\hline
+
+\end{DoxyFields}
+\index{ram\_info@{ram\_info}}\label{structram__info}
+\Hypertarget{smbus_8h_structram__info}
+\doxysubsubsection{struct ram\+\_\+info}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{smbus_8h_a5c6e92ca9b2146fda783c7d3d1b91c63}\label{smbus_8h_a5c6e92ca9b2146fda783c7d3d1b91c63}} 
+uint16\_t&
+freq&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a6b77fa9430b39842fd07d905334b6501}\label{smbus_8h_a6b77fa9430b39842fd07d905334b6501}} 
+uint16\_t&
+tCL&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a30f739fc598951f0add27a0392ed7439}\label{smbus_8h_a30f739fc598951f0add27a0392ed7439}} 
+uint8\_t&
+tCL\_dec&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a3952a75087aee86ee1937d1392bcb8a8}\label{smbus_8h_a3952a75087aee86ee1937d1392bcb8a8}} 
+uint16\_t&
+tRCD&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a5c15df5dd5d06ab1f1b14ffa09e99617}\label{smbus_8h_a5c15df5dd5d06ab1f1b14ffa09e99617}} 
+uint16\_t&
+tRP&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a8cef916bab001d24ec2547915901bc92}\label{smbus_8h_a8cef916bab001d24ec2547915901bc92}} 
+uint16\_t&
+tRAS&
+\\
+\hline
+
+\mbox{\Hypertarget{smbus_8h_a5cfcec53c8e69a59b0de099773cc3441}\label{smbus_8h_a5cfcec53c8e69a59b0de099773cc3441}} 
+char $\ast$&
+type&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{smbus_8h_a9536bf85bced4f4e549a82fb18eb6140}\label{smbus_8h_a9536bf85bced4f4e549a82fb18eb6140}} 
+\index{smbus.h@{smbus.h}!I2C\_WRITE@{I2C\_WRITE}}
+\index{I2C\_WRITE@{I2C\_WRITE}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_WRITE}{I2C\_WRITE}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+WRITE~0}
+
+\mbox{\Hypertarget{smbus_8h_ab5c0fbe837494c5f9130a5914854250d}\label{smbus_8h_ab5c0fbe837494c5f9130a5914854250d}} 
+\index{smbus.h@{smbus.h}!I2C\_READ@{I2C\_READ}}
+\index{I2C\_READ@{I2C\_READ}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_READ}{I2C\_READ}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+READ~1}
+
+\mbox{\Hypertarget{smbus_8h_a404de66ebe6c511685773a49147ae5fa}\label{smbus_8h_a404de66ebe6c511685773a49147ae5fa}} 
+\index{smbus.h@{smbus.h}!SPD5\_MR11@{SPD5\_MR11}}
+\index{SPD5\_MR11@{SPD5\_MR11}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SPD5\_MR11}{SPD5\_MR11}}
+{\footnotesize\ttfamily \#define SPD5\+\_\+\+MR11~11}
+
+\mbox{\Hypertarget{smbus_8h_a9b4d6c2ddd769eb00caac0fa7bfc8412}\label{smbus_8h_a9b4d6c2ddd769eb00caac0fa7bfc8412}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS@{SMBHSTSTS}}
+\index{SMBHSTSTS@{SMBHSTSTS}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS}{SMBHSTSTS}}
+{\footnotesize\ttfamily \#define SMBHSTSTS~smbusbase}
+
+\mbox{\Hypertarget{smbus_8h_a7d2128c043fa66ae79522020c0590c98}\label{smbus_8h_a7d2128c043fa66ae79522020c0590c98}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT@{SMBHSTCNT}}
+\index{SMBHSTCNT@{SMBHSTCNT}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT}{SMBHSTCNT}}
+{\footnotesize\ttfamily \#define SMBHSTCNT~smbusbase + 2}
+
+\mbox{\Hypertarget{smbus_8h_ad5d340ebc10161c9a15adc82da8eb039}\label{smbus_8h_ad5d340ebc10161c9a15adc82da8eb039}} 
+\index{smbus.h@{smbus.h}!SMBHSTCMD@{SMBHSTCMD}}
+\index{SMBHSTCMD@{SMBHSTCMD}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCMD}{SMBHSTCMD}}
+{\footnotesize\ttfamily \#define SMBHSTCMD~smbusbase + 3}
+
+\mbox{\Hypertarget{smbus_8h_a0fc8ec385a8b54547e64eb6ce051ca5f}\label{smbus_8h_a0fc8ec385a8b54547e64eb6ce051ca5f}} 
+\index{smbus.h@{smbus.h}!SMBHSTADD@{SMBHSTADD}}
+\index{SMBHSTADD@{SMBHSTADD}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTADD}{SMBHSTADD}}
+{\footnotesize\ttfamily \#define SMBHSTADD~smbusbase + 4}
+
+\mbox{\Hypertarget{smbus_8h_a2afd13020bf770767d9fea95be2f4691}\label{smbus_8h_a2afd13020bf770767d9fea95be2f4691}} 
+\index{smbus.h@{smbus.h}!SMBHSTDAT0@{SMBHSTDAT0}}
+\index{SMBHSTDAT0@{SMBHSTDAT0}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTDAT0}{SMBHSTDAT0}}
+{\footnotesize\ttfamily \#define SMBHSTDAT0~smbusbase + 5}
+
+\mbox{\Hypertarget{smbus_8h_a4aeb3acf545b57363730ebe94d142bf3}\label{smbus_8h_a4aeb3acf545b57363730ebe94d142bf3}} 
+\index{smbus.h@{smbus.h}!SMBHSTDAT1@{SMBHSTDAT1}}
+\index{SMBHSTDAT1@{SMBHSTDAT1}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTDAT1}{SMBHSTDAT1}}
+{\footnotesize\ttfamily \#define SMBHSTDAT1~smbusbase + 6}
+
+\mbox{\Hypertarget{smbus_8h_a7feed35a46840867227e5bdff793f066}\label{smbus_8h_a7feed35a46840867227e5bdff793f066}} 
+\index{smbus.h@{smbus.h}!SMBBLKDAT@{SMBBLKDAT}}
+\index{SMBBLKDAT@{SMBBLKDAT}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBBLKDAT}{SMBBLKDAT}}
+{\footnotesize\ttfamily \#define SMBBLKDAT~smbusbase + 7}
+
+\mbox{\Hypertarget{smbus_8h_a99fd6e9981affae413c8b74518516d10}\label{smbus_8h_a99fd6e9981affae413c8b74518516d10}} 
+\index{smbus.h@{smbus.h}!SMBPEC@{SMBPEC}}
+\index{SMBPEC@{SMBPEC}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBPEC}{SMBPEC}}
+{\footnotesize\ttfamily \#define SMBPEC~smbusbase + 8}
+
+\mbox{\Hypertarget{smbus_8h_a10e5432a5ab86d17de7f421d6a46df1c}\label{smbus_8h_a10e5432a5ab86d17de7f421d6a46df1c}} 
+\index{smbus.h@{smbus.h}!SMBAUXSTS@{SMBAUXSTS}}
+\index{SMBAUXSTS@{SMBAUXSTS}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBAUXSTS}{SMBAUXSTS}}
+{\footnotesize\ttfamily \#define SMBAUXSTS~smbusbase + 12}
+
+\mbox{\Hypertarget{smbus_8h_a53599a3f4e89f03c47d36b7c9982f5ae}\label{smbus_8h_a53599a3f4e89f03c47d36b7c9982f5ae}} 
+\index{smbus.h@{smbus.h}!SMBAUXCTL@{SMBAUXCTL}}
+\index{SMBAUXCTL@{SMBAUXCTL}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBAUXCTL}{SMBAUXCTL}}
+{\footnotesize\ttfamily \#define SMBAUXCTL~smbusbase + 13}
+
+\mbox{\Hypertarget{smbus_8h_a912cb83972d6b91753827d8be240c5a3}\label{smbus_8h_a912cb83972d6b91753827d8be240c5a3}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS\_BYTE\_DONE@{SMBHSTSTS\_BYTE\_DONE}}
+\index{SMBHSTSTS\_BYTE\_DONE@{SMBHSTSTS\_BYTE\_DONE}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS\_BYTE\_DONE}{SMBHSTSTS\_BYTE\_DONE}}
+{\footnotesize\ttfamily \#define SMBHSTSTS\+\_\+\+BYTE\+\_\+\+DONE~0x80}
+
+\mbox{\Hypertarget{smbus_8h_a0422ca9c1a708d3021b843ae56122e8b}\label{smbus_8h_a0422ca9c1a708d3021b843ae56122e8b}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS\_INUSE\_STS@{SMBHSTSTS\_INUSE\_STS}}
+\index{SMBHSTSTS\_INUSE\_STS@{SMBHSTSTS\_INUSE\_STS}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS\_INUSE\_STS}{SMBHSTSTS\_INUSE\_STS}}
+{\footnotesize\ttfamily \#define SMBHSTSTS\+\_\+\+INUSE\+\_\+\+STS~0x40}
+
+\mbox{\Hypertarget{smbus_8h_a3b0acf0745b576249d32a8d4f05c9c6f}\label{smbus_8h_a3b0acf0745b576249d32a8d4f05c9c6f}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS\_SMBALERT\_STS@{SMBHSTSTS\_SMBALERT\_STS}}
+\index{SMBHSTSTS\_SMBALERT\_STS@{SMBHSTSTS\_SMBALERT\_STS}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS\_SMBALERT\_STS}{SMBHSTSTS\_SMBALERT\_STS}}
+{\footnotesize\ttfamily \#define SMBHSTSTS\+\_\+\+SMBALERT\+\_\+\+STS~0x20}
+
+\mbox{\Hypertarget{smbus_8h_a0469454cf6fa797a71dddbf1309a0d07}\label{smbus_8h_a0469454cf6fa797a71dddbf1309a0d07}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS\_FAILED@{SMBHSTSTS\_FAILED}}
+\index{SMBHSTSTS\_FAILED@{SMBHSTSTS\_FAILED}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS\_FAILED}{SMBHSTSTS\_FAILED}}
+{\footnotesize\ttfamily \#define SMBHSTSTS\+\_\+\+FAILED~0x10}
+
+\mbox{\Hypertarget{smbus_8h_af818d1c814b639d2e7bede2de522968c}\label{smbus_8h_af818d1c814b639d2e7bede2de522968c}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS\_BUS\_ERR@{SMBHSTSTS\_BUS\_ERR}}
+\index{SMBHSTSTS\_BUS\_ERR@{SMBHSTSTS\_BUS\_ERR}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS\_BUS\_ERR}{SMBHSTSTS\_BUS\_ERR}}
+{\footnotesize\ttfamily \#define SMBHSTSTS\+\_\+\+BUS\+\_\+\+ERR~0x08}
+
+\mbox{\Hypertarget{smbus_8h_ae1f2e03b688a4639f426016a736d8f88}\label{smbus_8h_ae1f2e03b688a4639f426016a736d8f88}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS\_DEV\_ERR@{SMBHSTSTS\_DEV\_ERR}}
+\index{SMBHSTSTS\_DEV\_ERR@{SMBHSTSTS\_DEV\_ERR}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS\_DEV\_ERR}{SMBHSTSTS\_DEV\_ERR}}
+{\footnotesize\ttfamily \#define SMBHSTSTS\+\_\+\+DEV\+\_\+\+ERR~0x04}
+
+\mbox{\Hypertarget{smbus_8h_ae784fc4ca326643b093e5638735a3552}\label{smbus_8h_ae784fc4ca326643b093e5638735a3552}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS\_INTR@{SMBHSTSTS\_INTR}}
+\index{SMBHSTSTS\_INTR@{SMBHSTSTS\_INTR}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS\_INTR}{SMBHSTSTS\_INTR}}
+{\footnotesize\ttfamily \#define SMBHSTSTS\+\_\+\+INTR~0x02}
+
+\mbox{\Hypertarget{smbus_8h_a0b0f3a139036a6a605547aa1790aa382}\label{smbus_8h_a0b0f3a139036a6a605547aa1790aa382}} 
+\index{smbus.h@{smbus.h}!SMBHSTSTS\_HOST\_BUSY@{SMBHSTSTS\_HOST\_BUSY}}
+\index{SMBHSTSTS\_HOST\_BUSY@{SMBHSTSTS\_HOST\_BUSY}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTSTS\_HOST\_BUSY}{SMBHSTSTS\_HOST\_BUSY}}
+{\footnotesize\ttfamily \#define SMBHSTSTS\+\_\+\+HOST\+\_\+\+BUSY~0x01}
+
+\mbox{\Hypertarget{smbus_8h_a287d61bebc6aad1d1bb448fb131c9856}\label{smbus_8h_a287d61bebc6aad1d1bb448fb131c9856}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT\_QUICK@{SMBHSTCNT\_QUICK}}
+\index{SMBHSTCNT\_QUICK@{SMBHSTCNT\_QUICK}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT\_QUICK}{SMBHSTCNT\_QUICK}}
+{\footnotesize\ttfamily \#define SMBHSTCNT\+\_\+\+QUICK~0x00}
+
+\mbox{\Hypertarget{smbus_8h_a7cb8713a3c16fe56707c69fecf694ccb}\label{smbus_8h_a7cb8713a3c16fe56707c69fecf694ccb}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT\_BYTE@{SMBHSTCNT\_BYTE}}
+\index{SMBHSTCNT\_BYTE@{SMBHSTCNT\_BYTE}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT\_BYTE}{SMBHSTCNT\_BYTE}}
+{\footnotesize\ttfamily \#define SMBHSTCNT\+\_\+\+BYTE~0x04}
+
+\mbox{\Hypertarget{smbus_8h_a4d1aaf2d4ae868236f9f89cc83b277b3}\label{smbus_8h_a4d1aaf2d4ae868236f9f89cc83b277b3}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT\_BYTE\_DATA@{SMBHSTCNT\_BYTE\_DATA}}
+\index{SMBHSTCNT\_BYTE\_DATA@{SMBHSTCNT\_BYTE\_DATA}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT\_BYTE\_DATA}{SMBHSTCNT\_BYTE\_DATA}}
+{\footnotesize\ttfamily \#define SMBHSTCNT\+\_\+\+BYTE\+\_\+\+DATA~0x08}
+
+\mbox{\Hypertarget{smbus_8h_a70fa366013b2c8a3693c2ca626aa3e0f}\label{smbus_8h_a70fa366013b2c8a3693c2ca626aa3e0f}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT\_WORD\_DATA@{SMBHSTCNT\_WORD\_DATA}}
+\index{SMBHSTCNT\_WORD\_DATA@{SMBHSTCNT\_WORD\_DATA}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT\_WORD\_DATA}{SMBHSTCNT\_WORD\_DATA}}
+{\footnotesize\ttfamily \#define SMBHSTCNT\+\_\+\+WORD\+\_\+\+DATA~0x0C}
+
+\mbox{\Hypertarget{smbus_8h_aaf00a022c995ce1ed12148accc9c4f2e}\label{smbus_8h_aaf00a022c995ce1ed12148accc9c4f2e}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT\_BLOCK\_DATA@{SMBHSTCNT\_BLOCK\_DATA}}
+\index{SMBHSTCNT\_BLOCK\_DATA@{SMBHSTCNT\_BLOCK\_DATA}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT\_BLOCK\_DATA}{SMBHSTCNT\_BLOCK\_DATA}}
+{\footnotesize\ttfamily \#define SMBHSTCNT\+\_\+\+BLOCK\+\_\+\+DATA~0x14}
+
+\mbox{\Hypertarget{smbus_8h_ae872c01f66433a08af1f0cedde2bbfb9}\label{smbus_8h_ae872c01f66433a08af1f0cedde2bbfb9}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT\_I2C\_BLOCK\_DATA@{SMBHSTCNT\_I2C\_BLOCK\_DATA}}
+\index{SMBHSTCNT\_I2C\_BLOCK\_DATA@{SMBHSTCNT\_I2C\_BLOCK\_DATA}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT\_I2C\_BLOCK\_DATA}{SMBHSTCNT\_I2C\_BLOCK\_DATA}}
+{\footnotesize\ttfamily \#define SMBHSTCNT\+\_\+\+I2\+C\+\_\+\+BLOCK\+\_\+\+DATA~0x18}
+
+\mbox{\Hypertarget{smbus_8h_a46accee5333545112433527e67d4759c}\label{smbus_8h_a46accee5333545112433527e67d4759c}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT\_LAST\_BYTE@{SMBHSTCNT\_LAST\_BYTE}}
+\index{SMBHSTCNT\_LAST\_BYTE@{SMBHSTCNT\_LAST\_BYTE}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT\_LAST\_BYTE}{SMBHSTCNT\_LAST\_BYTE}}
+{\footnotesize\ttfamily \#define SMBHSTCNT\+\_\+\+LAST\+\_\+\+BYTE~0x20}
+
+\mbox{\Hypertarget{smbus_8h_a3f2d16c53e702b98d25ace3e27a4de54}\label{smbus_8h_a3f2d16c53e702b98d25ace3e27a4de54}} 
+\index{smbus.h@{smbus.h}!SMBHSTCNT\_START@{SMBHSTCNT\_START}}
+\index{SMBHSTCNT\_START@{SMBHSTCNT\_START}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SMBHSTCNT\_START}{SMBHSTCNT\_START}}
+{\footnotesize\ttfamily \#define SMBHSTCNT\+\_\+\+START~0x40}
+
+\mbox{\Hypertarget{smbus_8h_acfb94760a880516d70a610cdee9a96d3}\label{smbus_8h_acfb94760a880516d70a610cdee9a96d3}} 
+\index{smbus.h@{smbus.h}!AMD\_INDEX\_IO\_PORT@{AMD\_INDEX\_IO\_PORT}}
+\index{AMD\_INDEX\_IO\_PORT@{AMD\_INDEX\_IO\_PORT}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{AMD\_INDEX\_IO\_PORT}{AMD\_INDEX\_IO\_PORT}}
+{\footnotesize\ttfamily \#define AMD\+\_\+\+INDEX\+\_\+\+IO\+\_\+\+PORT~0x\+CD6}
+
+\mbox{\Hypertarget{smbus_8h_a16c9efb38f8250ba237c147f95288024}\label{smbus_8h_a16c9efb38f8250ba237c147f95288024}} 
+\index{smbus.h@{smbus.h}!AMD\_DATA\_IO\_PORT@{AMD\_DATA\_IO\_PORT}}
+\index{AMD\_DATA\_IO\_PORT@{AMD\_DATA\_IO\_PORT}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{AMD\_DATA\_IO\_PORT}{AMD\_DATA\_IO\_PORT}}
+{\footnotesize\ttfamily \#define AMD\+\_\+\+DATA\+\_\+\+IO\+\_\+\+PORT~0x\+CD7}
+
+\mbox{\Hypertarget{smbus_8h_a82f93bb7e0ce42256d539fb124d07b6f}\label{smbus_8h_a82f93bb7e0ce42256d539fb124d07b6f}} 
+\index{smbus.h@{smbus.h}!AMD\_SMBUS\_BASE\_REG@{AMD\_SMBUS\_BASE\_REG}}
+\index{AMD\_SMBUS\_BASE\_REG@{AMD\_SMBUS\_BASE\_REG}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{AMD\_SMBUS\_BASE\_REG}{AMD\_SMBUS\_BASE\_REG}}
+{\footnotesize\ttfamily \#define AMD\+\_\+\+SMBUS\+\_\+\+BASE\+\_\+\+REG~0x2C}
+
+\mbox{\Hypertarget{smbus_8h_abe3e24b832059aaffee31e278282ba8f}\label{smbus_8h_abe3e24b832059aaffee31e278282ba8f}} 
+\index{smbus.h@{smbus.h}!AMD\_PM\_INDEX@{AMD\_PM\_INDEX}}
+\index{AMD\_PM\_INDEX@{AMD\_PM\_INDEX}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{AMD\_PM\_INDEX}{AMD\_PM\_INDEX}}
+{\footnotesize\ttfamily \#define AMD\+\_\+\+PM\+\_\+\+INDEX~0x00}
+
+\mbox{\Hypertarget{smbus_8h_ad689b3443b9051ff2fccb08a4807d39b}\label{smbus_8h_ad689b3443b9051ff2fccb08a4807d39b}} 
+\index{smbus.h@{smbus.h}!NV\_SMBUS\_ADR\_REG@{NV\_SMBUS\_ADR\_REG}}
+\index{NV\_SMBUS\_ADR\_REG@{NV\_SMBUS\_ADR\_REG}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NV\_SMBUS\_ADR\_REG}{NV\_SMBUS\_ADR\_REG}}
+{\footnotesize\ttfamily \#define NV\+\_\+\+SMBUS\+\_\+\+ADR\+\_\+\+REG~0x20}
+
+\mbox{\Hypertarget{smbus_8h_a938a20fe73ceac1be4ffeeb2968a3d3f}\label{smbus_8h_a938a20fe73ceac1be4ffeeb2968a3d3f}} 
+\index{smbus.h@{smbus.h}!NV\_OLD\_SMBUS\_ADR\_REG@{NV\_OLD\_SMBUS\_ADR\_REG}}
+\index{NV\_OLD\_SMBUS\_ADR\_REG@{NV\_OLD\_SMBUS\_ADR\_REG}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NV\_OLD\_SMBUS\_ADR\_REG}{NV\_OLD\_SMBUS\_ADR\_REG}}
+{\footnotesize\ttfamily \#define NV\+\_\+\+OLD\+\_\+\+SMBUS\+\_\+\+ADR\+\_\+\+REG~0x50}
+
+\mbox{\Hypertarget{smbus_8h_aa78e3bcc45cb7948501897cf52983352}\label{smbus_8h_aa78e3bcc45cb7948501897cf52983352}} 
+\index{smbus.h@{smbus.h}!NVSMBCNT@{NVSMBCNT}}
+\index{NVSMBCNT@{NVSMBCNT}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBCNT}{NVSMBCNT}}
+{\footnotesize\ttfamily \#define NVSMBCNT~smbusbase + 0}
+
+\mbox{\Hypertarget{smbus_8h_a7327cde053eaec674026f3329e7808e0}\label{smbus_8h_a7327cde053eaec674026f3329e7808e0}} 
+\index{smbus.h@{smbus.h}!NVSMBSTS@{NVSMBSTS}}
+\index{NVSMBSTS@{NVSMBSTS}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBSTS}{NVSMBSTS}}
+{\footnotesize\ttfamily \#define NVSMBSTS~smbusbase + 1}
+
+\mbox{\Hypertarget{smbus_8h_a9df0fe0a377340d7bb28e10c908b7d27}\label{smbus_8h_a9df0fe0a377340d7bb28e10c908b7d27}} 
+\index{smbus.h@{smbus.h}!NVSMBADD@{NVSMBADD}}
+\index{NVSMBADD@{NVSMBADD}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBADD}{NVSMBADD}}
+{\footnotesize\ttfamily \#define NVSMBADD~smbusbase + 2}
+
+\mbox{\Hypertarget{smbus_8h_a438d0d07d09d511deb067d2a3d3c1cb1}\label{smbus_8h_a438d0d07d09d511deb067d2a3d3c1cb1}} 
+\index{smbus.h@{smbus.h}!NVSMBCMD@{NVSMBCMD}}
+\index{NVSMBCMD@{NVSMBCMD}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBCMD}{NVSMBCMD}}
+{\footnotesize\ttfamily \#define NVSMBCMD~smbusbase + 3}
+
+\mbox{\Hypertarget{smbus_8h_ae2959e7c5c50681357e1e767cca85484}\label{smbus_8h_ae2959e7c5c50681357e1e767cca85484}} 
+\index{smbus.h@{smbus.h}!NVSMBDAT@{NVSMBDAT}}
+\index{NVSMBDAT@{NVSMBDAT}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBDAT}{NVSMBDAT}}
+{\footnotesize\ttfamily \#define NVSMBDAT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(smbusbase + 4 + (x))}
+
+\mbox{\Hypertarget{smbus_8h_a4f94cd6ff82c48a9c696cd36cc2af9b6}\label{smbus_8h_a4f94cd6ff82c48a9c696cd36cc2af9b6}} 
+\index{smbus.h@{smbus.h}!NVSMBCNT\_WRITE@{NVSMBCNT\_WRITE}}
+\index{NVSMBCNT\_WRITE@{NVSMBCNT\_WRITE}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBCNT\_WRITE}{NVSMBCNT\_WRITE}}
+{\footnotesize\ttfamily \#define NVSMBCNT\+\_\+\+WRITE~0x00}
+
+\mbox{\Hypertarget{smbus_8h_a3a879a4a7a45a0301a1d2da4eb2a281c}\label{smbus_8h_a3a879a4a7a45a0301a1d2da4eb2a281c}} 
+\index{smbus.h@{smbus.h}!NVSMBCNT\_READ@{NVSMBCNT\_READ}}
+\index{NVSMBCNT\_READ@{NVSMBCNT\_READ}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBCNT\_READ}{NVSMBCNT\_READ}}
+{\footnotesize\ttfamily \#define NVSMBCNT\+\_\+\+READ~0x01}
+
+\mbox{\Hypertarget{smbus_8h_abd0c5d16fbc0f872e80de27bcce628fa}\label{smbus_8h_abd0c5d16fbc0f872e80de27bcce628fa}} 
+\index{smbus.h@{smbus.h}!NVSMBCNT\_QUICK@{NVSMBCNT\_QUICK}}
+\index{NVSMBCNT\_QUICK@{NVSMBCNT\_QUICK}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBCNT\_QUICK}{NVSMBCNT\_QUICK}}
+{\footnotesize\ttfamily \#define NVSMBCNT\+\_\+\+QUICK~0x02}
+
+\mbox{\Hypertarget{smbus_8h_ac28f6b72f931d241b11124e110e1f654}\label{smbus_8h_ac28f6b72f931d241b11124e110e1f654}} 
+\index{smbus.h@{smbus.h}!NVSMBCNT\_BYTE@{NVSMBCNT\_BYTE}}
+\index{NVSMBCNT\_BYTE@{NVSMBCNT\_BYTE}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBCNT\_BYTE}{NVSMBCNT\_BYTE}}
+{\footnotesize\ttfamily \#define NVSMBCNT\+\_\+\+BYTE~0x04}
+
+\mbox{\Hypertarget{smbus_8h_a5a786f1d7b3364c195e174820525dbcb}\label{smbus_8h_a5a786f1d7b3364c195e174820525dbcb}} 
+\index{smbus.h@{smbus.h}!NVSMBCNT\_BYTE\_DATA@{NVSMBCNT\_BYTE\_DATA}}
+\index{NVSMBCNT\_BYTE\_DATA@{NVSMBCNT\_BYTE\_DATA}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBCNT\_BYTE\_DATA}{NVSMBCNT\_BYTE\_DATA}}
+{\footnotesize\ttfamily \#define NVSMBCNT\+\_\+\+BYTE\+\_\+\+DATA~0x06}
+
+\mbox{\Hypertarget{smbus_8h_ad3afad19afce5bd5426601c69c51d12e}\label{smbus_8h_ad3afad19afce5bd5426601c69c51d12e}} 
+\index{smbus.h@{smbus.h}!NVSMBCNT\_WORD\_DATA@{NVSMBCNT\_WORD\_DATA}}
+\index{NVSMBCNT\_WORD\_DATA@{NVSMBCNT\_WORD\_DATA}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBCNT\_WORD\_DATA}{NVSMBCNT\_WORD\_DATA}}
+{\footnotesize\ttfamily \#define NVSMBCNT\+\_\+\+WORD\+\_\+\+DATA~0x08}
+
+\mbox{\Hypertarget{smbus_8h_a9294b2ba12fd2c3518a11bb7daa17fab}\label{smbus_8h_a9294b2ba12fd2c3518a11bb7daa17fab}} 
+\index{smbus.h@{smbus.h}!NVSMBSTS\_DONE@{NVSMBSTS\_DONE}}
+\index{NVSMBSTS\_DONE@{NVSMBSTS\_DONE}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBSTS\_DONE}{NVSMBSTS\_DONE}}
+{\footnotesize\ttfamily \#define NVSMBSTS\+\_\+\+DONE~0x80}
+
+\mbox{\Hypertarget{smbus_8h_ae3c471d73bfb6c4162916d381c302866}\label{smbus_8h_ae3c471d73bfb6c4162916d381c302866}} 
+\index{smbus.h@{smbus.h}!NVSMBSTS\_ALRM@{NVSMBSTS\_ALRM}}
+\index{NVSMBSTS\_ALRM@{NVSMBSTS\_ALRM}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBSTS\_ALRM}{NVSMBSTS\_ALRM}}
+{\footnotesize\ttfamily \#define NVSMBSTS\+\_\+\+ALRM~0x40}
+
+\mbox{\Hypertarget{smbus_8h_a4fdc1bd47bd26a8e65d657a16023c6cf}\label{smbus_8h_a4fdc1bd47bd26a8e65d657a16023c6cf}} 
+\index{smbus.h@{smbus.h}!NVSMBSTS\_RES@{NVSMBSTS\_RES}}
+\index{NVSMBSTS\_RES@{NVSMBSTS\_RES}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBSTS\_RES}{NVSMBSTS\_RES}}
+{\footnotesize\ttfamily \#define NVSMBSTS\+\_\+\+RES~0x20}
+
+\mbox{\Hypertarget{smbus_8h_a43641083a897368d81f01a0deed90278}\label{smbus_8h_a43641083a897368d81f01a0deed90278}} 
+\index{smbus.h@{smbus.h}!NVSMBSTS\_STATUS@{NVSMBSTS\_STATUS}}
+\index{NVSMBSTS\_STATUS@{NVSMBSTS\_STATUS}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{NVSMBSTS\_STATUS}{NVSMBSTS\_STATUS}}
+{\footnotesize\ttfamily \#define NVSMBSTS\+\_\+\+STATUS~0x1f}
+
+\mbox{\Hypertarget{smbus_8h_ac9ee77027d0b677b94d907a487078005}\label{smbus_8h_ac9ee77027d0b677b94d907a487078005}} 
+\index{smbus.h@{smbus.h}!DDR5\_ROUNDING\_FACTOR@{DDR5\_ROUNDING\_FACTOR}}
+\index{DDR5\_ROUNDING\_FACTOR@{DDR5\_ROUNDING\_FACTOR}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{DDR5\_ROUNDING\_FACTOR}{DDR5\_ROUNDING\_FACTOR}}
+{\footnotesize\ttfamily \#define DDR5\+\_\+\+ROUNDING\+\_\+\+FACTOR~30}
+
+
+
+Rounding factors for timing computation. 
+
+These factors are used as a configurable CEIL() function to get the upper int from a float past a specific decimal point. \mbox{\Hypertarget{smbus_8h_a275dad0c7735d7ce478918ae3a1ab0da}\label{smbus_8h_a275dad0c7735d7ce478918ae3a1ab0da}} 
+\index{smbus.h@{smbus.h}!ROUNDING\_FACTOR@{ROUNDING\_FACTOR}}
+\index{ROUNDING\_FACTOR@{ROUNDING\_FACTOR}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{ROUNDING\_FACTOR}{ROUNDING\_FACTOR}}
+{\footnotesize\ttfamily \#define ROUNDING\+\_\+\+FACTOR~0.\+9f}
+
+\mbox{\Hypertarget{smbus_8h_a7af89fd4788ddae557d3c3a5cee2771a}\label{smbus_8h_a7af89fd4788ddae557d3c3a5cee2771a}} 
+\index{smbus.h@{smbus.h}!SPD\_SKU\_LEN@{SPD\_SKU\_LEN}}
+\index{SPD\_SKU\_LEN@{SPD\_SKU\_LEN}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{SPD\_SKU\_LEN}{SPD\_SKU\_LEN}}
+{\footnotesize\ttfamily \#define SPD\+\_\+\+SKU\+\_\+\+LEN~32}
+
+\mbox{\Hypertarget{smbus_8h_af1c0c1752e224a05d42e5a7fb223693b}\label{smbus_8h_af1c0c1752e224a05d42e5a7fb223693b}} 
+\index{smbus.h@{smbus.h}!PIIX4\_SMB\_BASE\_ADR\_DEFAULT@{PIIX4\_SMB\_BASE\_ADR\_DEFAULT}}
+\index{PIIX4\_SMB\_BASE\_ADR\_DEFAULT@{PIIX4\_SMB\_BASE\_ADR\_DEFAULT}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{PIIX4\_SMB\_BASE\_ADR\_DEFAULT}{PIIX4\_SMB\_BASE\_ADR\_DEFAULT}}
+{\footnotesize\ttfamily \#define PIIX4\+\_\+\+SMB\+\_\+\+BASE\+\_\+\+ADR\+\_\+\+DEFAULT~0x90}
+
+\mbox{\Hypertarget{smbus_8h_af9378b5ecbc4291658c1ef03fd79953b}\label{smbus_8h_af9378b5ecbc4291658c1ef03fd79953b}} 
+\index{smbus.h@{smbus.h}!PIIX4\_SMB\_BASE\_ADR\_VIAPRO@{PIIX4\_SMB\_BASE\_ADR\_VIAPRO}}
+\index{PIIX4\_SMB\_BASE\_ADR\_VIAPRO@{PIIX4\_SMB\_BASE\_ADR\_VIAPRO}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{PIIX4\_SMB\_BASE\_ADR\_VIAPRO}{PIIX4\_SMB\_BASE\_ADR\_VIAPRO}}
+{\footnotesize\ttfamily \#define PIIX4\+\_\+\+SMB\+\_\+\+BASE\+\_\+\+ADR\+\_\+\+VIAPRO~0x\+D0}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{smbus_8h_afe1ebbaf5fcd52c3065baea3974eeae2}\label{smbus_8h_afe1ebbaf5fcd52c3065baea3974eeae2}} 
+\index{smbus.h@{smbus.h}!print\_smbus\_startup\_info@{print\_smbus\_startup\_info}}
+\index{print\_smbus\_startup\_info@{print\_smbus\_startup\_info}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{print\_smbus\_startup\_info()}{print\_smbus\_startup\_info()}}
+{\footnotesize\ttfamily void print\+\_\+smbus\+\_\+startup\+\_\+info (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Print SMBUS Info. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{smbus_8h_ac9a217ca53247eebc2fe3dfa19ed11cd}\label{smbus_8h_ac9a217ca53247eebc2fe3dfa19ed11cd}} 
+\index{smbus.h@{smbus.h}!ram@{ram}}
+\index{ram@{ram}!smbus.h@{smbus.h}}
+\doxysubsubsection{\texorpdfstring{ram}{ram}}
+{\footnotesize\ttfamily \mbox{\hyperlink{smbus_8h_structram__info}{ram\+\_\+info}} ram\hspace{0.3cm}{\ttfamily [extern]}}
+

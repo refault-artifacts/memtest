@@ -1,0 +1,87 @@
+\hypertarget{error_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/app/error.h File Reference}
+\label{error_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/error.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/error.h}}
+
+
+Provides functions that can be called by the memory tests to report errors.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}test.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{error_8h_a65aba5fa3a0a0c2b92a7fd63b05d433e}{error\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialises the error records. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{error_8h_ac178a1d97d4585ee868d508fe308b013}{addr\+\_\+error}} (\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$addr1, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$addr2, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} good, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} bad)
+\begin{DoxyCompactList}\small\item\em Adds an address error to the error reports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{error_8h_aa9b87fffefddc279c36f4477674f152d}{data\+\_\+error}} (\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$addr, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} good, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} bad, bool use\+\_\+for\+\_\+badram)
+\begin{DoxyCompactList}\small\item\em Adds a data error to the error reports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{error_8h_aec23c99e17ed59172d0a2eaafe1e0e8c}{error\+\_\+update}} (void)
+\begin{DoxyCompactList}\small\item\em Refreshes the error display after the error mode is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{error_8h_a4ec7f8c4e62696c706fb50d29345ff64}{error\+\_\+count}}
+\begin{DoxyCompactList}\small\item\em The number of errors recorded during the current run. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions that can be called by the memory tests to report errors. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{error_8h_a65aba5fa3a0a0c2b92a7fd63b05d433e}\label{error_8h_a65aba5fa3a0a0c2b92a7fd63b05d433e}} 
+\index{error.h@{error.h}!error\_init@{error\_init}}
+\index{error\_init@{error\_init}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{error\_init()}{error\_init()}}
+{\footnotesize\ttfamily void error\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialises the error records. 
+
+\mbox{\Hypertarget{error_8h_ac178a1d97d4585ee868d508fe308b013}\label{error_8h_ac178a1d97d4585ee868d508fe308b013}} 
+\index{error.h@{error.h}!addr\_error@{addr\_error}}
+\index{addr\_error@{addr\_error}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{addr\_error()}{addr\_error()}}
+{\footnotesize\ttfamily void addr\+\_\+error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$}]{addr1,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$}]{addr2,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{good,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{bad }\end{DoxyParamCaption})}
+
+
+
+Adds an address error to the error reports. 
+
+\mbox{\Hypertarget{error_8h_aa9b87fffefddc279c36f4477674f152d}\label{error_8h_aa9b87fffefddc279c36f4477674f152d}} 
+\index{error.h@{error.h}!data\_error@{data\_error}}
+\index{data\_error@{data\_error}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{data\_error()}{data\_error()}}
+{\footnotesize\ttfamily void data\+\_\+error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}} $\ast$}]{addr,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{good,  }\item[{\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\+\_\+t}}}]{bad,  }\item[{bool}]{use\+\_\+for\+\_\+badram }\end{DoxyParamCaption})}
+
+
+
+Adds a data error to the error reports. 
+
+\mbox{\Hypertarget{error_8h_aec23c99e17ed59172d0a2eaafe1e0e8c}\label{error_8h_aec23c99e17ed59172d0a2eaafe1e0e8c}} 
+\index{error.h@{error.h}!error\_update@{error\_update}}
+\index{error\_update@{error\_update}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{error\_update()}{error\_update()}}
+{\footnotesize\ttfamily void error\+\_\+update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Refreshes the error display after the error mode is changed. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{error_8h_a4ec7f8c4e62696c706fb50d29345ff64}\label{error_8h_a4ec7f8c4e62696c706fb50d29345ff64}} 
+\index{error.h@{error.h}!error\_count@{error\_count}}
+\index{error\_count@{error\_count}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{error\_count}{error\_count}}
+{\footnotesize\ttfamily uint64\+\_\+t error\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The number of errors recorded during the current run. 
+

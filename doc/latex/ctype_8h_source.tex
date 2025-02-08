@@ -1,0 +1,32 @@
+\hypertarget{ctype_8h_source}{}\doxysection{ctype.\+h}
+\label{ctype_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/ctype.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/ctype.h}}
+\mbox{\hyperlink{ctype_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef CTYPE\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define CTYPE\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{17 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{ctype_8h_abe48e86ea2be73c015cb5b5a6be60d1a}{toupper}}(\textcolor{keywordtype}{int} c)}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19     \textcolor{keywordflow}{if} (c >= \textcolor{charliteral}{'a'} \&\& c <= \textcolor{charliteral}{'z'}) \{}
+\DoxyCodeLine{20         \textcolor{keywordflow}{return} c + \textcolor{charliteral}{'A'} -\/\textcolor{charliteral}{'a'};}
+\DoxyCodeLine{21     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{22         \textcolor{keywordflow}{return} c;}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{30 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{ctype_8h_ad7fd5ce3790b81c86de5502ff6853f3a}{isdigit}}(\textcolor{keywordtype}{int} c)}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} c >= \textcolor{charliteral}{'0'} \&\& c <= \textcolor{charliteral}{'9'};}
+\DoxyCodeLine{33 \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{39 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{ctype_8h_af961dd322d0e2df93307a8530b064c72}{isxdigit}}(\textcolor{keywordtype}{int} c)}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} \mbox{\hyperlink{ctype_8h_ad7fd5ce3790b81c86de5502ff6853f3a}{isdigit}}(c) || (\mbox{\hyperlink{ctype_8h_abe48e86ea2be73c015cb5b5a6be60d1a}{toupper}}(c) >= \textcolor{charliteral}{'A'} \&\& \mbox{\hyperlink{ctype_8h_abe48e86ea2be73c015cb5b5a6be60d1a}{toupper}}(c) <= \textcolor{charliteral}{'F'});}
+\DoxyCodeLine{42 \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CTYPE\_H}}
+
+\end{DoxyCode}

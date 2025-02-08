@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['native_5fmsb_0',['NATIVE_MSB',['../efi_8h.html#add5b70aec93d773b70670dc30fbec511',1,'efi.h']]],
+  ['nt_5fsignature_1',['NT_SIGNATURE',['../peimage_8h.html#aa3a8890c847f755c6af661e6f55b04d5',1,'peimage.h']]],
+  ['num_5ftest_5fpatterns_2',['NUM_TEST_PATTERNS',['../tests_8h.html#a73015e97c4f51e590fef60a05635986e',1,'tests.h']]],
+  ['nv_5fold_5fsmbus_5fadr_5freg_3',['NV_OLD_SMBUS_ADR_REG',['../smbus_8h.html#a938a20fe73ceac1be4ffeeb2968a3d3f',1,'smbus.h']]],
+  ['nv_5fsmbus_5fadr_5freg_4',['NV_SMBUS_ADR_REG',['../smbus_8h.html#ad689b3443b9051ff2fccb08a4807d39b',1,'smbus.h']]],
+  ['nvsmbadd_5',['NVSMBADD',['../smbus_8h.html#a9df0fe0a377340d7bb28e10c908b7d27',1,'smbus.h']]],
+  ['nvsmbcmd_6',['NVSMBCMD',['../smbus_8h.html#a438d0d07d09d511deb067d2a3d3c1cb1',1,'smbus.h']]],
+  ['nvsmbcnt_7',['NVSMBCNT',['../smbus_8h.html#aa78e3bcc45cb7948501897cf52983352',1,'smbus.h']]],
+  ['nvsmbcnt_5fbyte_8',['NVSMBCNT_BYTE',['../smbus_8h.html#ac28f6b72f931d241b11124e110e1f654',1,'smbus.h']]],
+  ['nvsmbcnt_5fbyte_5fdata_9',['NVSMBCNT_BYTE_DATA',['../smbus_8h.html#a5a786f1d7b3364c195e174820525dbcb',1,'smbus.h']]],
+  ['nvsmbcnt_5fquick_10',['NVSMBCNT_QUICK',['../smbus_8h.html#abd0c5d16fbc0f872e80de27bcce628fa',1,'smbus.h']]],
+  ['nvsmbcnt_5fread_11',['NVSMBCNT_READ',['../smbus_8h.html#a3a879a4a7a45a0301a1d2da4eb2a281c',1,'smbus.h']]],
+  ['nvsmbcnt_5fword_5fdata_12',['NVSMBCNT_WORD_DATA',['../smbus_8h.html#ad3afad19afce5bd5426601c69c51d12e',1,'smbus.h']]],
+  ['nvsmbcnt_5fwrite_13',['NVSMBCNT_WRITE',['../smbus_8h.html#a4f94cd6ff82c48a9c696cd36cc2af9b6',1,'smbus.h']]],
+  ['nvsmbdat_14',['NVSMBDAT',['../smbus_8h.html#ae2959e7c5c50681357e1e767cca85484',1,'smbus.h']]],
+  ['nvsmbsts_15',['NVSMBSTS',['../smbus_8h.html#a7327cde053eaec674026f3329e7808e0',1,'smbus.h']]],
+  ['nvsmbsts_5falrm_16',['NVSMBSTS_ALRM',['../smbus_8h.html#ae3c471d73bfb6c4162916d381c302866',1,'smbus.h']]],
+  ['nvsmbsts_5fdone_17',['NVSMBSTS_DONE',['../smbus_8h.html#a9294b2ba12fd2c3518a11bb7daa17fab',1,'smbus.h']]],
+  ['nvsmbsts_5fres_18',['NVSMBSTS_RES',['../smbus_8h.html#a4fdc1bd47bd26a8e65d657a16023c6cf',1,'smbus.h']]],
+  ['nvsmbsts_5fstatus_19',['NVSMBSTS_STATUS',['../smbus_8h.html#a43641083a897368d81f01a0deed90278',1,'smbus.h']]]
+];

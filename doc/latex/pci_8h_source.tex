@@ -1,0 +1,66 @@
+\hypertarget{pci_8h_source}{}\doxysection{pci.\+h}
+\label{pci_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/pci.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/pci.h}}
+\mbox{\hyperlink{pci_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PCI\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PCI\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define PCI\_VID\_REG          0x00}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define PCI\_DID\_REG          0x02}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define PCI\_SUB\_VID\_REG      0x2C}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define PCI\_SUB\_DID\_REG      0x2E}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{/* Vendor IDs */}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define PCI\_VID\_ATI          0x1002}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define PCI\_VID\_AMD          0x1022}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define PCI\_VID\_SIS          0x1039}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define PCI\_VID\_ASUS         0x1043}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define PCI\_VID\_EFAR         0x1055}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define PCI\_VID\_ALI          0x10B9}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define PCI\_VID\_NVIDIA       0x10DE}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define PCI\_VID\_VIA          0x1106}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define PCI\_VID\_SERVERWORKS  0x1166}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define PCI\_VID\_SUPERMICRO   0x15D9}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define PCI\_VID\_HYGON        0x1D94}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define PCI\_VID\_INTEL        0x8086}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define PCI\_MAX\_BUS     256}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define PCI\_MAX\_DEV     32}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define PCI\_MAX\_FUNC    8}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41 \textcolor{keywordtype}{void} \mbox{\hyperlink{pci_8h_a5c97e50a1fead07baebf9a4632c4f1f2}{pci\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{47 uint8\_t \mbox{\hyperlink{pci_8h_aab2ad7e51a85194a91984d29ac6537ce}{pci\_config\_read8}}(\textcolor{keywordtype}{int} bus, \textcolor{keywordtype}{int} dev, \textcolor{keywordtype}{int} func, \textcolor{keywordtype}{int} reg);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{54 uint16\_t \mbox{\hyperlink{pci_8h_ae75f58acbb7292fcbfe08b2956d734fc}{pci\_config\_read16}}(\textcolor{keywordtype}{int} bus, \textcolor{keywordtype}{int} dev, \textcolor{keywordtype}{int} func, \textcolor{keywordtype}{int} reg);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{61 uint32\_t \mbox{\hyperlink{pci_8h_ae1630ab5341d1c11f8bbee9de23a5eed}{pci\_config\_read32}}(\textcolor{keywordtype}{int} bus, \textcolor{keywordtype}{int} dev, \textcolor{keywordtype}{int} func, \textcolor{keywordtype}{int} reg);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{67 \textcolor{keywordtype}{void} \mbox{\hyperlink{pci_8h_ac1d68cee304a34f9b912534b727c434d}{pci\_config\_write8}}(\textcolor{keywordtype}{int} bus, \textcolor{keywordtype}{int} dev, \textcolor{keywordtype}{int} func, \textcolor{keywordtype}{int} reg, uint8\_t value);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{73 \textcolor{keywordtype}{void} \mbox{\hyperlink{pci_8h_a31e1ad4bd2ebcbe9be724e0024d12a36}{pci\_config\_write16}}(\textcolor{keywordtype}{int} bus, \textcolor{keywordtype}{int} dev, \textcolor{keywordtype}{int} func, \textcolor{keywordtype}{int} reg, uint16\_t value);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{79 \textcolor{keywordtype}{void} \mbox{\hyperlink{pci_8h_ad9d545c69ad305414d52eb7a0ac7eee1}{pci\_config\_write32}}(\textcolor{keywordtype}{int} bus, \textcolor{keywordtype}{int} dev, \textcolor{keywordtype}{int} func, \textcolor{keywordtype}{int} reg, uint32\_t value);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+\DoxyCodeLine{86 \textcolor{keywordtype}{void} \mbox{\hyperlink{pci_8h_a8a1021a1c5b439c135ad9a1706cceee6}{lpc\_outb}}(uint8\_t cmd, uint8\_t data);}
+\DoxyCodeLine{87 uint8\_t \mbox{\hyperlink{pci_8h_a40a58309fbfad4819526a656efeeb086}{lpc\_inb}}(uint8\_t reg);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{comment}{/*}}
+\DoxyCodeLine{90 \textcolor{comment}{ * Add some SNM related function (S.DEMEULEMEESTER)}}
+\DoxyCodeLine{91 \textcolor{comment}{ */}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define SMN\_SMUIO\_THM               0x00059800}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define SMN\_THM\_TCON\_CUR\_TMP        (SMN\_SMUIO\_THM + 0x00)}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{99 uint32\_t \mbox{\hyperlink{pci_8h_a08ffa6a9b0b44aee91a6b6f8a1c79a18}{amd\_smn\_read}}(uint32\_t adr);}
+\DoxyCodeLine{100 \textcolor{keywordtype}{void} \mbox{\hyperlink{pci_8h_a5f3d64eb64ee0b71b91d4e680f1bc24a}{amd\_smn\_write}}(uint32\_t adr, uint32\_t data);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PCI\_H}}
+
+\end{DoxyCode}

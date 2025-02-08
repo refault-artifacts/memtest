@@ -1,0 +1,56 @@
+\hypertarget{badram_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/app/badram.h File Reference}
+\label{badram_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/badram.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/badram.h}}
+
+
+Provides functions for generating patterns for the Linux kernel Bad\+RAM extension.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{badram_8h_a56548735fcadcb00d50a723e287b750b}{badram\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialises the pattern array. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{badram_8h_a748c6e4316e9d5d81b0874e31e126230}{badram\+\_\+insert}} (uintptr\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Inserts a single faulty address into the pattern array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{badram_8h_ac913218ac24fefcd3fbc5230b6084ffb}{badram\+\_\+display}} (void)
+\begin{DoxyCompactList}\small\item\em Displays the pattern array in the scrollable display region in the format used by the Linux kernel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions for generating patterns for the Linux kernel Bad\+RAM extension. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{badram_8h_a56548735fcadcb00d50a723e287b750b}\label{badram_8h_a56548735fcadcb00d50a723e287b750b}} 
+\index{badram.h@{badram.h}!badram\_init@{badram\_init}}
+\index{badram\_init@{badram\_init}!badram.h@{badram.h}}
+\doxysubsubsection{\texorpdfstring{badram\_init()}{badram\_init()}}
+{\footnotesize\ttfamily void badram\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialises the pattern array. 
+
+\mbox{\Hypertarget{badram_8h_a748c6e4316e9d5d81b0874e31e126230}\label{badram_8h_a748c6e4316e9d5d81b0874e31e126230}} 
+\index{badram.h@{badram.h}!badram\_insert@{badram\_insert}}
+\index{badram\_insert@{badram\_insert}!badram.h@{badram.h}}
+\doxysubsubsection{\texorpdfstring{badram\_insert()}{badram\_insert()}}
+{\footnotesize\ttfamily bool badram\+\_\+insert (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{addr }\end{DoxyParamCaption})}
+
+
+
+Inserts a single faulty address into the pattern array. 
+
+Returns true iff the array was changed. \mbox{\Hypertarget{badram_8h_ac913218ac24fefcd3fbc5230b6084ffb}\label{badram_8h_ac913218ac24fefcd3fbc5230b6084ffb}} 
+\index{badram.h@{badram.h}!badram\_display@{badram\_display}}
+\index{badram\_display@{badram\_display}!badram.h@{badram.h}}
+\doxysubsubsection{\texorpdfstring{badram\_display()}{badram\_display()}}
+{\footnotesize\ttfamily void badram\+\_\+display (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Displays the pattern array in the scrollable display region in the format used by the Linux kernel. 
+

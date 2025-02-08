@@ -1,0 +1,128 @@
+\hypertarget{print_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/lib/print.h File Reference}
+\label{print_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/print.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/print.h}}
+
+
+Provides functions to print strings and formatted values to the screen.  
+
+
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{print_8h_a5d7bd1e2fc4ac3ec4d8d8764ab1f646f}{printc}} (int row, int col, char c)
+\begin{DoxyCompactList}\small\item\em Prints a single character on screen at location (row,col) and returns col+1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}{prints}} (int row, int col, const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Prints a string on screen starting at location (row,col) and returns the next column after the string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{print_8h_afdbcfb15b33c4766ec403fff7a458654}{printi}} (int row, int col, int value, int length, bool pad, bool left)
+\begin{DoxyCompactList}\small\item\em Prints a signed decimal number on screen starting at location (row,col) in a field of at least length characters, optionally padding the number with leading zeros, and optionally left-\/justifying instead of right-\/justifying in the field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{print_8h_a19e403091b30a77fef6f7f58b90a8532}{printu}} (int row, int col, uintptr\+\_\+t value, int length, bool pad, bool left)
+\begin{DoxyCompactList}\small\item\em Prints an unsigned decimal number on screen starting at location (row,col) in a field of at least length characters, optionally padding the number with leading zeros, and optionally left-\/justifying instead of right-\/justifying in the field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{print_8h_a0ba264286dc3e13a5c53aa7e670c1422}{printx}} (int row, int col, uintptr\+\_\+t value, int length, bool pad, bool left)
+\begin{DoxyCompactList}\small\item\em Prints an unsigned hexadecimal number on screen starting at location (row,col) in a field of at least length characters, optionally padding the number with leading zeros, and optionally left-\/justifying instead of right-\/justifying in the field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{print_8h_a7ac6f27467224ab824202c9cc23d34c6}{printk}} (int row, int col, uintptr\+\_\+t value, int length, bool pad, bool left, bool add\+\_\+space)
+\begin{DoxyCompactList}\small\item\em Prints a K$<$unit$>$ value on screen starting at location (row,col) in a field of at least length characters, optionally padding the number with leading zeros, optionally left-\/justifying instead of right-\/justifying in the field, and optionally adding a space between number and unit. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}{printf}} (int row, int col, const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Emulates the standard printf function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{print_8h_a9ddb189ef43bfb2e4abd4d9cd0464048}{vprintf}} (int row, int col, const char $\ast$fmt, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em The alternate form of printf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions to print strings and formatted values to the screen. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{print_8h_a5d7bd1e2fc4ac3ec4d8d8764ab1f646f}\label{print_8h_a5d7bd1e2fc4ac3ec4d8d8764ab1f646f}} 
+\index{print.h@{print.h}!printc@{printc}}
+\index{printc@{printc}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printc()}{printc()}}
+{\footnotesize\ttfamily int printc (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Prints a single character on screen at location (row,col) and returns col+1. 
+
+\mbox{\Hypertarget{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}\label{print_8h_ab849539ff98d817ef366fcbffb6b1c1c}} 
+\index{print.h@{print.h}!prints@{prints}}
+\index{prints@{prints}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{prints()}{prints()}}
+{\footnotesize\ttfamily int prints (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Prints a string on screen starting at location (row,col) and returns the next column after the string. 
+
+\mbox{\Hypertarget{print_8h_afdbcfb15b33c4766ec403fff7a458654}\label{print_8h_afdbcfb15b33c4766ec403fff7a458654}} 
+\index{print.h@{print.h}!printi@{printi}}
+\index{printi@{printi}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printi()}{printi()}}
+{\footnotesize\ttfamily int printi (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{value,  }\item[{int}]{length,  }\item[{bool}]{pad,  }\item[{bool}]{left }\end{DoxyParamCaption})}
+
+
+
+Prints a signed decimal number on screen starting at location (row,col) in a field of at least length characters, optionally padding the number with leading zeros, and optionally left-\/justifying instead of right-\/justifying in the field. 
+
+Returns the next column after the formatted number. \mbox{\Hypertarget{print_8h_a19e403091b30a77fef6f7f58b90a8532}\label{print_8h_a19e403091b30a77fef6f7f58b90a8532}} 
+\index{print.h@{print.h}!printu@{printu}}
+\index{printu@{printu}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printu()}{printu()}}
+{\footnotesize\ttfamily int printu (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{uintptr\+\_\+t}]{value,  }\item[{int}]{length,  }\item[{bool}]{pad,  }\item[{bool}]{left }\end{DoxyParamCaption})}
+
+
+
+Prints an unsigned decimal number on screen starting at location (row,col) in a field of at least length characters, optionally padding the number with leading zeros, and optionally left-\/justifying instead of right-\/justifying in the field. 
+
+Returns the next column after the formatted number. \mbox{\Hypertarget{print_8h_a0ba264286dc3e13a5c53aa7e670c1422}\label{print_8h_a0ba264286dc3e13a5c53aa7e670c1422}} 
+\index{print.h@{print.h}!printx@{printx}}
+\index{printx@{printx}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printx()}{printx()}}
+{\footnotesize\ttfamily int printx (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{uintptr\+\_\+t}]{value,  }\item[{int}]{length,  }\item[{bool}]{pad,  }\item[{bool}]{left }\end{DoxyParamCaption})}
+
+
+
+Prints an unsigned hexadecimal number on screen starting at location (row,col) in a field of at least length characters, optionally padding the number with leading zeros, and optionally left-\/justifying instead of right-\/justifying in the field. 
+
+Returns the next column after the formatted number. \mbox{\Hypertarget{print_8h_a7ac6f27467224ab824202c9cc23d34c6}\label{print_8h_a7ac6f27467224ab824202c9cc23d34c6}} 
+\index{print.h@{print.h}!printk@{printk}}
+\index{printk@{printk}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printk()}{printk()}}
+{\footnotesize\ttfamily int printk (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{uintptr\+\_\+t}]{value,  }\item[{int}]{length,  }\item[{bool}]{pad,  }\item[{bool}]{left,  }\item[{bool}]{add\+\_\+space }\end{DoxyParamCaption})}
+
+
+
+Prints a K$<$unit$>$ value on screen starting at location (row,col) in a field of at least length characters, optionally padding the number with leading zeros, optionally left-\/justifying instead of right-\/justifying in the field, and optionally adding a space between number and unit. 
+
+The value is shown to 3 significant figures in the nearest K/\+M/\+G/T units. Returns the next column after the formatted value. \mbox{\Hypertarget{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}\label{print_8h_a2634276c5f9cd3881c0fcbc1af4ef635}} 
+\index{print.h@{print.h}!printf@{printf}}
+\index{printf@{printf}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{printf()}{printf()}}
+{\footnotesize\ttfamily int printf (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Emulates the standard printf function. 
+
+Printing starts at location (row,col).
+
+The conversion flags supported are\+:
+\begin{DoxyItemize}
+\item left justify 0 pad with leading zeros S add space between number and unit (k specifier only)
+\end{DoxyItemize}
+
+The conversion specifiers supported are\+: c character (int type) s string (char$\ast$ type) i signed decimal integer (int type) u unsigned decimal integer (uintptr\+\_\+t type) x unsigned hexadecimal integer (uintptr\+\_\+t type) k K$<$unit$>$ value (scaled to K/\+M/\+G/T) (uintptr\+\_\+t type)
+
+The only other conversion option supported is the minimum field width. This may be either a literal value or \textquotesingle{}$\ast$\textquotesingle{}.
+
+Returns the next column after the formatted string. \mbox{\Hypertarget{print_8h_a9ddb189ef43bfb2e4abd4d9cd0464048}\label{print_8h_a9ddb189ef43bfb2e4abd4d9cd0464048}} 
+\index{print.h@{print.h}!vprintf@{vprintf}}
+\index{vprintf@{vprintf}!print.h@{print.h}}
+\doxysubsubsection{\texorpdfstring{vprintf()}{vprintf()}}
+{\footnotesize\ttfamily int vprintf (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{const char $\ast$}]{fmt,  }\item[{va\+\_\+list}]{args }\end{DoxyParamCaption})}
+
+
+
+The alternate form of printf. 
+

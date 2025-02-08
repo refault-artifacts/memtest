@@ -1,0 +1,32 @@
+\hypertarget{error_8h_source}{}\doxysection{error.\+h}
+\label{error_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/error.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/error.h}}
+\mbox{\hyperlink{error_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef ERROR\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define ERROR\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{test_8h}{test.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{21 \textcolor{keyword}{extern} uint64\_t \mbox{\hyperlink{error_8h_a4ec7f8c4e62696c706fb50d29345ff64}{error\_count}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{26 \textcolor{keywordtype}{void} \mbox{\hyperlink{error_8h_a65aba5fa3a0a0c2b92a7fd63b05d433e}{error\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{31 \textcolor{keywordtype}{void} \mbox{\hyperlink{error_8h_ac178a1d97d4585ee868d508fe308b013}{addr\_error}}(\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} *addr1, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} *addr2, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} good, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} bad);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{36 \textcolor{keywordtype}{void} \mbox{\hyperlink{error_8h_aa9b87fffefddc279c36f4477674f152d}{data\_error}}(\mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} *addr, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} good, \mbox{\hyperlink{test_8h_a7f3161aaf45c8f0cc23b16e258ab7e06}{testword\_t}} bad, \textcolor{keywordtype}{bool} use\_for\_badram);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#if REPORT\_PARITY\_ERRORS}}
+\DoxyCodeLine{42 \textcolor{keywordtype}{void} parity\_error(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48 \textcolor{keywordtype}{void} \mbox{\hyperlink{error_8h_aec23c99e17ed59172d0a2eaafe1e0e8c}{error\_update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ERROR\_H}}
+
+\end{DoxyCode}

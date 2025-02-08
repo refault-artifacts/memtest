@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['name_0',['name',['../jedec__id_8h.html#adacdd52869ccf5be7ae131183351c902',1,'spd_jedec_manufacturer']]],
+  ['no_5ftemperature_1',['no_temperature',['../cpuinfo_8h.html#adb321ff124d5ba57534544983d6df380',1,'cpuinfo.h']]],
+  ['nt_5fsignature_2',['nt_signature',['../peimage_8h.html#af79806cb4bdeaa26b441dbdc7827fc65',1,'external_PEI_filehdr']]],
+  ['num_5factive_5fcpus_3',['num_active_cpus',['../test_8h.html#acfa098ed7c7a8c36ef581f08d771f23b',1,'test.h']]],
+  ['num_5favailable_5fcpus_4',['num_available_cpus',['../smp_8h.html#a53660d169499fbe770437f33909466d3',1,'smp.h']]],
+  ['num_5fconfig_5ftables_5',['num_config_tables',['../efi_8h.html#af91f603154ce453ea5a09439601e0b4f',1,'efi32_system_table_t::num_config_tables()'],['../efi_8h.html#a277658ea32e00f5b6da2a97d7e7ccc57',1,'efi64_system_table_t::num_config_tables()'],['../efi_8h.html#a9a93d6c817da3b3329f35411849c0db1',1,'efi_system_table_t::num_config_tables()']]],
+  ['num_5fconfigs_6',['num_configs',['../usb_8h.html#af4529b26b6f69f8033a0dd2132627b87',1,'usb_device_desc_t']]],
+  ['num_5fendpoints_7',['num_endpoints',['../usb_8h.html#ae2ff8644b77ce9627e3d23c54beb9273',1,'usb_interface_desc_t']]],
+  ['num_5finterfaces_8',['num_interfaces',['../usb_8h.html#af2329d7ca7d2b903c946c38b6ea02a12',1,'usb_config_desc_t']]],
+  ['num_5fpages_9',['num_pages',['../efi_8h.html#a4326867a306dcb26764439de115169c5',1,'efi_memory_desc_t']]],
+  ['num_5fpages_5fto_5ftest_10',['num_pages_to_test',['../config_8h.html#ae3cc3194c43fde39b101aa9c54cf470d',1,'config.h']]],
+  ['num_5fpm_5fpages_11',['num_pm_pages',['../pmem_8h.html#a8b2888775850230a229a1634c825acd9',1,'pmem.h']]],
+  ['num_5fports_12',['num_ports',['../usbhcd_8h.html#a140d5a461a05c08de9a97748c3417546',1,'usb_hub_t::num_ports()'],['../usb_8h.html#a01a62f986d98b834e2bcf9db788f7b3c',1,'usb_hub_desc_t::num_ports()']]],
+  ['num_5fthreads_13',['num_threads',['../barrier_8h.html#a70ecbbc88287015db96cfd2643cbe5e9',1,'barrier_t']]],
+  ['numberofrvaandsizes_14',['NumberOfRvaAndSizes',['../peimage_8h.html#a0da6326974ae29f421f64fc56d59139b',1,'PEP64AOUTHDR::NumberOfRvaAndSizes()'],['../peimage_8h.html#ae84d1eb10591f4d6faa81fd34db43118',1,'PEAOUTHDR::NumberOfRvaAndSizes()']]],
+  ['numstructs_15',['numstructs',['../smbios_8h.html#a888b69416788109d894778943f89b94d',1,'smbiosv2_t']]]
+];

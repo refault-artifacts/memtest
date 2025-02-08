@@ -1,0 +1,100 @@
+\hypertarget{barrier_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/lib/barrier.h File Reference}
+\label{barrier_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/barrier.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/barrier.h}}
+
+
+Provides a barrier synchronisation primitive.  
+
+
+{\ttfamily \#include \char`\"{}cpulocal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spinlock.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A barrier object.  \mbox{\hyperlink{barrier_8h_structbarrier__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{barrier_8h_aa95cf6f50300d330b0402e1835984c9a}{barrier\+\_\+init}} (\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$barrier, int num\+\_\+threads)
+\begin{DoxyCompactList}\small\item\em Initialises a new barrier to block the specified number of threads. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{barrier_8h_abcede8d8c7f01a2b5eac96f18f0a2496}{barrier\+\_\+reset}} (\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$barrier, int num\+\_\+threads)
+\begin{DoxyCompactList}\small\item\em Resets an existing barrier to block the specified number of threads. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{barrier_8h_ac1eaeb8a95275004f094be83ed7dc5ce}{barrier\+\_\+spin\+\_\+wait}} (\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$barrier)
+\begin{DoxyCompactList}\small\item\em Waits for all threads to arrive at the barrier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{barrier_8h_aeaa597d10beb790a10e6f7b13506628c}{barrier\+\_\+halt\+\_\+wait}} (\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$barrier)
+\begin{DoxyCompactList}\small\item\em Waits for all threads to arrive at the barrier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a barrier synchronisation primitive. 
+
+
+
+\doxysubsection{Data Structure Documentation}
+\index{barrier\_t@{barrier\_t}}\label{structbarrier__t}
+\Hypertarget{barrier_8h_structbarrier__t}
+\doxysubsubsection{struct barrier\+\_\+t}
+A barrier object. \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{barrier_8h_afdc08a70d39bc2c2e405c96eef357955}\label{barrier_8h_afdc08a70d39bc2c2e405c96eef357955}} 
+int&
+flag\_num&
+\\
+\hline
+
+\mbox{\Hypertarget{barrier_8h_a70ecbbc88287015db96cfd2643cbe5e9}\label{barrier_8h_a70ecbbc88287015db96cfd2643cbe5e9}} 
+int&
+num\_threads&
+\\
+\hline
+
+\mbox{\Hypertarget{barrier_8h_a24b7aea192552cb8e45d606d3d80b93a}\label{barrier_8h_a24b7aea192552cb8e45d606d3d80b93a}} 
+int&
+count&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{barrier_8h_aa95cf6f50300d330b0402e1835984c9a}\label{barrier_8h_aa95cf6f50300d330b0402e1835984c9a}} 
+\index{barrier.h@{barrier.h}!barrier\_init@{barrier\_init}}
+\index{barrier\_init@{barrier\_init}!barrier.h@{barrier.h}}
+\doxysubsubsection{\texorpdfstring{barrier\_init()}{barrier\_init()}}
+{\footnotesize\ttfamily void barrier\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$}]{barrier,  }\item[{int}]{num\+\_\+threads }\end{DoxyParamCaption})}
+
+
+
+Initialises a new barrier to block the specified number of threads. 
+
+\mbox{\Hypertarget{barrier_8h_abcede8d8c7f01a2b5eac96f18f0a2496}\label{barrier_8h_abcede8d8c7f01a2b5eac96f18f0a2496}} 
+\index{barrier.h@{barrier.h}!barrier\_reset@{barrier\_reset}}
+\index{barrier\_reset@{barrier\_reset}!barrier.h@{barrier.h}}
+\doxysubsubsection{\texorpdfstring{barrier\_reset()}{barrier\_reset()}}
+{\footnotesize\ttfamily void barrier\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$}]{barrier,  }\item[{int}]{num\+\_\+threads }\end{DoxyParamCaption})}
+
+
+
+Resets an existing barrier to block the specified number of threads. 
+
+\mbox{\Hypertarget{barrier_8h_ac1eaeb8a95275004f094be83ed7dc5ce}\label{barrier_8h_ac1eaeb8a95275004f094be83ed7dc5ce}} 
+\index{barrier.h@{barrier.h}!barrier\_spin\_wait@{barrier\_spin\_wait}}
+\index{barrier\_spin\_wait@{barrier\_spin\_wait}!barrier.h@{barrier.h}}
+\doxysubsubsection{\texorpdfstring{barrier\_spin\_wait()}{barrier\_spin\_wait()}}
+{\footnotesize\ttfamily void barrier\+\_\+spin\+\_\+wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$}]{barrier }\end{DoxyParamCaption})}
+
+
+
+Waits for all threads to arrive at the barrier. 
+
+A CPU core spins in an idle loop when waiting. \mbox{\Hypertarget{barrier_8h_aeaa597d10beb790a10e6f7b13506628c}\label{barrier_8h_aeaa597d10beb790a10e6f7b13506628c}} 
+\index{barrier.h@{barrier.h}!barrier\_halt\_wait@{barrier\_halt\_wait}}
+\index{barrier\_halt\_wait@{barrier\_halt\_wait}!barrier.h@{barrier.h}}
+\doxysubsubsection{\texorpdfstring{barrier\_halt\_wait()}{barrier\_halt\_wait()}}
+{\footnotesize\ttfamily void barrier\+\_\+halt\+\_\+wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\+\_\+t}} $\ast$}]{barrier }\end{DoxyParamCaption})}
+
+
+
+Waits for all threads to arrive at the barrier. 
+
+A CPU core halts when waiting. 

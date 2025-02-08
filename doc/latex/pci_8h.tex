@@ -1,0 +1,317 @@
+\hypertarget{pci_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/pci.h File Reference}
+\label{pci_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/pci.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/pci.h}}
+
+
+Provides functions to perform PCI configuration space reads and writes.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pci_8h_a02495814200b942e3e9b9226ad6d586d}{PCI\+\_\+\+VID\+\_\+\+REG}}~0x00
+\item 
+\#define \mbox{\hyperlink{pci_8h_a7f4c8112abd2dfc55abc6fdb1edb53ab}{PCI\+\_\+\+DID\+\_\+\+REG}}~0x02
+\item 
+\#define \mbox{\hyperlink{pci_8h_a4b847952fefb86c5fe00bf1b2525f81e}{PCI\+\_\+\+SUB\+\_\+\+VID\+\_\+\+REG}}~0x2C
+\item 
+\#define \mbox{\hyperlink{pci_8h_a1b3f0a9555cbbe44a25b2cf32064e474}{PCI\+\_\+\+SUB\+\_\+\+DID\+\_\+\+REG}}~0x2E
+\item 
+\#define \mbox{\hyperlink{pci_8h_a9e2fb171b0911de4c794bb3a97fc7f2d}{PCI\+\_\+\+VID\+\_\+\+ATI}}~0x1002
+\item 
+\#define \mbox{\hyperlink{pci_8h_a394af4315b3de6502489099c72d83a6f}{PCI\+\_\+\+VID\+\_\+\+AMD}}~0x1022
+\item 
+\#define \mbox{\hyperlink{pci_8h_ac2a4c2aec30751256604a112ef857880}{PCI\+\_\+\+VID\+\_\+\+SIS}}~0x1039
+\item 
+\#define \mbox{\hyperlink{pci_8h_ad798e5fccb5733f244fde5ff511e04c2}{PCI\+\_\+\+VID\+\_\+\+ASUS}}~0x1043
+\item 
+\#define \mbox{\hyperlink{pci_8h_a990348a6e9d8fb1b492fe2d6387a59fa}{PCI\+\_\+\+VID\+\_\+\+EFAR}}~0x1055
+\item 
+\#define \mbox{\hyperlink{pci_8h_a1b53499b889e9a93d5c799158497dcc0}{PCI\+\_\+\+VID\+\_\+\+ALI}}~0x10\+B9
+\item 
+\#define \mbox{\hyperlink{pci_8h_a56939f391c4be6e118b77446aaafc405}{PCI\+\_\+\+VID\+\_\+\+NVIDIA}}~0x10\+DE
+\item 
+\#define \mbox{\hyperlink{pci_8h_a1ad5809bbbd5595db4c578fc82202495}{PCI\+\_\+\+VID\+\_\+\+VIA}}~0x1106
+\item 
+\#define \mbox{\hyperlink{pci_8h_a7267cb3e32c7616f77db175c951489c0}{PCI\+\_\+\+VID\+\_\+\+SERVERWORKS}}~0x1166
+\item 
+\#define \mbox{\hyperlink{pci_8h_a36f54ea702484f26a90b378767b7d0ab}{PCI\+\_\+\+VID\+\_\+\+SUPERMICRO}}~0x15\+D9
+\item 
+\#define \mbox{\hyperlink{pci_8h_af35e6f41d938833bd901cd77b9192d14}{PCI\+\_\+\+VID\+\_\+\+HYGON}}~0x1\+D94
+\item 
+\#define \mbox{\hyperlink{pci_8h_accfbe96a4437959698f4f49413b0db56}{PCI\+\_\+\+VID\+\_\+\+INTEL}}~0x8086
+\item 
+\#define \mbox{\hyperlink{pci_8h_acbd6d3799929b7d4f20ba7ca9c7a273b}{PCI\+\_\+\+MAX\+\_\+\+BUS}}~256
+\item 
+\#define \mbox{\hyperlink{pci_8h_ab4541880e38c018ddbf49bb81e3b01f2}{PCI\+\_\+\+MAX\+\_\+\+DEV}}~32
+\item 
+\#define \mbox{\hyperlink{pci_8h_a2bce7569c5c260ac10180736ab9b682e}{PCI\+\_\+\+MAX\+\_\+\+FUNC}}~8
+\item 
+\#define \mbox{\hyperlink{pci_8h_a99415f7d14fbf6f6f3f812df72dc3469}{SMN\+\_\+\+SMUIO\+\_\+\+THM}}~0x00059800
+\item 
+\#define \mbox{\hyperlink{pci_8h_afdc1f975809ed2095dbf5ad02a80c2b0}{SMN\+\_\+\+THM\+\_\+\+TCON\+\_\+\+CUR\+\_\+\+TMP}}~(\mbox{\hyperlink{pci_8h_a99415f7d14fbf6f6f3f812df72dc3469}{SMN\+\_\+\+SMUIO\+\_\+\+THM}} + 0x00)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pci_8h_a5c97e50a1fead07baebf9a4632c4f1f2}{pci\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialises the PCI access support. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{pci_8h_aab2ad7e51a85194a91984d29ac6537ce}{pci\+\_\+config\+\_\+read8}} (int bus, int dev, int func, int reg)
+\begin{DoxyCompactList}\small\item\em Returns an 8 bit value read from the specified bus+device+function+register address in the PCI configuration address space. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{pci_8h_ae75f58acbb7292fcbfe08b2956d734fc}{pci\+\_\+config\+\_\+read16}} (int bus, int dev, int func, int reg)
+\begin{DoxyCompactList}\small\item\em Returns a 16 bit value read from the specified bus+device+function+register address in the PCI configuration address space. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{pci_8h_ae1630ab5341d1c11f8bbee9de23a5eed}{pci\+\_\+config\+\_\+read32}} (int bus, int dev, int func, int reg)
+\begin{DoxyCompactList}\small\item\em Returns a 32 bit value read from the specified bus+device+function+register address in the PCI configuration address space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pci_8h_ac1d68cee304a34f9b912534b727c434d}{pci\+\_\+config\+\_\+write8}} (int bus, int dev, int func, int reg, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Writes an 8 bit value to the specified bus+device+function+register address in the PCI configuration address space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pci_8h_a31e1ad4bd2ebcbe9be724e0024d12a36}{pci\+\_\+config\+\_\+write16}} (int bus, int dev, int func, int reg, uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Writes a 16 bit value to the specified bus+device+function+register address in the PCI configuration address space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pci_8h_ad9d545c69ad305414d52eb7a0ac7eee1}{pci\+\_\+config\+\_\+write32}} (int bus, int dev, int func, int reg, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Writes a 32 bit value to the specified bus+device+function+register address in the PCI configuration address space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pci_8h_a8a1021a1c5b439c135ad9a1706cceee6}{lpc\+\_\+outb}} (uint8\+\_\+t cmd, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Basic LPC Functions. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{pci_8h_a40a58309fbfad4819526a656efeeb086}{lpc\+\_\+inb}} (uint8\+\_\+t reg)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{pci_8h_a08ffa6a9b0b44aee91a6b6f8a1c79a18}{amd\+\_\+smn\+\_\+read}} (uint32\+\_\+t adr)
+\begin{DoxyCompactList}\small\item\em Read \& Write to AMD Family 17h SNM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pci_8h_a5f3d64eb64ee0b71b91d4e680f1bc24a}{amd\+\_\+smn\+\_\+write}} (uint32\+\_\+t adr, uint32\+\_\+t data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions to perform PCI configuration space reads and writes. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pci_8h_a02495814200b942e3e9b9226ad6d586d}\label{pci_8h_a02495814200b942e3e9b9226ad6d586d}} 
+\index{pci.h@{pci.h}!PCI\_VID\_REG@{PCI\_VID\_REG}}
+\index{PCI\_VID\_REG@{PCI\_VID\_REG}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_REG}{PCI\_VID\_REG}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+REG~0x00}
+
+\mbox{\Hypertarget{pci_8h_a7f4c8112abd2dfc55abc6fdb1edb53ab}\label{pci_8h_a7f4c8112abd2dfc55abc6fdb1edb53ab}} 
+\index{pci.h@{pci.h}!PCI\_DID\_REG@{PCI\_DID\_REG}}
+\index{PCI\_DID\_REG@{PCI\_DID\_REG}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_DID\_REG}{PCI\_DID\_REG}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+DID\+\_\+\+REG~0x02}
+
+\mbox{\Hypertarget{pci_8h_a4b847952fefb86c5fe00bf1b2525f81e}\label{pci_8h_a4b847952fefb86c5fe00bf1b2525f81e}} 
+\index{pci.h@{pci.h}!PCI\_SUB\_VID\_REG@{PCI\_SUB\_VID\_REG}}
+\index{PCI\_SUB\_VID\_REG@{PCI\_SUB\_VID\_REG}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_SUB\_VID\_REG}{PCI\_SUB\_VID\_REG}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+SUB\+\_\+\+VID\+\_\+\+REG~0x2C}
+
+\mbox{\Hypertarget{pci_8h_a1b3f0a9555cbbe44a25b2cf32064e474}\label{pci_8h_a1b3f0a9555cbbe44a25b2cf32064e474}} 
+\index{pci.h@{pci.h}!PCI\_SUB\_DID\_REG@{PCI\_SUB\_DID\_REG}}
+\index{PCI\_SUB\_DID\_REG@{PCI\_SUB\_DID\_REG}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_SUB\_DID\_REG}{PCI\_SUB\_DID\_REG}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+SUB\+\_\+\+DID\+\_\+\+REG~0x2E}
+
+\mbox{\Hypertarget{pci_8h_a9e2fb171b0911de4c794bb3a97fc7f2d}\label{pci_8h_a9e2fb171b0911de4c794bb3a97fc7f2d}} 
+\index{pci.h@{pci.h}!PCI\_VID\_ATI@{PCI\_VID\_ATI}}
+\index{PCI\_VID\_ATI@{PCI\_VID\_ATI}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_ATI}{PCI\_VID\_ATI}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+ATI~0x1002}
+
+\mbox{\Hypertarget{pci_8h_a394af4315b3de6502489099c72d83a6f}\label{pci_8h_a394af4315b3de6502489099c72d83a6f}} 
+\index{pci.h@{pci.h}!PCI\_VID\_AMD@{PCI\_VID\_AMD}}
+\index{PCI\_VID\_AMD@{PCI\_VID\_AMD}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_AMD}{PCI\_VID\_AMD}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+AMD~0x1022}
+
+\mbox{\Hypertarget{pci_8h_ac2a4c2aec30751256604a112ef857880}\label{pci_8h_ac2a4c2aec30751256604a112ef857880}} 
+\index{pci.h@{pci.h}!PCI\_VID\_SIS@{PCI\_VID\_SIS}}
+\index{PCI\_VID\_SIS@{PCI\_VID\_SIS}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_SIS}{PCI\_VID\_SIS}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+SIS~0x1039}
+
+\mbox{\Hypertarget{pci_8h_ad798e5fccb5733f244fde5ff511e04c2}\label{pci_8h_ad798e5fccb5733f244fde5ff511e04c2}} 
+\index{pci.h@{pci.h}!PCI\_VID\_ASUS@{PCI\_VID\_ASUS}}
+\index{PCI\_VID\_ASUS@{PCI\_VID\_ASUS}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_ASUS}{PCI\_VID\_ASUS}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+ASUS~0x1043}
+
+\mbox{\Hypertarget{pci_8h_a990348a6e9d8fb1b492fe2d6387a59fa}\label{pci_8h_a990348a6e9d8fb1b492fe2d6387a59fa}} 
+\index{pci.h@{pci.h}!PCI\_VID\_EFAR@{PCI\_VID\_EFAR}}
+\index{PCI\_VID\_EFAR@{PCI\_VID\_EFAR}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_EFAR}{PCI\_VID\_EFAR}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+EFAR~0x1055}
+
+\mbox{\Hypertarget{pci_8h_a1b53499b889e9a93d5c799158497dcc0}\label{pci_8h_a1b53499b889e9a93d5c799158497dcc0}} 
+\index{pci.h@{pci.h}!PCI\_VID\_ALI@{PCI\_VID\_ALI}}
+\index{PCI\_VID\_ALI@{PCI\_VID\_ALI}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_ALI}{PCI\_VID\_ALI}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+ALI~0x10\+B9}
+
+\mbox{\Hypertarget{pci_8h_a56939f391c4be6e118b77446aaafc405}\label{pci_8h_a56939f391c4be6e118b77446aaafc405}} 
+\index{pci.h@{pci.h}!PCI\_VID\_NVIDIA@{PCI\_VID\_NVIDIA}}
+\index{PCI\_VID\_NVIDIA@{PCI\_VID\_NVIDIA}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_NVIDIA}{PCI\_VID\_NVIDIA}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+NVIDIA~0x10\+DE}
+
+\mbox{\Hypertarget{pci_8h_a1ad5809bbbd5595db4c578fc82202495}\label{pci_8h_a1ad5809bbbd5595db4c578fc82202495}} 
+\index{pci.h@{pci.h}!PCI\_VID\_VIA@{PCI\_VID\_VIA}}
+\index{PCI\_VID\_VIA@{PCI\_VID\_VIA}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_VIA}{PCI\_VID\_VIA}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+VIA~0x1106}
+
+\mbox{\Hypertarget{pci_8h_a7267cb3e32c7616f77db175c951489c0}\label{pci_8h_a7267cb3e32c7616f77db175c951489c0}} 
+\index{pci.h@{pci.h}!PCI\_VID\_SERVERWORKS@{PCI\_VID\_SERVERWORKS}}
+\index{PCI\_VID\_SERVERWORKS@{PCI\_VID\_SERVERWORKS}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_SERVERWORKS}{PCI\_VID\_SERVERWORKS}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+SERVERWORKS~0x1166}
+
+\mbox{\Hypertarget{pci_8h_a36f54ea702484f26a90b378767b7d0ab}\label{pci_8h_a36f54ea702484f26a90b378767b7d0ab}} 
+\index{pci.h@{pci.h}!PCI\_VID\_SUPERMICRO@{PCI\_VID\_SUPERMICRO}}
+\index{PCI\_VID\_SUPERMICRO@{PCI\_VID\_SUPERMICRO}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_SUPERMICRO}{PCI\_VID\_SUPERMICRO}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+SUPERMICRO~0x15\+D9}
+
+\mbox{\Hypertarget{pci_8h_af35e6f41d938833bd901cd77b9192d14}\label{pci_8h_af35e6f41d938833bd901cd77b9192d14}} 
+\index{pci.h@{pci.h}!PCI\_VID\_HYGON@{PCI\_VID\_HYGON}}
+\index{PCI\_VID\_HYGON@{PCI\_VID\_HYGON}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_HYGON}{PCI\_VID\_HYGON}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+HYGON~0x1\+D94}
+
+\mbox{\Hypertarget{pci_8h_accfbe96a4437959698f4f49413b0db56}\label{pci_8h_accfbe96a4437959698f4f49413b0db56}} 
+\index{pci.h@{pci.h}!PCI\_VID\_INTEL@{PCI\_VID\_INTEL}}
+\index{PCI\_VID\_INTEL@{PCI\_VID\_INTEL}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_VID\_INTEL}{PCI\_VID\_INTEL}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+VID\+\_\+\+INTEL~0x8086}
+
+\mbox{\Hypertarget{pci_8h_acbd6d3799929b7d4f20ba7ca9c7a273b}\label{pci_8h_acbd6d3799929b7d4f20ba7ca9c7a273b}} 
+\index{pci.h@{pci.h}!PCI\_MAX\_BUS@{PCI\_MAX\_BUS}}
+\index{PCI\_MAX\_BUS@{PCI\_MAX\_BUS}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_MAX\_BUS}{PCI\_MAX\_BUS}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+MAX\+\_\+\+BUS~256}
+
+\mbox{\Hypertarget{pci_8h_ab4541880e38c018ddbf49bb81e3b01f2}\label{pci_8h_ab4541880e38c018ddbf49bb81e3b01f2}} 
+\index{pci.h@{pci.h}!PCI\_MAX\_DEV@{PCI\_MAX\_DEV}}
+\index{PCI\_MAX\_DEV@{PCI\_MAX\_DEV}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_MAX\_DEV}{PCI\_MAX\_DEV}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+MAX\+\_\+\+DEV~32}
+
+\mbox{\Hypertarget{pci_8h_a2bce7569c5c260ac10180736ab9b682e}\label{pci_8h_a2bce7569c5c260ac10180736ab9b682e}} 
+\index{pci.h@{pci.h}!PCI\_MAX\_FUNC@{PCI\_MAX\_FUNC}}
+\index{PCI\_MAX\_FUNC@{PCI\_MAX\_FUNC}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{PCI\_MAX\_FUNC}{PCI\_MAX\_FUNC}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+MAX\+\_\+\+FUNC~8}
+
+\mbox{\Hypertarget{pci_8h_a99415f7d14fbf6f6f3f812df72dc3469}\label{pci_8h_a99415f7d14fbf6f6f3f812df72dc3469}} 
+\index{pci.h@{pci.h}!SMN\_SMUIO\_THM@{SMN\_SMUIO\_THM}}
+\index{SMN\_SMUIO\_THM@{SMN\_SMUIO\_THM}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{SMN\_SMUIO\_THM}{SMN\_SMUIO\_THM}}
+{\footnotesize\ttfamily \#define SMN\+\_\+\+SMUIO\+\_\+\+THM~0x00059800}
+
+\mbox{\Hypertarget{pci_8h_afdc1f975809ed2095dbf5ad02a80c2b0}\label{pci_8h_afdc1f975809ed2095dbf5ad02a80c2b0}} 
+\index{pci.h@{pci.h}!SMN\_THM\_TCON\_CUR\_TMP@{SMN\_THM\_TCON\_CUR\_TMP}}
+\index{SMN\_THM\_TCON\_CUR\_TMP@{SMN\_THM\_TCON\_CUR\_TMP}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{SMN\_THM\_TCON\_CUR\_TMP}{SMN\_THM\_TCON\_CUR\_TMP}}
+{\footnotesize\ttfamily \#define SMN\+\_\+\+THM\+\_\+\+TCON\+\_\+\+CUR\+\_\+\+TMP~(\mbox{\hyperlink{pci_8h_a99415f7d14fbf6f6f3f812df72dc3469}{SMN\+\_\+\+SMUIO\+\_\+\+THM}} + 0x00)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pci_8h_a5c97e50a1fead07baebf9a4632c4f1f2}\label{pci_8h_a5c97e50a1fead07baebf9a4632c4f1f2}} 
+\index{pci.h@{pci.h}!pci\_init@{pci\_init}}
+\index{pci\_init@{pci\_init}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{pci\_init()}{pci\_init()}}
+{\footnotesize\ttfamily void pci\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialises the PCI access support. 
+
+\mbox{\Hypertarget{pci_8h_aab2ad7e51a85194a91984d29ac6537ce}\label{pci_8h_aab2ad7e51a85194a91984d29ac6537ce}} 
+\index{pci.h@{pci.h}!pci\_config\_read8@{pci\_config\_read8}}
+\index{pci\_config\_read8@{pci\_config\_read8}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{pci\_config\_read8()}{pci\_config\_read8()}}
+{\footnotesize\ttfamily uint8\+\_\+t pci\+\_\+config\+\_\+read8 (\begin{DoxyParamCaption}\item[{int}]{bus,  }\item[{int}]{dev,  }\item[{int}]{func,  }\item[{int}]{reg }\end{DoxyParamCaption})}
+
+
+
+Returns an 8 bit value read from the specified bus+device+function+register address in the PCI configuration address space. 
+
+\mbox{\Hypertarget{pci_8h_ae75f58acbb7292fcbfe08b2956d734fc}\label{pci_8h_ae75f58acbb7292fcbfe08b2956d734fc}} 
+\index{pci.h@{pci.h}!pci\_config\_read16@{pci\_config\_read16}}
+\index{pci\_config\_read16@{pci\_config\_read16}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{pci\_config\_read16()}{pci\_config\_read16()}}
+{\footnotesize\ttfamily uint16\+\_\+t pci\+\_\+config\+\_\+read16 (\begin{DoxyParamCaption}\item[{int}]{bus,  }\item[{int}]{dev,  }\item[{int}]{func,  }\item[{int}]{reg }\end{DoxyParamCaption})}
+
+
+
+Returns a 16 bit value read from the specified bus+device+function+register address in the PCI configuration address space. 
+
+The address must be 16-\/bit aligned. \mbox{\Hypertarget{pci_8h_ae1630ab5341d1c11f8bbee9de23a5eed}\label{pci_8h_ae1630ab5341d1c11f8bbee9de23a5eed}} 
+\index{pci.h@{pci.h}!pci\_config\_read32@{pci\_config\_read32}}
+\index{pci\_config\_read32@{pci\_config\_read32}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{pci\_config\_read32()}{pci\_config\_read32()}}
+{\footnotesize\ttfamily uint32\+\_\+t pci\+\_\+config\+\_\+read32 (\begin{DoxyParamCaption}\item[{int}]{bus,  }\item[{int}]{dev,  }\item[{int}]{func,  }\item[{int}]{reg }\end{DoxyParamCaption})}
+
+
+
+Returns a 32 bit value read from the specified bus+device+function+register address in the PCI configuration address space. 
+
+The address must be 32-\/bit aligned. \mbox{\Hypertarget{pci_8h_ac1d68cee304a34f9b912534b727c434d}\label{pci_8h_ac1d68cee304a34f9b912534b727c434d}} 
+\index{pci.h@{pci.h}!pci\_config\_write8@{pci\_config\_write8}}
+\index{pci\_config\_write8@{pci\_config\_write8}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{pci\_config\_write8()}{pci\_config\_write8()}}
+{\footnotesize\ttfamily void pci\+\_\+config\+\_\+write8 (\begin{DoxyParamCaption}\item[{int}]{bus,  }\item[{int}]{dev,  }\item[{int}]{func,  }\item[{int}]{reg,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Writes an 8 bit value to the specified bus+device+function+register address in the PCI configuration address space. 
+
+\mbox{\Hypertarget{pci_8h_a31e1ad4bd2ebcbe9be724e0024d12a36}\label{pci_8h_a31e1ad4bd2ebcbe9be724e0024d12a36}} 
+\index{pci.h@{pci.h}!pci\_config\_write16@{pci\_config\_write16}}
+\index{pci\_config\_write16@{pci\_config\_write16}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{pci\_config\_write16()}{pci\_config\_write16()}}
+{\footnotesize\ttfamily void pci\+\_\+config\+\_\+write16 (\begin{DoxyParamCaption}\item[{int}]{bus,  }\item[{int}]{dev,  }\item[{int}]{func,  }\item[{int}]{reg,  }\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Writes a 16 bit value to the specified bus+device+function+register address in the PCI configuration address space. 
+
+The address must be 16-\/bit aligned. \mbox{\Hypertarget{pci_8h_ad9d545c69ad305414d52eb7a0ac7eee1}\label{pci_8h_ad9d545c69ad305414d52eb7a0ac7eee1}} 
+\index{pci.h@{pci.h}!pci\_config\_write32@{pci\_config\_write32}}
+\index{pci\_config\_write32@{pci\_config\_write32}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{pci\_config\_write32()}{pci\_config\_write32()}}
+{\footnotesize\ttfamily void pci\+\_\+config\+\_\+write32 (\begin{DoxyParamCaption}\item[{int}]{bus,  }\item[{int}]{dev,  }\item[{int}]{func,  }\item[{int}]{reg,  }\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Writes a 32 bit value to the specified bus+device+function+register address in the PCI configuration address space. 
+
+The address must be 32-\/bit aligned. \mbox{\Hypertarget{pci_8h_a8a1021a1c5b439c135ad9a1706cceee6}\label{pci_8h_a8a1021a1c5b439c135ad9a1706cceee6}} 
+\index{pci.h@{pci.h}!lpc\_outb@{lpc\_outb}}
+\index{lpc\_outb@{lpc\_outb}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{lpc\_outb()}{lpc\_outb()}}
+{\footnotesize\ttfamily void lpc\+\_\+outb (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Basic LPC Functions. 
+
+\mbox{\Hypertarget{pci_8h_a40a58309fbfad4819526a656efeeb086}\label{pci_8h_a40a58309fbfad4819526a656efeeb086}} 
+\index{pci.h@{pci.h}!lpc\_inb@{lpc\_inb}}
+\index{lpc\_inb@{lpc\_inb}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{lpc\_inb()}{lpc\_inb()}}
+{\footnotesize\ttfamily uint8\+\_\+t lpc\+\_\+inb (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{pci_8h_a08ffa6a9b0b44aee91a6b6f8a1c79a18}\label{pci_8h_a08ffa6a9b0b44aee91a6b6f8a1c79a18}} 
+\index{pci.h@{pci.h}!amd\_smn\_read@{amd\_smn\_read}}
+\index{amd\_smn\_read@{amd\_smn\_read}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{amd\_smn\_read()}{amd\_smn\_read()}}
+{\footnotesize\ttfamily uint32\+\_\+t amd\+\_\+smn\+\_\+read (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{adr }\end{DoxyParamCaption})}
+
+
+
+Read \& Write to AMD Family 17h SNM. 
+
+\mbox{\Hypertarget{pci_8h_a5f3d64eb64ee0b71b91d4e680f1bc24a}\label{pci_8h_a5f3d64eb64ee0b71b91d4e680f1bc24a}} 
+\index{pci.h@{pci.h}!amd\_smn\_write@{amd\_smn\_write}}
+\index{amd\_smn\_write@{amd\_smn\_write}!pci.h@{pci.h}}
+\doxysubsubsection{\texorpdfstring{amd\_smn\_write()}{amd\_smn\_write()}}
+{\footnotesize\ttfamily void amd\+\_\+smn\+\_\+write (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{adr,  }\item[{uint32\+\_\+t}]{data }\end{DoxyParamCaption})}
+

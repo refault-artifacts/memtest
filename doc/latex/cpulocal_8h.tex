@@ -1,0 +1,72 @@
+\hypertarget{cpulocal_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/cpulocal.h File Reference}
+\label{cpulocal_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpulocal.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpulocal.h}}
+
+
+Provides functions to allocate and access thread-\/local flags.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}boot.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{cpulocal_8h_structlocal__flag__t}{local\+\_\+flag\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A single thread-\/local flag.  \mbox{\hyperlink{cpulocal_8h_structlocal__flag__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{cpulocal_8h_ab31d5e3210789e3329caceebb098aef0}{allocate\+\_\+local\+\_\+flag}} (void)
+\begin{DoxyCompactList}\small\item\em Allocates an array of thread-\/local flags, one per CPU core, and returns a ID number that identifies the allocated array. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{cpulocal_8h_structlocal__flag__t}{local\+\_\+flag\+\_\+t}} $\ast$ \mbox{\hyperlink{cpulocal_8h_a9292daf8198ff65b5e3406e958b8b4db}{local\+\_\+flags}} (int flag\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the previously allocated array of thread-\/local flags identified by flag\+\_\+num. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions to allocate and access thread-\/local flags. 
+
+
+
+\doxysubsection{Data Structure Documentation}
+\index{local\_flag\_t@{local\_flag\_t}}\label{structlocal__flag__t}
+\Hypertarget{cpulocal_8h_structlocal__flag__t}
+\doxysubsubsection{struct local\+\_\+flag\+\_\+t}
+A single thread-\/local flag. 
+
+These are spaced out in memory to ensure each flag occupies a different cache line. \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{cpulocal_8h_ac9c23be5ac5d6731e607316456b3ddce}\label{cpulocal_8h_ac9c23be5ac5d6731e607316456b3ddce}} 
+bool&
+flag&
+\\
+\hline
+
+\mbox{\Hypertarget{cpulocal_8h_a6b4634abcd3ed266ed75319b8e931f8c}\label{cpulocal_8h_a6b4634abcd3ed266ed75319b8e931f8c}} 
+uint8\_t&
+spacing\mbox{[}\mbox{\hyperlink{boot_8h_ade18b1ce648b106279551b6dcc7d590f}{AP\_STACK\_SIZE}} -\/ sizeof(bool)\mbox{]}&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cpulocal_8h_ab31d5e3210789e3329caceebb098aef0}\label{cpulocal_8h_ab31d5e3210789e3329caceebb098aef0}} 
+\index{cpulocal.h@{cpulocal.h}!allocate\_local\_flag@{allocate\_local\_flag}}
+\index{allocate\_local\_flag@{allocate\_local\_flag}!cpulocal.h@{cpulocal.h}}
+\doxysubsubsection{\texorpdfstring{allocate\_local\_flag()}{allocate\_local\_flag()}}
+{\footnotesize\ttfamily int allocate\+\_\+local\+\_\+flag (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Allocates an array of thread-\/local flags, one per CPU core, and returns a ID number that identifies the allocated array. 
+
+Returns -\/1 if there is insufficient thread local storage remaining to allocate a new array of flags. \mbox{\Hypertarget{cpulocal_8h_a9292daf8198ff65b5e3406e958b8b4db}\label{cpulocal_8h_a9292daf8198ff65b5e3406e958b8b4db}} 
+\index{cpulocal.h@{cpulocal.h}!local\_flags@{local\_flags}}
+\index{local\_flags@{local\_flags}!cpulocal.h@{cpulocal.h}}
+\doxysubsubsection{\texorpdfstring{local\_flags()}{local\_flags()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{cpulocal_8h_structlocal__flag__t}{local\+\_\+flag\+\_\+t}} $\ast$ local\+\_\+flags (\begin{DoxyParamCaption}\item[{int}]{flag\+\_\+num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns a pointer to the previously allocated array of thread-\/local flags identified by flag\+\_\+num. 
+

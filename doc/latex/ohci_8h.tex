@@ -1,0 +1,64 @@
+\hypertarget{ohci_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/ohci.h File Reference}
+\label{ohci_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/ohci.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/ohci.h}}
+
+
+Provides support for USB keyboards connected via an OHCI controller.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}usbhcd.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{ohci_8h_aaba498fb20090ef0cb2d5382ba905596}{ohci\+\_\+reset}} (uintptr\+\_\+t base\+\_\+addr)
+\begin{DoxyCompactList}\small\item\em If necessary, takes ownership of the OHCI device at the specified base address, then resets it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ohci_8h_a2d8ad34d35b13ed5d98b9674ca9e5209}{ohci\+\_\+probe}} (uintptr\+\_\+t base\+\_\+addr, \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$hcd)
+\begin{DoxyCompactList}\small\item\em Initialises the OHCI device at the specified base address, probes all the attached USB devices, and configures any HID USB keyboard devices it finds to generate periodic interrupt transfers that report key presses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides support for USB keyboards connected via an OHCI controller. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ohci_8h_aaba498fb20090ef0cb2d5382ba905596}\label{ohci_8h_aaba498fb20090ef0cb2d5382ba905596}} 
+\index{ohci.h@{ohci.h}!ohci\_reset@{ohci\_reset}}
+\index{ohci\_reset@{ohci\_reset}!ohci.h@{ohci.h}}
+\doxysubsubsection{\texorpdfstring{ohci\_reset()}{ohci\_reset()}}
+{\footnotesize\ttfamily bool ohci\+\_\+reset (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{base\+\_\+addr }\end{DoxyParamCaption})}
+
+
+
+If necessary, takes ownership of the OHCI device at the specified base address, then resets it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base\+\_\+addr} & -\/ the base address of the device in virtual memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ownership was acquired and the device was successfully reset, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ohci_8h_a2d8ad34d35b13ed5d98b9674ca9e5209}\label{ohci_8h_a2d8ad34d35b13ed5d98b9674ca9e5209}} 
+\index{ohci.h@{ohci.h}!ohci\_probe@{ohci\_probe}}
+\index{ohci\_probe@{ohci\_probe}!ohci.h@{ohci.h}}
+\doxysubsubsection{\texorpdfstring{ohci\_probe()}{ohci\_probe()}}
+{\footnotesize\ttfamily bool ohci\+\_\+probe (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{base\+\_\+addr,  }\item[{\mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$}]{hcd }\end{DoxyParamCaption})}
+
+
+
+Initialises the OHCI device at the specified base address, probes all the attached USB devices, and configures any HID USB keyboard devices it finds to generate periodic interrupt transfers that report key presses. 
+
+If successful, initialises the specified host controller driver object accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em base\+\_\+addr} & -\/ the base address of the device in virtual memory \\
+\hline
+{\em hcd} & -\/ a pointer to a pre-\/allocated host controller driver object that can be used for this device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the device was successfully initialised and one or more keyboards were found, otherwise false. 
+\end{DoxyReturn}

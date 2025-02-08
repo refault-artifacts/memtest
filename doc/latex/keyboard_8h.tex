@@ -1,0 +1,114 @@
+\hypertarget{keyboard_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/keyboard.h File Reference}
+\label{keyboard_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/keyboard.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/keyboard.h}}
+
+
+Provides the keyboard interface.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{keyboard_8h_a4af1b6159e447ba72652bb7fcdfa726e}{ESC}}~27
+\begin{DoxyCompactList}\small\item\em The Escape character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90}{keyboard\+\_\+types\+\_\+t}} \{ \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90a919a8dbc95f3cbcf5f10623cfb3c0313}{KT\+\_\+\+NONE}} = 0
+, \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90adaf9446a73aaed0d3ffb231d3139e079}{KT\+\_\+\+LEGACY}} = 1
+, \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90a45d1a2dd177bc7094cbfc430521dbcc2}{KT\+\_\+\+USB}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em A set of supported keyboard types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{keyboard_8h_a5aae8263abc1dec4671638e7ed4af681}{keyboard\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialises the keyboard interface. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{keyboard_8h_a314ec7f338dc26e81468fd9fca36069c}{get\+\_\+key}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if a key has been pressed and returns the primary ASCII character corresponding to that key if so, otherwise returns the null character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90}{keyboard\+\_\+types\+\_\+t}} \mbox{\hyperlink{keyboard_8h_a965d9d17102c57a391d32951d3a0e9d8}{keyboard\+\_\+types}}
+\begin{DoxyCompactList}\small\item\em The set of enabled keyboard types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides the keyboard interface. 
+
+It converts incoming key codes to ASCII characters. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{keyboard_8h_a4af1b6159e447ba72652bb7fcdfa726e}\label{keyboard_8h_a4af1b6159e447ba72652bb7fcdfa726e}} 
+\index{keyboard.h@{keyboard.h}!ESC@{ESC}}
+\index{ESC@{ESC}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{ESC}{ESC}}
+{\footnotesize\ttfamily \#define ESC~27}
+
+
+
+The Escape character. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{keyboard_8h_a16eedadef7ead60172c394b883779c90}\label{keyboard_8h_a16eedadef7ead60172c394b883779c90}} 
+\index{keyboard.h@{keyboard.h}!keyboard\_types\_t@{keyboard\_types\_t}}
+\index{keyboard\_types\_t@{keyboard\_types\_t}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{keyboard\_types\_t}{keyboard\_types\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90}{keyboard\+\_\+types\+\_\+t}}}
+
+
+
+A set of supported keyboard types. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KT\_NONE@{KT\_NONE}!keyboard.h@{keyboard.h}}\index{keyboard.h@{keyboard.h}!KT\_NONE@{KT\_NONE}}}\mbox{\Hypertarget{keyboard_8h_a16eedadef7ead60172c394b883779c90a919a8dbc95f3cbcf5f10623cfb3c0313}\label{keyboard_8h_a16eedadef7ead60172c394b883779c90a919a8dbc95f3cbcf5f10623cfb3c0313}} 
+KT\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KT\_LEGACY@{KT\_LEGACY}!keyboard.h@{keyboard.h}}\index{keyboard.h@{keyboard.h}!KT\_LEGACY@{KT\_LEGACY}}}\mbox{\Hypertarget{keyboard_8h_a16eedadef7ead60172c394b883779c90adaf9446a73aaed0d3ffb231d3139e079}\label{keyboard_8h_a16eedadef7ead60172c394b883779c90adaf9446a73aaed0d3ffb231d3139e079}} 
+KT\+\_\+\+LEGACY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KT\_USB@{KT\_USB}!keyboard.h@{keyboard.h}}\index{keyboard.h@{keyboard.h}!KT\_USB@{KT\_USB}}}\mbox{\Hypertarget{keyboard_8h_a16eedadef7ead60172c394b883779c90a45d1a2dd177bc7094cbfc430521dbcc2}\label{keyboard_8h_a16eedadef7ead60172c394b883779c90a45d1a2dd177bc7094cbfc430521dbcc2}} 
+KT\+\_\+\+USB&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{keyboard_8h_a5aae8263abc1dec4671638e7ed4af681}\label{keyboard_8h_a5aae8263abc1dec4671638e7ed4af681}} 
+\index{keyboard.h@{keyboard.h}!keyboard\_init@{keyboard\_init}}
+\index{keyboard\_init@{keyboard\_init}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{keyboard\_init()}{keyboard\_init()}}
+{\footnotesize\ttfamily void keyboard\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialises the keyboard interface. 
+
+\mbox{\Hypertarget{keyboard_8h_a314ec7f338dc26e81468fd9fca36069c}\label{keyboard_8h_a314ec7f338dc26e81468fd9fca36069c}} 
+\index{keyboard.h@{keyboard.h}!get\_key@{get\_key}}
+\index{get\_key@{get\_key}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{get\_key()}{get\_key()}}
+{\footnotesize\ttfamily char get\+\_\+key (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks if a key has been pressed and returns the primary ASCII character corresponding to that key if so, otherwise returns the null character. 
+
+F1 to F10 are mapped to the corresponding decimal digit (F10 -\/\texorpdfstring{$>$}{>} 0). All other keys that don\textquotesingle{}t have a corresponding ASCII character are ignored. Characters are only returned for key presses, not key releases. A US keyboard layout is assumed (because we can\textquotesingle{}t easily do anything else). 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{keyboard_8h_a965d9d17102c57a391d32951d3a0e9d8}\label{keyboard_8h_a965d9d17102c57a391d32951d3a0e9d8}} 
+\index{keyboard.h@{keyboard.h}!keyboard\_types@{keyboard\_types}}
+\index{keyboard\_types@{keyboard\_types}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{keyboard\_types}{keyboard\_types}}
+{\footnotesize\ttfamily \mbox{\hyperlink{keyboard_8h_a16eedadef7ead60172c394b883779c90}{keyboard\+\_\+types\+\_\+t}} keyboard\+\_\+types\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The set of enabled keyboard types. 
+

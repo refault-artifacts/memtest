@@ -1,0 +1,97 @@
+\hypertarget{pmem_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/pmem.h File Reference}
+\label{pmem_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/pmem.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/pmem.h}}
+
+
+Provides a description of the system physical memory map.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{pmem_8h_structpm__map__t}{pm\+\_\+map\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pmem_8h_a9716979d0c7a4a73a3d0a65a31e7ecee}{MAX\+\_\+\+MEM\+\_\+\+SEGMENTS}}~127
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pmem_8h_a2d8842346564961ead92fa935158c2fc}{pmem\+\_\+init}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pmem_8h_structpm__map__t}{pm\+\_\+map\+\_\+t}} \mbox{\hyperlink{pmem_8h_a67178a81ffed9fdc0cb95487f595d641}{pm\+\_\+map}} \mbox{[}\mbox{\hyperlink{pmem_8h_a9716979d0c7a4a73a3d0a65a31e7ecee}{MAX\+\_\+\+MEM\+\_\+\+SEGMENTS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{pmem_8h_a1a329600870fa6216703cf53478bbbd6}{pm\+\_\+map\+\_\+size}}
+\item 
+size\+\_\+t \mbox{\hyperlink{pmem_8h_a8b2888775850230a229a1634c825acd9}{num\+\_\+pm\+\_\+pages}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a description of the system physical memory map. 
+
+
+
+\doxysubsection{Data Structure Documentation}
+\index{pm\_map\_t@{pm\_map\_t}}\label{structpm__map__t}
+\Hypertarget{pmem_8h_structpm__map__t}
+\doxysubsubsection{struct pm\+\_\+map\+\_\+t}
+\begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{pmem_8h_a82f74a58a7ae0ce079516e0ca1f6d96e}\label{pmem_8h_a82f74a58a7ae0ce079516e0ca1f6d96e}} 
+uintptr\_t&
+start&
+\\
+\hline
+
+\mbox{\Hypertarget{pmem_8h_a1c4222b7002eaa2e6cb1bf45705c8dc1}\label{pmem_8h_a1c4222b7002eaa2e6cb1bf45705c8dc1}} 
+uintptr\_t&
+end&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pmem_8h_a9716979d0c7a4a73a3d0a65a31e7ecee}\label{pmem_8h_a9716979d0c7a4a73a3d0a65a31e7ecee}} 
+\index{pmem.h@{pmem.h}!MAX\_MEM\_SEGMENTS@{MAX\_MEM\_SEGMENTS}}
+\index{MAX\_MEM\_SEGMENTS@{MAX\_MEM\_SEGMENTS}!pmem.h@{pmem.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_MEM\_SEGMENTS}{MAX\_MEM\_SEGMENTS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+MEM\+\_\+\+SEGMENTS~127}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pmem_8h_a2d8842346564961ead92fa935158c2fc}\label{pmem_8h_a2d8842346564961ead92fa935158c2fc}} 
+\index{pmem.h@{pmem.h}!pmem\_init@{pmem\_init}}
+\index{pmem\_init@{pmem\_init}!pmem.h@{pmem.h}}
+\doxysubsubsection{\texorpdfstring{pmem\_init()}{pmem\_init()}}
+{\footnotesize\ttfamily void pmem\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{pmem_8h_a67178a81ffed9fdc0cb95487f595d641}\label{pmem_8h_a67178a81ffed9fdc0cb95487f595d641}} 
+\index{pmem.h@{pmem.h}!pm\_map@{pm\_map}}
+\index{pm\_map@{pm\_map}!pmem.h@{pmem.h}}
+\doxysubsubsection{\texorpdfstring{pm\_map}{pm\_map}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pmem_8h_structpm__map__t}{pm\+\_\+map\+\_\+t}} pm\+\_\+map\mbox{[}\mbox{\hyperlink{pmem_8h_a9716979d0c7a4a73a3d0a65a31e7ecee}{MAX\+\_\+\+MEM\+\_\+\+SEGMENTS}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{pmem_8h_a1a329600870fa6216703cf53478bbbd6}\label{pmem_8h_a1a329600870fa6216703cf53478bbbd6}} 
+\index{pmem.h@{pmem.h}!pm\_map\_size@{pm\_map\_size}}
+\index{pm\_map\_size@{pm\_map\_size}!pmem.h@{pmem.h}}
+\doxysubsubsection{\texorpdfstring{pm\_map\_size}{pm\_map\_size}}
+{\footnotesize\ttfamily int pm\+\_\+map\+\_\+size\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{pmem_8h_a8b2888775850230a229a1634c825acd9}\label{pmem_8h_a8b2888775850230a229a1634c825acd9}} 
+\index{pmem.h@{pmem.h}!num\_pm\_pages@{num\_pm\_pages}}
+\index{num\_pm\_pages@{num\_pm\_pages}!pmem.h@{pmem.h}}
+\doxysubsubsection{\texorpdfstring{num\_pm\_pages}{num\_pm\_pages}}
+{\footnotesize\ttfamily size\+\_\+t num\+\_\+pm\+\_\+pages\hspace{0.3cm}{\ttfamily [extern]}}
+

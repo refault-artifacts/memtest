@@ -1,0 +1,70 @@
+\hypertarget{tsc_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/tsc.h File Reference}
+\label{tsc_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/tsc.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/tsc.h}}
+
+
+Provides access to the CPU timestamp counter.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tsc_8h_a6bb1fdd160b8283ecfd6e1dedb7ea459}{rdtsc}}(low,  high)
+\item 
+\#define \mbox{\hyperlink{tsc_8h_a97449fdc717318de9474c92957ae2a17}{rdtscl}}(low)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint64\+\_\+t \mbox{\hyperlink{tsc_8h_a99079e3b8cbe4324bf3f075faa2727a9}{get\+\_\+tsc}} (void)
+\begin{DoxyCompactList}\small\item\em Reads and returns the timestamp counter value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides access to the CPU timestamp counter. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{tsc_8h_a6bb1fdd160b8283ecfd6e1dedb7ea459}\label{tsc_8h_a6bb1fdd160b8283ecfd6e1dedb7ea459}} 
+\index{tsc.h@{tsc.h}!rdtsc@{rdtsc}}
+\index{rdtsc@{rdtsc}!tsc.h@{tsc.h}}
+\doxysubsubsection{\texorpdfstring{rdtsc}{rdtsc}}
+{\footnotesize\ttfamily \#define rdtsc(\begin{DoxyParamCaption}\item[{}]{low,  }\item[{}]{high }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \_\_asm\_\_ \_\_volatile\_\_(\textcolor{stringliteral}{"{}rdtsc"{}}    \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{stringliteral}{"{}=a"{}} (low),               \(\backslash\)}
+\DoxyCodeLine{          \textcolor{stringliteral}{"{}=d"{}} (high)               \(\backslash\)}
+\DoxyCodeLine{    )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{tsc_8h_a97449fdc717318de9474c92957ae2a17}\label{tsc_8h_a97449fdc717318de9474c92957ae2a17}} 
+\index{tsc.h@{tsc.h}!rdtscl@{rdtscl}}
+\index{rdtscl@{rdtscl}!tsc.h@{tsc.h}}
+\doxysubsubsection{\texorpdfstring{rdtscl}{rdtscl}}
+{\footnotesize\ttfamily \#define rdtscl(\begin{DoxyParamCaption}\item[{}]{low }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \_\_asm\_\_ \_\_volatile\_\_(\textcolor{stringliteral}{"{}rdtsc"{}}    \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{stringliteral}{"{}=a"{}} (low)                \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{comment}{/* no inputs */}           \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{stringliteral}{"{}edx"{}}                     \(\backslash\)}
+\DoxyCodeLine{    )}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tsc_8h_a99079e3b8cbe4324bf3f075faa2727a9}\label{tsc_8h_a99079e3b8cbe4324bf3f075faa2727a9}} 
+\index{tsc.h@{tsc.h}!get\_tsc@{get\_tsc}}
+\index{get\_tsc@{get\_tsc}!tsc.h@{tsc.h}}
+\doxysubsubsection{\texorpdfstring{get\_tsc()}{get\_tsc()}}
+{\footnotesize\ttfamily static uint64\+\_\+t get\+\_\+tsc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Reads and returns the timestamp counter value. 
+

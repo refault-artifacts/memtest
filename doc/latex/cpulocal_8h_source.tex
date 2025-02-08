@@ -1,0 +1,32 @@
+\hypertarget{cpulocal_8h_source}{}\doxysection{cpulocal.\+h}
+\label{cpulocal_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpulocal.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cpulocal.h}}
+\mbox{\hyperlink{cpulocal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef CPULOCAL\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define CPULOCAL\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{boot_8h}{boot.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{22 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_\_attribute\_\_((packed)) \{}
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool}    \mbox{\hyperlink{cpulocal_8h_ac9c23be5ac5d6731e607316456b3ddce}{flag}};}
+\DoxyCodeLine{24     uint8\_t spacing[\mbox{\hyperlink{boot_8h_ade18b1ce648b106279551b6dcc7d590f}{AP\_STACK\_SIZE}} -\/ \textcolor{keyword}{sizeof}(bool)];}
+\DoxyCodeLine{25 \} \mbox{\hyperlink{cpulocal_8h_structlocal__flag__t}{local\_flag\_t}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{33 \textcolor{keywordtype}{int} \mbox{\hyperlink{cpulocal_8h_ab31d5e3210789e3329caceebb098aef0}{allocate\_local\_flag}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{39 \textcolor{keyword}{static} \textcolor{keyword}{inline} \mbox{\hyperlink{cpulocal_8h_structlocal__flag__t}{local\_flag\_t}} *\mbox{\hyperlink{cpulocal_8h_a9292daf8198ff65b5e3406e958b8b4db}{local\_flags}}(\textcolor{keywordtype}{int} flag\_num)}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41     \textcolor{comment}{// The number returned by allocate\_local\_flag is the byte offset of the}}
+\DoxyCodeLine{42     \textcolor{comment}{// flag from the start of the thread-\/local storage.}}
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} (\mbox{\hyperlink{cpulocal_8h_structlocal__flag__t}{local\_flag\_t}} *)(\mbox{\hyperlink{boot_8h_adec5814e94d23d406012226113940fe0}{\_stacks}} + \mbox{\hyperlink{boot_8h_a953a34ce9e4424e8fdb58c0f1710d8ab}{BSP\_STACK\_SIZE}} -\/ \mbox{\hyperlink{boot_8h_a957685732e67ed144b0871bfd5294f01}{LOCALS\_SIZE}} + flag\_num);}
+\DoxyCodeLine{44 \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CPULOCAL\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['test_5faddr_5fwalk1_0',['test_addr_walk1',['../test__funcs_8h.html#ac5aff290c79c4505cd8a1dcafadb3366',1,'test_funcs.h']]],
+  ['test_5fbit_5ffade_1',['test_bit_fade',['../test__funcs_8h.html#a6b394fc93665be2efb3f41a73daf820c',1,'test_funcs.h']]],
+  ['test_5fblock_5fmove_2',['test_block_move',['../test__funcs_8h.html#ad3aaf7aff14084b2d1f49033fb016502',1,'test_funcs.h']]],
+  ['test_5fmodulo_5fn_3',['test_modulo_n',['../test__funcs_8h.html#abe4cb301c9cb7d1dbaa00b252f6df86f',1,'test_funcs.h']]],
+  ['test_5fmov_5finv_5ffixed_4',['test_mov_inv_fixed',['../test__funcs_8h.html#a3563d98c66636f8c06da69b8b45e3d50',1,'test_funcs.h']]],
+  ['test_5fmov_5finv_5frandom_5',['test_mov_inv_random',['../test__funcs_8h.html#afbe5f2fa94b81b85cc2266e446d9c823',1,'test_funcs.h']]],
+  ['test_5fmov_5finv_5fwalk1_6',['test_mov_inv_walk1',['../test__funcs_8h.html#af5fcb17bf82bd2751bdb55df731eac4b',1,'test_funcs.h']]],
+  ['test_5fown_5faddr1_7',['test_own_addr1',['../test__funcs_8h.html#a7cc3a82799c82b5e728b06d410cf57a1',1,'test_funcs.h']]],
+  ['test_5fown_5faddr2_8',['test_own_addr2',['../test__funcs_8h.html#a625703eb0ea2064a82a02c5cb9f01d8f',1,'test_funcs.h']]],
+  ['timers_5finit_9',['timers_init',['../timers_8h.html#ae04975d66c6746be4cacfd3d4636480f',1,'timers.h']]],
+  ['toggle_5fscroll_5flock_10',['toggle_scroll_lock',['../display_8h.html#a85429facfe750b53c5de3199547ca7c8',1,'display.h']]],
+  ['toupper_11',['toupper',['../ctype_8h.html#abe48e86ea2be73c015cb5b5a6be60d1a',1,'ctype.h']]],
+  ['tty_5fget_5fkey_12',['tty_get_key',['../serial_8h.html#a480bb3995f0777da883f919bd76e1b5e',1,'serial.h']]],
+  ['tty_5finit_13',['tty_init',['../serial_8h.html#a0d6679c5a4b8b74b22afc33d06d64eec',1,'serial.h']]],
+  ['tty_5fprint_14',['tty_print',['../serial_8h.html#ae08680a2a18bdaa33c6fe13aecb545e2',1,'serial.h']]],
+  ['tty_5fsend_5fregion_15',['tty_send_region',['../serial_8h.html#a2e31a4a2cf99b5c4072b147417e47f1d',1,'serial.h']]]
+];

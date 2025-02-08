@@ -1,0 +1,71 @@
+\hypertarget{cache_8h_source}{}\doxysection{cache.\+h}
+\label{cache_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cache.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/cache.h}}
+\mbox{\hyperlink{cache_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef CACHE\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define CACHE\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{16 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{cache_8h_a3a6ccd2b25b8631105fbe3114c79708f}{cache\_off}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifdef \_\_x86\_64\_\_}}
+\DoxyCodeLine{19     \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}}}
+\DoxyCodeLine{20         \textcolor{stringliteral}{"{}movq   \%\%cr0, \%\%rax        \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{21         \textcolor{stringliteral}{"{}orl    \$0x40000000, \%\%eax  \(\backslash\)n\(\backslash\)t"{}}  \textcolor{comment}{/* Set CD */}}
+\DoxyCodeLine{22         \textcolor{stringliteral}{"{}movq   \%\%rax, \%\%cr0        \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{23         \textcolor{stringliteral}{"{}wbinvd                     \(\backslash\)n"{}}}
+\DoxyCodeLine{24         : \textcolor{comment}{/* no outputs */}}
+\DoxyCodeLine{25         : \textcolor{comment}{/* no inputs */}}
+\DoxyCodeLine{26         : \textcolor{stringliteral}{"{}rax"{}}, \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{27     );}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{29     \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}}}
+\DoxyCodeLine{30         \textcolor{stringliteral}{"{}movl   \%\%cr0, \%\%eax        \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{31         \textcolor{stringliteral}{"{}orl    \$0x40000000, \%\%eax  \(\backslash\)n\(\backslash\)t"{}}  \textcolor{comment}{/* Set CD */}}
+\DoxyCodeLine{32         \textcolor{stringliteral}{"{}movl   \%\%eax, \%\%cr0        \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{33         \textcolor{stringliteral}{"{}wbinvd                     \(\backslash\)n"{}}}
+\DoxyCodeLine{34         : \textcolor{comment}{/* no outputs */}}
+\DoxyCodeLine{35         : \textcolor{comment}{/* no inputs */}}
+\DoxyCodeLine{36         : \textcolor{stringliteral}{"{}eax"{}}, \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{37     );}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{cache_8h_a8a27f3a3b82b8e808403e0e9951fc915}{cache\_on}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#ifdef \_\_x86\_64\_\_}}
+\DoxyCodeLine{47     \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}}}
+\DoxyCodeLine{48         \textcolor{stringliteral}{"{}movq   \%\%cr0, \%\%rax        \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{49         \textcolor{stringliteral}{"{}andl   \$0x9fffffff, \%\%eax  \(\backslash\)n\(\backslash\)t"{}} \textcolor{comment}{/* Clear CD and NW */}}
+\DoxyCodeLine{50         \textcolor{stringliteral}{"{}movq   \%\%rax, \%\%cr0        \(\backslash\)n"{}}}
+\DoxyCodeLine{51         : \textcolor{comment}{/* no outputs */}}
+\DoxyCodeLine{52         : \textcolor{comment}{/* no inputs */}}
+\DoxyCodeLine{53         : \textcolor{stringliteral}{"{}rax"{}}, \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{54     );}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{56     \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}}}
+\DoxyCodeLine{57         \textcolor{stringliteral}{"{}movl   \%\%cr0, \%\%eax        \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{58         \textcolor{stringliteral}{"{}andl   \$0x9fffffff, \%\%eax  \(\backslash\)n\(\backslash\)t"{}} \textcolor{comment}{/* Clear CD and NW */}}
+\DoxyCodeLine{59         \textcolor{stringliteral}{"{}movl   \%\%eax, \%\%cr0        \(\backslash\)n"{}}}
+\DoxyCodeLine{60         : \textcolor{comment}{/* no outputs */}}
+\DoxyCodeLine{61         : \textcolor{comment}{/* no inputs */}}
+\DoxyCodeLine{62         : \textcolor{stringliteral}{"{}eax"{}}, \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{63     );}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{65 \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{70 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{cache_8h_a12fadebac41a95951b31eff1baaebf6a}{cache\_flush}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{71 \{}
+\DoxyCodeLine{72     \_\_asm\_\_ \_\_volatile\_\_ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}}}
+\DoxyCodeLine{73         \textcolor{stringliteral}{"{}wbinvd\(\backslash\)n"{}}}
+\DoxyCodeLine{74         : \textcolor{comment}{/* no outputs */}}
+\DoxyCodeLine{75         : \textcolor{comment}{/* no inputs */}}
+\DoxyCodeLine{76         : \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{77     );}
+\DoxyCodeLine{78 \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CACHE\_H}}
+
+\end{DoxyCode}

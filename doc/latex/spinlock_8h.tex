@@ -1,0 +1,73 @@
+\hypertarget{spinlock_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/lib/spinlock.h File Reference}
+\label{spinlock_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/spinlock.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/spinlock.h}}
+
+
+Provides a lightweight mutex synchronisation primitive.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef volatile bool \mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A mutex object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{spinlock_8h_a88a716ca6bade5faa37c1054fb1fe82a}{spin\+\_\+wait}} (\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}} $\ast$lock)
+\begin{DoxyCompactList}\small\item\em Spins until the mutex is unlocked. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{spinlock_8h_aa9b96098c749bde2eac4348569cf2cc9}{spin\+\_\+lock}} (\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}} $\ast$lock)
+\begin{DoxyCompactList}\small\item\em Spins until the mutex is unlocked, then locks the mutex. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{spinlock_8h_af0bffee791867b9ae4b9f66d4e111d95}{spin\+\_\+unlock}} (\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}} $\ast$lock)
+\begin{DoxyCompactList}\small\item\em Unlocks the mutex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a lightweight mutex synchronisation primitive. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}\label{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}} 
+\index{spinlock.h@{spinlock.h}!spinlock\_t@{spinlock\_t}}
+\index{spinlock\_t@{spinlock\_t}!spinlock.h@{spinlock.h}}
+\doxysubsubsection{\texorpdfstring{spinlock\_t}{spinlock\_t}}
+{\footnotesize\ttfamily typedef volatile bool \mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}}}
+
+
+
+A mutex object. 
+
+Use \mbox{\hyperlink{spinlock_8h_af0bffee791867b9ae4b9f66d4e111d95}{spin\+\_\+unlock()}} to initialise prior to first use. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{spinlock_8h_a88a716ca6bade5faa37c1054fb1fe82a}\label{spinlock_8h_a88a716ca6bade5faa37c1054fb1fe82a}} 
+\index{spinlock.h@{spinlock.h}!spin\_wait@{spin\_wait}}
+\index{spin\_wait@{spin\_wait}!spinlock.h@{spinlock.h}}
+\doxysubsubsection{\texorpdfstring{spin\_wait()}{spin\_wait()}}
+{\footnotesize\ttfamily static void spin\+\_\+wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}} $\ast$}]{lock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Spins until the mutex is unlocked. 
+
+\mbox{\Hypertarget{spinlock_8h_aa9b96098c749bde2eac4348569cf2cc9}\label{spinlock_8h_aa9b96098c749bde2eac4348569cf2cc9}} 
+\index{spinlock.h@{spinlock.h}!spin\_lock@{spin\_lock}}
+\index{spin\_lock@{spin\_lock}!spinlock.h@{spinlock.h}}
+\doxysubsubsection{\texorpdfstring{spin\_lock()}{spin\_lock()}}
+{\footnotesize\ttfamily static void spin\+\_\+lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}} $\ast$}]{lock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Spins until the mutex is unlocked, then locks the mutex. 
+
+\mbox{\Hypertarget{spinlock_8h_af0bffee791867b9ae4b9f66d4e111d95}\label{spinlock_8h_af0bffee791867b9ae4b9f66d4e111d95}} 
+\index{spinlock.h@{spinlock.h}!spin\_unlock@{spin\_unlock}}
+\index{spin\_unlock@{spin\_unlock}!spinlock.h@{spinlock.h}}
+\doxysubsubsection{\texorpdfstring{spin\_unlock()}{spin\_unlock()}}
+{\footnotesize\ttfamily static void spin\+\_\+unlock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\+\_\+t}} $\ast$}]{lock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Unlocks the mutex. 
+

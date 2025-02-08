@@ -1,0 +1,37 @@
+\hypertarget{tests_8h_source}{}\doxysection{tests.\+h}
+\label{tests_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/tests.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/tests/tests.h}}
+\mbox{\hyperlink{tests_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef TESTS\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define TESTS\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define NUM\_TEST\_PATTERNS   11}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool}            \mbox{\hyperlink{tests_8h_a2cdb01e97023a534131ec81cf1fa7f64}{enabled}};}
+\DoxyCodeLine{21     \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529}{cpu\_mode\_t}}      \mbox{\hyperlink{tests_8h_ac755ab5f6a587a99bad0e892d5f03fd8}{cpu\_mode}};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int}             \mbox{\hyperlink{tests_8h_abb720aedb754eb2d5fc4416b8c4a0bd8}{stages}};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int}             \mbox{\hyperlink{tests_8h_ac8e09f49cef8b151e03d6aebc43465da}{iterations}};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int}             \mbox{\hyperlink{tests_8h_ac2332a14789dd5940b06e47976e01f1d}{errors}};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{char}            *\mbox{\hyperlink{tests_8h_afbe53144c00365ecc6f9674968673bcf}{description}};}
+\DoxyCodeLine{26 \} \mbox{\hyperlink{tests_8h_structtest__pattern__t}{test\_pattern\_t}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{extern} \mbox{\hyperlink{tests_8h_structtest__pattern__t}{test\_pattern\_t}} \mbox{\hyperlink{tests_8h_a093fc77a552a19522091b7385390e2e7}{test\_list}}[\mbox{\hyperlink{tests_8h_a73015e97c4f51e590fef60a05635986e}{NUM\_TEST\_PATTERNS}}];}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{ \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ac196b847262a51b0751189e24d53bd05}{FAST\_PASS}}, \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033abedbafcf12711902ec3d15f381fb30fc}{FULL\_PASS}}, \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}{NUM\_PASS\_TYPES}} \} \mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033}{pass\_type\_t}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{tests_8h_afdb99ae10ea744a173685edc566cdd8d}{ticks\_per\_pass}}[\mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}{NUM\_PASS\_TYPES}}];}
+\DoxyCodeLine{33 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{tests_8h_ae5bb633b60c829f122bea7838b5ce35a}{ticks\_per\_test}}[\mbox{\hyperlink{tests_8h_a4d1b093bca2d6b8ce3208d158aa68033ab014c391f8f5b36cb3df4518e8b20dca}{NUM\_PASS\_TYPES}}][\mbox{\hyperlink{tests_8h_a73015e97c4f51e590fef60a05635986e}{NUM\_TEST\_PATTERNS}}];}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keywordtype}{int} \mbox{\hyperlink{tests_8h_a75e21bf9a41e98b143445846ab3d2a9c}{run\_test}}(\textcolor{keywordtype}{int} my\_cpu, \textcolor{keywordtype}{int} test, \textcolor{keywordtype}{int} stage, \textcolor{keywordtype}{int} iterations);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TESTS\_H}}
+
+\end{DoxyCode}

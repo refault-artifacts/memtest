@@ -1,0 +1,306 @@
+\hypertarget{config_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/app/config.h File Reference}
+\label{config_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/config.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/app/config.h}}
+
+
+Provides the configuration settings and pop-\/up menu.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}smp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cpuid.\+h\char`\"{}}\newline
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529}{cpu\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529a757f5788c17d7ed4b90b65476ac0fc4b}{PAR}}
+, \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529a9985ac4cb7cda855d785a610e6a866a7}{SEQ}}
+, \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529a7a725f13af144bdef532d0389ba75e0d}{ONE}}
+ \}
+\item 
+enum \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0}{error\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0a0025b3f70a464e047c490bbc2bbd7a7d}{ERROR\+\_\+\+MODE\+\_\+\+NONE}}
+, \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0a5db5c1a8d83c7e0fdfcdcafa0773648d}{ERROR\+\_\+\+MODE\+\_\+\+SUMMARY}}
+, \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0a06a117cafa067677b4b325c10ff691a2}{ERROR\+\_\+\+MODE\+\_\+\+ADDRESS}}
+, \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0a6f4b07a98897ca7bebc4d94822d6a176}{ERROR\+\_\+\+MODE\+\_\+\+BADRAM}}
+ \}
+\item 
+enum \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ad}{power\+\_\+save\+\_\+t}} \{ \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ada72be9eecd7398f66ff3a6fc8c39caede}{POWER\+\_\+\+SAVE\+\_\+\+OFF}}
+, \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ada943def70d3d6b33892b33732d5aede5f}{POWER\+\_\+\+SAVE\+\_\+\+LOW}}
+, \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ada0d590c699c05a68961b3062bab8cf6f8}{POWER\+\_\+\+SAVE\+\_\+\+HIGH}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{config_8h_a068a358868c409bbd99d7eef3c988866}{config\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{config_8h_ac2ab63b047b256abffc768fcb5da3da3}{config\+\_\+menu}} (bool initial)
+\item 
+void \mbox{\hyperlink{config_8h_ad07bc98685c2c2e7d506040d5b905625}{initial\+\_\+config}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uintptr\+\_\+t \mbox{\hyperlink{config_8h_af0fb7ed8fdef3dd43b5daf1795971c49}{pm\+\_\+limit\+\_\+lower}}
+\item 
+uintptr\+\_\+t \mbox{\hyperlink{config_8h_a2bd50286372866f1ad7ad0e481806c18}{pm\+\_\+limit\+\_\+upper}}
+\item 
+uintptr\+\_\+t \mbox{\hyperlink{config_8h_ae3cc3194c43fde39b101aa9c54cf470d}{num\+\_\+pages\+\_\+to\+\_\+test}}
+\item 
+\mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529}{cpu\+\_\+mode\+\_\+t}} \mbox{\hyperlink{config_8h_a0bca97c8f7018a9c7d6e17c87e77d35c}{cpu\+\_\+mode}}
+\item 
+\mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0}{error\+\_\+mode\+\_\+t}} \mbox{\hyperlink{config_8h_a74426ff7ca7f29d0d8694967cbc62d13}{error\+\_\+mode}}
+\item 
+\mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\+\_\+state\+\_\+t}} \mbox{\hyperlink{config_8h_aff5d6e34b344119a5edad68147478650}{cpu\+\_\+state}} \mbox{[}\mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\+\_\+\+CPUS}}\mbox{]}
+\item 
+\mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\+\_\+type\+\_\+t}} \mbox{\hyperlink{config_8h_a6d50480facda5c17915340976e489dbd}{hybrid\+\_\+core\+\_\+type}} \mbox{[}\mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\+\_\+\+CPUS}}\mbox{]}
+\item 
+bool \mbox{\hyperlink{config_8h_a1b4d8445a43ed63898fc653dea84eff9}{exclude\+\_\+ecores}}
+\item 
+bool \mbox{\hyperlink{config_8h_a18b428e18065a3c157fae5d1deff2329}{smp\+\_\+enabled}}
+\item 
+bool \mbox{\hyperlink{config_8h_aace39e0334644d8761526d7eafbe6fbb}{enable\+\_\+big\+\_\+status}}
+\item 
+bool \mbox{\hyperlink{config_8h_acf6ee3250f57c012bf7306021cb39c0b}{enable\+\_\+temperature}}
+\item 
+bool \mbox{\hyperlink{config_8h_a47515d03aa3ec4dedbab9618551114db}{enable\+\_\+trace}}
+\item 
+bool \mbox{\hyperlink{config_8h_a48de2a4e4eaa6254876e1e58a7a59dd6}{enable\+\_\+sm}}
+\item 
+bool \mbox{\hyperlink{config_8h_aa5c8828730c86eb8308c8332eb38c826}{enable\+\_\+tty}}
+\item 
+bool \mbox{\hyperlink{config_8h_a46ce955d549193371ad66c6949d2d9db}{enable\+\_\+bench}}
+\item 
+bool \mbox{\hyperlink{config_8h_a140010851487510b70e7d52653546742}{pause\+\_\+at\+\_\+start}}
+\item 
+\mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ad}{power\+\_\+save\+\_\+t}} \mbox{\hyperlink{config_8h_a7bf1aa08750a27c39b779d79daccf3a8}{power\+\_\+save}}
+\item 
+int \mbox{\hyperlink{config_8h_ae903c30516f416ac3563e9031a59c9ee}{tty\+\_\+params\+\_\+port}}
+\item 
+int \mbox{\hyperlink{config_8h_a5339e00e79dbb04c19ffe41f0b3f2779}{tty\+\_\+params\+\_\+baud}}
+\item 
+int \mbox{\hyperlink{config_8h_a22914f8ec578dea46477666508c84413}{tty\+\_\+update\+\_\+period}}
+\item 
+bool \mbox{\hyperlink{config_8h_a3a0a976867e0a6d25c1fdafea7df7bd6}{err\+\_\+banner\+\_\+redraw}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides the configuration settings and pop-\/up menu. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{config_8h_a6accba797c1e13c0f579a276edfa1529}\label{config_8h_a6accba797c1e13c0f579a276edfa1529}} 
+\index{config.h@{config.h}!cpu\_mode\_t@{cpu\_mode\_t}}
+\index{cpu\_mode\_t@{cpu\_mode\_t}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{cpu\_mode\_t}{cpu\_mode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529}{cpu\+\_\+mode\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAR@{PAR}!config.h@{config.h}}\index{config.h@{config.h}!PAR@{PAR}}}\mbox{\Hypertarget{config_8h_a6accba797c1e13c0f579a276edfa1529a757f5788c17d7ed4b90b65476ac0fc4b}\label{config_8h_a6accba797c1e13c0f579a276edfa1529a757f5788c17d7ed4b90b65476ac0fc4b}} 
+PAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SEQ@{SEQ}!config.h@{config.h}}\index{config.h@{config.h}!SEQ@{SEQ}}}\mbox{\Hypertarget{config_8h_a6accba797c1e13c0f579a276edfa1529a9985ac4cb7cda855d785a610e6a866a7}\label{config_8h_a6accba797c1e13c0f579a276edfa1529a9985ac4cb7cda855d785a610e6a866a7}} 
+SEQ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE@{ONE}!config.h@{config.h}}\index{config.h@{config.h}!ONE@{ONE}}}\mbox{\Hypertarget{config_8h_a6accba797c1e13c0f579a276edfa1529a7a725f13af144bdef532d0389ba75e0d}\label{config_8h_a6accba797c1e13c0f579a276edfa1529a7a725f13af144bdef532d0389ba75e0d}} 
+ONE&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{config_8h_a91da1a68386ac2106b88d53d31262af0}\label{config_8h_a91da1a68386ac2106b88d53d31262af0}} 
+\index{config.h@{config.h}!error\_mode\_t@{error\_mode\_t}}
+\index{error\_mode\_t@{error\_mode\_t}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{error\_mode\_t}{error\_mode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0}{error\+\_\+mode\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_MODE\_NONE@{ERROR\_MODE\_NONE}!config.h@{config.h}}\index{config.h@{config.h}!ERROR\_MODE\_NONE@{ERROR\_MODE\_NONE}}}\mbox{\Hypertarget{config_8h_a91da1a68386ac2106b88d53d31262af0a0025b3f70a464e047c490bbc2bbd7a7d}\label{config_8h_a91da1a68386ac2106b88d53d31262af0a0025b3f70a464e047c490bbc2bbd7a7d}} 
+ERROR\+\_\+\+MODE\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_MODE\_SUMMARY@{ERROR\_MODE\_SUMMARY}!config.h@{config.h}}\index{config.h@{config.h}!ERROR\_MODE\_SUMMARY@{ERROR\_MODE\_SUMMARY}}}\mbox{\Hypertarget{config_8h_a91da1a68386ac2106b88d53d31262af0a5db5c1a8d83c7e0fdfcdcafa0773648d}\label{config_8h_a91da1a68386ac2106b88d53d31262af0a5db5c1a8d83c7e0fdfcdcafa0773648d}} 
+ERROR\+\_\+\+MODE\+\_\+\+SUMMARY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_MODE\_ADDRESS@{ERROR\_MODE\_ADDRESS}!config.h@{config.h}}\index{config.h@{config.h}!ERROR\_MODE\_ADDRESS@{ERROR\_MODE\_ADDRESS}}}\mbox{\Hypertarget{config_8h_a91da1a68386ac2106b88d53d31262af0a06a117cafa067677b4b325c10ff691a2}\label{config_8h_a91da1a68386ac2106b88d53d31262af0a06a117cafa067677b4b325c10ff691a2}} 
+ERROR\+\_\+\+MODE\+\_\+\+ADDRESS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR\_MODE\_BADRAM@{ERROR\_MODE\_BADRAM}!config.h@{config.h}}\index{config.h@{config.h}!ERROR\_MODE\_BADRAM@{ERROR\_MODE\_BADRAM}}}\mbox{\Hypertarget{config_8h_a91da1a68386ac2106b88d53d31262af0a6f4b07a98897ca7bebc4d94822d6a176}\label{config_8h_a91da1a68386ac2106b88d53d31262af0a6f4b07a98897ca7bebc4d94822d6a176}} 
+ERROR\+\_\+\+MODE\+\_\+\+BADRAM&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{config_8h_a29e5f2400a3334f28c45baf42ffa60ad}\label{config_8h_a29e5f2400a3334f28c45baf42ffa60ad}} 
+\index{config.h@{config.h}!power\_save\_t@{power\_save\_t}}
+\index{power\_save\_t@{power\_save\_t}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{power\_save\_t}{power\_save\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ad}{power\+\_\+save\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POWER\_SAVE\_OFF@{POWER\_SAVE\_OFF}!config.h@{config.h}}\index{config.h@{config.h}!POWER\_SAVE\_OFF@{POWER\_SAVE\_OFF}}}\mbox{\Hypertarget{config_8h_a29e5f2400a3334f28c45baf42ffa60ada72be9eecd7398f66ff3a6fc8c39caede}\label{config_8h_a29e5f2400a3334f28c45baf42ffa60ada72be9eecd7398f66ff3a6fc8c39caede}} 
+POWER\+\_\+\+SAVE\+\_\+\+OFF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POWER\_SAVE\_LOW@{POWER\_SAVE\_LOW}!config.h@{config.h}}\index{config.h@{config.h}!POWER\_SAVE\_LOW@{POWER\_SAVE\_LOW}}}\mbox{\Hypertarget{config_8h_a29e5f2400a3334f28c45baf42ffa60ada943def70d3d6b33892b33732d5aede5f}\label{config_8h_a29e5f2400a3334f28c45baf42ffa60ada943def70d3d6b33892b33732d5aede5f}} 
+POWER\+\_\+\+SAVE\+\_\+\+LOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POWER\_SAVE\_HIGH@{POWER\_SAVE\_HIGH}!config.h@{config.h}}\index{config.h@{config.h}!POWER\_SAVE\_HIGH@{POWER\_SAVE\_HIGH}}}\mbox{\Hypertarget{config_8h_a29e5f2400a3334f28c45baf42ffa60ada0d590c699c05a68961b3062bab8cf6f8}\label{config_8h_a29e5f2400a3334f28c45baf42ffa60ada0d590c699c05a68961b3062bab8cf6f8}} 
+POWER\+\_\+\+SAVE\+\_\+\+HIGH&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{config_8h_a068a358868c409bbd99d7eef3c988866}\label{config_8h_a068a358868c409bbd99d7eef3c988866}} 
+\index{config.h@{config.h}!config\_init@{config\_init}}
+\index{config\_init@{config\_init}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{config\_init()}{config\_init()}}
+{\footnotesize\ttfamily void config\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{config_8h_ac2ab63b047b256abffc768fcb5da3da3}\label{config_8h_ac2ab63b047b256abffc768fcb5da3da3}} 
+\index{config.h@{config.h}!config\_menu@{config\_menu}}
+\index{config\_menu@{config\_menu}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{config\_menu()}{config\_menu()}}
+{\footnotesize\ttfamily void config\+\_\+menu (\begin{DoxyParamCaption}\item[{bool}]{initial }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{config_8h_ad07bc98685c2c2e7d506040d5b905625}\label{config_8h_ad07bc98685c2c2e7d506040d5b905625}} 
+\index{config.h@{config.h}!initial\_config@{initial\_config}}
+\index{initial\_config@{initial\_config}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{initial\_config()}{initial\_config()}}
+{\footnotesize\ttfamily void initial\+\_\+config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{config_8h_af0fb7ed8fdef3dd43b5daf1795971c49}\label{config_8h_af0fb7ed8fdef3dd43b5daf1795971c49}} 
+\index{config.h@{config.h}!pm\_limit\_lower@{pm\_limit\_lower}}
+\index{pm\_limit\_lower@{pm\_limit\_lower}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{pm\_limit\_lower}{pm\_limit\_lower}}
+{\footnotesize\ttfamily uintptr\+\_\+t pm\+\_\+limit\+\_\+lower\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a2bd50286372866f1ad7ad0e481806c18}\label{config_8h_a2bd50286372866f1ad7ad0e481806c18}} 
+\index{config.h@{config.h}!pm\_limit\_upper@{pm\_limit\_upper}}
+\index{pm\_limit\_upper@{pm\_limit\_upper}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{pm\_limit\_upper}{pm\_limit\_upper}}
+{\footnotesize\ttfamily uintptr\+\_\+t pm\+\_\+limit\+\_\+upper\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_ae3cc3194c43fde39b101aa9c54cf470d}\label{config_8h_ae3cc3194c43fde39b101aa9c54cf470d}} 
+\index{config.h@{config.h}!num\_pages\_to\_test@{num\_pages\_to\_test}}
+\index{num\_pages\_to\_test@{num\_pages\_to\_test}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{num\_pages\_to\_test}{num\_pages\_to\_test}}
+{\footnotesize\ttfamily uintptr\+\_\+t num\+\_\+pages\+\_\+to\+\_\+test\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a0bca97c8f7018a9c7d6e17c87e77d35c}\label{config_8h_a0bca97c8f7018a9c7d6e17c87e77d35c}} 
+\index{config.h@{config.h}!cpu\_mode@{cpu\_mode}}
+\index{cpu\_mode@{cpu\_mode}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{cpu\_mode}{cpu\_mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{config_8h_a6accba797c1e13c0f579a276edfa1529}{cpu\+\_\+mode\+\_\+t}} cpu\+\_\+mode\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a74426ff7ca7f29d0d8694967cbc62d13}\label{config_8h_a74426ff7ca7f29d0d8694967cbc62d13}} 
+\index{config.h@{config.h}!error\_mode@{error\_mode}}
+\index{error\_mode@{error\_mode}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{error\_mode}{error\_mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{config_8h_a91da1a68386ac2106b88d53d31262af0}{error\+\_\+mode\+\_\+t}} error\+\_\+mode\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_aff5d6e34b344119a5edad68147478650}\label{config_8h_aff5d6e34b344119a5edad68147478650}} 
+\index{config.h@{config.h}!cpu\_state@{cpu\_state}}
+\index{cpu\_state@{cpu\_state}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{cpu\_state}{cpu\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\+\_\+state\+\_\+t}} cpu\+\_\+state\mbox{[}\mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\+\_\+\+CPUS}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a6d50480facda5c17915340976e489dbd}\label{config_8h_a6d50480facda5c17915340976e489dbd}} 
+\index{config.h@{config.h}!hybrid\_core\_type@{hybrid\_core\_type}}
+\index{hybrid\_core\_type@{hybrid\_core\_type}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{hybrid\_core\_type}{hybrid\_core\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cpuid_8h_aa7b4db1a2a38f808d3e5b3cedadd0edd}{core\+\_\+type\+\_\+t}} hybrid\+\_\+core\+\_\+type\mbox{[}\mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\+\_\+\+CPUS}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a1b4d8445a43ed63898fc653dea84eff9}\label{config_8h_a1b4d8445a43ed63898fc653dea84eff9}} 
+\index{config.h@{config.h}!exclude\_ecores@{exclude\_ecores}}
+\index{exclude\_ecores@{exclude\_ecores}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{exclude\_ecores}{exclude\_ecores}}
+{\footnotesize\ttfamily bool exclude\+\_\+ecores\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a18b428e18065a3c157fae5d1deff2329}\label{config_8h_a18b428e18065a3c157fae5d1deff2329}} 
+\index{config.h@{config.h}!smp\_enabled@{smp\_enabled}}
+\index{smp\_enabled@{smp\_enabled}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{smp\_enabled}{smp\_enabled}}
+{\footnotesize\ttfamily bool smp\+\_\+enabled\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_aace39e0334644d8761526d7eafbe6fbb}\label{config_8h_aace39e0334644d8761526d7eafbe6fbb}} 
+\index{config.h@{config.h}!enable\_big\_status@{enable\_big\_status}}
+\index{enable\_big\_status@{enable\_big\_status}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{enable\_big\_status}{enable\_big\_status}}
+{\footnotesize\ttfamily bool enable\+\_\+big\+\_\+status\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_acf6ee3250f57c012bf7306021cb39c0b}\label{config_8h_acf6ee3250f57c012bf7306021cb39c0b}} 
+\index{config.h@{config.h}!enable\_temperature@{enable\_temperature}}
+\index{enable\_temperature@{enable\_temperature}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{enable\_temperature}{enable\_temperature}}
+{\footnotesize\ttfamily bool enable\+\_\+temperature\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a47515d03aa3ec4dedbab9618551114db}\label{config_8h_a47515d03aa3ec4dedbab9618551114db}} 
+\index{config.h@{config.h}!enable\_trace@{enable\_trace}}
+\index{enable\_trace@{enable\_trace}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{enable\_trace}{enable\_trace}}
+{\footnotesize\ttfamily bool enable\+\_\+trace\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a48de2a4e4eaa6254876e1e58a7a59dd6}\label{config_8h_a48de2a4e4eaa6254876e1e58a7a59dd6}} 
+\index{config.h@{config.h}!enable\_sm@{enable\_sm}}
+\index{enable\_sm@{enable\_sm}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{enable\_sm}{enable\_sm}}
+{\footnotesize\ttfamily bool enable\+\_\+sm\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_aa5c8828730c86eb8308c8332eb38c826}\label{config_8h_aa5c8828730c86eb8308c8332eb38c826}} 
+\index{config.h@{config.h}!enable\_tty@{enable\_tty}}
+\index{enable\_tty@{enable\_tty}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{enable\_tty}{enable\_tty}}
+{\footnotesize\ttfamily bool enable\+\_\+tty\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a46ce955d549193371ad66c6949d2d9db}\label{config_8h_a46ce955d549193371ad66c6949d2d9db}} 
+\index{config.h@{config.h}!enable\_bench@{enable\_bench}}
+\index{enable\_bench@{enable\_bench}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{enable\_bench}{enable\_bench}}
+{\footnotesize\ttfamily bool enable\+\_\+bench\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a140010851487510b70e7d52653546742}\label{config_8h_a140010851487510b70e7d52653546742}} 
+\index{config.h@{config.h}!pause\_at\_start@{pause\_at\_start}}
+\index{pause\_at\_start@{pause\_at\_start}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{pause\_at\_start}{pause\_at\_start}}
+{\footnotesize\ttfamily bool pause\+\_\+at\+\_\+start\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a7bf1aa08750a27c39b779d79daccf3a8}\label{config_8h_a7bf1aa08750a27c39b779d79daccf3a8}} 
+\index{config.h@{config.h}!power\_save@{power\_save}}
+\index{power\_save@{power\_save}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{power\_save}{power\_save}}
+{\footnotesize\ttfamily \mbox{\hyperlink{config_8h_a29e5f2400a3334f28c45baf42ffa60ad}{power\+\_\+save\+\_\+t}} power\+\_\+save\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_ae903c30516f416ac3563e9031a59c9ee}\label{config_8h_ae903c30516f416ac3563e9031a59c9ee}} 
+\index{config.h@{config.h}!tty\_params\_port@{tty\_params\_port}}
+\index{tty\_params\_port@{tty\_params\_port}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{tty\_params\_port}{tty\_params\_port}}
+{\footnotesize\ttfamily int tty\+\_\+params\+\_\+port\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a5339e00e79dbb04c19ffe41f0b3f2779}\label{config_8h_a5339e00e79dbb04c19ffe41f0b3f2779}} 
+\index{config.h@{config.h}!tty\_params\_baud@{tty\_params\_baud}}
+\index{tty\_params\_baud@{tty\_params\_baud}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{tty\_params\_baud}{tty\_params\_baud}}
+{\footnotesize\ttfamily int tty\+\_\+params\+\_\+baud\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a22914f8ec578dea46477666508c84413}\label{config_8h_a22914f8ec578dea46477666508c84413}} 
+\index{config.h@{config.h}!tty\_update\_period@{tty\_update\_period}}
+\index{tty\_update\_period@{tty\_update\_period}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{tty\_update\_period}{tty\_update\_period}}
+{\footnotesize\ttfamily int tty\+\_\+update\+\_\+period\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{config_8h_a3a0a976867e0a6d25c1fdafea7df7bd6}\label{config_8h_a3a0a976867e0a6d25c1fdafea7df7bd6}} 
+\index{config.h@{config.h}!err\_banner\_redraw@{err\_banner\_redraw}}
+\index{err\_banner\_redraw@{err\_banner\_redraw}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{err\_banner\_redraw}{err\_banner\_redraw}}
+{\footnotesize\ttfamily bool err\+\_\+banner\+\_\+redraw\hspace{0.3cm}{\ttfamily [extern]}}
+

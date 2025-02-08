@@ -1,0 +1,327 @@
+\hypertarget{boot_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/boot/boot.h File Reference}
+\label{boot_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/boot.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/boot.h}}
+
+
+Provides definitions used in the boot code.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{boot_8h_ae345353a25ae903e76ec3c872d035ca9}{MAX\+\_\+\+APS}}~255  /$\ast$ Maximum number of active APs $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a953a34ce9e4424e8fdb58c0f1710d8ab}{BSP\+\_\+\+STACK\+\_\+\+SIZE}}~16384  /$\ast$ Stack size for the BSP $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_ade18b1ce648b106279551b6dcc7d590f}{AP\+\_\+\+STACK\+\_\+\+SIZE}}~1024  /$\ast$ Stack size for each AP $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a962d4ae679eede10df77da315a278470}{STACKS\+\_\+\+SIZE}}~(\mbox{\hyperlink{boot_8h_a953a34ce9e4424e8fdb58c0f1710d8ab}{BSP\+\_\+\+STACK\+\_\+\+SIZE}} + \mbox{\hyperlink{boot_8h_ae345353a25ae903e76ec3c872d035ca9}{MAX\+\_\+\+APS}} $\ast$ \mbox{\hyperlink{boot_8h_ade18b1ce648b106279551b6dcc7d590f}{AP\+\_\+\+STACK\+\_\+\+SIZE}})
+\item 
+\#define \mbox{\hyperlink{boot_8h_a957685732e67ed144b0871bfd5294f01}{LOCALS\+\_\+\+SIZE}}~16  /$\ast$ Stack region reserved for thread-\/local storage $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_ac73229711d74e470e41081589f22103b}{LOW\+\_\+\+LOAD\+\_\+\+ADDR}}~0x00010000 /$\ast$ The low  load address for the main program $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a6f70c4729afaf5d98918e510980c3330}{HIGH\+\_\+\+LOAD\+\_\+\+ADDR}}~0x00100000 /$\ast$ The high load address for the main program $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a71344fc871bd38e6bfba864e6c027688}{SETUP\+\_\+\+SECS}}~2  /$\ast$ Size of the 16-\/bit setup code in sectors $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a14b8342013707791dbe24f6133e222e4}{BOOT\+\_\+\+SEG}}~0x07c0  /$\ast$ Segment address for the 16-\/bit boot code $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a7ef8d68836995e5ff6c46e8972a1149a}{SETUP\+\_\+\+SEG}}~0x07e0  /$\ast$ Segment address for the 16-\/bit setup code $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a085292b4586ced582fb5e36bab0baadd}{MAIN\+\_\+\+SEG}}
+\item 
+\#define \mbox{\hyperlink{boot_8h_ab0b69b822e9207a5960bc07fc3d36ee4}{KERNEL\+\_\+\+CS}}~0x10  /$\ast$ 32-\/bit segment address for code $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a9ab64d7031c0d5cca5b5cca826c4ce63}{KERNEL\+\_\+\+DS}}~0x18  /$\ast$ 32-\/bit segment address for data $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a7143386ef1d056dbfcc198535db2abbf}{BOOT\+\_\+\+STACK}}~((1 + \mbox{\hyperlink{boot_8h_a71344fc871bd38e6bfba864e6c027688}{SETUP\+\_\+\+SECS}}) $\ast$ 512)
+\item 
+\#define \mbox{\hyperlink{boot_8h_ad86453f04d5f70804434e926a2f9e5d4}{BOOT\+\_\+\+STACK\+\_\+\+TOP}}~((\mbox{\hyperlink{boot_8h_a085292b4586ced582fb5e36bab0baadd}{MAIN\+\_\+\+SEG}} -\/ \mbox{\hyperlink{boot_8h_a14b8342013707791dbe24f6133e222e4}{BOOT\+\_\+\+SEG}}) $<$$<$ 4)
+\item 
+\#define \mbox{\hyperlink{boot_8h_a1748687e202aa32383d48a50362d98e7}{E820\+\_\+\+ENTRIES}}~0x1e8  /$\ast$ offsetof(boot\+\_\+params.\+e820\+\_\+entries) $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a73b0041ed4cb6341d2305a2dcb7b1abf}{E820\+\_\+\+MAP}}~0x2d0  /$\ast$ offsetof(boot\+\_\+params.\+e820\+\_\+table) $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a23b1e3eb12d037f8f43d481b190d0fbb}{E820\+\_\+\+MAP\+\_\+\+SIZE}}~128  /$\ast$ max. number of entries in \mbox{\hyperlink{boot_8h_a73b0041ed4cb6341d2305a2dcb7b1abf}{E820\+\_\+\+MAP}} $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_ad2ac04ab348d915e2f59218cb9ebf0bd}{E820\+\_\+\+ADDR}}~0  /$\ast$ offsetof(e820\+\_\+entry.\+addr) $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a0eb20f056dcafc710ab4dc250492769c}{E820\+\_\+\+SIZE}}~8  /$\ast$ offsetof(e820\+\_\+entry.\+size) $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_a03e69affa0404a5ac8e448fcf570262e}{E820\+\_\+\+TYPE}}~16  /$\ast$ offsetof(e820\+\_\+entry.\+type) $\ast$/
+\item 
+\#define \mbox{\hyperlink{boot_8h_af6a2d661053264fde5a007c54b3ce42f}{E820\+\_\+\+ENTRY\+\_\+\+SIZE}}~20  /$\ast$ sizeof(e820\+\_\+entry) $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{boot_8h_abc5d8cce57627e70764b6b9299cd88e1}{\+\_\+start}} \mbox{[}$\,$\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{boot_8h_a480b18cf6ea05f1d6d45686347ce011d}{startup32}} \mbox{[}$\,$\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{boot_8h_acae358fa68697070cccfd9b9b6a9f4a1}{startup}} \mbox{[}$\,$\mbox{]}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{boot_8h_a3a6d7602eadf628dadeff9df8da7a061}{pml4}} \mbox{[}$\,$\mbox{]}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{boot_8h_aa7f08190316aaf40401ca5b9e34fc504}{pdp}} \mbox{[}$\,$\mbox{]}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{boot_8h_a218bee5cf2e4d3938c5563eb0b13ef8b}{pd0}} \mbox{[}$\,$\mbox{]}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{boot_8h_ac4bd5f4d59a2750f3855711819cfcb9b}{pd1}} \mbox{[}$\,$\mbox{]}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{boot_8h_a121c48bfc77fe2acfe9bfd714defec92}{pd2}} \mbox{[}$\,$\mbox{]}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{boot_8h_a2e1f0110dd506c1f7b05a4eb0e1df7f4}{pd3}} \mbox{[}$\,$\mbox{]}
+\item 
+uintptr\+\_\+t \mbox{\hyperlink{boot_8h_a78381fcc4d8a9f25b4fd343ce5b6b23a}{boot\+\_\+params\+\_\+addr}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{boot_8h_a438ad0007e67e01b383b001c5d5b40d3}{ap\+\_\+trampoline}} \mbox{[}$\,$\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{boot_8h_a13007afcbf46865e7821ea683fe4cf93}{ap\+\_\+startup\+\_\+addr}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{boot_8h_a96a0fbc6674d3e8f3c97d3cfd2c7ea93}{ap\+\_\+trampoline\+\_\+end}} \mbox{[}$\,$\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{boot_8h_adec5814e94d23d406012226113940fe0}{\+\_\+stacks}} \mbox{[}$\,$\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{boot_8h_aa1b10ac1837d70adf95e7bd722f31b22}{\+\_\+end}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides definitions used in the boot code. 
+
+Also defines exported symbols needed in the main code. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{boot_8h_ae345353a25ae903e76ec3c872d035ca9}\label{boot_8h_ae345353a25ae903e76ec3c872d035ca9}} 
+\index{boot.h@{boot.h}!MAX\_APS@{MAX\_APS}}
+\index{MAX\_APS@{MAX\_APS}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_APS}{MAX\_APS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+APS~255  /$\ast$ Maximum number of active APs $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a953a34ce9e4424e8fdb58c0f1710d8ab}\label{boot_8h_a953a34ce9e4424e8fdb58c0f1710d8ab}} 
+\index{boot.h@{boot.h}!BSP\_STACK\_SIZE@{BSP\_STACK\_SIZE}}
+\index{BSP\_STACK\_SIZE@{BSP\_STACK\_SIZE}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_STACK\_SIZE}{BSP\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define BSP\+\_\+\+STACK\+\_\+\+SIZE~16384  /$\ast$ Stack size for the BSP $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_ade18b1ce648b106279551b6dcc7d590f}\label{boot_8h_ade18b1ce648b106279551b6dcc7d590f}} 
+\index{boot.h@{boot.h}!AP\_STACK\_SIZE@{AP\_STACK\_SIZE}}
+\index{AP\_STACK\_SIZE@{AP\_STACK\_SIZE}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{AP\_STACK\_SIZE}{AP\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define AP\+\_\+\+STACK\+\_\+\+SIZE~1024  /$\ast$ Stack size for each AP $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a962d4ae679eede10df77da315a278470}\label{boot_8h_a962d4ae679eede10df77da315a278470}} 
+\index{boot.h@{boot.h}!STACKS\_SIZE@{STACKS\_SIZE}}
+\index{STACKS\_SIZE@{STACKS\_SIZE}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{STACKS\_SIZE}{STACKS\_SIZE}}
+{\footnotesize\ttfamily \#define STACKS\+\_\+\+SIZE~(\mbox{\hyperlink{boot_8h_a953a34ce9e4424e8fdb58c0f1710d8ab}{BSP\+\_\+\+STACK\+\_\+\+SIZE}} + \mbox{\hyperlink{boot_8h_ae345353a25ae903e76ec3c872d035ca9}{MAX\+\_\+\+APS}} $\ast$ \mbox{\hyperlink{boot_8h_ade18b1ce648b106279551b6dcc7d590f}{AP\+\_\+\+STACK\+\_\+\+SIZE}})}
+
+\mbox{\Hypertarget{boot_8h_a957685732e67ed144b0871bfd5294f01}\label{boot_8h_a957685732e67ed144b0871bfd5294f01}} 
+\index{boot.h@{boot.h}!LOCALS\_SIZE@{LOCALS\_SIZE}}
+\index{LOCALS\_SIZE@{LOCALS\_SIZE}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{LOCALS\_SIZE}{LOCALS\_SIZE}}
+{\footnotesize\ttfamily \#define LOCALS\+\_\+\+SIZE~16  /$\ast$ Stack region reserved for thread-\/local storage $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_ac73229711d74e470e41081589f22103b}\label{boot_8h_ac73229711d74e470e41081589f22103b}} 
+\index{boot.h@{boot.h}!LOW\_LOAD\_ADDR@{LOW\_LOAD\_ADDR}}
+\index{LOW\_LOAD\_ADDR@{LOW\_LOAD\_ADDR}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{LOW\_LOAD\_ADDR}{LOW\_LOAD\_ADDR}}
+{\footnotesize\ttfamily \#define LOW\+\_\+\+LOAD\+\_\+\+ADDR~0x00010000 /$\ast$ The low  load address for the main program $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a6f70c4729afaf5d98918e510980c3330}\label{boot_8h_a6f70c4729afaf5d98918e510980c3330}} 
+\index{boot.h@{boot.h}!HIGH\_LOAD\_ADDR@{HIGH\_LOAD\_ADDR}}
+\index{HIGH\_LOAD\_ADDR@{HIGH\_LOAD\_ADDR}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{HIGH\_LOAD\_ADDR}{HIGH\_LOAD\_ADDR}}
+{\footnotesize\ttfamily \#define HIGH\+\_\+\+LOAD\+\_\+\+ADDR~0x00100000 /$\ast$ The high load address for the main program $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a71344fc871bd38e6bfba864e6c027688}\label{boot_8h_a71344fc871bd38e6bfba864e6c027688}} 
+\index{boot.h@{boot.h}!SETUP\_SECS@{SETUP\_SECS}}
+\index{SETUP\_SECS@{SETUP\_SECS}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{SETUP\_SECS}{SETUP\_SECS}}
+{\footnotesize\ttfamily \#define SETUP\+\_\+\+SECS~2  /$\ast$ Size of the 16-\/bit setup code in sectors $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a14b8342013707791dbe24f6133e222e4}\label{boot_8h_a14b8342013707791dbe24f6133e222e4}} 
+\index{boot.h@{boot.h}!BOOT\_SEG@{BOOT\_SEG}}
+\index{BOOT\_SEG@{BOOT\_SEG}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{BOOT\_SEG}{BOOT\_SEG}}
+{\footnotesize\ttfamily \#define BOOT\+\_\+\+SEG~0x07c0  /$\ast$ Segment address for the 16-\/bit boot code $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a7ef8d68836995e5ff6c46e8972a1149a}\label{boot_8h_a7ef8d68836995e5ff6c46e8972a1149a}} 
+\index{boot.h@{boot.h}!SETUP\_SEG@{SETUP\_SEG}}
+\index{SETUP\_SEG@{SETUP\_SEG}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{SETUP\_SEG}{SETUP\_SEG}}
+{\footnotesize\ttfamily \#define SETUP\+\_\+\+SEG~0x07e0  /$\ast$ Segment address for the 16-\/bit setup code $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a085292b4586ced582fb5e36bab0baadd}\label{boot_8h_a085292b4586ced582fb5e36bab0baadd}} 
+\index{boot.h@{boot.h}!MAIN\_SEG@{MAIN\_SEG}}
+\index{MAIN\_SEG@{MAIN\_SEG}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{MAIN\_SEG}{MAIN\_SEG}}
+{\footnotesize\ttfamily \#define MAIN\+\_\+\+SEG}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                       0x1000       \textcolor{comment}{/* Segment address for the main program code}}
+\DoxyCodeLine{\textcolor{comment}{                       when loaded by the 16-\/bit bootloader */}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{boot_8h_ab0b69b822e9207a5960bc07fc3d36ee4}\label{boot_8h_ab0b69b822e9207a5960bc07fc3d36ee4}} 
+\index{boot.h@{boot.h}!KERNEL\_CS@{KERNEL\_CS}}
+\index{KERNEL\_CS@{KERNEL\_CS}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_CS}{KERNEL\_CS}}
+{\footnotesize\ttfamily \#define KERNEL\+\_\+\+CS~0x10  /$\ast$ 32-\/bit segment address for code $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a9ab64d7031c0d5cca5b5cca826c4ce63}\label{boot_8h_a9ab64d7031c0d5cca5b5cca826c4ce63}} 
+\index{boot.h@{boot.h}!KERNEL\_DS@{KERNEL\_DS}}
+\index{KERNEL\_DS@{KERNEL\_DS}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_DS}{KERNEL\_DS}}
+{\footnotesize\ttfamily \#define KERNEL\+\_\+\+DS~0x18  /$\ast$ 32-\/bit segment address for data $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a7143386ef1d056dbfcc198535db2abbf}\label{boot_8h_a7143386ef1d056dbfcc198535db2abbf}} 
+\index{boot.h@{boot.h}!BOOT\_STACK@{BOOT\_STACK}}
+\index{BOOT\_STACK@{BOOT\_STACK}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{BOOT\_STACK}{BOOT\_STACK}}
+{\footnotesize\ttfamily \#define BOOT\+\_\+\+STACK~((1 + \mbox{\hyperlink{boot_8h_a71344fc871bd38e6bfba864e6c027688}{SETUP\+\_\+\+SECS}}) $\ast$ 512)}
+
+\mbox{\Hypertarget{boot_8h_ad86453f04d5f70804434e926a2f9e5d4}\label{boot_8h_ad86453f04d5f70804434e926a2f9e5d4}} 
+\index{boot.h@{boot.h}!BOOT\_STACK\_TOP@{BOOT\_STACK\_TOP}}
+\index{BOOT\_STACK\_TOP@{BOOT\_STACK\_TOP}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{BOOT\_STACK\_TOP}{BOOT\_STACK\_TOP}}
+{\footnotesize\ttfamily \#define BOOT\+\_\+\+STACK\+\_\+\+TOP~((\mbox{\hyperlink{boot_8h_a085292b4586ced582fb5e36bab0baadd}{MAIN\+\_\+\+SEG}} -\/ \mbox{\hyperlink{boot_8h_a14b8342013707791dbe24f6133e222e4}{BOOT\+\_\+\+SEG}}) $<$$<$ 4)}
+
+\mbox{\Hypertarget{boot_8h_a1748687e202aa32383d48a50362d98e7}\label{boot_8h_a1748687e202aa32383d48a50362d98e7}} 
+\index{boot.h@{boot.h}!E820\_ENTRIES@{E820\_ENTRIES}}
+\index{E820\_ENTRIES@{E820\_ENTRIES}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{E820\_ENTRIES}{E820\_ENTRIES}}
+{\footnotesize\ttfamily \#define E820\+\_\+\+ENTRIES~0x1e8  /$\ast$ offsetof(boot\+\_\+params.\+e820\+\_\+entries) $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a73b0041ed4cb6341d2305a2dcb7b1abf}\label{boot_8h_a73b0041ed4cb6341d2305a2dcb7b1abf}} 
+\index{boot.h@{boot.h}!E820\_MAP@{E820\_MAP}}
+\index{E820\_MAP@{E820\_MAP}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{E820\_MAP}{E820\_MAP}}
+{\footnotesize\ttfamily \#define E820\+\_\+\+MAP~0x2d0  /$\ast$ offsetof(boot\+\_\+params.\+e820\+\_\+table) $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a23b1e3eb12d037f8f43d481b190d0fbb}\label{boot_8h_a23b1e3eb12d037f8f43d481b190d0fbb}} 
+\index{boot.h@{boot.h}!E820\_MAP\_SIZE@{E820\_MAP\_SIZE}}
+\index{E820\_MAP\_SIZE@{E820\_MAP\_SIZE}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{E820\_MAP\_SIZE}{E820\_MAP\_SIZE}}
+{\footnotesize\ttfamily \#define E820\+\_\+\+MAP\+\_\+\+SIZE~128  /$\ast$ max. number of entries in \mbox{\hyperlink{boot_8h_a73b0041ed4cb6341d2305a2dcb7b1abf}{E820\+\_\+\+MAP}} $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_ad2ac04ab348d915e2f59218cb9ebf0bd}\label{boot_8h_ad2ac04ab348d915e2f59218cb9ebf0bd}} 
+\index{boot.h@{boot.h}!E820\_ADDR@{E820\_ADDR}}
+\index{E820\_ADDR@{E820\_ADDR}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{E820\_ADDR}{E820\_ADDR}}
+{\footnotesize\ttfamily \#define E820\+\_\+\+ADDR~0  /$\ast$ offsetof(e820\+\_\+entry.\+addr) $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a0eb20f056dcafc710ab4dc250492769c}\label{boot_8h_a0eb20f056dcafc710ab4dc250492769c}} 
+\index{boot.h@{boot.h}!E820\_SIZE@{E820\_SIZE}}
+\index{E820\_SIZE@{E820\_SIZE}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{E820\_SIZE}{E820\_SIZE}}
+{\footnotesize\ttfamily \#define E820\+\_\+\+SIZE~8  /$\ast$ offsetof(e820\+\_\+entry.\+size) $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_a03e69affa0404a5ac8e448fcf570262e}\label{boot_8h_a03e69affa0404a5ac8e448fcf570262e}} 
+\index{boot.h@{boot.h}!E820\_TYPE@{E820\_TYPE}}
+\index{E820\_TYPE@{E820\_TYPE}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{E820\_TYPE}{E820\_TYPE}}
+{\footnotesize\ttfamily \#define E820\+\_\+\+TYPE~16  /$\ast$ offsetof(e820\+\_\+entry.\+type) $\ast$/}
+
+\mbox{\Hypertarget{boot_8h_af6a2d661053264fde5a007c54b3ce42f}\label{boot_8h_af6a2d661053264fde5a007c54b3ce42f}} 
+\index{boot.h@{boot.h}!E820\_ENTRY\_SIZE@{E820\_ENTRY\_SIZE}}
+\index{E820\_ENTRY\_SIZE@{E820\_ENTRY\_SIZE}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{E820\_ENTRY\_SIZE}{E820\_ENTRY\_SIZE}}
+{\footnotesize\ttfamily \#define E820\+\_\+\+ENTRY\+\_\+\+SIZE~20  /$\ast$ sizeof(e820\+\_\+entry) $\ast$/}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{boot_8h_abc5d8cce57627e70764b6b9299cd88e1}\label{boot_8h_abc5d8cce57627e70764b6b9299cd88e1}} 
+\index{boot.h@{boot.h}!\_start@{\_start}}
+\index{\_start@{\_start}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{\_start}{\_start}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+start\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a480b18cf6ea05f1d6d45686347ce011d}\label{boot_8h_a480b18cf6ea05f1d6d45686347ce011d}} 
+\index{boot.h@{boot.h}!startup32@{startup32}}
+\index{startup32@{startup32}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{startup32}{startup32}}
+{\footnotesize\ttfamily uint8\+\_\+t startup32\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_acae358fa68697070cccfd9b9b6a9f4a1}\label{boot_8h_acae358fa68697070cccfd9b9b6a9f4a1}} 
+\index{boot.h@{boot.h}!startup@{startup}}
+\index{startup@{startup}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{startup}{startup}}
+{\footnotesize\ttfamily uint8\+\_\+t startup\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a3a6d7602eadf628dadeff9df8da7a061}\label{boot_8h_a3a6d7602eadf628dadeff9df8da7a061}} 
+\index{boot.h@{boot.h}!pml4@{pml4}}
+\index{pml4@{pml4}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{pml4}{pml4}}
+{\footnotesize\ttfamily uint64\+\_\+t pml4\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_aa7f08190316aaf40401ca5b9e34fc504}\label{boot_8h_aa7f08190316aaf40401ca5b9e34fc504}} 
+\index{boot.h@{boot.h}!pdp@{pdp}}
+\index{pdp@{pdp}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{pdp}{pdp}}
+{\footnotesize\ttfamily uint64\+\_\+t pdp\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a218bee5cf2e4d3938c5563eb0b13ef8b}\label{boot_8h_a218bee5cf2e4d3938c5563eb0b13ef8b}} 
+\index{boot.h@{boot.h}!pd0@{pd0}}
+\index{pd0@{pd0}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{pd0}{pd0}}
+{\footnotesize\ttfamily uint64\+\_\+t pd0\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_ac4bd5f4d59a2750f3855711819cfcb9b}\label{boot_8h_ac4bd5f4d59a2750f3855711819cfcb9b}} 
+\index{boot.h@{boot.h}!pd1@{pd1}}
+\index{pd1@{pd1}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{pd1}{pd1}}
+{\footnotesize\ttfamily uint64\+\_\+t pd1\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a121c48bfc77fe2acfe9bfd714defec92}\label{boot_8h_a121c48bfc77fe2acfe9bfd714defec92}} 
+\index{boot.h@{boot.h}!pd2@{pd2}}
+\index{pd2@{pd2}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{pd2}{pd2}}
+{\footnotesize\ttfamily uint64\+\_\+t pd2\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a2e1f0110dd506c1f7b05a4eb0e1df7f4}\label{boot_8h_a2e1f0110dd506c1f7b05a4eb0e1df7f4}} 
+\index{boot.h@{boot.h}!pd3@{pd3}}
+\index{pd3@{pd3}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{pd3}{pd3}}
+{\footnotesize\ttfamily uint64\+\_\+t pd3\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a78381fcc4d8a9f25b4fd343ce5b6b23a}\label{boot_8h_a78381fcc4d8a9f25b4fd343ce5b6b23a}} 
+\index{boot.h@{boot.h}!boot\_params\_addr@{boot\_params\_addr}}
+\index{boot\_params\_addr@{boot\_params\_addr}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{boot\_params\_addr}{boot\_params\_addr}}
+{\footnotesize\ttfamily uintptr\+\_\+t boot\+\_\+params\+\_\+addr\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a438ad0007e67e01b383b001c5d5b40d3}\label{boot_8h_a438ad0007e67e01b383b001c5d5b40d3}} 
+\index{boot.h@{boot.h}!ap\_trampoline@{ap\_trampoline}}
+\index{ap\_trampoline@{ap\_trampoline}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{ap\_trampoline}{ap\_trampoline}}
+{\footnotesize\ttfamily uint8\+\_\+t ap\+\_\+trampoline\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a13007afcbf46865e7821ea683fe4cf93}\label{boot_8h_a13007afcbf46865e7821ea683fe4cf93}} 
+\index{boot.h@{boot.h}!ap\_startup\_addr@{ap\_startup\_addr}}
+\index{ap\_startup\_addr@{ap\_startup\_addr}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{ap\_startup\_addr}{ap\_startup\_addr}}
+{\footnotesize\ttfamily uint32\+\_\+t ap\+\_\+startup\+\_\+addr\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_a96a0fbc6674d3e8f3c97d3cfd2c7ea93}\label{boot_8h_a96a0fbc6674d3e8f3c97d3cfd2c7ea93}} 
+\index{boot.h@{boot.h}!ap\_trampoline\_end@{ap\_trampoline\_end}}
+\index{ap\_trampoline\_end@{ap\_trampoline\_end}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{ap\_trampoline\_end}{ap\_trampoline\_end}}
+{\footnotesize\ttfamily uint8\+\_\+t ap\+\_\+trampoline\+\_\+end\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_adec5814e94d23d406012226113940fe0}\label{boot_8h_adec5814e94d23d406012226113940fe0}} 
+\index{boot.h@{boot.h}!\_stacks@{\_stacks}}
+\index{\_stacks@{\_stacks}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{\_stacks}{\_stacks}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+stacks\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{boot_8h_aa1b10ac1837d70adf95e7bd722f31b22}\label{boot_8h_aa1b10ac1837d70adf95e7bd722f31b22}} 
+\index{boot.h@{boot.h}!\_end@{\_end}}
+\index{\_end@{\_end}!boot.h@{boot.h}}
+\doxysubsubsection{\texorpdfstring{\_end}{\_end}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+end\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

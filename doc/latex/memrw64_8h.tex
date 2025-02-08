@@ -1,0 +1,56 @@
+\hypertarget{memrw64_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/memrw64.h File Reference}
+\label{memrw64_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memrw64.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/memrw64.h}}
+
+
+Provides some 64-\/bit memory access functions.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint64\+\_\+t \mbox{\hyperlink{memrw64_8h_a742a27bbbc6e13fc943e9a9f4b8c189f}{read64}} (const volatile uint64\+\_\+t $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Reads and returns the value stored in the 64-\/bit memory location pointed to by ptr. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{memrw64_8h_a3dbff4439600a76fcdc784afae6c8cae}{write64}} (const volatile uint64\+\_\+t $\ast$ptr, uint64\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Writes val to the 64-\/bit memory location pointed to by ptr. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{memrw64_8h_a84d8321d34fce03dc327493f367dc222}{flush64}} (const volatile uint64\+\_\+t $\ast$ptr, uint64\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Writes val to the 64-\/bit memory location pointed to by ptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides some 64-\/bit memory access functions. 
+
+These stop the compiler optimizing accesses which need to be ordered and atomic. Mostly used for accessing memory-\/mapped hardware registers. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{memrw64_8h_a742a27bbbc6e13fc943e9a9f4b8c189f}\label{memrw64_8h_a742a27bbbc6e13fc943e9a9f4b8c189f}} 
+\index{memrw64.h@{memrw64.h}!read64@{read64}}
+\index{read64@{read64}!memrw64.h@{memrw64.h}}
+\doxysubsubsection{\texorpdfstring{read64()}{read64()}}
+{\footnotesize\ttfamily static uint64\+\_\+t read64 (\begin{DoxyParamCaption}\item[{const volatile uint64\+\_\+t $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Reads and returns the value stored in the 64-\/bit memory location pointed to by ptr. 
+
+\mbox{\Hypertarget{memrw64_8h_a3dbff4439600a76fcdc784afae6c8cae}\label{memrw64_8h_a3dbff4439600a76fcdc784afae6c8cae}} 
+\index{memrw64.h@{memrw64.h}!write64@{write64}}
+\index{write64@{write64}!memrw64.h@{memrw64.h}}
+\doxysubsubsection{\texorpdfstring{write64()}{write64()}}
+{\footnotesize\ttfamily static void write64 (\begin{DoxyParamCaption}\item[{const volatile uint64\+\_\+t $\ast$}]{ptr,  }\item[{uint64\+\_\+t}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Writes val to the 64-\/bit memory location pointed to by ptr. 
+
+\mbox{\Hypertarget{memrw64_8h_a84d8321d34fce03dc327493f367dc222}\label{memrw64_8h_a84d8321d34fce03dc327493f367dc222}} 
+\index{memrw64.h@{memrw64.h}!flush64@{flush64}}
+\index{flush64@{flush64}!memrw64.h@{memrw64.h}}
+\doxysubsubsection{\texorpdfstring{flush64()}{flush64()}}
+{\footnotesize\ttfamily static void flush64 (\begin{DoxyParamCaption}\item[{const volatile uint64\+\_\+t $\ast$}]{ptr,  }\item[{uint64\+\_\+t}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Writes val to the 64-\/bit memory location pointed to by ptr. 
+
+Reads it back (and discards it) to ensure the write is complete. 

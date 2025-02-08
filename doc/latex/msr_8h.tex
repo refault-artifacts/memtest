@@ -1,0 +1,166 @@
+\hypertarget{msr_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/msr.h File Reference}
+\label{msr_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/msr.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/msr.h}}
+
+
+Provides access to the CPU machine-\/specific registers.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{msr_8h_a30d76dc344070f55f35daa5f99d92898}{MSR\+\_\+\+PLATFORM\+\_\+\+INFO}}~0xce
+\item 
+\#define \mbox{\hyperlink{msr_8h_ae2fafcb20ab526203a70a0bf63d9446b}{MSR\+\_\+\+EBC\+\_\+\+FREQUENCY\+\_\+\+ID}}~0x2c
+\item 
+\#define \mbox{\hyperlink{msr_8h_a2bd2b1cf6cc8b68d31846b5ae8db6423}{MSR\+\_\+\+IA32\+\_\+\+PLATFORM\+\_\+\+ID}}~0x17
+\item 
+\#define \mbox{\hyperlink{msr_8h_a49318f6758d72a0279797a7821f95ff0}{MSR\+\_\+\+IA32\+\_\+\+APIC\+\_\+\+BASE}}~0x1b
+\item 
+\#define \mbox{\hyperlink{msr_8h_a6642a518367acc32329a3baa0cb49145}{MSR\+\_\+\+IA32\+\_\+\+EBL\+\_\+\+CR\+\_\+\+POWERON}}~0x2a
+\item 
+\#define \mbox{\hyperlink{msr_8h_abf817c21b6355e1a94f4a6a151d0bd37}{MSR\+\_\+\+IA32\+\_\+\+MCG\+\_\+\+CTL}}~0x17b
+\item 
+\#define \mbox{\hyperlink{msr_8h_afa364b9bc12f75f7a161eb3790dfe60d}{MSR\+\_\+\+IA32\+\_\+\+PERF\+\_\+\+STATUS}}~0x198
+\item 
+\#define \mbox{\hyperlink{msr_8h_a3940bd7e7cc81fd9476152b71e29ea7b}{MSR\+\_\+\+IA32\+\_\+\+THERM\+\_\+\+STATUS}}~0x19c
+\item 
+\#define \mbox{\hyperlink{msr_8h_a0ef09f5b6d38dc5c73f827206977f731}{MSR\+\_\+\+IA32\+\_\+\+TEMPERATURE\+\_\+\+TARGET}}~0x1a2
+\item 
+\#define \mbox{\hyperlink{msr_8h_a6ccbf4c3059a646738b4ec7ffffe372d}{MSR\+\_\+\+EFER}}~0xc0000080
+\item 
+\#define \mbox{\hyperlink{msr_8h_a53b936bf70fbc31e9823aacb35114ba8}{MSR\+\_\+\+K7\+\_\+\+HWCR}}~0xc0010015
+\item 
+\#define \mbox{\hyperlink{msr_8h_abb0be0827e822bc2a73588abc1827ad1}{MSR\+\_\+\+K7\+\_\+\+VID\+\_\+\+STATUS}}~0xc0010042
+\item 
+\#define \mbox{\hyperlink{msr_8h_ab6b20bd531d8be8de1cf61dcc3471fbe}{MSR\+\_\+\+AMD64\+\_\+\+NB\+\_\+\+CFG}}~0xc001001f
+\item 
+\#define \mbox{\hyperlink{msr_8h_aff2bbbf6c7da5b891cb3ae2c1edb50f8}{MSR\+\_\+\+AMD64\+\_\+\+COFVID\+\_\+\+STATUS}}~0xc0010071
+\item 
+\#define \mbox{\hyperlink{msr_8h_a85b773de1e1a1abcf75d051f58db8f54}{rdmsr}}(msr,  value1,  value2)
+\item 
+\#define \mbox{\hyperlink{msr_8h_a4ae895806910ad87b3b98264187fdebb}{wrmsr}}(msr,  value1,  value2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides access to the CPU machine-\/specific registers. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{msr_8h_a30d76dc344070f55f35daa5f99d92898}\label{msr_8h_a30d76dc344070f55f35daa5f99d92898}} 
+\index{msr.h@{msr.h}!MSR\_PLATFORM\_INFO@{MSR\_PLATFORM\_INFO}}
+\index{MSR\_PLATFORM\_INFO@{MSR\_PLATFORM\_INFO}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_PLATFORM\_INFO}{MSR\_PLATFORM\_INFO}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+PLATFORM\+\_\+\+INFO~0xce}
+
+\mbox{\Hypertarget{msr_8h_ae2fafcb20ab526203a70a0bf63d9446b}\label{msr_8h_ae2fafcb20ab526203a70a0bf63d9446b}} 
+\index{msr.h@{msr.h}!MSR\_EBC\_FREQUENCY\_ID@{MSR\_EBC\_FREQUENCY\_ID}}
+\index{MSR\_EBC\_FREQUENCY\_ID@{MSR\_EBC\_FREQUENCY\_ID}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_EBC\_FREQUENCY\_ID}{MSR\_EBC\_FREQUENCY\_ID}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+EBC\+\_\+\+FREQUENCY\+\_\+\+ID~0x2c}
+
+\mbox{\Hypertarget{msr_8h_a2bd2b1cf6cc8b68d31846b5ae8db6423}\label{msr_8h_a2bd2b1cf6cc8b68d31846b5ae8db6423}} 
+\index{msr.h@{msr.h}!MSR\_IA32\_PLATFORM\_ID@{MSR\_IA32\_PLATFORM\_ID}}
+\index{MSR\_IA32\_PLATFORM\_ID@{MSR\_IA32\_PLATFORM\_ID}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_IA32\_PLATFORM\_ID}{MSR\_IA32\_PLATFORM\_ID}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+IA32\+\_\+\+PLATFORM\+\_\+\+ID~0x17}
+
+\mbox{\Hypertarget{msr_8h_a49318f6758d72a0279797a7821f95ff0}\label{msr_8h_a49318f6758d72a0279797a7821f95ff0}} 
+\index{msr.h@{msr.h}!MSR\_IA32\_APIC\_BASE@{MSR\_IA32\_APIC\_BASE}}
+\index{MSR\_IA32\_APIC\_BASE@{MSR\_IA32\_APIC\_BASE}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_IA32\_APIC\_BASE}{MSR\_IA32\_APIC\_BASE}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+IA32\+\_\+\+APIC\+\_\+\+BASE~0x1b}
+
+\mbox{\Hypertarget{msr_8h_a6642a518367acc32329a3baa0cb49145}\label{msr_8h_a6642a518367acc32329a3baa0cb49145}} 
+\index{msr.h@{msr.h}!MSR\_IA32\_EBL\_CR\_POWERON@{MSR\_IA32\_EBL\_CR\_POWERON}}
+\index{MSR\_IA32\_EBL\_CR\_POWERON@{MSR\_IA32\_EBL\_CR\_POWERON}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_IA32\_EBL\_CR\_POWERON}{MSR\_IA32\_EBL\_CR\_POWERON}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+IA32\+\_\+\+EBL\+\_\+\+CR\+\_\+\+POWERON~0x2a}
+
+\mbox{\Hypertarget{msr_8h_abf817c21b6355e1a94f4a6a151d0bd37}\label{msr_8h_abf817c21b6355e1a94f4a6a151d0bd37}} 
+\index{msr.h@{msr.h}!MSR\_IA32\_MCG\_CTL@{MSR\_IA32\_MCG\_CTL}}
+\index{MSR\_IA32\_MCG\_CTL@{MSR\_IA32\_MCG\_CTL}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_IA32\_MCG\_CTL}{MSR\_IA32\_MCG\_CTL}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+IA32\+\_\+\+MCG\+\_\+\+CTL~0x17b}
+
+\mbox{\Hypertarget{msr_8h_afa364b9bc12f75f7a161eb3790dfe60d}\label{msr_8h_afa364b9bc12f75f7a161eb3790dfe60d}} 
+\index{msr.h@{msr.h}!MSR\_IA32\_PERF\_STATUS@{MSR\_IA32\_PERF\_STATUS}}
+\index{MSR\_IA32\_PERF\_STATUS@{MSR\_IA32\_PERF\_STATUS}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_IA32\_PERF\_STATUS}{MSR\_IA32\_PERF\_STATUS}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+IA32\+\_\+\+PERF\+\_\+\+STATUS~0x198}
+
+\mbox{\Hypertarget{msr_8h_a3940bd7e7cc81fd9476152b71e29ea7b}\label{msr_8h_a3940bd7e7cc81fd9476152b71e29ea7b}} 
+\index{msr.h@{msr.h}!MSR\_IA32\_THERM\_STATUS@{MSR\_IA32\_THERM\_STATUS}}
+\index{MSR\_IA32\_THERM\_STATUS@{MSR\_IA32\_THERM\_STATUS}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_IA32\_THERM\_STATUS}{MSR\_IA32\_THERM\_STATUS}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+IA32\+\_\+\+THERM\+\_\+\+STATUS~0x19c}
+
+\mbox{\Hypertarget{msr_8h_a0ef09f5b6d38dc5c73f827206977f731}\label{msr_8h_a0ef09f5b6d38dc5c73f827206977f731}} 
+\index{msr.h@{msr.h}!MSR\_IA32\_TEMPERATURE\_TARGET@{MSR\_IA32\_TEMPERATURE\_TARGET}}
+\index{MSR\_IA32\_TEMPERATURE\_TARGET@{MSR\_IA32\_TEMPERATURE\_TARGET}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_IA32\_TEMPERATURE\_TARGET}{MSR\_IA32\_TEMPERATURE\_TARGET}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+IA32\+\_\+\+TEMPERATURE\+\_\+\+TARGET~0x1a2}
+
+\mbox{\Hypertarget{msr_8h_a6ccbf4c3059a646738b4ec7ffffe372d}\label{msr_8h_a6ccbf4c3059a646738b4ec7ffffe372d}} 
+\index{msr.h@{msr.h}!MSR\_EFER@{MSR\_EFER}}
+\index{MSR\_EFER@{MSR\_EFER}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_EFER}{MSR\_EFER}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+EFER~0xc0000080}
+
+\mbox{\Hypertarget{msr_8h_a53b936bf70fbc31e9823aacb35114ba8}\label{msr_8h_a53b936bf70fbc31e9823aacb35114ba8}} 
+\index{msr.h@{msr.h}!MSR\_K7\_HWCR@{MSR\_K7\_HWCR}}
+\index{MSR\_K7\_HWCR@{MSR\_K7\_HWCR}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_K7\_HWCR}{MSR\_K7\_HWCR}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+K7\+\_\+\+HWCR~0xc0010015}
+
+\mbox{\Hypertarget{msr_8h_abb0be0827e822bc2a73588abc1827ad1}\label{msr_8h_abb0be0827e822bc2a73588abc1827ad1}} 
+\index{msr.h@{msr.h}!MSR\_K7\_VID\_STATUS@{MSR\_K7\_VID\_STATUS}}
+\index{MSR\_K7\_VID\_STATUS@{MSR\_K7\_VID\_STATUS}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_K7\_VID\_STATUS}{MSR\_K7\_VID\_STATUS}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+K7\+\_\+\+VID\+\_\+\+STATUS~0xc0010042}
+
+\mbox{\Hypertarget{msr_8h_ab6b20bd531d8be8de1cf61dcc3471fbe}\label{msr_8h_ab6b20bd531d8be8de1cf61dcc3471fbe}} 
+\index{msr.h@{msr.h}!MSR\_AMD64\_NB\_CFG@{MSR\_AMD64\_NB\_CFG}}
+\index{MSR\_AMD64\_NB\_CFG@{MSR\_AMD64\_NB\_CFG}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_AMD64\_NB\_CFG}{MSR\_AMD64\_NB\_CFG}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+AMD64\+\_\+\+NB\+\_\+\+CFG~0xc001001f}
+
+\mbox{\Hypertarget{msr_8h_aff2bbbf6c7da5b891cb3ae2c1edb50f8}\label{msr_8h_aff2bbbf6c7da5b891cb3ae2c1edb50f8}} 
+\index{msr.h@{msr.h}!MSR\_AMD64\_COFVID\_STATUS@{MSR\_AMD64\_COFVID\_STATUS}}
+\index{MSR\_AMD64\_COFVID\_STATUS@{MSR\_AMD64\_COFVID\_STATUS}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{MSR\_AMD64\_COFVID\_STATUS}{MSR\_AMD64\_COFVID\_STATUS}}
+{\footnotesize\ttfamily \#define MSR\+\_\+\+AMD64\+\_\+\+COFVID\+\_\+\+STATUS~0xc0010071}
+
+\mbox{\Hypertarget{msr_8h_a85b773de1e1a1abcf75d051f58db8f54}\label{msr_8h_a85b773de1e1a1abcf75d051f58db8f54}} 
+\index{msr.h@{msr.h}!rdmsr@{rdmsr}}
+\index{rdmsr@{rdmsr}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{rdmsr}{rdmsr}}
+{\footnotesize\ttfamily \#define rdmsr(\begin{DoxyParamCaption}\item[{}]{msr,  }\item[{}]{value1,  }\item[{}]{value2 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \_\_asm\_\_ \_\_volatile\_\_(\textcolor{stringliteral}{"{}rdmsr"{}}    \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{stringliteral}{"{}=a"{}} (value1),            \(\backslash\)}
+\DoxyCodeLine{          \textcolor{stringliteral}{"{}=d"{}} (value2)             \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{stringliteral}{"{}c"{}}  (msr)                \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{stringliteral}{"{}edi"{}}                     \(\backslash\)}
+\DoxyCodeLine{    )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{msr_8h_a4ae895806910ad87b3b98264187fdebb}\label{msr_8h_a4ae895806910ad87b3b98264187fdebb}} 
+\index{msr.h@{msr.h}!wrmsr@{wrmsr}}
+\index{wrmsr@{wrmsr}!msr.h@{msr.h}}
+\doxysubsubsection{\texorpdfstring{wrmsr}{wrmsr}}
+{\footnotesize\ttfamily \#define wrmsr(\begin{DoxyParamCaption}\item[{}]{msr,  }\item[{}]{value1,  }\item[{}]{value2 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \_\_asm\_\_ \_\_volatile\_\_(\textcolor{stringliteral}{"{}wrmsr"{}}    \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{comment}{/* no outputs */}          \(\backslash\)}
+\DoxyCodeLine{        : \textcolor{stringliteral}{"{}c"{}} (msr),                \(\backslash\)}
+\DoxyCodeLine{          \textcolor{stringliteral}{"{}a"{}} (value1),             \(\backslash\)}
+\DoxyCodeLine{          \textcolor{stringliteral}{"{}d"{}} (value2)              \(\backslash\)}
+\DoxyCodeLine{    )}
+
+\end{DoxyCode}

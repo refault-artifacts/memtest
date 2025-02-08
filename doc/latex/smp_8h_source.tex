@@ -1,0 +1,43 @@
+\hypertarget{smp_8h_source}{}\doxysection{smp.\+h}
+\label{smp_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smp.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/smp.h}}
+\mbox{\hyperlink{smp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_SMP\_H\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_SMP\_H\_}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{boot_8h}{boot.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{barrier_8h}{barrier.h}}"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{spinlock_8h}{spinlock.h}}"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define MAX\_CPUS       (1 + MAX\_APS)}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{29 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}  \_\_attribute\_\_ ((packed)) \{}
+\DoxyCodeLine{30     \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61ebab997f5fa8b188b932fbdee4a2b79df13}{CPU\_STATE\_DISABLED}}  = 0,}
+\DoxyCodeLine{31     \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eba946235c061227a21580448222561eeb8}{CPU\_STATE\_ENABLED}}   = 1,}
+\DoxyCodeLine{32     \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eba0d0f2babaf08a6b817cef42bd2bd14e4}{CPU\_STATE\_RUNNING}}   = 2}
+\DoxyCodeLine{33 \} \mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\_state\_t}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{39 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{smp_8h_a53660d169499fbe770437f33909466d3}{num\_available\_cpus}};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44 \textcolor{keywordtype}{void} \mbox{\hyperlink{smp_8h_a1fad7d6ac6a798d7166305c5cfb06f0f}{smp\_init}}(\textcolor{keywordtype}{bool} smp\_enable);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{50 \textcolor{keywordtype}{int} \mbox{\hyperlink{smp_8h_a7f52277f736301ea94722ff6f6238d83}{smp\_start}}(\mbox{\hyperlink{smp_8h_ad6d9db91247652a54cb6b13d774d61eb}{cpu\_state\_t}} \mbox{\hyperlink{config_8h_aff5d6e34b344119a5edad68147478650}{cpu\_state}}[\mbox{\hyperlink{smp_8h_a87cbc7cff225b4ad63d67d47c21f933f}{MAX\_CPUS}}]);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{56 \textcolor{keywordtype}{void} \mbox{\hyperlink{smp_8h_ac90c08f700478c32bce43fc8c6b5b53f}{smp\_send\_nmi}}(\textcolor{keywordtype}{int} cpu\_num);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{61 \textcolor{keywordtype}{int} \mbox{\hyperlink{smp_8h_a6442f4b9f4375505bf71d60d4fa831f7}{smp\_my\_cpu\_num}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{66 \mbox{\hyperlink{barrier_8h_structbarrier__t}{barrier\_t}} *\mbox{\hyperlink{smp_8h_a8e4a85ccdacddbf504f91d40f594081d}{smp\_alloc\_barrier}}(\textcolor{keywordtype}{int} num\_threads);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71 \mbox{\hyperlink{spinlock_8h_a950afb90ed65a1389b7867846e6ef8d1}{spinlock\_t}} *\mbox{\hyperlink{smp_8h_a8e5c9a0a62015079649296bd7fc6bd55}{smp\_alloc\_mutex}}();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_SMP\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

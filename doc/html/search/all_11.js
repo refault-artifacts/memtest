@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['query_5fcapsule_5fcaps_0',['query_capsule_caps',['../structefi__runtime__services__t.html#aff82c5edde5349bd0c25ec806e1c7720',1,'efi_runtime_services_t']]],
+  ['query_5fvariable_5finfo_1',['query_variable_info',['../structefi__runtime__services__t.html#a32e2eb56bd90b12a26e60d11cfd964ba',1,'efi_runtime_services_t']]],
+  ['quirk_2',['quirk',['../hwquirks_8h.html#a4ee12ff8946d9f0819ca94125ac399bf',1,'hwquirks.h']]],
+  ['quirk_5fali_5faladdin_5fv_3',['QUIRK_ALI_ALADDIN_V',['../hwquirks_8h.html#aa2341030b8b148bb2bf1bcb6d79156f7a2a62752cde5e5d81066f61f0f6960aa6',1,'hwquirks.h']]],
+  ['quirk_5fid_5ft_4',['quirk_id_t',['../hwquirks_8h.html#aa2341030b8b148bb2bf1bcb6d79156f7',1,'hwquirks.h']]],
+  ['quirk_5fnone_5',['QUIRK_NONE',['../hwquirks_8h.html#aa2341030b8b148bb2bf1bcb6d79156f7af7b3204dfd3f8d2b0dfbe69a84be8a3c',1,'hwquirks.h']]],
+  ['quirk_5ft_6',['quirk_t',['../structquirk__t.html',1,'']]],
+  ['quirk_5ftusl2_7',['QUIRK_TUSL2',['../hwquirks_8h.html#aa2341030b8b148bb2bf1bcb6d79156f7a06e237ae3f7c925bda8cd440c4c72c2a',1,'hwquirks.h']]],
+  ['quirk_5ftype_5fmem_5fsize_8',['QUIRK_TYPE_MEM_SIZE',['../hwquirks_8h.html#ab1b86b4b69aaf4fdf09b7ef01bca284c',1,'hwquirks.h']]],
+  ['quirk_5ftype_5fnone_9',['QUIRK_TYPE_NONE',['../hwquirks_8h.html#a586608c17ce9e46e3c84f699b05cf214',1,'hwquirks.h']]],
+  ['quirk_5ftype_5fsmbios_10',['QUIRK_TYPE_SMBIOS',['../hwquirks_8h.html#a7098c468c0c272ba59333be3369e3f88',1,'hwquirks.h']]],
+  ['quirk_5ftype_5fsmbus_11',['QUIRK_TYPE_SMBUS',['../hwquirks_8h.html#a26e86f2aa5cfcf00d1b4546194b9bc8b',1,'hwquirks.h']]],
+  ['quirk_5ftype_5fsmp_12',['QUIRK_TYPE_SMP',['../hwquirks_8h.html#ac4f87cda9cee4d76774bf47335fc9d2e',1,'hwquirks.h']]],
+  ['quirk_5ftype_5ftimer_13',['QUIRK_TYPE_TIMER',['../hwquirks_8h.html#a60669bf2ece0af7fb8f55d8420cc468d',1,'hwquirks.h']]],
+  ['quirk_5ftype_5fusb_14',['QUIRK_TYPE_USB',['../hwquirks_8h.html#abbb83472e81af3eec5eaba29d01f69b6',1,'hwquirks.h']]],
+  ['quirk_5fx10sdv_5fnosmp_15',['QUIRK_X10SDV_NOSMP',['../hwquirks_8h.html#aa2341030b8b148bb2bf1bcb6d79156f7aea361f7cb9f55689ae16d1456fe60b9b',1,'hwquirks.h']]],
+  ['quirks_5finit_16',['quirks_init',['../hwquirks_8h.html#a5a9d0c1260d96ab391b92f5f1b237a30',1,'hwquirks.h']]]
+];

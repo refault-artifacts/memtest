@@ -1,0 +1,121 @@
+\hypertarget{string_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/lib/string.h File Reference}
+\label{string_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/string.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/string.h}}
+
+
+Provides a subset of the functions normally provided by \texorpdfstring{$<$}{<}\mbox{\hyperlink{string_8h}{string.\+h}}\texorpdfstring{$>$}{>}.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{string_8h_aed653b4838032a2c5ce8960421c8cfd7}{memcpy}}(d,  s,  n)~\+\_\+\+\_\+builtin\+\_\+memcpy((d), (s), (n))
+\begin{DoxyCompactList}\small\item\em Copies n bytes from the memory area pointed to by src to the memory area pointed to by dest and returns a pointer to dest. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{string_8h_a71dcb02253b987acc46948d01ab28696}{memset}}(s,  c,  n)~\+\_\+\+\_\+builtin\+\_\+memset((s), (c), (n))
+\begin{DoxyCompactList}\small\item\em Fills the first n bytes of the memory area pointed to by s with the byte value c. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{string_8h_a1920090da3c7d87b99fb9b4972e47b6f}{memcmp}} (const void $\ast$s1, const void $\ast$s2, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Compares the first n bytes of the memory areas pointed to by s1 and s2 and returns 0 if all bytes are the same or the numerical difference between the first mismatching byte in s1 (interpreted as an unsigned value) and the corresponding byte in s2. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{string_8h_a340d11725e5c81a874f508fbcdf1c5ef}{memmove}} (void $\ast$dest, const void $\ast$src, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Copies n bytes from the memory area pointed to by src to the memory area pointed to by dest and returns a pointer to dest. \end{DoxyCompactList}\item 
+static size\+\_\+t \mbox{\hyperlink{string_8h_aa6cc9f852e7dce55e590e952677649bd}{strlen}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Returns the string length, excluding the terminating null character. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{string_8h_a2232295460866ac58a41541e48555489}{strncmp}} (const char $\ast$s1, const char $\ast$s2, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Compares at most the first n characters in the strings s1 and s2 and returns 0 if all characters are the same or the numerical difference between the first mismatching character in s1 (interpreted as a signed value) and the corresponding character in s2. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{string_8h_ab57319b670052e4c93c1f6822c28d5ce}{strstr}} (const char $\ast$haystack, const char $\ast$needle)
+\begin{DoxyCompactList}\small\item\em Finds the first occurrence of the substring needle in the string haystack and returns a pointer to the beginning of the located substring, or NULL if the substring is not found. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{string_8h_a71ad1a60362f91e52e0c7068e88f29d9}{itoa}} (int num, char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Convert n to characters in s. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a subset of the functions normally provided by \texorpdfstring{$<$}{<}\mbox{\hyperlink{string_8h}{string.\+h}}\texorpdfstring{$>$}{>}. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{string_8h_aed653b4838032a2c5ce8960421c8cfd7}\label{string_8h_aed653b4838032a2c5ce8960421c8cfd7}} 
+\index{string.h@{string.h}!memcpy@{memcpy}}
+\index{memcpy@{memcpy}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memcpy}{memcpy}}
+{\footnotesize\ttfamily \#define memcpy(\begin{DoxyParamCaption}\item[{}]{d,  }\item[{}]{s,  }\item[{}]{n }\end{DoxyParamCaption})~\+\_\+\+\_\+builtin\+\_\+memcpy((d), (s), (n))}
+
+
+
+Copies n bytes from the memory area pointed to by src to the memory area pointed to by dest and returns a pointer to dest. 
+
+The memory areas must not overlap. void $\ast$memcpy(void $\ast$dst, const void $\ast$src, size\+\_\+t n); \mbox{\Hypertarget{string_8h_a71dcb02253b987acc46948d01ab28696}\label{string_8h_a71dcb02253b987acc46948d01ab28696}} 
+\index{string.h@{string.h}!memset@{memset}}
+\index{memset@{memset}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memset}{memset}}
+{\footnotesize\ttfamily \#define memset(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{c,  }\item[{}]{n }\end{DoxyParamCaption})~\+\_\+\+\_\+builtin\+\_\+memset((s), (c), (n))}
+
+
+
+Fills the first n bytes of the memory area pointed to by s with the byte value c. 
+
+void $\ast$memset(void $\ast$s, int c, size\+\_\+t n); 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{string_8h_a1920090da3c7d87b99fb9b4972e47b6f}\label{string_8h_a1920090da3c7d87b99fb9b4972e47b6f}} 
+\index{string.h@{string.h}!memcmp@{memcmp}}
+\index{memcmp@{memcmp}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memcmp()}{memcmp()}}
+{\footnotesize\ttfamily static int memcmp (\begin{DoxyParamCaption}\item[{const void $\ast$}]{s1,  }\item[{const void $\ast$}]{s2,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Compares the first n bytes of the memory areas pointed to by s1 and s2 and returns 0 if all bytes are the same or the numerical difference between the first mismatching byte in s1 (interpreted as an unsigned value) and the corresponding byte in s2. 
+
+\mbox{\Hypertarget{string_8h_a340d11725e5c81a874f508fbcdf1c5ef}\label{string_8h_a340d11725e5c81a874f508fbcdf1c5ef}} 
+\index{string.h@{string.h}!memmove@{memmove}}
+\index{memmove@{memmove}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memmove()}{memmove()}}
+{\footnotesize\ttfamily void $\ast$ memmove (\begin{DoxyParamCaption}\item[{void $\ast$}]{dest,  }\item[{const void $\ast$}]{src,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Copies n bytes from the memory area pointed to by src to the memory area pointed to by dest and returns a pointer to dest. 
+
+The memory areas may overlap. \mbox{\Hypertarget{string_8h_aa6cc9f852e7dce55e590e952677649bd}\label{string_8h_aa6cc9f852e7dce55e590e952677649bd}} 
+\index{string.h@{string.h}!strlen@{strlen}}
+\index{strlen@{strlen}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strlen()}{strlen()}}
+{\footnotesize\ttfamily static size\+\_\+t strlen (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns the string length, excluding the terminating null character. 
+
+\mbox{\Hypertarget{string_8h_a2232295460866ac58a41541e48555489}\label{string_8h_a2232295460866ac58a41541e48555489}} 
+\index{string.h@{string.h}!strncmp@{strncmp}}
+\index{strncmp@{strncmp}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strncmp()}{strncmp()}}
+{\footnotesize\ttfamily static int strncmp (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s1,  }\item[{const char $\ast$}]{s2,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Compares at most the first n characters in the strings s1 and s2 and returns 0 if all characters are the same or the numerical difference between the first mismatching character in s1 (interpreted as a signed value) and the corresponding character in s2. 
+
+\mbox{\Hypertarget{string_8h_ab57319b670052e4c93c1f6822c28d5ce}\label{string_8h_ab57319b670052e4c93c1f6822c28d5ce}} 
+\index{string.h@{string.h}!strstr@{strstr}}
+\index{strstr@{strstr}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strstr()}{strstr()}}
+{\footnotesize\ttfamily char $\ast$ strstr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{haystack,  }\item[{const char $\ast$}]{needle }\end{DoxyParamCaption})}
+
+
+
+Finds the first occurrence of the substring needle in the string haystack and returns a pointer to the beginning of the located substring, or NULL if the substring is not found. 
+
+\mbox{\Hypertarget{string_8h_a71ad1a60362f91e52e0c7068e88f29d9}\label{string_8h_a71ad1a60362f91e52e0c7068e88f29d9}} 
+\index{string.h@{string.h}!itoa@{itoa}}
+\index{itoa@{itoa}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{itoa()}{itoa()}}
+{\footnotesize\ttfamily char $\ast$ itoa (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Convert n to characters in s. 
+

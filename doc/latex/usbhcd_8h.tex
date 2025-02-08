@@ -1,0 +1,571 @@
+\hypertarget{usbhcd_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/system/usbhcd.h File Reference}
+\label{usbhcd_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/usbhcd.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/usbhcd.h}}
+
+
+Provides the base USB host controller driver for USB keyboard support.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}usb.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A USB endpoint descriptor (used internally by the various HCI drivers).  \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{usbhcd_8h_structusb__parent__t}{usb\+\_\+parent\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A USB parent device descriptor (used internally by the various HCI drivers).  \mbox{\hyperlink{usbhcd_8h_structusb__parent__t}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A USB hub descriptor (used internally by the various HCI drivers).  \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structhcd__methods__t}{hcd\+\_\+methods\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A USB host controller driver method table. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{usbhcd_8h_structhcd__workspace__t}{hcd\+\_\+workspace\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A USB host controller driver workspace.  \mbox{\hyperlink{usbhcd_8h_structhcd__workspace__t}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A USB host controller driver object.  \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{usbhcd_8h_a993585880a7365bbd8b5ac0d346b7ce6}{HCD\+\_\+\+DATA\+\_\+\+BUFFER\+\_\+\+SIZE}}~512
+\begin{DoxyCompactList}\small\item\em The size of the data transfer buffer in a host controller driver workspace. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{usbhcd_8h_a1e8a77a74ee374683b1efa3c816400b4}{HCD\+\_\+\+KC\+\_\+\+BUFFER\+\_\+\+SIZE}}~8
+\begin{DoxyCompactList}\small\item\em The size of the key code buffer in a host controller driver workspace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef const struct usb\+\_\+hcd\+\_\+s $\ast$ \mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}
+\begin{DoxyCompactList}\small\item\em A USB host controller driver object reference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}} \{ \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23ac9755ae6b86f8148054fd6a342c74acc}{USB\+\_\+\+SPEED\+\_\+\+UNKNOWN}} = 0
+, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0ec4f8f66feaf7ee8f2ee618302e9470}{USB\+\_\+\+SPEED\+\_\+\+LOW}} = 1
+, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0f17d0b9928086c6114fea73e08f1780}{USB\+\_\+\+SPEED\+\_\+\+FULL}} = 2
+, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a57eeede6d769b09c01ac9c9c62fef8c9}{USB\+\_\+\+SPEED\+\_\+\+HIGH}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em A USB device speed (used internally by the various HCI drivers). \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3}{usb\+\_\+init\+\_\+options\+\_\+t}} \{ \newline
+\mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3a6f2bcb231c49ecf65bd7cc1a3ba329c8}{USB\+\_\+\+DEFAULT\+\_\+\+INIT}} = 0
+, \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3af3f71cbb370a6ac30aa5a427fddcc1a4}{USB\+\_\+\+EXTRA\+\_\+\+RESET}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3aa10389fa2534b94bdb068e5476f205c4}{USB\+\_\+\+IGNORE\+\_\+\+EHCI}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3abf79edc8c6caadae4bd329ec6aab4522}{USB\+\_\+2\+\_\+\+STEP\+\_\+\+INIT}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+\mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3aa6546b3c3b452f7084c258af117c901d}{USB\+\_\+\+DEBUG}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+ \}
+\begin{DoxyCompactList}\small\item\em A set of USB device initialisation options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{usbhcd_8h_a4c02e8db7f7981375afb479b73e985cf}{build\+\_\+setup\+\_\+packet}} (\mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\+\_\+setup\+\_\+pkt\+\_\+t}} $\ast$pkt, int type, int request, int value, int index, int length)
+\begin{DoxyCompactList}\small\item\em Constructs a USB setup packet in buffer using the provided values. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{usbhcd_8h_a15591137f1ff93a44465904971b0eead}{default\+\_\+max\+\_\+packet\+\_\+size}} (\mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}} device\+\_\+speed)
+\item 
+static bool \mbox{\hyperlink{usbhcd_8h_aee3608913e6d0080ae3ea822ebbdbf1e}{valid\+\_\+usb\+\_\+max\+\_\+packet\+\_\+size}} (int size, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}} speed)
+\begin{DoxyCompactList}\small\item\em Returns true if size is a valid value for the maximum packet size for a USB device running at the given speed. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{usbhcd_8h_a05ebccc68ac9716003a418cc0f0be87f}{valid\+\_\+usb\+\_\+device\+\_\+descriptor}} (const uint8\+\_\+t $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Returns true if buffer appears to contain a valid USB device descriptor. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{usbhcd_8h_ac0e1c8c04b9b86179bfe4d8cf6019fa9}{valid\+\_\+usb\+\_\+config\+\_\+descriptor}} (const uint8\+\_\+t $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Returns true if buffer appears to contain a valid USB configuration descriptor. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{usbhcd_8h_a51acaad27de7a066a805cf5e5b85d1b2}{usb\+\_\+route}} (const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$hub, int port\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Returns the USB route to the device attached to the hub port specified by hub and port\+\_\+num. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{usbhcd_8h_structusb__parent__t}{usb\+\_\+parent\+\_\+t}} \mbox{\hyperlink{usbhcd_8h_a339f0b8c31ef59fe59a6b4ac6d4f1b05}{usb\+\_\+hs\+\_\+parent}} (const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$hub, int port\+\_\+num, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}} device\+\_\+speed)
+\begin{DoxyCompactList}\small\item\em Returns the high-\/speed parent device ID and port number (as defined by the EHCI and XHCI specifications) for the device attached to the hub port specified by hub and port\+\_\+num. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{usbhcd_8h_a5829457f339a240387aa00c71f3435ea}{wait\+\_\+until\+\_\+clr}} (const volatile uint32\+\_\+t $\ast$reg, uint32\+\_\+t bit\+\_\+mask, int max\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Waits for all the bits set in bit\+\_\+mask to be cleared in the register pointed to by reg or for max\+\_\+time microseconds to elapse. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{usbhcd_8h_ae72a76c17baa3b162f8b3475afb9834c}{wait\+\_\+until\+\_\+set}} (const volatile uint32\+\_\+t $\ast$reg, uint32\+\_\+t bit\+\_\+mask, int max\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Waits for all the bits set in bit\+\_\+mask to also be set in the register pointed to by reg or for max\+\_\+time microseconds to elapse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{usbhcd_8h_abd3e5955be3bdfd7d37b23b37bf01659}{print\+\_\+usb\+\_\+info}} (const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Displays an informational message, scrolling the screen if necessary. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{usbhcd_8h_a2470645732bb221059c678ac9c70c512}{reset\+\_\+usb\+\_\+hub\+\_\+port}} (const \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$hcd, const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$hub, int port\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Resets the specified USB hub port. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{usbhcd_8h_ae4dcb40f0b95c82525c1f137e049b90e}{assign\+\_\+usb\+\_\+address}} (const \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$hcd, const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$hub, int port\+\_\+num, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}} device\+\_\+speed, int device\+\_\+id, \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$ep0)
+\begin{DoxyCompactList}\small\item\em Sets the device address for the device attached to the specified hub port (thus moving the device to Address state), fills in the descriptor for the device\textquotesingle{}s default control endpoint (ep0), and leaves the device descriptor in the driver\textquotesingle{}s data transfer buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{usbhcd_8h_a3d344ddf5b4f93ced2ccf900b21b8128}{find\+\_\+attached\+\_\+usb\+\_\+keyboards}} (const \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$hcd, const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$hub, int port\+\_\+num, \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}} device\+\_\+speed, int device\+\_\+id, int $\ast$num\+\_\+devices, \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} keyboards\mbox{[}$\,$\mbox{]}, int max\+\_\+keyboards, int $\ast$num\+\_\+keyboards)
+\begin{DoxyCompactList}\small\item\em Scans the specified USB device to detect whether it has any HID keyboards attached to it (directly or indirectly). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{usbhcd_8h_a45b67629c3b42103978f48157f3c6520}{process\+\_\+usb\+\_\+keyboard\+\_\+report}} (const \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$hcd, const \mbox{\hyperlink{usb_8h_structhid__kbd__rpt__t}{hid\+\_\+kbd\+\_\+rpt\+\_\+t}} $\ast$report, const \mbox{\hyperlink{usb_8h_structhid__kbd__rpt__t}{hid\+\_\+kbd\+\_\+rpt\+\_\+t}} $\ast$prev\+\_\+report)
+\begin{DoxyCompactList}\small\item\em Scans the latest keyboard report from a HID keyboard for key presses that weren\textquotesingle{}t present in the previous report from that keyboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{usbhcd_8h_a0ee83531624febe54a69a70ef39e434c}{find\+\_\+usb\+\_\+keyboards}} (bool pause\+\_\+if\+\_\+none)
+\begin{DoxyCompactList}\small\item\em Scans the attached USB devices and initialises all HID keyboard devices it finds (subject to implementation limits on the number of devices). \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{usbhcd_8h_a06ae5e3a9ad76285187783f2b4cf6282}{get\+\_\+usb\+\_\+keycode}} (void)
+\begin{DoxyCompactList}\small\item\em Polls the keyboards discovered by find\+\_\+usb\+\_\+keyboards. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3}{usb\+\_\+init\+\_\+options\+\_\+t}} \mbox{\hyperlink{usbhcd_8h_aa0ff1e49014a85a25554ae5abd93c552}{usb\+\_\+init\+\_\+options}}
+\begin{DoxyCompactList}\small\item\em The selected USB device initialisation options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides the base USB host controller driver for USB keyboard support. 
+
+This is an object-\/oriented design. The \mbox{\hyperlink{structhcd__methods__t}{hcd\+\_\+methods\+\_\+t}} structure defines a set of virtual methods that will be implemented by the subclasses. The \mbox{\hyperlink{usbhcd_8h_structhcd__workspace__t}{hcd\+\_\+workspace\+\_\+t}} structure defines the base class properties. The \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} structure represents a driver object. The non-\/virtual and default base class methods are defined as separate functions, taking a \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} pointer as their first parameter.
+
+The find\+\_\+usb\+\_\+keyboards function instantiates a driver object of the appropriate subclass for each USB controller it finds and stores it in the private usb\+\_\+controllers table, where it can subsequently used to poll the keyboards for key presses. 
+
+\doxysubsection{Data Structure Documentation}
+\index{usb\_ep\_t@{usb\_ep\_t}}\label{structusb__ep__t}
+\Hypertarget{usbhcd_8h_structusb__ep__t}
+\doxysubsubsection{struct usb\+\_\+ep\+\_\+t}
+A USB endpoint descriptor (used internally by the various HCI drivers). \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{usbhcd_8h_ae85e93620c3b1b2c77eaa95e5a8d8af3}\label{usbhcd_8h_ae85e93620c3b1b2c77eaa95e5a8d8af3}} 
+uintptr\_t&
+driver\_data&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a670c768e4b576fbb2cc6c9cef34cb265}\label{usbhcd_8h_a670c768e4b576fbb2cc6c9cef34cb265}} 
+\mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\_speed\_t}}&
+device\_speed&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a418eaa332f32c93621c5d4c347541df6}\label{usbhcd_8h_a418eaa332f32c93621c5d4c347541df6}} 
+uint8\_t&
+device\_id&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_aa505229dc1960c45a10552c047147131}\label{usbhcd_8h_aa505229dc1960c45a10552c047147131}} 
+uint8\_t&
+interface\_num&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_aae3cdeab57e64d586d825fd670ca35ee}\label{usbhcd_8h_aae3cdeab57e64d586d825fd670ca35ee}} 
+uint8\_t&
+endpoint\_num&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a2f696b04e22c5a83909139c8a25616aa}\label{usbhcd_8h_a2f696b04e22c5a83909139c8a25616aa}} 
+uint16\_t&
+max\_packet\_size&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_ae3fc962baa1fdc111b3f8a2efccd1954}\label{usbhcd_8h_ae3fc962baa1fdc111b3f8a2efccd1954}} 
+uint8\_t&
+interval&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_acbed7a590aa42eb754db62b83b58aa7d}\label{usbhcd_8h_acbed7a590aa42eb754db62b83b58aa7d}} 
+uint8\_t&
+reserved&
+\\
+\hline
+
+\end{DoxyFields}
+\index{usb\_parent\_t@{usb\_parent\_t}}\label{structusb__parent__t}
+\Hypertarget{usbhcd_8h_structusb__parent__t}
+\doxysubsubsection{struct usb\+\_\+parent\+\_\+t}
+A USB parent device descriptor (used internally by the various HCI drivers). \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{usbhcd_8h_ac81f4811ed82c0ca01e86c63ac33c476}\label{usbhcd_8h_ac81f4811ed82c0ca01e86c63ac33c476}} 
+uint8\_t&
+device\_id&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a7e05d550f220d07c1bd891296e1e75cf}\label{usbhcd_8h_a7e05d550f220d07c1bd891296e1e75cf}} 
+uint8\_t&
+port\_num&
+\\
+\hline
+
+\end{DoxyFields}
+\index{usb\_hub\_t@{usb\_hub\_t}}\label{structusb__hub__t}
+\Hypertarget{usbhcd_8h_structusb__hub__t}
+\doxysubsubsection{struct usb\+\_\+hub\+\_\+t}
+A USB hub descriptor (used internally by the various HCI drivers). \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{usbhcd_8h_a0dc010609d61074f74293c0c9e742d46}\label{usbhcd_8h_a0dc010609d61074f74293c0c9e742d46}} 
+const \mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\_ep\_t}} $\ast$&
+ep0&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a9ce2ce4ce275753064fb07ea76d54d0b}\label{usbhcd_8h_a9ce2ce4ce275753064fb07ea76d54d0b}} 
+uint32\_t&
+route&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a1db2f47ac532335cea8527afd88357c4}\label{usbhcd_8h_a1db2f47ac532335cea8527afd88357c4}} 
+uint8\_t&
+level&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a140d5a461a05c08de9a97748c3417546}\label{usbhcd_8h_a140d5a461a05c08de9a97748c3417546}} 
+uint8\_t&
+num\_ports&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a8c980c6d5bc259355f3fc2b664e10ec3}\label{usbhcd_8h_a8c980c6d5bc259355f3fc2b664e10ec3}} 
+uint8\_t&
+tt\_think\_time&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a6629945e4c56ea25fd3bb2471b9748a9}\label{usbhcd_8h_a6629945e4c56ea25fd3bb2471b9748a9}} 
+uint8\_t&
+power\_up\_delay&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a3cd82d78c399177c69d982b2c823d08c}\label{usbhcd_8h_a3cd82d78c399177c69d982b2c823d08c}} 
+\mbox{\hyperlink{usbhcd_8h_structusb__parent__t}{usb\_parent\_t}}&
+hs\_parent&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a985d35a9a0fb314659fe93754246374e}\label{usbhcd_8h_a985d35a9a0fb314659fe93754246374e}} 
+uint16\_t&
+reserved&
+\\
+\hline
+
+\end{DoxyFields}
+\index{hcd\_workspace\_t@{hcd\_workspace\_t}}\label{structhcd__workspace__t}
+\Hypertarget{usbhcd_8h_structhcd__workspace__t}
+\doxysubsubsection{struct hcd\+\_\+workspace\+\_\+t}
+A USB host controller driver workspace. 
+
+This is extended by each HCI driver to append its private data. \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{usbhcd_8h_a08f9a90f883ff1e7b8cf0fef72b5ab35}\label{usbhcd_8h_a08f9a90f883ff1e7b8cf0fef72b5ab35}} 
+uint8\_t&
+data\_buffer\mbox{[}\mbox{\hyperlink{usbhcd_8h_a993585880a7365bbd8b5ac0d346b7ce6}{HCD\_DATA\_BUFFER\_SIZE}}\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a7cfa5c28b4e7c13e493bc9de1fe69755}\label{usbhcd_8h_a7cfa5c28b4e7c13e493bc9de1fe69755}} 
+size\_t&
+data\_length&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a8634ccb3a49677b6c142af4c83af3ef8}\label{usbhcd_8h_a8634ccb3a49677b6c142af4c83af3ef8}} 
+uint8\_t&
+kc\_buffer\mbox{[}\mbox{\hyperlink{usbhcd_8h_a1e8a77a74ee374683b1efa3c816400b4}{HCD\_KC\_BUFFER\_SIZE}}\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_adb518855de5da75669e2a8e04ae3edf8}\label{usbhcd_8h_adb518855de5da75669e2a8e04ae3edf8}} 
+int8\_t&
+kc\_index\_i&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_aa329bf3593ce0a87596c5d0be13a55e2}\label{usbhcd_8h_aa329bf3593ce0a87596c5d0be13a55e2}} 
+int8\_t&
+kc\_index\_o&
+\\
+\hline
+
+\end{DoxyFields}
+\index{usb\_hcd\_t@{usb\_hcd\_t}}\label{structusb__hcd__t}
+\Hypertarget{usbhcd_8h_structusb__hcd__t}
+\doxysubsubsection{struct usb\+\_\+hcd\+\_\+t}
+A USB host controller driver object. \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{usbhcd_8h_a6d129b19a3d0bc9189006b720a595548}\label{usbhcd_8h_a6d129b19a3d0bc9189006b720a595548}} 
+const \mbox{\hyperlink{structhcd__methods__t}{hcd\_methods\_t}} $\ast$&
+methods&
+\\
+\hline
+
+\mbox{\Hypertarget{usbhcd_8h_a6290e99494e7b67474d826921ec06a13}\label{usbhcd_8h_a6290e99494e7b67474d826921ec06a13}} 
+\mbox{\hyperlink{usbhcd_8h_structhcd__workspace__t}{hcd\_workspace\_t}} $\ast$&
+ws&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{usbhcd_8h_a993585880a7365bbd8b5ac0d346b7ce6}\label{usbhcd_8h_a993585880a7365bbd8b5ac0d346b7ce6}} 
+\index{usbhcd.h@{usbhcd.h}!HCD\_DATA\_BUFFER\_SIZE@{HCD\_DATA\_BUFFER\_SIZE}}
+\index{HCD\_DATA\_BUFFER\_SIZE@{HCD\_DATA\_BUFFER\_SIZE}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{HCD\_DATA\_BUFFER\_SIZE}{HCD\_DATA\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define HCD\+\_\+\+DATA\+\_\+\+BUFFER\+\_\+\+SIZE~512}
+
+
+
+The size of the data transfer buffer in a host controller driver workspace. 
+
+\mbox{\Hypertarget{usbhcd_8h_a1e8a77a74ee374683b1efa3c816400b4}\label{usbhcd_8h_a1e8a77a74ee374683b1efa3c816400b4}} 
+\index{usbhcd.h@{usbhcd.h}!HCD\_KC\_BUFFER\_SIZE@{HCD\_KC\_BUFFER\_SIZE}}
+\index{HCD\_KC\_BUFFER\_SIZE@{HCD\_KC\_BUFFER\_SIZE}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{HCD\_KC\_BUFFER\_SIZE}{HCD\_KC\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define HCD\+\_\+\+KC\+\_\+\+BUFFER\+\_\+\+SIZE~8}
+
+
+
+The size of the key code buffer in a host controller driver workspace. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}\label{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}} 
+\index{usbhcd.h@{usbhcd.h}!usb\_hcd\_r@{usb\_hcd\_r}}
+\index{usb\_hcd\_r@{usb\_hcd\_r}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{usb\_hcd\_r}{usb\_hcd\_r}}
+{\footnotesize\ttfamily typedef const struct usb\+\_\+hcd\+\_\+s$\ast$ \mbox{\hyperlink{usbhcd_8h_a4cff5d3fc4fe43b5d4dd9ad2c39fc5e1}{usb\+\_\+hcd\+\_\+r}}}
+
+
+
+A USB host controller driver object reference. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}\label{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}} 
+\index{usbhcd.h@{usbhcd.h}!usb\_speed\_t@{usb\_speed\_t}}
+\index{usb\_speed\_t@{usb\_speed\_t}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{usb\_speed\_t}{usb\_speed\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}}}
+
+
+
+A USB device speed (used internally by the various HCI drivers). 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_SPEED\_UNKNOWN@{USB\_SPEED\_UNKNOWN}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_SPEED\_UNKNOWN@{USB\_SPEED\_UNKNOWN}}}\mbox{\Hypertarget{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23ac9755ae6b86f8148054fd6a342c74acc}\label{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23ac9755ae6b86f8148054fd6a342c74acc}} 
+USB\+\_\+\+SPEED\+\_\+\+UNKNOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_SPEED\_LOW@{USB\_SPEED\_LOW}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_SPEED\_LOW@{USB\_SPEED\_LOW}}}\mbox{\Hypertarget{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0ec4f8f66feaf7ee8f2ee618302e9470}\label{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0ec4f8f66feaf7ee8f2ee618302e9470}} 
+USB\+\_\+\+SPEED\+\_\+\+LOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_SPEED\_FULL@{USB\_SPEED\_FULL}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_SPEED\_FULL@{USB\_SPEED\_FULL}}}\mbox{\Hypertarget{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0f17d0b9928086c6114fea73e08f1780}\label{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a0f17d0b9928086c6114fea73e08f1780}} 
+USB\+\_\+\+SPEED\+\_\+\+FULL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_SPEED\_HIGH@{USB\_SPEED\_HIGH}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_SPEED\_HIGH@{USB\_SPEED\_HIGH}}}\mbox{\Hypertarget{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a57eeede6d769b09c01ac9c9c62fef8c9}\label{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23a57eeede6d769b09c01ac9c9c62fef8c9}} 
+USB\+\_\+\+SPEED\+\_\+\+HIGH&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3}\label{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3}} 
+\index{usbhcd.h@{usbhcd.h}!usb\_init\_options\_t@{usb\_init\_options\_t}}
+\index{usb\_init\_options\_t@{usb\_init\_options\_t}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{usb\_init\_options\_t}{usb\_init\_options\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3}{usb\+\_\+init\+\_\+options\+\_\+t}}}
+
+
+
+A set of USB device initialisation options. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_DEFAULT\_INIT@{USB\_DEFAULT\_INIT}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_DEFAULT\_INIT@{USB\_DEFAULT\_INIT}}}\mbox{\Hypertarget{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3a6f2bcb231c49ecf65bd7cc1a3ba329c8}\label{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3a6f2bcb231c49ecf65bd7cc1a3ba329c8}} 
+USB\+\_\+\+DEFAULT\+\_\+\+INIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_EXTRA\_RESET@{USB\_EXTRA\_RESET}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_EXTRA\_RESET@{USB\_EXTRA\_RESET}}}\mbox{\Hypertarget{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3af3f71cbb370a6ac30aa5a427fddcc1a4}\label{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3af3f71cbb370a6ac30aa5a427fddcc1a4}} 
+USB\+\_\+\+EXTRA\+\_\+\+RESET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_IGNORE\_EHCI@{USB\_IGNORE\_EHCI}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_IGNORE\_EHCI@{USB\_IGNORE\_EHCI}}}\mbox{\Hypertarget{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3aa10389fa2534b94bdb068e5476f205c4}\label{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3aa10389fa2534b94bdb068e5476f205c4}} 
+USB\+\_\+\+IGNORE\+\_\+\+EHCI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_2\_STEP\_INIT@{USB\_2\_STEP\_INIT}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_2\_STEP\_INIT@{USB\_2\_STEP\_INIT}}}\mbox{\Hypertarget{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3abf79edc8c6caadae4bd329ec6aab4522}\label{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3abf79edc8c6caadae4bd329ec6aab4522}} 
+USB\+\_\+2\+\_\+\+STEP\+\_\+\+INIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB\_DEBUG@{USB\_DEBUG}!usbhcd.h@{usbhcd.h}}\index{usbhcd.h@{usbhcd.h}!USB\_DEBUG@{USB\_DEBUG}}}\mbox{\Hypertarget{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3aa6546b3c3b452f7084c258af117c901d}\label{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3aa6546b3c3b452f7084c258af117c901d}} 
+USB\+\_\+\+DEBUG&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{usbhcd_8h_a4c02e8db7f7981375afb479b73e985cf}\label{usbhcd_8h_a4c02e8db7f7981375afb479b73e985cf}} 
+\index{usbhcd.h@{usbhcd.h}!build\_setup\_packet@{build\_setup\_packet}}
+\index{build\_setup\_packet@{build\_setup\_packet}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{build\_setup\_packet()}{build\_setup\_packet()}}
+{\footnotesize\ttfamily static void build\+\_\+setup\+\_\+packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{usb_8h_structusb__setup__pkt__t}{usb\+\_\+setup\+\_\+pkt\+\_\+t}} $\ast$}]{pkt,  }\item[{int}]{type,  }\item[{int}]{request,  }\item[{int}]{value,  }\item[{int}]{index,  }\item[{int}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Constructs a USB setup packet in buffer using the provided values. 
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_a15591137f1ff93a44465904971b0eead}\label{usbhcd_8h_a15591137f1ff93a44465904971b0eead}} 
+\index{usbhcd.h@{usbhcd.h}!default\_max\_packet\_size@{default\_max\_packet\_size}}
+\index{default\_max\_packet\_size@{default\_max\_packet\_size}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{default\_max\_packet\_size()}{default\_max\_packet\_size()}}
+{\footnotesize\ttfamily static int default\+\_\+max\+\_\+packet\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}}}]{device\+\_\+speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{usbhcd_8h_aee3608913e6d0080ae3ea822ebbdbf1e}\label{usbhcd_8h_aee3608913e6d0080ae3ea822ebbdbf1e}} 
+\index{usbhcd.h@{usbhcd.h}!valid\_usb\_max\_packet\_size@{valid\_usb\_max\_packet\_size}}
+\index{valid\_usb\_max\_packet\_size@{valid\_usb\_max\_packet\_size}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{valid\_usb\_max\_packet\_size()}{valid\_usb\_max\_packet\_size()}}
+{\footnotesize\ttfamily static bool valid\+\_\+usb\+\_\+max\+\_\+packet\+\_\+size (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{\mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}}}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns true if size is a valid value for the maximum packet size for a USB device running at the given speed. 
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_a05ebccc68ac9716003a418cc0f0be87f}\label{usbhcd_8h_a05ebccc68ac9716003a418cc0f0be87f}} 
+\index{usbhcd.h@{usbhcd.h}!valid\_usb\_device\_descriptor@{valid\_usb\_device\_descriptor}}
+\index{valid\_usb\_device\_descriptor@{valid\_usb\_device\_descriptor}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{valid\_usb\_device\_descriptor()}{valid\_usb\_device\_descriptor()}}
+{\footnotesize\ttfamily static bool valid\+\_\+usb\+\_\+device\+\_\+descriptor (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns true if buffer appears to contain a valid USB device descriptor. 
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_ac0e1c8c04b9b86179bfe4d8cf6019fa9}\label{usbhcd_8h_ac0e1c8c04b9b86179bfe4d8cf6019fa9}} 
+\index{usbhcd.h@{usbhcd.h}!valid\_usb\_config\_descriptor@{valid\_usb\_config\_descriptor}}
+\index{valid\_usb\_config\_descriptor@{valid\_usb\_config\_descriptor}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{valid\_usb\_config\_descriptor()}{valid\_usb\_config\_descriptor()}}
+{\footnotesize\ttfamily static bool valid\+\_\+usb\+\_\+config\+\_\+descriptor (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns true if buffer appears to contain a valid USB configuration descriptor. 
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_a51acaad27de7a066a805cf5e5b85d1b2}\label{usbhcd_8h_a51acaad27de7a066a805cf5e5b85d1b2}} 
+\index{usbhcd.h@{usbhcd.h}!usb\_route@{usb\_route}}
+\index{usb\_route@{usb\_route}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{usb\_route()}{usb\_route()}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+route (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$}]{hub,  }\item[{int}]{port\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Returns the USB route to the device attached to the hub port specified by hub and port\+\_\+num. 
+
+The top 8 bits of the returned value contain the root port number and the bottom 20 bits contain the USB3 route string.
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_a339f0b8c31ef59fe59a6b4ac6d4f1b05}\label{usbhcd_8h_a339f0b8c31ef59fe59a6b4ac6d4f1b05}} 
+\index{usbhcd.h@{usbhcd.h}!usb\_hs\_parent@{usb\_hs\_parent}}
+\index{usb\_hs\_parent@{usb\_hs\_parent}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{usb\_hs\_parent()}{usb\_hs\_parent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{usbhcd_8h_structusb__parent__t}{usb\+\_\+parent\+\_\+t}} usb\+\_\+hs\+\_\+parent (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$}]{hub,  }\item[{int}]{port\+\_\+num,  }\item[{\mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}}}]{device\+\_\+speed }\end{DoxyParamCaption})}
+
+
+
+Returns the high-\/speed parent device ID and port number (as defined by the EHCI and XHCI specifications) for the device attached to the hub port specified by hub and port\+\_\+num. 
+
+Returns zero values if the device is operating at high speed (as specified by device\+\_\+speed) or is directly attached to a root hub port.
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_a5829457f339a240387aa00c71f3435ea}\label{usbhcd_8h_a5829457f339a240387aa00c71f3435ea}} 
+\index{usbhcd.h@{usbhcd.h}!wait\_until\_clr@{wait\_until\_clr}}
+\index{wait\_until\_clr@{wait\_until\_clr}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{wait\_until\_clr()}{wait\_until\_clr()}}
+{\footnotesize\ttfamily bool wait\+\_\+until\+\_\+clr (\begin{DoxyParamCaption}\item[{const volatile uint32\+\_\+t $\ast$}]{reg,  }\item[{uint32\+\_\+t}]{bit\+\_\+mask,  }\item[{int}]{max\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Waits for all the bits set in bit\+\_\+mask to be cleared in the register pointed to by reg or for max\+\_\+time microseconds to elapse. 
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_ae72a76c17baa3b162f8b3475afb9834c}\label{usbhcd_8h_ae72a76c17baa3b162f8b3475afb9834c}} 
+\index{usbhcd.h@{usbhcd.h}!wait\_until\_set@{wait\_until\_set}}
+\index{wait\_until\_set@{wait\_until\_set}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{wait\_until\_set()}{wait\_until\_set()}}
+{\footnotesize\ttfamily bool wait\+\_\+until\+\_\+set (\begin{DoxyParamCaption}\item[{const volatile uint32\+\_\+t $\ast$}]{reg,  }\item[{uint32\+\_\+t}]{bit\+\_\+mask,  }\item[{int}]{max\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Waits for all the bits set in bit\+\_\+mask to also be set in the register pointed to by reg or for max\+\_\+time microseconds to elapse. 
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_abd3e5955be3bdfd7d37b23b37bf01659}\label{usbhcd_8h_abd3e5955be3bdfd7d37b23b37bf01659}} 
+\index{usbhcd.h@{usbhcd.h}!print\_usb\_info@{print\_usb\_info}}
+\index{print\_usb\_info@{print\_usb\_info}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{print\_usb\_info()}{print\_usb\_info()}}
+{\footnotesize\ttfamily void print\+\_\+usb\+\_\+info (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Displays an informational message, scrolling the screen if necessary. 
+
+Takes the same arguments as the printf function.
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_a2470645732bb221059c678ac9c70c512}\label{usbhcd_8h_a2470645732bb221059c678ac9c70c512}} 
+\index{usbhcd.h@{usbhcd.h}!reset\_usb\_hub\_port@{reset\_usb\_hub\_port}}
+\index{reset\_usb\_hub\_port@{reset\_usb\_hub\_port}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{reset\_usb\_hub\_port()}{reset\_usb\_hub\_port()}}
+{\footnotesize\ttfamily bool reset\+\_\+usb\+\_\+hub\+\_\+port (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$}]{hcd,  }\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$}]{hub,  }\item[{int}]{port\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Resets the specified USB hub port. 
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_ae4dcb40f0b95c82525c1f137e049b90e}\label{usbhcd_8h_ae4dcb40f0b95c82525c1f137e049b90e}} 
+\index{usbhcd.h@{usbhcd.h}!assign\_usb\_address@{assign\_usb\_address}}
+\index{assign\_usb\_address@{assign\_usb\_address}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{assign\_usb\_address()}{assign\_usb\_address()}}
+{\footnotesize\ttfamily bool assign\+\_\+usb\+\_\+address (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$}]{hcd,  }\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$}]{hub,  }\item[{int}]{port\+\_\+num,  }\item[{\mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}}}]{device\+\_\+speed,  }\item[{int}]{device\+\_\+id,  }\item[{\mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}} $\ast$}]{ep0 }\end{DoxyParamCaption})}
+
+
+
+Sets the device address for the device attached to the specified hub port (thus moving the device to Address state), fills in the descriptor for the device\textquotesingle{}s default control endpoint (ep0), and leaves the device descriptor in the driver\textquotesingle{}s data transfer buffer. 
+
+Returns true if all actions are successfully completed.
+
+This is the default implementation of the HCD assign\+\_\+address method. \mbox{\Hypertarget{usbhcd_8h_a3d344ddf5b4f93ced2ccf900b21b8128}\label{usbhcd_8h_a3d344ddf5b4f93ced2ccf900b21b8128}} 
+\index{usbhcd.h@{usbhcd.h}!find\_attached\_usb\_keyboards@{find\_attached\_usb\_keyboards}}
+\index{find\_attached\_usb\_keyboards@{find\_attached\_usb\_keyboards}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{find\_attached\_usb\_keyboards()}{find\_attached\_usb\_keyboards()}}
+{\footnotesize\ttfamily bool find\+\_\+attached\+\_\+usb\+\_\+keyboards (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$}]{hcd,  }\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hub__t}{usb\+\_\+hub\+\_\+t}} $\ast$}]{hub,  }\item[{int}]{port\+\_\+num,  }\item[{\mbox{\hyperlink{usbhcd_8h_a624cde5d2f6383faa35fd05108285a23}{usb\+\_\+speed\+\_\+t}}}]{device\+\_\+speed,  }\item[{int}]{device\+\_\+id,  }\item[{int $\ast$}]{num\+\_\+devices,  }\item[{\mbox{\hyperlink{usbhcd_8h_structusb__ep__t}{usb\+\_\+ep\+\_\+t}}}]{keyboards\mbox{[}$\,$\mbox{]},  }\item[{int}]{max\+\_\+keyboards,  }\item[{int $\ast$}]{num\+\_\+keyboards }\end{DoxyParamCaption})}
+
+
+
+Scans the specified USB device to detect whether it has any HID keyboards attached to it (directly or indirectly). 
+
+If so, the keyboard device(s) are initialised and configured, as are any intermediate USB hubs, and the table defined by keyboards and max\+\_\+keyboards is updated accordingly and num\+\_\+keyboards is updated to match. Returns true if any keyboards were found and added to the table.
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_a45b67629c3b42103978f48157f3c6520}\label{usbhcd_8h_a45b67629c3b42103978f48157f3c6520}} 
+\index{usbhcd.h@{usbhcd.h}!process\_usb\_keyboard\_report@{process\_usb\_keyboard\_report}}
+\index{process\_usb\_keyboard\_report@{process\_usb\_keyboard\_report}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{process\_usb\_keyboard\_report()}{process\_usb\_keyboard\_report()}}
+{\footnotesize\ttfamily bool process\+\_\+usb\+\_\+keyboard\+\_\+report (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{usbhcd_8h_structusb__hcd__t}{usb\+\_\+hcd\+\_\+t}} $\ast$}]{hcd,  }\item[{const \mbox{\hyperlink{usb_8h_structhid__kbd__rpt__t}{hid\+\_\+kbd\+\_\+rpt\+\_\+t}} $\ast$}]{report,  }\item[{const \mbox{\hyperlink{usb_8h_structhid__kbd__rpt__t}{hid\+\_\+kbd\+\_\+rpt\+\_\+t}} $\ast$}]{prev\+\_\+report }\end{DoxyParamCaption})}
+
+
+
+Scans the latest keyboard report from a HID keyboard for key presses that weren\textquotesingle{}t present in the previous report from that keyboard. 
+
+Appends the HID key code for each new key press to the driver\textquotesingle{}s key code buffer. Returns false if the report signals the phantom condition, otherwise returns true.
+
+Used internally by the various HCI drivers. \mbox{\Hypertarget{usbhcd_8h_a0ee83531624febe54a69a70ef39e434c}\label{usbhcd_8h_a0ee83531624febe54a69a70ef39e434c}} 
+\index{usbhcd.h@{usbhcd.h}!find\_usb\_keyboards@{find\_usb\_keyboards}}
+\index{find\_usb\_keyboards@{find\_usb\_keyboards}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{find\_usb\_keyboards()}{find\_usb\_keyboards()}}
+{\footnotesize\ttfamily void find\+\_\+usb\+\_\+keyboards (\begin{DoxyParamCaption}\item[{bool}]{pause\+\_\+if\+\_\+none }\end{DoxyParamCaption})}
+
+
+
+Scans the attached USB devices and initialises all HID keyboard devices it finds (subject to implementation limits on the number of devices). 
+
+Records the information needed to subsequently poll those devices for key presses.
+
+Used internally by keyboard.\+c. \mbox{\Hypertarget{usbhcd_8h_a06ae5e3a9ad76285187783f2b4cf6282}\label{usbhcd_8h_a06ae5e3a9ad76285187783f2b4cf6282}} 
+\index{usbhcd.h@{usbhcd.h}!get\_usb\_keycode@{get\_usb\_keycode}}
+\index{get\_usb\_keycode@{get\_usb\_keycode}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{get\_usb\_keycode()}{get\_usb\_keycode()}}
+{\footnotesize\ttfamily uint8\+\_\+t get\+\_\+usb\+\_\+keycode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Polls the keyboards discovered by find\+\_\+usb\+\_\+keyboards. 
+
+Consumes and returns the HID key code for the first key press it detects. Returns zero if no key has been pressed.
+
+Used internally by keyboard.\+c. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{usbhcd_8h_aa0ff1e49014a85a25554ae5abd93c552}\label{usbhcd_8h_aa0ff1e49014a85a25554ae5abd93c552}} 
+\index{usbhcd.h@{usbhcd.h}!usb\_init\_options@{usb\_init\_options}}
+\index{usb\_init\_options@{usb\_init\_options}!usbhcd.h@{usbhcd.h}}
+\doxysubsubsection{\texorpdfstring{usb\_init\_options}{usb\_init\_options}}
+{\footnotesize\ttfamily \mbox{\hyperlink{usbhcd_8h_a7829cd3284024cd32ffd2c840222baa3}{usb\+\_\+init\+\_\+options\+\_\+t}} usb\+\_\+init\+\_\+options\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The selected USB device initialisation options. 
+
+Used internally by the various HCI drivers. 

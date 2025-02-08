@@ -1,0 +1,59 @@
+\hypertarget{string_8h_source}{}\doxysection{string.\+h}
+\label{string_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/string.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/string.h}}
+\mbox{\hyperlink{string_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef STRING\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define STRING\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{21 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{string_8h_a1920090da3c7d87b99fb9b4972e47b6f}{memcmp}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *s2, \textcolor{keywordtype}{size\_t} n)}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *src1 = s1, *src2 = s2;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < n; i++) \{}
+\DoxyCodeLine{26         \textcolor{keywordflow}{if} (src1[i] != src2[i]) \{}
+\DoxyCodeLine{27             \textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})src1[i] -\/ (int)src2[i];}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define memcpy(d, s, n) \_\_builtin\_memcpy((d), (s), (n))}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{46 \textcolor{keywordtype}{void} *\mbox{\hyperlink{string_8h_a340d11725e5c81a874f508fbcdf1c5ef}{memmove}}(\textcolor{keywordtype}{void} *dest, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define memset(s, c, n) \_\_builtin\_memset((s), (c), (n))}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{string_8h_aa6cc9f852e7dce55e590e952677649bd}{strlen}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s)}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60     \textcolor{keywordtype}{size\_t} len = 0;}
+\DoxyCodeLine{61     \textcolor{keywordflow}{while} (*s++) \{}
+\DoxyCodeLine{62         len++;}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} len;}
+\DoxyCodeLine{65 \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{73 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{string_8h_a2232295460866ac58a41541e48555489}{strncmp}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2, \textcolor{keywordtype}{size\_t} n)}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < n; i++) \{}
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} (s1[i] != s2[i]) \{}
+\DoxyCodeLine{77             \textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})s1[i] -\/ (int)s2[i];}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{if} (s1[i] == \textcolor{charliteral}{'\(\backslash\)0'}) \{}
+\DoxyCodeLine{80             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{81         \}}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{84 \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{91 \textcolor{keywordtype}{char} *\mbox{\hyperlink{string_8h_ab57319b670052e4c93c1f6822c28d5ce}{strstr}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *haystack, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *needle);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{97 \textcolor{keywordtype}{char} *\mbox{\hyperlink{string_8h_a71ad1a60362f91e52e0c7068e88f29d9}{itoa}}(\textcolor{keywordtype}{int} num, \textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STRING\_H}}
+
+\end{DoxyCode}

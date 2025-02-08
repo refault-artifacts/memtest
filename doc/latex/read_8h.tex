@@ -1,0 +1,32 @@
+\hypertarget{read_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/lib/read.h File Reference}
+\label{read_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/read.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/read.h}}
+
+
+Provides a function to read a numeric value.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uintptr\+\_\+t \mbox{\hyperlink{read_8h_a3bce7136305a214104ffeb905bb53ad4}{read\+\_\+value}} (int x, int y, int field\+\_\+width, int shift)
+\begin{DoxyCompactList}\small\item\em Returns an unsigned numeric value entered on the keyboard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a function to read a numeric value. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{read_8h_a3bce7136305a214104ffeb905bb53ad4}\label{read_8h_a3bce7136305a214104ffeb905bb53ad4}} 
+\index{read.h@{read.h}!read\_value@{read\_value}}
+\index{read\_value@{read\_value}!read.h@{read.h}}
+\doxysubsubsection{\texorpdfstring{read\_value()}{read\_value()}}
+{\footnotesize\ttfamily uintptr\+\_\+t read\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{field\+\_\+width,  }\item[{int}]{shift }\end{DoxyParamCaption})}
+
+
+
+Returns an unsigned numeric value entered on the keyboard. 
+
+Echoes the input to the display field located at (row,col), limiting it to field\+\_\+width characters. If the entered value is prefixed by \char`\"{}0x\char`\"{}, assumes base 16, otherwise assumes base 10. If the value is suffixed by \textquotesingle{}K\textquotesingle{}, \textquotesingle{}P\textquotesingle{}, \textquotesingle{}M\textquotesingle{}, \textquotesingle{}G\textquotesingle{}, or \textquotesingle{}T\textquotesingle{}, the returned value will be scaled by 2$^\wedge$10, 2$^\wedge$12, 2$^\wedge$20, 2$^\wedge$30, or 2$^\wedge$40 accordingly. The returned value will also be scaled by 2$^\wedge$shift. 

@@ -1,0 +1,286 @@
+\hypertarget{efi_8h_source}{}\doxysection{efi.\+h}
+\label{efi_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/efi.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/boot/efi.h}}
+\mbox{\hyperlink{efi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef EFI\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define EFI\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{12 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifdef \_\_x86\_64\_\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define NATIVE\_MSB              UINT64\_C(0x8000000000000000)}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define NATIVE\_MSB              0x80000000}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define EFI\_SUCCESS             0}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define EFI\_INVALID\_PARAMETER   (NATIVE\_MSB |  2)}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define EFI\_UNSUPPORTED         (NATIVE\_MSB |  3)}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define EFI\_BUFFER\_TOO\_SMALL    (NATIVE\_MSB |  5)}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define EFI\_NOT\_READY           (NATIVE\_MSB |  6)}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define EFI\_NOT\_FOUND           (NATIVE\_MSB | 14)}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define EFI\_ABORTED             (NATIVE\_MSB | 21)}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define EFI\_LOCATE\_BY\_PROTOCOL  2}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define EFI\_ALLOCATE\_MAX\_ADDRESS    1}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define EFI\_ALLOCATE\_ADDRESS        2}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define EFI\_LOADER\_CODE         1}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define EFI\_LOADER\_DATA         2}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define EFI\_BOOT\_SERVICES\_CODE  3}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define EFI\_BOOT\_SERVICES\_DATA  4}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define EFI\_CONVENTIONAL\_MEMORY 7}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define EFI\_ACPI\_RECLAIM\_MEMORY 9}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define EFI\_RESET\_COLD          0}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define EFI\_RESET\_WARM          1}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define EFI\_RESET\_SHUTDOWN      2}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define PIXEL\_RGB\_RESERVED\_8BIT\_PER\_COLOR   0}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define PIXEL\_BGR\_RESERVED\_8BIT\_PER\_COLOR   1}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define PIXEL\_BIT\_MASK                      2}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define PIXEL\_BLT\_ONLY                      3}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define EFI\_SYSTEM\_TABLE\_SIGNATURE      UINT64\_C(0x5453595320494249)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define EFI\_RUNTIME\_SERVICES\_SIGNATURE  UINT64\_C(0x5652453544e5552)}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define efiapi \_\_attribute\_\_((ms\_abi))}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#ifdef \_\_x86\_64\_\_}}
+\DoxyCodeLine{75 \textcolor{keyword}{typedef} uint64\_t        \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}};}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{77 \textcolor{keyword}{typedef} uint32\_t        \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}};}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *          \mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}};}
+\DoxyCodeLine{81 \textcolor{keyword}{typedef} \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}}         \mbox{\hyperlink{efi_8h_afde011d1f7a7eb9216df1b437bf6edd3}{efi\_status\_t}};}
+\DoxyCodeLine{82 \textcolor{keyword}{typedef} uint64\_t        \mbox{\hyperlink{efi_8h_ac3abb0e0a15206b5195f6a497ee2ec17}{efi\_phys\_addr\_t}};}
+\DoxyCodeLine{83 \textcolor{keyword}{typedef} uint64\_t        \mbox{\hyperlink{efi_8h_a78cb178056edac5090fc88f1962dba34}{efi\_virt\_addr\_t}};}
+\DoxyCodeLine{84 \textcolor{keyword}{typedef} uint16\_t        \mbox{\hyperlink{efi_8h_a0824cec26c29631a326ae46c77bb2332}{efi\_char16\_t}};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{87     uint32\_t            \mbox{\hyperlink{efi_8h_a9aef3280c007c6f83516dbf8fa68e029}{a}};}
+\DoxyCodeLine{88     uint16\_t            \mbox{\hyperlink{efi_8h_a27c36c399a0e7897a3de576913935e9f}{b}};}
+\DoxyCodeLine{89     uint16\_t            \mbox{\hyperlink{efi_8h_a4515ef844e59acb2e33215ac6f394974}{c}};}
+\DoxyCodeLine{90     uint8\_t             d[8];}
+\DoxyCodeLine{91 \} \mbox{\hyperlink{efi_8h_structefi__guid__t}{efi\_guid\_t}};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{94     uint32\_t            \mbox{\hyperlink{efi_8h_ac007be58e2d4f8cdd34411eec4be3cfa}{type}};}
+\DoxyCodeLine{95     uint32\_t            \mbox{\hyperlink{efi_8h_a62db02d3884dea257129cf4f2c7340b9}{pad}};}
+\DoxyCodeLine{96     \mbox{\hyperlink{efi_8h_ac3abb0e0a15206b5195f6a497ee2ec17}{efi\_phys\_addr\_t}}     \mbox{\hyperlink{efi_8h_a12eacad39b07e6061118e1e998aa1d16}{phys\_addr}};}
+\DoxyCodeLine{97     \mbox{\hyperlink{efi_8h_a78cb178056edac5090fc88f1962dba34}{efi\_virt\_addr\_t}}     \mbox{\hyperlink{efi_8h_a1c06fec77c3f31c94e6a367ad31c12e3}{virt\_addr}};}
+\DoxyCodeLine{98     uint64\_t            \mbox{\hyperlink{efi_8h_a4326867a306dcb26764439de115169c5}{num\_pages}};}
+\DoxyCodeLine{99     uint64\_t            \mbox{\hyperlink{efi_8h_a669e48adc056ee371bda11fde2742dd8}{attribute}};}
+\DoxyCodeLine{100 \} \mbox{\hyperlink{efi_8h_structefi__memory__desc__t}{efi\_memory\_desc\_t}};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{103     uint32\_t            \mbox{\hyperlink{efi_8h_a20ae670b54c191fbf26fec0064b8a9e0}{red\_mask}};}
+\DoxyCodeLine{104     uint32\_t            \mbox{\hyperlink{efi_8h_ae8ba9c3e9043b0a575c7f4bba4ceee7a}{green\_mask}};}
+\DoxyCodeLine{105     uint32\_t            \mbox{\hyperlink{efi_8h_a3d38e778824307dde61acf2f25d8accd}{blue\_mask}};}
+\DoxyCodeLine{106     uint32\_t            \mbox{\hyperlink{efi_8h_a99474ab106ee7b08cc83c5caecaea537}{rsvd\_mask}};}
+\DoxyCodeLine{107 \} \mbox{\hyperlink{efi_8h_structefi__pixel__bitmask__t}{efi\_pixel\_bitmask\_t}};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{110     uint32\_t            \mbox{\hyperlink{efi_8h_a2f8d5ce7a6dc8c9de3e72775f5ea2dd5}{version}};}
+\DoxyCodeLine{111     uint32\_t            \mbox{\hyperlink{efi_8h_a74b3a0a99737c6c1cc525b7dfb5e5af1}{h\_resolution}};}
+\DoxyCodeLine{112     uint32\_t            \mbox{\hyperlink{efi_8h_a3ae1c6b9855df5f0466af8a4156b3409}{v\_resolution}};}
+\DoxyCodeLine{113     \textcolor{keywordtype}{int}                 \mbox{\hyperlink{efi_8h_a9be612364d9430a14265212791d5477e}{pixel\_format}};}
+\DoxyCodeLine{114     \mbox{\hyperlink{efi_8h_structefi__pixel__bitmask__t}{efi\_pixel\_bitmask\_t}} \mbox{\hyperlink{efi_8h_a3d3e019a4a6ab809f7aad4d985b975e2}{pixel\_info}};}
+\DoxyCodeLine{115     uint32\_t            \mbox{\hyperlink{efi_8h_ab92124246f8078f5cedc6935ab8ee6db}{pixels\_per\_scan\_line}};}
+\DoxyCodeLine{116 \} \mbox{\hyperlink{efi_8h_structefi__gop__mode__info__t}{efi\_gop\_mode\_info\_t}};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{119     uint32\_t            \mbox{\hyperlink{efi_8h_adde0a7bb2b9f8edb9ef307d89652c46c}{max\_mode}};}
+\DoxyCodeLine{120     uint32\_t            \mbox{\hyperlink{efi_8h_a222bf863ae5e7de5ae0fa7535bfc5d3b}{mode}};}
+\DoxyCodeLine{121     \mbox{\hyperlink{efi_8h_structefi__gop__mode__info__t}{efi\_gop\_mode\_info\_t}} *\mbox{\hyperlink{efi_8h_abeff4ba3b281a2770b7c750972b7d0a5}{info}};}
+\DoxyCodeLine{122     \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}}             \mbox{\hyperlink{efi_8h_a7d3b2c5a77f16fce29e4fa87af6c8a41}{info\_size}};}
+\DoxyCodeLine{123     \mbox{\hyperlink{efi_8h_ac3abb0e0a15206b5195f6a497ee2ec17}{efi\_phys\_addr\_t}}     \mbox{\hyperlink{efi_8h_a27230d3a64f4474ecf16295edfdef475}{frame\_buffer\_base}};}
+\DoxyCodeLine{124     \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}}             \mbox{\hyperlink{efi_8h_a11847301e503de303ab7ea880303afb5}{frame\_buffer\_size}};}
+\DoxyCodeLine{125 \} \mbox{\hyperlink{efi_8h_structefi__gop__mode__t}{efi\_gop\_mode\_t}};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }efi\_graphics\_output\_s \{}
+\DoxyCodeLine{128     \mbox{\hyperlink{structefi__graphics__output__t_a802af5481ea8320e4adad823a1d8169c}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *query\_mode)(\textcolor{keyword}{struct }efi\_graphics\_output\_s *, uint32\_t, \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}} *, \mbox{\hyperlink{efi_8h_structefi__gop__mode__info__t}{efi\_gop\_mode\_info\_t}} **);}
+\DoxyCodeLine{129     \mbox{\hyperlink{structefi__graphics__output__t_ab63ceb5d5d329617cebbe996718527e2}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *set\_mode)(\textcolor{keyword}{struct }efi\_graphics\_output\_s *, uint32\_t);}
+\DoxyCodeLine{130     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__graphics__output__t_a3638cd1fcd6a8e1f9a6c4802af0f77d4}{blt}};}
+\DoxyCodeLine{131     \mbox{\hyperlink{efi_8h_structefi__gop__mode__t}{efi\_gop\_mode\_t}}      *\mbox{\hyperlink{structefi__graphics__output__t_abc2c3736788f06c3e2615744ef9ea12a}{mode}};}
+\DoxyCodeLine{132 \} \mbox{\hyperlink{structefi__graphics__output__t}{efi\_graphics\_output\_t}};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{135     uint64\_t            \mbox{\hyperlink{efi_8h_a26dace5ae3de57f4a8ad5f083e098573}{signature}};}
+\DoxyCodeLine{136     uint32\_t            \mbox{\hyperlink{efi_8h_a721597ff48d0db4567318cb3a5246b7f}{revision}};}
+\DoxyCodeLine{137     uint32\_t            \mbox{\hyperlink{efi_8h_abc09edd1d0f4ee40f6e1af7e261a8c39}{header\_size}};}
+\DoxyCodeLine{138     uint32\_t            \mbox{\hyperlink{efi_8h_abf3d37e053feaf089cdc79239588bc8b}{crc32}};}
+\DoxyCodeLine{139     uint32\_t            \mbox{\hyperlink{efi_8h_a4df1511ccacfb3d67d11f26631a921aa}{reserved}};}
+\DoxyCodeLine{140 \} \mbox{\hyperlink{efi_8h_structefi__table__header__t}{efi\_table\_header\_t}};}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{143     uint16\_t            \mbox{\hyperlink{efi_8h_a4327b7e201c0d6cfe5c38fae948b2185}{scan\_code}};}
+\DoxyCodeLine{144     \mbox{\hyperlink{efi_8h_a0824cec26c29631a326ae46c77bb2332}{efi\_char16\_t}}        \mbox{\hyperlink{efi_8h_a7cc750e1b1e70215a030c2abbd7d43a2}{ch}};}
+\DoxyCodeLine{145 \} \mbox{\hyperlink{efi_8h_structefi__input__key__t}{efi\_input\_key\_t}};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }efi\_simple\_text\_in\_s \{}
+\DoxyCodeLine{148     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__simple__text__in__t_a2acc00156a74adcd755cd937025c0bc9}{reset}};}
+\DoxyCodeLine{149     \mbox{\hyperlink{structefi__simple__text__in__t_a0cc3df302dbdf344d9a2f5745ee65cea}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *read\_key\_stroke)(\textcolor{keyword}{struct }efi\_simple\_text\_in\_s *, \mbox{\hyperlink{efi_8h_structefi__input__key__t}{efi\_input\_key\_t}} *);}
+\DoxyCodeLine{150     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__simple__text__in__t_a69947d8c9179e1fd26d51421cd203dfe}{test\_string}};}
+\DoxyCodeLine{151 \} \mbox{\hyperlink{structefi__simple__text__in__t}{efi\_simple\_text\_in\_t}};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }efi\_simple\_text\_out\_s \{}
+\DoxyCodeLine{154     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__simple__text__out__t_a99611b23236ab35db1c86413e75e9c84}{reset}};}
+\DoxyCodeLine{155     \mbox{\hyperlink{structefi__simple__text__out__t_a79349ccbe30d62ddacd30c06f9938150}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *output\_string)(\textcolor{keyword}{struct }efi\_simple\_text\_out\_s *, \mbox{\hyperlink{efi_8h_a0824cec26c29631a326ae46c77bb2332}{efi\_char16\_t}} *);}
+\DoxyCodeLine{156     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__simple__text__out__t_a13771a825e06d055903d072f8b65eb34}{test\_string}};}
+\DoxyCodeLine{157 \} \mbox{\hyperlink{structefi__simple__text__out__t}{efi\_simple\_text\_out\_t}};}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{160     \mbox{\hyperlink{efi_8h_structefi__table__header__t}{efi\_table\_header\_t}}  \mbox{\hyperlink{structefi__boot__services__t_ad10587955257aed18306cbde49faf775}{header}};}
+\DoxyCodeLine{161     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a9e7f201b2dc4ebef4b6e1e1e42f44157}{raise\_tpl}};}
+\DoxyCodeLine{162     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a2205560e0f519769074c1893eed3ace5}{restore\_tpl}};}
+\DoxyCodeLine{163     \mbox{\hyperlink{structefi__boot__services__t_abd63a21f005d246d3b916da31acfb04e}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *allocate\_pages)(int, int, \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}}, \mbox{\hyperlink{efi_8h_ac3abb0e0a15206b5195f6a497ee2ec17}{efi\_phys\_addr\_t}} *);}
+\DoxyCodeLine{164     \mbox{\hyperlink{structefi__boot__services__t_a5be43a0c2c8e6393cd881b72e60ac4e5}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *free\_pages)(\mbox{\hyperlink{efi_8h_ac3abb0e0a15206b5195f6a497ee2ec17}{efi\_phys\_addr\_t}}, \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}});}
+\DoxyCodeLine{165     \mbox{\hyperlink{structefi__boot__services__t_a3e99125c796cff23ab5316c1758d1a37}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *get\_memory\_map)(\mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}} *, \textcolor{keywordtype}{void} *, \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}} *, \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}} *, uint32\_t *);}
+\DoxyCodeLine{166     \mbox{\hyperlink{structefi__boot__services__t_aaa96da475668ae0d50ae6e7c7f124e47}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *allocate\_pool)(int, \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}}, \textcolor{keywordtype}{void} **);}
+\DoxyCodeLine{167     \mbox{\hyperlink{structefi__boot__services__t_ac3a7a407224651b29f56eeea4d72d155}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *free\_pool)(\textcolor{keywordtype}{void} *);}
+\DoxyCodeLine{168     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a0ccf137aeb7a75266c605b477abb0382}{create\_event}};}
+\DoxyCodeLine{169     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_aeb4f5138f162c38091f74564a0f1a511}{set\_timer}};}
+\DoxyCodeLine{170     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_aec65efe8318fba273851c16663cc48f7}{wait\_for\_event}};}
+\DoxyCodeLine{171     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_aa842bde117be64d22a5a871c3671b1be}{signal\_event}};}
+\DoxyCodeLine{172     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_aaaf0f42c1ead37949614fd202bda88e8}{close\_event}};}
+\DoxyCodeLine{173     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a3633c652dd6422059a791bacd751afeb}{check\_event}};}
+\DoxyCodeLine{174     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_ab05c5d15c2a6ac4f28d50bd80b457c47}{install\_protocol\_interface}};}
+\DoxyCodeLine{175     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a51cd1cae5894e1ac68ba0e6d4c65ae98}{reinstall\_protocol\_interface}};}
+\DoxyCodeLine{176     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a343136988e6479f1201e7dc69723cd6e}{uninstall\_protocol\_interface}};}
+\DoxyCodeLine{177     \mbox{\hyperlink{structefi__boot__services__t_a62fb0ab80e2bf2f2c2e99375a09ca41a}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *handle\_protocol)(\mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}}, \mbox{\hyperlink{efi_8h_structefi__guid__t}{efi\_guid\_t}} *, \textcolor{keywordtype}{void} **);}
+\DoxyCodeLine{178     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_ab4cc063748844aa290700ab2aec74aed}{reserved}};}
+\DoxyCodeLine{179     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a8a91b94de8c6dbbdb79a527938fd236e}{register\_protocol\_notify}};}
+\DoxyCodeLine{180     \mbox{\hyperlink{structefi__boot__services__t_ad20a744b6ef78bb6e192170985dd6768}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *locate\_handle)(int, \mbox{\hyperlink{efi_8h_structefi__guid__t}{efi\_guid\_t}} *, \textcolor{keywordtype}{void} *, \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}} *, \mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}} *);}
+\DoxyCodeLine{181     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a516a5d5cffc7ae1dc1e154ea029122e8}{locate\_device\_path}};}
+\DoxyCodeLine{182     \mbox{\hyperlink{structefi__boot__services__t_abb56ea0f9d64ded07bcdfd7e3db4b86d}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *install\_configuration\_table)(\mbox{\hyperlink{efi_8h_structefi__guid__t}{efi\_guid\_t}} *, \textcolor{keywordtype}{void} *);}
+\DoxyCodeLine{183     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_aaff6ad03dea7eb5dc6d5f979e56c4662}{load\_image}};}
+\DoxyCodeLine{184     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a2628ac4047fc877e277b8198c03827f6}{start\_image}};}
+\DoxyCodeLine{185     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a0bf676ed03ec4150013f291f181fd2c7}{exit}};}
+\DoxyCodeLine{186     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_ad0a28e5cf902fd2081b9d6d3c769f22a}{unload\_image}};}
+\DoxyCodeLine{187     \mbox{\hyperlink{structefi__boot__services__t_aa858f0d0ebe0c49dbc473f564dacd6ee}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *exit\_boot\_services)(\mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}}, \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}});}
+\DoxyCodeLine{188     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a1ab2af2dacd35450dccbf4edfcd3f30e}{get\_next\_monotonic\_count}};}
+\DoxyCodeLine{189     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a3f213653d9252bfcd38fcfc5011ab0d4}{stall}};}
+\DoxyCodeLine{190     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a722fc3b71f33deff57c27045d88619b8}{set\_watchdog\_timer}};}
+\DoxyCodeLine{191     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_ac2120fcc645369db8aa25e499dc1e35d}{connect\_controller}};}
+\DoxyCodeLine{192     \mbox{\hyperlink{efi_8h_afde011d1f7a7eb9216df1b437bf6edd3}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *disconnect\_controller)(\mbox{\hyperlink{structefi__boot__services__t_a7334cb64014749857833339338f3658a}{efi\_handle\_t}}, \mbox{\hyperlink{structefi__boot__services__t_a7334cb64014749857833339338f3658a}{efi\_handle\_t}}, \mbox{\hyperlink{structefi__boot__services__t_a7334cb64014749857833339338f3658a}{efi\_handle\_t}});}
+\DoxyCodeLine{193     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a6fc3c4aaf39474233ee19badb190dc1a}{open\_protocol}};}
+\DoxyCodeLine{194     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a7ac8b90236b6365f467dcd0b52fb7e36}{close\_protocol}};}
+\DoxyCodeLine{195     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a5ef89b34b77d2244881d3d276594e00f}{open\_protocol\_information}};}
+\DoxyCodeLine{196     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_aeb064cd023fceb7c000baf5bd515fe5f}{protocols\_per\_handle}};}
+\DoxyCodeLine{197     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_ace5854dd44699ac928eb9f03cb4a573f}{locate\_handle\_buffer}};}
+\DoxyCodeLine{198     \mbox{\hyperlink{structefi__boot__services__t_a04124b388a98328ca1ee5249518f8dc2}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *locate\_protocol)(\mbox{\hyperlink{efi_8h_structefi__guid__t}{efi\_guid\_t}} *, \textcolor{keywordtype}{void} *, \textcolor{keywordtype}{void} **);}
+\DoxyCodeLine{199     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a28543079ec0a2c3d9a5bf579f7dae175}{install\_multiple\_protocol\_interfaces}};}
+\DoxyCodeLine{200     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_afd463ca1129b7defa200b7fddf745944}{uninstall\_multiple\_protocol\_interfaces}};}
+\DoxyCodeLine{201     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a911db8cdd37755aeccf11fee6ed5176e}{calculate\_crc32}};}
+\DoxyCodeLine{202     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_aaf146c97193253cdcf6889a6f07e417a}{copy\_mem}};}
+\DoxyCodeLine{203     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_ab62a31eb89c2ce1e415c988cf15abeac}{set\_mem}};}
+\DoxyCodeLine{204     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{structefi__boot__services__t_a277d0907ab0d9879add15e1868b4e03f}{create\_event\_ex}};}
+\DoxyCodeLine{205 \} \mbox{\hyperlink{structefi__boot__services__t}{efi\_boot\_services\_t}};}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{208     \mbox{\hyperlink{efi_8h_structefi__table__header__t}{efi\_table\_header\_t}}  \mbox{\hyperlink{structefi__runtime__services__t_abc915afc2c2b2aec087352fc45451611}{header}};}
+\DoxyCodeLine{209     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_a6e924bf02e456ee2456b9b7bf3ef5d37}{get\_time}};}
+\DoxyCodeLine{210     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_ad9d8f186e1dab762b06f7fe46a11fa41}{set\_time}};}
+\DoxyCodeLine{211     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_a7feb3ef2ffa521b1cdcef9467c3d2134}{get\_wakeup\_time}};}
+\DoxyCodeLine{212     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_addb51c33c8bdaef0df63f0aea491f0d1}{set\_wakeup\_time}};}
+\DoxyCodeLine{213     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_a2a947d7ab6bba685bea3aacd4090b098}{set\_virtual\_address\_map}};}
+\DoxyCodeLine{214     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_a394052a6607b6517a03bcb2f38de8908}{convert\_pointer}};}
+\DoxyCodeLine{215     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_a6354685e280675e2853caca38af01e75}{get\_variable}};}
+\DoxyCodeLine{216     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_ab3c3102eb36d29c80d923a7f5e4047d0}{get\_next\_variable}};}
+\DoxyCodeLine{217     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_a4b5c9f7bf71898ddc06ca3d9ec050851}{set\_variable}};}
+\DoxyCodeLine{218     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_ad2f8bc2a9fbc3d1e8af23b5697dbdc2a}{get\_next\_high\_mono\_count}};}
+\DoxyCodeLine{219     \mbox{\hyperlink{structefi__runtime__services__t_ad59a96d47586649c733134a46fe82aee}{efi\_status\_t}}        (\mbox{\hyperlink{efi_8h_af8094fe405915bf0b081690dda59ff22}{efiapi}} *reset\_system)(int, int, int);}
+\DoxyCodeLine{220     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_a53c8fc8b67f588e580ccb4405dd56171}{update\_capsule}};}
+\DoxyCodeLine{221     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_aff82c5edde5349bd0c25ec806e1c7720}{query\_capsule\_caps}};}
+\DoxyCodeLine{222     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}       \mbox{\hyperlink{structefi__runtime__services__t_a32e2eb56bd90b12a26e60d11cfd964ba}{query\_variable\_info}};}
+\DoxyCodeLine{223 \} \mbox{\hyperlink{structefi__runtime__services__t}{efi\_runtime\_services\_t}};}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{226     \mbox{\hyperlink{efi_8h_structefi__guid__t}{efi\_guid\_t}}          \mbox{\hyperlink{efi_8h_afde43732170aee22addd233c9257da42}{guid}};}
+\DoxyCodeLine{227     uint32\_t            \mbox{\hyperlink{efi_8h_aa83fdec1b73e7f4a1f38fd824b869513}{table}};}
+\DoxyCodeLine{228 \} \mbox{\hyperlink{efi_8h_structefi32__config__table__t}{efi32\_config\_table\_t}};}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{231     \mbox{\hyperlink{efi_8h_structefi__guid__t}{efi\_guid\_t}}          \mbox{\hyperlink{efi_8h_a927be4af66b6817c6f56dabd4369372e}{guid}};}
+\DoxyCodeLine{232     uint64\_t            \mbox{\hyperlink{efi_8h_a235560db5d79a09216075a15e0e51f0a}{table}};}
+\DoxyCodeLine{233 \} \mbox{\hyperlink{efi_8h_structefi64__config__table__t}{efi64\_config\_table\_t}};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{236     \mbox{\hyperlink{efi_8h_structefi__guid__t}{efi\_guid\_t}}          \mbox{\hyperlink{efi_8h_a8049d591695e42024c5bb8f7791ec94d}{guid}};}
+\DoxyCodeLine{237     \textcolor{keywordtype}{void}                *\mbox{\hyperlink{efi_8h_a7be4a90ab4c5bacd594e2e05322051f9}{table}};}
+\DoxyCodeLine{238 \} \mbox{\hyperlink{efi_8h_structefi__config__table__t}{efi\_config\_table\_t}};}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{241     \mbox{\hyperlink{efi_8h_structefi__table__header__t}{efi\_table\_header\_t}}  \mbox{\hyperlink{efi_8h_a4b0d7744ddc919f5e3c177f0d52c17ad}{header}};}
+\DoxyCodeLine{242     uint32\_t            \mbox{\hyperlink{efi_8h_a159a3f5f08cf3b2c2752ca2461add755}{fw\_vendor}};}
+\DoxyCodeLine{243     uint32\_t            \mbox{\hyperlink{efi_8h_aca2d542314c52df6374a6eb6512e6eb2}{fw\_revision}};}
+\DoxyCodeLine{244     uint32\_t            \mbox{\hyperlink{efi_8h_a1792716f39c0949e28e3dc49d4e689e5}{con\_in\_handle}};}
+\DoxyCodeLine{245     uint32\_t            \mbox{\hyperlink{efi_8h_ae603606a9aa3762456534e88bd123a43}{con\_in}};}
+\DoxyCodeLine{246     uint32\_t            \mbox{\hyperlink{efi_8h_a95294d1b7aa190e1498e22ddad405afd}{con\_out\_handle}};}
+\DoxyCodeLine{247     uint32\_t            \mbox{\hyperlink{efi_8h_a28c539deb51e014e236f6a812e0a4f1d}{con\_out}};}
+\DoxyCodeLine{248     uint32\_t            \mbox{\hyperlink{efi_8h_ac845c7d42610dd6ff18e72979f6be60f}{std\_err\_handle}};}
+\DoxyCodeLine{249     uint32\_t            \mbox{\hyperlink{efi_8h_ad8130a4872364b111a0d0831b9ad9c33}{std\_err}};}
+\DoxyCodeLine{250     uint32\_t            \mbox{\hyperlink{efi_8h_aa8cc1f98eb22ab470f447d4c30dfcea7}{runtime\_services}};}
+\DoxyCodeLine{251     uint32\_t            \mbox{\hyperlink{efi_8h_a0be06decd7eab5919177f41a827862e1}{boot\_services}};}
+\DoxyCodeLine{252     uint32\_t            \mbox{\hyperlink{efi_8h_af91f603154ce453ea5a09439601e0b4f}{num\_config\_tables}};}
+\DoxyCodeLine{253     uint32\_t            \mbox{\hyperlink{efi_8h_a85d8f063044a03fa8be9538938bd60dc}{config\_tables}};}
+\DoxyCodeLine{254 \} \mbox{\hyperlink{efi_8h_structefi32__system__table__t}{efi32\_system\_table\_t}};}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{257     \mbox{\hyperlink{efi_8h_structefi__table__header__t}{efi\_table\_header\_t}}  \mbox{\hyperlink{efi_8h_a5ad3e73fd2e4354edc46efab8dbe465f}{header}};}
+\DoxyCodeLine{258     uint64\_t            \mbox{\hyperlink{efi_8h_a9251bf8c67282b7bd10ada17c541ca7e}{fw\_vendor}};}
+\DoxyCodeLine{259     uint32\_t            \mbox{\hyperlink{efi_8h_ac42d792e992b4f165d84eda888f20ee3}{fw\_revision}};}
+\DoxyCodeLine{260     uint32\_t            \mbox{\hyperlink{efi_8h_a533820e9fd9ccb04a951b1f7a876f827}{pad}};}
+\DoxyCodeLine{261     uint64\_t            \mbox{\hyperlink{efi_8h_a60b740dc6a0a95a43403269a5a803e27}{con\_in\_handle}};}
+\DoxyCodeLine{262     uint64\_t            \mbox{\hyperlink{efi_8h_af49407540baa0cab0dd1bca94cf8f13f}{con\_in}};}
+\DoxyCodeLine{263     uint64\_t            \mbox{\hyperlink{efi_8h_ac8ecb2440c4c172418a08afee9737fc5}{con\_out\_handle}};}
+\DoxyCodeLine{264     uint64\_t            \mbox{\hyperlink{efi_8h_abab2b19a55ff06846c4f63b330922f03}{con\_out}};}
+\DoxyCodeLine{265     uint64\_t            \mbox{\hyperlink{efi_8h_a0c4a4979b7b8a7a14e897d1d5920ced7}{std\_err\_handle}};}
+\DoxyCodeLine{266     uint64\_t            \mbox{\hyperlink{efi_8h_afa71b17569a104d00fe8818d9a9c523d}{std\_err}};}
+\DoxyCodeLine{267     uint64\_t            \mbox{\hyperlink{efi_8h_a51e2ddf5c9c3e6de82c5e202184c7c56}{runtime\_services}};}
+\DoxyCodeLine{268     uint64\_t            \mbox{\hyperlink{efi_8h_a2f0a92e3411098bf194c59adb05321ad}{boot\_services}};}
+\DoxyCodeLine{269     uint64\_t            \mbox{\hyperlink{efi_8h_a277658ea32e00f5b6da2a97d7e7ccc57}{num\_config\_tables}};}
+\DoxyCodeLine{270     uint64\_t            \mbox{\hyperlink{efi_8h_ae0c6e87e3d35c86102fccf15c6d45ebf}{config\_tables}};}
+\DoxyCodeLine{271 \} \mbox{\hyperlink{efi_8h_structefi64__system__table__t}{efi64\_system\_table\_t}};}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{274     \mbox{\hyperlink{efi_8h_structefi__table__header__t}{efi\_table\_header\_t}}      \mbox{\hyperlink{efi_8h_a57af6c7a1caa89f402f40dcc427f410d}{header}};}
+\DoxyCodeLine{275     \mbox{\hyperlink{efi_8h_a0824cec26c29631a326ae46c77bb2332}{efi\_char16\_t}}           *\mbox{\hyperlink{efi_8h_a2df667f904bb75364d209a415dda5671}{fw\_vendor}};}
+\DoxyCodeLine{276     uint32\_t                \mbox{\hyperlink{efi_8h_ac613c6c18196c721e1ce8874526c65f8}{fw\_revision}};}
+\DoxyCodeLine{277     \mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}}            \mbox{\hyperlink{efi_8h_a3ee104aa4cd00a20ab9d5fd329d7eafd}{con\_in\_handle}};}
+\DoxyCodeLine{278     \mbox{\hyperlink{structefi__simple__text__in__t}{efi\_simple\_text\_in\_t}}   *\mbox{\hyperlink{efi_8h_a399c1f05394a6a821b9b48b05c6b59b7}{con\_in}};}
+\DoxyCodeLine{279     \mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}}            \mbox{\hyperlink{efi_8h_add4cd5db10f71b714b8b3b750bb56706}{con\_out\_handle}};}
+\DoxyCodeLine{280     \mbox{\hyperlink{structefi__simple__text__out__t}{efi\_simple\_text\_out\_t}}  *\mbox{\hyperlink{efi_8h_ac12d95afdec3917ae5d7de642ae6d57e}{con\_out}};}
+\DoxyCodeLine{281     \mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}}            \mbox{\hyperlink{efi_8h_aafd7d297d7e3345a27ce34a2cc26874c}{std\_err\_handle}};}
+\DoxyCodeLine{282     \mbox{\hyperlink{structefi__simple__text__out__t}{efi\_simple\_text\_out\_t}}  *\mbox{\hyperlink{efi_8h_a48f5d8a7179fcdc49aed6b00456a60f8}{std\_err}};}
+\DoxyCodeLine{283     \mbox{\hyperlink{structefi__runtime__services__t}{efi\_runtime\_services\_t}} *\mbox{\hyperlink{efi_8h_ad53760e24a8756c9e4070f653e26088c}{runtime\_services}};}
+\DoxyCodeLine{284     \mbox{\hyperlink{structefi__boot__services__t}{efi\_boot\_services\_t}}    *\mbox{\hyperlink{efi_8h_a247cd9b78f4de699519b4c05643b0747}{boot\_services}};}
+\DoxyCodeLine{285     \mbox{\hyperlink{efi_8h_a80208633401819b4605c74fe8df2daf0}{uintn\_t}}                 \mbox{\hyperlink{efi_8h_a9a93d6c817da3b3329f35411849c0db1}{num\_config\_tables}};}
+\DoxyCodeLine{286     \mbox{\hyperlink{efi_8h_structefi__config__table__t}{efi\_config\_table\_t}}     *\mbox{\hyperlink{efi_8h_a3fd21f090fd3e2456236e129b69feebc}{config\_tables}};}
+\DoxyCodeLine{287 \} \mbox{\hyperlink{efi_8h_structefi__system__table__t}{efi\_system\_table\_t}};}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{290     uint32\_t            \mbox{\hyperlink{efi_8h_aca635b4f95cdf61586113886114d018a}{revision}};}
+\DoxyCodeLine{291     \mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}}        \mbox{\hyperlink{efi_8h_a09d92ad42da9026258fe207db5e9ff25}{parent\_handle}};}
+\DoxyCodeLine{292     \mbox{\hyperlink{efi_8h_structefi__system__table__t}{efi\_system\_table\_t}} *\mbox{\hyperlink{efi_8h_a4036b2492b25025810dda9b15b74acf9}{system\_table}};}
+\DoxyCodeLine{293     \mbox{\hyperlink{efi_8h_a89da0416388a64e268a62289daa30cf3}{efi\_handle\_t}}        \mbox{\hyperlink{efi_8h_a4619216d1bb63ee50a2049e225a6cce7}{device\_handle}};}
+\DoxyCodeLine{294     \textcolor{keywordtype}{void}               *\mbox{\hyperlink{efi_8h_a8ce8ca5203491e194580f857c24e40b2}{file\_path}};}
+\DoxyCodeLine{295     \textcolor{keywordtype}{void}               *\mbox{\hyperlink{efi_8h_a96de89158ef9598d8d077b1099b2c744}{reserved}};}
+\DoxyCodeLine{296     uint32\_t            \mbox{\hyperlink{efi_8h_aa6ef7312c1e07d62488ab1f01ff28b6d}{load\_options\_size}};}
+\DoxyCodeLine{297     \textcolor{keywordtype}{void}               *\mbox{\hyperlink{efi_8h_a04061ca4b7e148c22caafdd0ba3e19e4}{load\_options}};}
+\DoxyCodeLine{298     \textcolor{keywordtype}{void}               *\mbox{\hyperlink{efi_8h_a66b6d7eb5ea7876b007aa9aa59199892}{image\_base}};}
+\DoxyCodeLine{299     uint64\_t            \mbox{\hyperlink{efi_8h_a7e8589a1c37a76938a0edfcc0758e017}{image\_size}};}
+\DoxyCodeLine{300     \textcolor{keywordtype}{int}                 \mbox{\hyperlink{efi_8h_a13e5581c14f93d606e3f8f95bc8105f5}{image\_code\_type}};}
+\DoxyCodeLine{301     \textcolor{keywordtype}{int}                 \mbox{\hyperlink{efi_8h_a42c7c8b62512e3961680d2ab37c1e85e}{image\_data\_type}};}
+\DoxyCodeLine{302     \textcolor{keywordtype}{void}               *\mbox{\hyperlink{efi_8h_a7b69e1a8554c6d8124e28f49ec8a241e}{unload}};}
+\DoxyCodeLine{303 \} \mbox{\hyperlink{efi_8h_structefi__loaded__image__t}{efi\_loaded\_image\_t}};}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* EFI\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

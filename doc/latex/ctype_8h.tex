@@ -1,0 +1,55 @@
+\hypertarget{ctype_8h}{}\doxysection{/home/stefan/\+Documents/\+Schule/\+Studium/6.\+\_\+\+Semester/bsc\+\_\+thesis/stgloor-\/memtest/lib/ctype.h File Reference}
+\label{ctype_8h}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/ctype.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/lib/ctype.h}}
+
+
+Provides a subset of the functions normally provided by \texorpdfstring{$<$}{<}\mbox{\hyperlink{ctype_8h}{ctype.\+h}}\texorpdfstring{$>$}{>}.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{ctype_8h_abe48e86ea2be73c015cb5b5a6be60d1a}{toupper}} (int c)
+\begin{DoxyCompactList}\small\item\em If c is a lower-\/case letter, returns its upper-\/case equivalent, otherwise returns c. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{ctype_8h_ad7fd5ce3790b81c86de5502ff6853f3a}{isdigit}} (int c)
+\begin{DoxyCompactList}\small\item\em Returns 1 if c is a decimal digit, otherwise returns 0. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{ctype_8h_af961dd322d0e2df93307a8530b064c72}{isxdigit}} (int c)
+\begin{DoxyCompactList}\small\item\em Returns 1 if c is a hexadecimal digit, otherwise returns 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a subset of the functions normally provided by \texorpdfstring{$<$}{<}\mbox{\hyperlink{ctype_8h}{ctype.\+h}}\texorpdfstring{$>$}{>}. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ctype_8h_abe48e86ea2be73c015cb5b5a6be60d1a}\label{ctype_8h_abe48e86ea2be73c015cb5b5a6be60d1a}} 
+\index{ctype.h@{ctype.h}!toupper@{toupper}}
+\index{toupper@{toupper}!ctype.h@{ctype.h}}
+\doxysubsubsection{\texorpdfstring{toupper()}{toupper()}}
+{\footnotesize\ttfamily static int toupper (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+If c is a lower-\/case letter, returns its upper-\/case equivalent, otherwise returns c. 
+
+Assumes c is an ASCII character. \mbox{\Hypertarget{ctype_8h_ad7fd5ce3790b81c86de5502ff6853f3a}\label{ctype_8h_ad7fd5ce3790b81c86de5502ff6853f3a}} 
+\index{ctype.h@{ctype.h}!isdigit@{isdigit}}
+\index{isdigit@{isdigit}!ctype.h@{ctype.h}}
+\doxysubsubsection{\texorpdfstring{isdigit()}{isdigit()}}
+{\footnotesize\ttfamily static int isdigit (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns 1 if c is a decimal digit, otherwise returns 0. 
+
+Assumes c is an ASCII character. \mbox{\Hypertarget{ctype_8h_af961dd322d0e2df93307a8530b064c72}\label{ctype_8h_af961dd322d0e2df93307a8530b064c72}} 
+\index{ctype.h@{ctype.h}!isxdigit@{isxdigit}}
+\index{isxdigit@{isxdigit}!ctype.h@{ctype.h}}
+\doxysubsubsection{\texorpdfstring{isxdigit()}{isxdigit()}}
+{\footnotesize\ttfamily static int isxdigit (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns 1 if c is a hexadecimal digit, otherwise returns 0. 
+
+Assumes c is an ASCII character. 

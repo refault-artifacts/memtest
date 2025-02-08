@@ -1,0 +1,37 @@
+\hypertarget{tsc_8h_source}{}\doxysection{tsc.\+h}
+\label{tsc_8h_source}\index{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/tsc.h@{/home/stefan/Documents/Schule/Studium/6.\_Semester/bsc\_thesis/stgloor-\/memtest/system/tsc.h}}
+\mbox{\hyperlink{tsc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// SPDX-\/License-\/Identifier: GPL-\/2.0}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef TSC\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define TSC\_H}\textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (C) 2020-\/2022 Martin Whitaker.}}
+\DoxyCodeLine{11 \textcolor{comment}{ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define rdtsc(low, high)            \(\backslash\)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{    \_\_asm\_\_ \_\_volatile\_\_("{}rdtsc"{}}    \(\backslash\)}
+\DoxyCodeLine{17         : "{}=a"{} (low),               \(\backslash\)}
+\DoxyCodeLine{18           "{}=d"{} (high)               \(\backslash\)}
+\DoxyCodeLine{19     )}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define rdtscl(low)                 \(\backslash\)}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{    \_\_asm\_\_ \_\_volatile\_\_("{}rdtsc"{}}    \(\backslash\)}
+\DoxyCodeLine{23         : "{}=a"{} (low)                \(\backslash\)}
+\DoxyCodeLine{24         : \textcolor{comment}{/* no inputs */}\textcolor{preprocessor}{           \(\backslash\)}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{        : "{}edx"{}}                     \(\backslash\)}
+\DoxyCodeLine{26     )}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{31 \textcolor{keyword}{static} \textcolor{keyword}{inline} uint64\_t \mbox{\hyperlink{tsc_8h_a99079e3b8cbe4324bf3f075faa2727a9}{get\_tsc}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     uint32\_t    tl;}
+\DoxyCodeLine{34     uint32\_t    th;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{tsc_8h_a6bb1fdd160b8283ecfd6e1dedb7ea459}{rdtsc}}(tl, th);}
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} (uint64\_t)th << 32 | (uint64\_t)tl;}
+\DoxyCodeLine{38 \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TSC\_H}}
+
+\end{DoxyCode}
