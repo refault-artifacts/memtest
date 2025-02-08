@@ -4,6 +4,11 @@ This is a modified version of [Memtest86+](https://github.com/memtest86plus/memt
 ![Picture of Memtest](doc/memtest.jpg)
 
 ## Build and Debug
+It is recommended to use this software with the scripts provided in
+[control-server](https://github.com/refault-artifacts/control-server),
+which provide the appropriate compile options.
+Standalone use is not tested very thoroughly.
+
 Helper scripts were added to `scripts` which automate the process
 of creating a debug build and attaching GDB.
 
